@@ -59,9 +59,6 @@ const Header = () => {
                     <Link href="/products/turmeric" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Turmeric
                     </Link>
-                    <Link href="/products/tamarind-pulses" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
-                      Tamarind Pulses
-                    </Link>
                     <Link href="/products/pulses" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Pulses
                     </Link>
@@ -122,9 +119,6 @@ const Header = () => {
                   </Link>
                   <Link href="/products/turmeric" className="block text-gray-600 hover:text-green-600">
                     Turmeric
-                  </Link>
-                  <Link href="/products/tamarind-pulses" className="block text-gray-600 hover:text-green-600">
-                    Tamarind Pulses
                   </Link>
                   <Link href="/products/pulses" className="block text-gray-600 hover:text-green-600">
                     Pulses

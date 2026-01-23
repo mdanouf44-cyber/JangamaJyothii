@@ -20,8 +20,6 @@ const Footer = () => {
     { name: 'Rice', href: '/products/rice' },
     { name: 'Turmeric', href: '/products/turmeric' },
     { name: 'Tamarind', href: '/products/tamarind' },
-    { name: 'Tamarind Pulses', href: '/products/tamarind-pulses' },
-    { name: 'Cardamom', href: '/products/cardamom' },
     { name: 'Black Pepper', href: '/products/black-pepper' },
     { name: 'Pulses', href: '/products/pulses' },
     { name: 'Grains & Millets', href: '/products/grains-millets' },

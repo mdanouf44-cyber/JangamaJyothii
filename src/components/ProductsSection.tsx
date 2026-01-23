@@ -45,18 +45,6 @@ const ProductsSection = () => {
       features: ['Tangy Flavor', 'Rich Nutrition', 'Multiple Forms', 'Quality Assured']
     },
     {
-      name: 'Tamarind Pulses',
-      image: 'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'We supply premium tamarind pulses combining the tangy flavor of tamarind with high-protein pulse varieties, offering a unique blend ideal for traditional recipes, health-conscious consumers, and specialty food applications worldwide.',
-      features: ['Tangy & Nutritious', 'High Protein', 'Traditional Blend', 'Specialty Food']
-    },
-    {
-      name: 'Cardamom',
-      image: 'https://images.unsplash.com/photo-1599909533730-8b9d1b2e7d8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'We offer premium Malabar cardamom, Mysore cardamom, and Vazhukka type (a hybrid of Malabar and Mysore), prized for their rich aroma, strong flavor, and essential role in culinary, confectionery, and beverage applications worldwide.',
-      features: ['Malabar & Mysore', 'Rich Aroma', 'Strong Flavor', 'Premium Grade']
-    },
-    {
       name: 'Black Pepper',
       image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       description: 'We supply premium black pepper varieties including Panniyur series (Panniyur-1, Panniyur-5), Karimunda, and traditional types such as Arakkulam Munda, Kalluvally, and Aimpiriyan, renowned for bold flavor, aroma, and high piperine.',

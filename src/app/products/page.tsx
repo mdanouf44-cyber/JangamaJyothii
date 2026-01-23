@@ -53,20 +53,6 @@ const ProductsPage = () => {
       href: '/products/tamarind'
     },
     {
-      name: 'Tamarind Pulses',
-      image: 'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium tamarind pulses combining tangy tamarind flavor with high-protein pulse varieties.',
-      features: ['Tangy & Nutritious', 'High Protein', 'Traditional Blend', 'Specialty Food'],
-      href: '/products/tamarind-pulses'
-    },
-    {
-      name: 'Cardamom',
-      image: 'https://images.unsplash.com/photo-1599909533730-8b9d1b2e7d8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium Malabar cardamom, Mysore cardamom, and Vazhukka type, prized for rich aroma and strong flavor.',
-      features: ['Malabar & Mysore', 'Rich Aroma', 'Strong Flavor', 'Premium Grade'],
-      href: '/products/cardamom'
-    },
-    {
       name: 'Black Pepper',
       image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       description: 'Premium black pepper varieties including Panniyur series, Karimunda, and traditional types.',
@@ -86,6 +72,13 @@ const ProductsPage = () => {
       description: 'Premium grains and millet varieties including Finger, Pearl, Foxtail, and Little millets.',
       features: ['Rich Nutrition', 'Health Benefits', 'Sustainable Sourcing', 'Multiple Varieties'],
       href: '/products/grains-millets'
+    },
+    {
+      name: 'Jute & Paper Products',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description: 'High-quality eco-friendly paper bags, jute products, and packaging solutions for international markets.',
+      features: ['Eco-Friendly', 'Customizable', 'Sustainable', 'Cost-Effective'],
+      href: '/products/jute-paper'
     },
     {
       name: 'Areca Plates',
