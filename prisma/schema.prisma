@@ -1,0 +1,181 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  role         String   @default("admin")
+  firstName    String?  @map("first_name")
+  lastName     String?  @map("last_name")
+  isActive     Boolean  @default(true) @map("is_active")
+  lastLogin    DateTime? @map("last_login")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  assignedRfqs RFQ[]
+  communicationLogs CommunicationLog[]
+  auditLogs    AuditLog[]
+
+  @@map("users")
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  slug        String   @unique
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  products Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id               String   @id @default(cuid())
+  name             String
+  description      String?
+  categoryId       String   @map("category_id")
+  hsCode           String?  @map("hs_code")
+  originCountry    String?  @map("origin_country")
+  moq              Int?
+  unit             String?
+  pricePerUnit     Decimal? @map("price_per_unit") @db.Decimal(10, 2)
+  packagingDetails String?  @map("packaging_details")
+  shelfLife        String?  @map("shelf_life")
+  certifications   Json?
+  images           Json?
+  complianceDocs   Json?    @map("compliance_docs")
+  isActive         Boolean  @default(true) @map("is_active")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  category         Category @relation(fields: [categoryId], references: [id])
+  rfqs             RFQ[]
+  productCertificates ProductCertificate[]
+
+  @@map("products")
+}
+
+model RFQ {
+  id                     String   @id @default(cuid())
+  productId              String   @map("product_id")
+  buyerName              String   @map("buyer_name")
+  buyerEmail             String   @map("buyer_email")
+  buyerPhone             String?  @map("buyer_phone")
+  buyerCompany           String?  @map("buyer_company")
+  buyerCountry           String?  @map("buyer_country")
+  quantity               Int
+  targetPrice            Decimal? @map("target_price") @db.Decimal(10, 2)
+  deliveryLocation       String   @map("delivery_location")
+  timeline               String
+  incoterms              String?
+  additionalRequirements String?  @map("additional_requirements")
+  status                 String   @default("pending")
+  priority               String   @default("normal")
+  assignedTo             String?  @map("assigned_to")
+  createdAt              DateTime @default(now()) @map("created_at")
+  updatedAt              DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  product      Product @relation(fields: [productId], references: [id])
+  assignedUser User?   @relation(fields: [assignedTo], references: [id])
+
+  @@map("rfqs")
+}
+
+model Certificate {
+  id                String   @id @default(cuid())
+  name              String
+  type              String
+  issuer            String?
+  issueDate         DateTime? @map("issue_date")
+  expiryDate        DateTime? @map("expiry_date")
+  certificateNumber String?  @map("certificate_number")
+  fileUrl           String?  @map("file_url")
+  fileSize          Int?     @map("file_size")
+  isActive          Boolean  @default(true) @map("is_active")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  productCertificates ProductCertificate[]
+
+  @@map("certificates")
+}
+
+model ProductCertificate {
+  id            String @id @default(cuid())
+  productId     String @map("product_id")
+  certificateId String @map("certificate_id")
+
+  // Relations
+  product     Product     @relation(fields: [productId], references: [id])
+  certificate Certificate @relation(fields: [certificateId], references: [id])
+
+  @@unique([productId, certificateId])
+  @@map("product_certificates")
+}
+
+model CommunicationLog {
+  id          String   @id @default(cuid())
+  type        String   // email, whatsapp, phone
+  recipient   String
+  subject     String?
+  message     String?
+  status      String   @default("sent")
+  userId      String?  @map("user_id")
+  metadata    Json?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  // Relations
+  user User? @relation(fields: [userId], references: [id])
+
+  @@map("communication_logs")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  action    String
+  resource  String
+  details   Json?
+  ipAddress String?  @map("ip_address")
+  userAgent String?  @map("user_agent")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("audit_logs")
+}
+
+model Content {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  title     String?
+  content   String
+  type      String   @default("page") // page, blog, service
+  status    String   @default("published")
+  metadata  Json?
+  version   Int      @default(1)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("content")
+}

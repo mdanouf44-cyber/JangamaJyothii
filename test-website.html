@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Agro Export Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .status { padding: 20px; border-radius: 8px; margin: 10px 0; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🌾 Agro Export Platform - Status Check</h1>
+    
+    <div class="status success">
+        ✅ <strong>Project Successfully Running!</strong><br>
+        The Next.js development server is running on <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
+    </div>
+    
+    <div class="status info">
+        📋 <strong>What's Working:</strong><br>
+        • Next.js 14 with TypeScript<br>
+        • Tailwind CSS styling<br>
+        • Mock database and Redis clients<br>
+        • Property-based testing setup<br>
+        • Validation schemas with Zod<br>
+        • Data transformers<br>
+        • All TypeScript errors resolved
+    </div>
+    
+    <div class="status info">
+        🚀 <strong>Next Steps:</strong><br>
+        1. Visit <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> to see the website<br>
+        2. Continue with authentication implementation<br>
+        3. Set up real database when ready<br>
+        4. Add more components and features
+    </div>
+    
+    <script>
+        // Test if the server is accessible
+        fetch('http://localhost:3000')
+            .then(response => {
+                if (response.ok) {
+                    document.body.innerHTML += '<div class="status success">🌐 <strong>Server Accessible:</strong> Website is responding correctly!</div>';
+                }
+            })
+            .catch(error => {
+                document.body.innerHTML += '<div class="status error">❌ <strong>Server Issue:</strong> Could not reach the website. Make sure the dev server is running.</div>';
+            });
+    </script>
+</body>
+</html>

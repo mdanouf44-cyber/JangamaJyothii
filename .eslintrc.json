@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "@next/next/no-img-element": "off",
+    "react/no-unescaped-entities": "off",
+    "import/no-anonymous-default-export": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.{js,jsx,ts,tsx}", "**/*.spec.{js,jsx,ts,tsx}"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}
