@@ -74,13 +74,6 @@ const ProductsPage = () => {
       href: '/products/grains-millets'
     },
     {
-      name: 'Jute & Paper Products',
-      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'High-quality eco-friendly paper bags, jute products, and packaging solutions for international markets.',
-      features: ['Eco-Friendly', 'Customizable', 'Sustainable', 'Cost-Effective'],
-      href: '/products/jute-paper'
-    },
-    {
       name: 'Areca Plates',
       image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       description: 'Premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and sustainable.',

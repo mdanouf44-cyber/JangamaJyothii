@@ -63,12 +63,6 @@ const ProductsSection = () => {
       features: ['Rich Nutrition', 'Health Benefits', 'Sustainable Sourcing', 'Multiple Varieties']
     },
     {
-      name: 'Jute & Paper Products',
-      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'We supply high-quality eco-friendly paper bags, jute products, and a wide range of paper products, catering to international markets with reliable, sustainable, innovative, customizable, durable, and cost-effective packaging and stationery solutions.',
-      features: ['Eco-Friendly', 'Customizable', 'Sustainable', 'Cost-Effective']
-    },
-    {
       name: 'Areca Plates',
       image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       description: 'We supply premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and made from naturally fallen areca palm leaf sheaths – offering sustainable solutions for food service, catering, and retail needs.',

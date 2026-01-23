@@ -23,7 +23,6 @@ const Footer = () => {
     { name: 'Black Pepper', href: '/products/black-pepper' },
     { name: 'Pulses', href: '/products/pulses' },
     { name: 'Grains & Millets', href: '/products/grains-millets' },
-    { name: 'Jute & Paper Products', href: '/products/jute-paper' },
     { name: 'Areca Plates', href: '/products/areca-plates' }
   ]
 
