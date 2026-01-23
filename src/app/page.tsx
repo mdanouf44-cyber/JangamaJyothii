@@ -6,6 +6,7 @@ import {
   AboutSection,
   ProductsSection,
   WhyChooseUsSection,
+  CountriesExportSection,
   Footer
 } from '@/components'
 
@@ -23,6 +24,7 @@ export default function HomePage() {
       <AboutSection />
       <ProductsSection />
       <WhyChooseUsSection />
+      <CountriesExportSection />
       <Footer />
     </div>
   )
