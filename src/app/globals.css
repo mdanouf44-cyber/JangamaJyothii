@@ -119,3 +119,159 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+/* Coffee page specific animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Coffee bean pulse animation */
+@keyframes pulse-coffee {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-coffee {
+  animation: pulse-coffee 2s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Stagger animation for cards */
+.animate-stagger-1 { animation-delay: 0.1s; }
+.animate-stagger-2 { animation-delay: 0.2s; }
+.animate-stagger-3 { animation-delay: 0.3s; }
+.animate-stagger-4 { animation-delay: 0.4s; }
+
+/* Coffee steam animation */
+@keyframes steam {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px) scaleX(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-20px) scaleX(0.8);
+    opacity: 0;
+  }
+}
+
+.animate-steam {
+  animation: steam 2s ease-in-out infinite;
+}
+/* Enhanced coffee page animations */
+@keyframes steam {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-15px) scaleX(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-30px) scaleX(0.5);
+    opacity: 0;
+  }
+}
+
+.animate-steam {
+  animation: steam 2.5s ease-in-out infinite;
+}
+
+/* Gradient animation for text */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Enhanced float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-15px) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translateY(-5px) rotate(240deg);
+    opacity: 0.4;
+  }
+}
+
+/* Pulse animation for coffee icon */
+@keyframes pulse-coffee {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-coffee {
+  animation: pulse-coffee 3s ease-in-out infinite;
+}
+
+/* Scroll indicator animation */
+@keyframes scroll-indicator {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-scroll {
+  animation: scroll-indicator 2s ease-in-out infinite;
+}

@@ -1,20 +1,20 @@
 const CountriesExportSection = () => {
   const countries = [
-    { flag: '🇨🇦', name: 'Canada' },
-    { flag: '🇮🇷', name: 'Iran' },
-    { flag: '🇮🇱', name: 'Israel' },
-    { flag: '🇰🇷', name: 'Korea (Republic of)' },
-    { flag: '🇺🇸', name: 'United States of America' },
-    { flag: '🇹🇭', name: 'Thailand' },
-    { flag: '🇬🇷', name: 'Greece' },
-    { flag: '🇮🇶', name: 'Iraq' },
-    { flag: '🇦🇪', name: 'United Arab Emirates' },
-    { flag: '🇸🇦', name: 'Saudi Arabia' },
-    { flag: '🇬🇧', name: 'United Kingdom' },
-    { flag: '🇷🇺', name: 'Russia' },
-    { flag: '🇦🇺', name: 'Australia' },
-    { flag: '🇲🇾', name: 'Malaysia' },
-    { flag: '🇹🇼', name: 'Taiwan' }
+    { flag: '🇨🇦', name: 'Canada', code: 'CA' },
+    { flag: '🇮🇷', name: 'Iran', code: 'IR' },
+    { flag: '🇮🇱', name: 'Israel', code: 'IL' },
+    { flag: '🇰🇷', name: 'Korea (Republic of)', code: 'KR' },
+    { flag: '🇺🇸', name: 'United States of America', code: 'US' },
+    { flag: '🇹🇭', name: 'Thailand', code: 'TH' },
+    { flag: '🇬🇷', name: 'Greece', code: 'GR' },
+    { flag: '🇮🇶', name: 'Iraq', code: 'IQ' },
+    { flag: '🇦🇪', name: 'United Arab Emirates', code: 'AE' },
+    { flag: '🇸🇦', name: 'Saudi Arabia', code: 'SA' },
+    { flag: '🇬🇧', name: 'United Kingdom', code: 'GB' },
+    { flag: '🇷🇺', name: 'Russia', code: 'RU' },
+    { flag: '🇦🇺', name: 'Australia', code: 'AU' },
+    { flag: '🇲🇾', name: 'Malaysia', code: 'MY' },
+    { flag: '🇹🇼', name: 'Taiwan', code: 'TW' }
   ]
 
   const stats = [
@@ -38,9 +38,16 @@ const CountriesExportSection = () => {
           {/* Countries List */}
           <div className="space-y-4">
             {countries.map((country, index) => (
-              <div key={index} className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                <span className="text-2xl">{country.flag}</span>
-                <span className="font-medium text-gray-800">{country.name}</span>
+              <div key={index} className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 border border-gray-100">
+                <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm border">
+                  <span className="text-xl leading-none" style={{ fontFamily: 'Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif' }}>
+                    {country.flag}
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <span className="font-medium text-gray-800 text-lg">{country.name}</span>
+                  <div className="text-sm text-gray-500 mt-1">{country.code}</div>
+                </div>
               </div>
             ))}
           </div>

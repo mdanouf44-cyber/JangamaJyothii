@@ -84,7 +84,11 @@ const ProductsSection = () => {
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <Link 
+              key={index} 
+              href={product.name.toLowerCase() === 'coffee' ? '/products/coffee' : '#'}
+              className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer"
+            >
               {/* Product Image */}
               <div className="relative overflow-hidden">
                 <img
@@ -96,35 +100,12 @@ const ProductsSection = () => {
               </div>
 
               {/* Product Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <div className="p-4">
+                <h3 className="text-xl font-semibold text-gray-900 text-center">
                   {product.name}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {product.description}
-                </p>
-
-                {/* Features */}
-                <div className="mb-6">
-                  <div className="flex flex-wrap gap-2">
-                    {product.features.map((feature, featureIndex) => (
-                      <span
-                        key={featureIndex}
-                        className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* View Details Button */}
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 group">
-                  View Details
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
