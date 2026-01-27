@@ -116,12 +116,12 @@ const TurmericPage = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className={`text-5xl md:text-7xl font-bold text-yellow-800 mb-6 transform transition-all duration-1000 ${
+            <h1 className={`text-5xl md:text-7xl font-bold text-yellow-900 mb-6 transform transition-all duration-1000 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
               Premium Turmeric
             </h1>
-            <p className={`text-xl md:text-2xl text-yellow-600 mb-8 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 ${
+            <p className={`text-xl md:text-2xl text-yellow-800 mb-8 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
               Golden Spice with Superior Color, Aroma, and Curcumin Content
@@ -145,10 +145,10 @@ const TurmericPage = () => {
       <section className="py-16 bg-white/80 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-yellow-800 mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-8 text-center">
               Premium Turmeric Products
             </h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+            <div className="prose prose-lg max-w-none text-gray-800 leading-relaxed">
               <p className="mb-6">
                 Our turmeric products are sourced from renowned turmeric-growing regions where soil quality, climate, and traditional farming practices contribute to superior color, aroma, and curcumin content. Each turmeric variety is carefully cultivated, harvested at the right stage of maturity, and processed using established methods to preserve its natural properties and quality.
               </p>
@@ -198,21 +198,21 @@ const TurmericPage = () => {
 
               {/* Variety Info */}
               <div>
-                <h3 className="text-2xl font-bold text-yellow-800 mb-4">
+                <h3 className="text-2xl font-bold text-yellow-900 mb-4">
                   {varieties[activeVariety].name}
                 </h3>
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-gray-800 mb-6 leading-relaxed">
                   {varieties[activeVariety].description}
                 </p>
 
                 {/* Features */}
                 <div className="mb-6">
-                  <h4 className="font-semibold text-yellow-700 mb-3">Key Features:</h4>
+                  <h4 className="font-semibold text-yellow-800 mb-3">Key Features:</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {varieties[activeVariety].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                        <span className="text-sm text-gray-600">{feature}</span>
+                        <span className="text-sm text-gray-700">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -220,22 +220,22 @@ const TurmericPage = () => {
 
                 {/* Specifications */}
                 <div className="bg-yellow-50 rounded-lg p-4">
-                  <h4 className="font-semibold text-yellow-700 mb-3">Specifications:</h4>
+                  <h4 className="font-semibold text-yellow-800 mb-3">Specifications:</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">HS Code:</span>
+                      <span className="text-gray-700">HS Code:</span>
                       <span className="font-medium">{varieties[activeVariety].hsCode}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">MOQ:</span>
+                      <span className="text-gray-700">MOQ:</span>
                       <span className="font-medium">{varieties[activeVariety].moq}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Moisture:</span>
+                      <span className="text-gray-700">Moisture:</span>
                       <span className="font-medium">{varieties[activeVariety].moisture}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Shelf Life:</span>
+                      <span className="text-gray-700">Shelf Life:</span>
                       <span className="font-medium">{varieties[activeVariety].shelfLife}</span>
                     </div>
                   </div>
@@ -245,11 +245,11 @@ const TurmericPage = () => {
 
             {/* Uses */}
             <div className="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl">
-              <h4 className="font-semibold text-yellow-700 mb-3 flex items-center gap-2">
+              <h4 className="font-semibold text-yellow-800 mb-3 flex items-center gap-2">
                 <Globe className="w-5 h-5" />
                 Applications:
               </h4>
-              <p className="text-gray-700">{varieties[activeVariety].uses}</p>
+              <p className="text-gray-800">{varieties[activeVariety].uses}</p>
             </div>
           </div>
         </div>
@@ -258,7 +258,7 @@ const TurmericPage = () => {
       {/* Product Categories Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-yellow-800 mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-12 text-center">
             Available Turmeric Products
           </h2>
           
@@ -269,20 +269,20 @@ const TurmericPage = () => {
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">🧄</span>
                 </div>
-                <h3 className="text-2xl font-bold text-yellow-800 mb-4">Finger Turmeric</h3>
+                <h3 className="text-2xl font-bold text-yellow-900 mb-4">Finger Turmeric</h3>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                  <span className="text-gray-700">Alleppey Finger Turmeric</span>
+                  <span className="text-gray-800">Alleppey Finger Turmeric</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                  <span className="text-gray-700">Lakadong Turmeric</span>
+                  <span className="text-gray-800">Lakadong Turmeric</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                  <span className="text-gray-700">Selam Turmeric Finger</span>
+                  <span className="text-gray-800">Selam Turmeric Finger</span>
                 </li>
               </ul>
             </div>
@@ -293,20 +293,20 @@ const TurmericPage = () => {
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">✨</span>
                 </div>
-                <h3 className="text-2xl font-bold text-yellow-800 mb-4">Turmeric Powder</h3>
+                <h3 className="text-2xl font-bold text-yellow-900 mb-4">Turmeric Powder</h3>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span className="text-gray-700">Alleppey Turmeric Powder</span>
+                  <span className="text-gray-800">Alleppey Turmeric Powder</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span className="text-gray-700">Lakadong Turmeric Powder</span>
+                  <span className="text-gray-800">Lakadong Turmeric Powder</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span className="text-gray-700">Selam Turmeric Powder</span>
+                  <span className="text-gray-800">Selam Turmeric Powder</span>
                 </li>
               </ul>
             </div>
@@ -317,7 +317,7 @@ const TurmericPage = () => {
       {/* Why Choose Us Section */}
       <section className="py-16 bg-gradient-to-r from-yellow-50 to-orange-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-yellow-800 mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-12 text-center">
             Why Choose Our Turmeric Products
           </h2>
           
@@ -348,8 +348,8 @@ const TurmericPage = () => {
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-all duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-yellow-800 mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-xl font-semibold text-yellow-900 mb-3">{item.title}</h3>
+                <p className="text-gray-700">{item.description}</p>
               </div>
             ))}
           </div>
@@ -360,10 +360,10 @@ const TurmericPage = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-yellow-800 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-8">
               Applications
             </h2>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-lg text-gray-800 mb-8">
               Our turmeric products are perfect for culinary use, spice blends, food processing industries, traditional medicine, nutraceuticals, cosmetics, and wellness products.
             </p>
             
@@ -378,7 +378,7 @@ const TurmericPage = () => {
               ].map((application, index) => (
                 <div key={index} className="bg-yellow-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                   <div className="text-3xl mb-3">🧄</div>
-                  <h3 className="font-semibold text-yellow-700">{application}</h3>
+                  <h3 className="font-semibold text-yellow-800">{application}</h3>
                 </div>
               ))}
             </div>
