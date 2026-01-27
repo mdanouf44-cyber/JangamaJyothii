@@ -9,16 +9,16 @@ const ProductsSection = () => {
 
   const products = [
     {
-      name: 'Coconut',
-      image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'We supply premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder, meeting international standards for food, cosmetic, industrial, and sustainable eco-friendly applications worldwide.',
-      features: ['Premium Quality', 'Multiple Products', 'International Standards', 'Eco-Friendly']
-    },
-    {
       name: 'Coffee',
       image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       description: 'We offer premium-quality Arabica beans, Robusta beans, and roasted coffee beans – hand-selected, expertly processed, and richly aromatic, flavorful, and fresh – ideal for specialty brews, roasting blends, and global coffee markets.',
       features: ['Arabica & Robusta', 'Hand-Selected', 'Expertly Processed', 'Fresh & Aromatic']
+    },
+    {
+      name: 'Coconut',
+      image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description: 'We supply premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder, meeting international standards for food, cosmetic, industrial, and sustainable eco-friendly applications worldwide.',
+      features: ['Premium Quality', 'Multiple Products', 'International Standards', 'Eco-Friendly']
     },
     {
       name: 'Red Chilli',
@@ -45,22 +45,10 @@ const ProductsSection = () => {
       features: ['Tangy Flavor', 'Rich Nutrition', 'Multiple Forms', 'Quality Assured']
     },
     {
-      name: 'Black Pepper',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'We supply premium black pepper varieties including Panniyur series (Panniyur-1, Panniyur-5), Karimunda, and traditional types such as Arakkulam Munda, Kalluvally, and Aimpiriyan, renowned for bold flavor, aroma, and high piperine.',
-      features: ['Multiple Varieties', 'Bold Flavor', 'High Piperine', 'Traditional Types']
-    },
-    {
       name: 'Pulses',
       image: 'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       description: 'We supply premium pulses including Black Chickpeas, Chickpeas (Split), Pigeon Peas, Black Gram, Green Gram, and Horse Gram, known for their rich taste, high protein content, exceptional quality, long shelf life, freshness, and natural goodness.',
       features: ['High Protein', 'Multiple Varieties', 'Long Shelf Life', 'Natural Goodness']
-    },
-    {
-      name: 'Grains & Millets',
-      image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'We supply premium grains and millet varieties including Finger, Pearl, Foxtail, and Little, renowned for their rich nutrition, natural flavor, exceptional quality, long shelf life, freshness, purity, remarkable health benefits, and sustainable sourcing practices.',
-      features: ['Rich Nutrition', 'Health Benefits', 'Sustainable Sourcing', 'Multiple Varieties']
     },
     {
       name: 'Areca Plates',
