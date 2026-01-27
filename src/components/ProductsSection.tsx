@@ -86,7 +86,10 @@ const ProductsSection = () => {
           {products.map((product, index) => (
             <Link 
               key={index} 
-              href={product.name.toLowerCase() === 'coffee' ? '/products/coffee' : '#'}
+              href={
+                product.name.toLowerCase() === 'coffee' ? '/products/coffee' :
+                product.name.toLowerCase() === 'coconut' ? '/products/coconut' : '#'
+              }
               className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               {/* Product Image */}
