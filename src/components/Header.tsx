@@ -44,11 +44,11 @@ const Header = () => {
                 </Link>
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="py-2">
-                    <Link href="/products/coconut" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
-                      Coconut
-                    </Link>
                     <Link href="/products/coffee" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Coffee
+                    </Link>
+                    <Link href="/products/coconut" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
+                      Coconut
                     </Link>
                     <Link href="/products/red-chilli" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Red Chilli
@@ -62,14 +62,8 @@ const Header = () => {
                     <Link href="/products/tamarind" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Tamarind
                     </Link>
-                    <Link href="/products/black-pepper" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
-                      Black Pepper
-                    </Link>
                     <Link href="/products/pulses" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Pulses
-                    </Link>
-                    <Link href="/products/grains-millets" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
-                      Grains & Millets
                     </Link>
                     <Link href="/products/areca-plates" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Areca Plates
@@ -114,11 +108,11 @@ const Header = () => {
               <div className="space-y-2">
                 <p className="text-gray-700 font-medium">Our Products</p>
                 <div className="pl-4 space-y-2">
-                  <Link href="/products/coconut" className="block text-gray-600 hover:text-green-600">
-                    Coconut
-                  </Link>
                   <Link href="/products/coffee" className="block text-gray-600 hover:text-green-600">
                     Coffee
+                  </Link>
+                  <Link href="/products/coconut" className="block text-gray-600 hover:text-green-600">
+                    Coconut
                   </Link>
                   <Link href="/products/red-chilli" className="block text-gray-600 hover:text-green-600">
                     Red Chilli
@@ -132,14 +126,8 @@ const Header = () => {
                   <Link href="/products/tamarind" className="block text-gray-600 hover:text-green-600">
                     Tamarind
                   </Link>
-                  <Link href="/products/black-pepper" className="block text-gray-600 hover:text-green-600">
-                    Black Pepper
-                  </Link>
                   <Link href="/products/pulses" className="block text-gray-600 hover:text-green-600">
                     Pulses
-                  </Link>
-                  <Link href="/products/grains-millets" className="block text-gray-600 hover:text-green-600">
-                    Grains & Millets
                   </Link>
                   <Link href="/products/areca-plates" className="block text-gray-600 hover:text-green-600">
                     Areca Plates

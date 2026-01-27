@@ -5,14 +5,14 @@ import Link from 'next/link'
 const ProductGrid = () => {
   const products = [
     {
-      name: 'Coconut',
-      image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      href: '/products/coconut'
-    },
-    {
       name: 'Coffee',
       image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       href: '/products/coffee'
+    },
+    {
+      name: 'Coconut',
+      image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      href: '/products/coconut'
     },
     {
       name: 'Red Chilli',
@@ -35,19 +35,9 @@ const ProductGrid = () => {
       href: '/products/tamarind'
     },
     {
-      name: 'Black Pepper',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      href: '/products/black-pepper'
-    },
-    {
       name: 'Pulses',
       image: 'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       href: '/products/pulses'
-    },
-    {
-      name: 'Grains & Millets',
-      image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      href: '/products/grains-millets'
     },
     {
       name: 'Areca Plates',
