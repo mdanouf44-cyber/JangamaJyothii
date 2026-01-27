@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Grain, Award, Shield, Globe } from 'lucide-react'
+import { ArrowLeft, Wheat, Award, Shield, Globe } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
 
 const RicePage = () => {
@@ -265,7 +265,7 @@ const RicePage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: <Grain className="w-8 h-8" />,
+                icon: <Wheat className="w-8 h-8" />,
                 title: 'Premium Milling',
                 description: 'Carefully milled and graded for uniform quality and minimal breakage'
               },
