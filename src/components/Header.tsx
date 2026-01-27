@@ -59,8 +59,17 @@ const Header = () => {
                     <Link href="/products/turmeric" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Turmeric
                     </Link>
+                    <Link href="/products/tamarind" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
+                      Tamarind
+                    </Link>
+                    <Link href="/products/black-pepper" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
+                      Black Pepper
+                    </Link>
                     <Link href="/products/pulses" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Pulses
+                    </Link>
+                    <Link href="/products/grains-millets" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
+                      Grains & Millets
                     </Link>
                     <Link href="/products/areca-plates" className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">
                       Areca Plates
@@ -120,8 +129,17 @@ const Header = () => {
                   <Link href="/products/turmeric" className="block text-gray-600 hover:text-green-600">
                     Turmeric
                   </Link>
+                  <Link href="/products/tamarind" className="block text-gray-600 hover:text-green-600">
+                    Tamarind
+                  </Link>
+                  <Link href="/products/black-pepper" className="block text-gray-600 hover:text-green-600">
+                    Black Pepper
+                  </Link>
                   <Link href="/products/pulses" className="block text-gray-600 hover:text-green-600">
                     Pulses
+                  </Link>
+                  <Link href="/products/grains-millets" className="block text-gray-600 hover:text-green-600">
+                    Grains & Millets
                   </Link>
                   <Link href="/products/areca-plates" className="block text-gray-600 hover:text-green-600">
                     Areca Plates
