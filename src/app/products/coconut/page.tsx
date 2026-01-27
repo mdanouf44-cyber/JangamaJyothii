@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Leaf, Award, Globe, Package, Clock, Thermometer, Droplets, Shield } from 'lucide-react'
+import { ProductGrid } from '@/components'
 
 const CoconutPage = () => {
   const [activeVariant, setActiveVariant] = useState(0)
@@ -462,6 +463,9 @@ const CoconutPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Product Grid */}
+      <ProductGrid />
     </div>
   )
 }

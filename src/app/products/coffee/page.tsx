@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Coffee, Leaf, Award, Globe, Package, Clock, Thermometer } from 'lucide-react'
+import { ProductGrid } from '@/components'
 
 const CoffeePage = () => {
   const [activeVariant, setActiveVariant] = useState(0)
@@ -396,6 +397,9 @@ const CoffeePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Product Grid */}
+      <ProductGrid />
     </div>
   )
 }
