@@ -80,7 +80,8 @@ const ProductsSection = () => {
                 product.name.toLowerCase() === 'red chilli' ? '/products/red-chilli' :
                 product.name.toLowerCase() === 'rice' ? '/products/rice' :
                 product.name.toLowerCase() === 'turmeric' ? '/products/turmeric' :
-                product.name.toLowerCase() === 'tamarind' ? '/products/tamarind' : '#'
+                product.name.toLowerCase() === 'tamarind' ? '/products/tamarind' :
+                product.name.toLowerCase() === 'pulses' ? '/products/pulses' : '#'
               }
               className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
