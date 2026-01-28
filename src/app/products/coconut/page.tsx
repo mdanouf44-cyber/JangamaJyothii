@@ -91,25 +91,38 @@ const CoconutPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 via-emerald-400/20 to-teal-400/20">
-          {/* Floating Coconut Elements */}
-          <div className="absolute inset-0 pointer-events-none">
-            {[...Array(15)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute text-4xl opacity-20 animate-float"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${i * 0.8}s`,
-                  animationDuration: `${4 + Math.random() * 3}s`
-                }}
-              >
-                🥥
-              </div>
-            ))}
-          </div>
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/coconut-video.mp4" type="video/mp4" />
+            {/* Fallback background if video doesn't load */}
+            <div className="w-full h-full bg-gradient-to-br from-green-400 via-emerald-400 to-teal-400"></div>
+          </video>
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        {/* Floating Coconut Elements Overlay */}
+        <div className="absolute inset-0 pointer-events-none z-5">
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute text-3xl opacity-30 animate-float text-white"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${i * 1.2}s`,
+                animationDuration: `${5 + Math.random() * 3}s`
+              }}
+            >
+              🥥
+            </div>
+          ))}
         </div>
 
         {/* Content */}
@@ -136,14 +149,14 @@ const CoconutPage = () => {
             </div>
 
             {/* Main Title */}
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-green-800 drop-shadow-2xl">
-              <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-white via-green-100 to-emerald-100 bg-clip-text text-transparent animate-gradient">
                 Premium Coconut
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-3xl text-green-700 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
+            <p className="text-xl md:text-3xl text-white mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
               Sourced from carefully selected farms with fertile soil, favorable climatic conditions, and traditional coconut cultivation practices
             </p>
 
