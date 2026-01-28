@@ -21,7 +21,7 @@ const Header = () => {
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 flex items-center justify-center">
                 <img
-                  src="/logo.svg"
+                  src="/logo.png"
                   alt="Shree Jangama Jyothi Global LLP Logo"
                   className="w-16 h-16 object-contain"
                 />
