@@ -1,13 +1,11 @@
 import { Metadata } from 'next'
 import {
-  Header,
   HeroSection,
   FeaturesSection,
   AboutSection,
   ProductsSection,
   WhyChooseUsSection,
   CountriesExportSection,
-  Footer
 } from '@/components'
 
 export const metadata: Metadata = {
@@ -18,14 +16,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      <Header />
       <HeroSection />
       <FeaturesSection />
       <AboutSection />
       <ProductsSection />
       <WhyChooseUsSection />
       <CountriesExportSection />
-      <Footer />
     </div>
   )
 }

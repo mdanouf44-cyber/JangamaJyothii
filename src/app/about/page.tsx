@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import { Header, Footer } from '@/components'
 import { CheckCircle, Globe, Users, Award } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -33,8 +32,6 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen">
-      <Header />
-      
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -169,8 +166,6 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   )
 }

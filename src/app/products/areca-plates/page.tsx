@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ArrowLeft, Leaf, Recycle, Shield, Globe } from 'lucide-react'
+import { Leaf, Recycle, Shield, Globe } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
 
 const ArecaPlatesPage = () => {
@@ -86,19 +85,6 @@ const ArecaPlatesPage = () => {
             animation: float 4s ease-in-out infinite;
           }
         `}</style>
-      </div>
-
-      {/* Header */}
-      <div className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-medium transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Home
-          </Link>
-        </div>
       </div>
 
       {/* Hero Section */}

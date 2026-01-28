@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ArrowLeft, Coffee, Leaf, Award, Globe, Package, Clock, Thermometer } from 'lucide-react'
+import { Coffee, Leaf, Award, Globe, Package, Clock, Thermometer } from 'lucide-react'
 import { ProductGrid } from '@/components'
 
 const CoffeePage = () => {
@@ -61,19 +60,6 @@ const CoffeePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-red-50 to-amber-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-brown-600 hover:text-brown-800 transition-colors duration-300"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-medium">Back to Home</span>
-          </Link>
-        </div>
-      </div>
-
       {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}

@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ArrowLeft, Droplets, Award, Shield, Globe } from 'lucide-react'
+import { Droplets, Award, Shield, Globe } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
 
 const TamarindPage = () => {
@@ -77,19 +76,6 @@ const TamarindPage = () => {
       {/* Floating Tamarind Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         {floatingTamarind}
-      </div>
-
-      {/* Header */}
-      <div className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-amber-700 hover:text-amber-800 font-medium transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Home
-          </Link>
-        </div>
       </div>
 
       {/* Hero Section */}

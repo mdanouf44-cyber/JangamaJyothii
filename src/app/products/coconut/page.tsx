@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ArrowLeft, Leaf, Award, Globe, Package, Clock, Thermometer, Droplets, Shield } from 'lucide-react'
+import { Leaf, Award, Globe, Package, Clock, Thermometer, Droplets, Shield } from 'lucide-react'
 import { ProductGrid } from '@/components'
 
 const CoconutPage = () => {
@@ -90,19 +89,6 @@ const CoconutPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-green-600 hover:text-green-800 transition-colors duration-300"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-medium">Back to Home</span>
-          </Link>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated Background */}
