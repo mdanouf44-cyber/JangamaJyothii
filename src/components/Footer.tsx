@@ -20,9 +20,7 @@ const Footer = () => {
     { name: 'Rice', href: '/products/rice' },
     { name: 'Turmeric', href: '/products/turmeric' },
     { name: 'Tamarind', href: '/products/tamarind' },
-    { name: 'Black Pepper', href: '/products/black-pepper' },
     { name: 'Pulses', href: '/products/pulses' },
-    { name: 'Grains & Millets', href: '/products/grains-millets' },
     { name: 'Areca Plates', href: '/products/areca-plates' }
   ]
 
