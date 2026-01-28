@@ -19,8 +19,12 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">SJ</span>
+              <div className="w-16 h-16 flex items-center justify-center">
+                <img
+                  src="/logo.svg"
+                  alt="Shree Jangama Jyothi Global LLP Logo"
+                  className="w-16 h-16 object-contain"
+                />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">

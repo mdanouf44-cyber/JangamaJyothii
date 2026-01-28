@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lotus-inspired design placeholder -->
+  <circle cx="32" cy="32" r="30" fill="#f8f9fa" stroke="#d4af37" stroke-width="2"/>
+  <circle cx="32" cy="32" r="20" fill="#fff8dc" stroke="#d4af37" stroke-width="1"/>
+  <!-- Placeholder for the bull/cow figure -->
+  <rect x="20" y="24" width="24" height="16" rx="4" fill="#8b9dc3"/>
+  <circle cx="26" cy="28" r="2" fill="#4a5568"/>
+  <circle cx="38" cy="28" r="2" fill="#4a5568"/>
+  <!-- Decorative elements -->
+  <path d="M16 32 Q32 16 48 32 Q32 48 16 32" fill="none" stroke="#d4af37" stroke-width="1"/>
+  <text x="32" y="52" text-anchor="middle" font-family="serif" font-size="8" fill="#d4af37">SJ</text>
+</svg>
