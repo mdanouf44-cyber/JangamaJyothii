@@ -24,7 +24,7 @@ const CoconutPage = () => {
         moisture: 'Natural moisture content'
       },
       color: 'from-green-600 to-emerald-800',
-      icon: '🥥'
+      icon: '🌿'
     },
     {
       name: 'Copra (Dried Coconut)',
@@ -107,47 +107,11 @@ const CoconutPage = () => {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
-        {/* Floating Coconut Elements Overlay */}
-        <div className="absolute inset-0 pointer-events-none z-5">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-3xl opacity-30 animate-float text-white"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${i * 1.2}s`,
-                animationDuration: `${5 + Math.random() * 3}s`
-              }}
-            >
-              🥥
-            </div>
-          ))}
-        </div>
+
 
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            {/* Animated Coconut Icon */}
-            <div className="mb-8 relative">
-              <div className="inline-flex items-center justify-center w-32 h-32 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6">
-                <div className="text-6xl animate-pulse-coffee">🥥</div>
-              </div>
-              {/* Ripple Effect */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-32 h-32 border-2 border-green-400/30 rounded-full animate-ping"
-                    style={{
-                      animationDelay: `${i * 0.5}s`,
-                      animationDuration: '3s'
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-
             {/* Main Title */}
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
               <span className="bg-gradient-to-r from-white via-green-100 to-emerald-100 bg-clip-text text-transparent animate-gradient">
@@ -195,7 +159,7 @@ const CoconutPage = () => {
                 step: '01',
                 title: 'Farm Selection',
                 description: 'Sourced from carefully selected farms with fertile soil, favorable climatic conditions, and traditional coconut cultivation practices.',
-                icon: '🌴',
+                icon: '🌱',
                 features: ['Fertile Soil', 'Favorable Climate', 'Traditional Methods', 'Quality Farms']
               },
               {
@@ -291,7 +255,7 @@ const CoconutPage = () => {
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
-                  { number: '500+', label: 'Partner Farms', icon: '🌴' },
+                  { number: '500+', label: 'Partner Farms', icon: '🌱' },
                   { number: '25+', label: 'Years Experience', icon: '🏆' },
                   { number: '30+', label: 'Countries', icon: '🌍' },
                   { number: '100%', label: 'Natural', icon: '🌿' }
@@ -357,8 +321,6 @@ const CoconutPage = () => {
                       <p className="text-lg opacity-90">{variants[activeVariant].name}</p>
                     </div>
                   </div>
-                  <div className="absolute top-6 right-6 w-20 h-20 border-2 border-white/40 rounded-full animate-pulse"></div>
-                  <div className="absolute bottom-6 left-6 w-16 h-16 border-2 border-white/40 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
                 </div>
 
                 <div className="p-10 lg:p-12 bg-white">
