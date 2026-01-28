@@ -17,8 +17,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Agro Export Platform - Premium Agricultural Exports',
-    template: '%s | Agro Export Platform',
+    default: 'Shree Jangama Jyothi Global LLP - Premium Agricultural Exports',
+    template: '%s | Shree Jangama Jyothi Global LLP',
   },
   description:
     'Leading agricultural export platform connecting international buyers with premium Indian agricultural products. Quality assured, compliance certified.',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     'organic products',
     'compliance certified',
   ],
-  authors: [{ name: 'Agro Export Platform' }],
-  creator: 'Agro Export Platform',
-  publisher: 'Agro Export Platform',
+  authors: [{ name: 'Shree Jangama Jyothi Global LLP' }],
+  creator: 'Shree Jangama Jyothi Global LLP',
+  publisher: 'Shree Jangama Jyothi Global LLP',
   formatDetection: {
     email: false,
     address: false,
@@ -44,18 +44,33 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'android-chrome-192x192', url: '/android-chrome-192x192.png' },
+      { rel: 'android-chrome-512x512', url: '/android-chrome-512x512.png' },
+    ],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'Agro Export Platform - Premium Agricultural Exports',
+    title: 'Shree Jangama Jyothi Global LLP - Premium Agricultural Exports',
     description:
       'Leading agricultural export platform connecting international buyers with premium Indian agricultural products.',
-    siteName: 'Agro Export Platform',
+    siteName: 'Shree Jangama Jyothi Global LLP',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Agro Export Platform - Premium Agricultural Exports',
+    title: 'Shree Jangama Jyothi Global LLP - Premium Agricultural Exports',
     description:
       'Leading agricultural export platform connecting international buyers with premium Indian agricultural products.',
   },
