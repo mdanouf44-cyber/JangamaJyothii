@@ -129,7 +129,7 @@ const CoconutPage = () => {
               {['Premium Quality', 'Eco-Friendly', 'Export Grade', 'Sustainable'].map((feature, index) => (
                 <div
                   key={index}
-                  className={`px-6 py-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-medium transform transition-all duration-500 hover:scale-105 hover:bg-white/30 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                  className={`px-6 py-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-medium transform transition-all duration-500 hover:scale-110 hover:bg-white/40 hover:border-white hover:shadow-2xl cursor-default ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                   style={{ transitionDelay: `${index * 200 + 800}ms` }}
                 >
                   {feature}
