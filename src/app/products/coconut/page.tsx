@@ -100,7 +100,7 @@ const CoconutPage = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/coconut-video.mp4" type="video/mp4" />
+            <source src="/coconut-video-2.mp4" type="video/mp4" />
             {/* Fallback background if video doesn't load */}
             <div className="w-full h-full bg-gradient-to-br from-green-400 via-emerald-400 to-teal-400"></div>
           </video>
