@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import { Header, Footer } from '@/components'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
@@ -11,18 +10,18 @@ export const metadata: Metadata = {
 const ProductsPage = () => {
   const products = [
     {
-      name: 'Coconut',
-      image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder.',
-      features: ['Premium Quality', 'Multiple Products', 'International Standards', 'Eco-Friendly'],
-      href: '/products/coconut'
-    },
-    {
       name: 'Coffee',
       image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       description: 'Premium-quality Arabica beans, Robusta beans, and roasted coffee beans – hand-selected and expertly processed.',
       features: ['Arabica & Robusta', 'Hand-Selected', 'Expertly Processed', 'Fresh & Aromatic'],
       href: '/products/coffee'
+    },
+    {
+      name: 'Coconut',
+      image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description: 'Premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder.',
+      features: ['Premium Quality', 'Multiple Products', 'International Standards', 'Eco-Friendly'],
+      href: '/products/coconut'
     },
     {
       name: 'Red Chilli',
@@ -53,25 +52,11 @@ const ProductsPage = () => {
       href: '/products/tamarind'
     },
     {
-      name: 'Black Pepper',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium black pepper varieties including Panniyur series, Karimunda, and traditional types.',
-      features: ['Multiple Varieties', 'Bold Flavor', 'High Piperine', 'Traditional Types'],
-      href: '/products/black-pepper'
-    },
-    {
       name: 'Pulses',
       image: 'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       description: 'Premium pulses including Black Chickpeas, Chickpeas, Pigeon Peas, Black Gram, Green Gram, and Horse Gram.',
       features: ['High Protein', 'Multiple Varieties', 'Long Shelf Life', 'Natural Goodness'],
       href: '/products/pulses'
-    },
-    {
-      name: 'Grains & Millets',
-      image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium grains and millet varieties including Finger, Pearl, Foxtail, and Little millets.',
-      features: ['Rich Nutrition', 'Health Benefits', 'Sustainable Sourcing', 'Multiple Varieties'],
-      href: '/products/grains-millets'
     },
     {
       name: 'Areca Plates',
@@ -84,8 +69,6 @@ const ProductsPage = () => {
 
   return (
     <div className="min-h-screen">
-      <Header />
-      
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -174,8 +157,6 @@ const ProductsPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   )
 }
