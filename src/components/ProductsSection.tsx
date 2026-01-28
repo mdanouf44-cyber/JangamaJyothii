@@ -81,7 +81,8 @@ const ProductsSection = () => {
                 product.name.toLowerCase() === 'rice' ? '/products/rice' :
                 product.name.toLowerCase() === 'turmeric' ? '/products/turmeric' :
                 product.name.toLowerCase() === 'tamarind' ? '/products/tamarind' :
-                product.name.toLowerCase() === 'pulses' ? '/products/pulses' : '#'
+                product.name.toLowerCase() === 'pulses' ? '/products/pulses' :
+                product.name.toLowerCase() === 'areca plates' ? '/products/areca-plates' : '#'
               }
               className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
