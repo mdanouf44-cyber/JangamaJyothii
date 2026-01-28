@@ -113,13 +113,6 @@ const CoffeePage = () => {
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            {/* Animated Coffee Icon */}
-            <div className="mb-8 relative">
-              <div className="inline-flex items-center justify-center w-32 h-32 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6">
-                <Coffee className="w-16 h-16 text-white animate-pulse-coffee" />
-              </div>
-            </div>
-
             {/* Main Title */}
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
               <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-300 bg-clip-text text-transparent animate-gradient">
