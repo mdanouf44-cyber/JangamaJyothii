@@ -58,7 +58,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Turmeric',
-      image: '/logo.png', // Will be replaced with turmeric image when available
+      image: '/alleppey-finger-turmeric.jpg', // Using actual turmeric image
       description:
         'We supply premium quality turmeric from Salem and Erode in Tamil Nadu, Lakadong in Meghalaya, and Alleppey Finger from Kerala, known for rich color, high curcumin and distinctive aroma, ideal for culinary, medicinal and industrial use worldwide.',
       features: [

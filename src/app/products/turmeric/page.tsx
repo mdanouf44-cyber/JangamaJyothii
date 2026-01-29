@@ -35,6 +35,7 @@ const TurmericPage = () => {
   const varieties = [
     {
       name: 'Alleppey Finger Turmeric',
+      image: '/alleppey-finger-turmeric.jpg',
       description:
         'Alleppey finger turmeric is one of the most widely traded turmeric varieties, known for its deep orange-yellow color, strong aroma, and balanced curcumin content. It is cultivated in coastal and semi-coastal regions where soil and climate conditions support rich pigment development.',
       features: [
@@ -51,6 +52,7 @@ const TurmericPage = () => {
     },
     {
       name: 'Lakadong Turmeric (Finger)',
+      image: '/lakadong-turmeric-finger.jpg',
       description:
         'Lakadong turmeric is a premium variety renowned for its exceptionally high curcumin content, making it highly valued in medicinal, nutraceutical, and wellness industries. Grown in specific hilly regions, this turmeric has a strong aroma, deep yellow color, and superior medicinal properties.',
       features: [
@@ -66,9 +68,10 @@ const TurmericPage = () => {
       uses: 'Health supplements, ayurvedic formulations, high-end spice markets',
     },
     {
-      name: 'Selam Turmeric Finger',
+      name: 'Salem Turmeric Finger',
+      image: '/salem-turmeric-finger.jpg',
       description:
-        'Selam turmeric finger is known for its bright yellow color, smooth surface, and uniform finger size. It is cultivated in dry regions where turmeric develops good color value and consistent quality. This variety is widely used in food processing and spice manufacturing.',
+        'Salem turmeric finger is known for its bright yellow color, smooth surface, and uniform finger size. It is cultivated in dry regions where turmeric develops good color value and consistent quality. This variety is widely used in food processing and spice manufacturing.',
       features: [
         'Bright Yellow Color',
         'Smooth Surface',
@@ -83,6 +86,7 @@ const TurmericPage = () => {
     },
     {
       name: 'Alleppey Turmeric Powder',
+      image: '/alleppey-turmeric-powder.jpg',
       description:
         'Alleppey turmeric powder is produced by finely grinding selected Alleppey turmeric fingers under hygienic and controlled conditions. The powder is known for its rich color, strong aroma, and smooth texture. No artificial colors or additives are used.',
       features: [
@@ -99,6 +103,7 @@ const TurmericPage = () => {
     },
     {
       name: 'Lakadong Turmeric Powder',
+      image: '/lakadong-turmeric-powder.jpg',
       description:
         'Lakadong turmeric powder is made from high-curcumin Lakadong fingers and is highly valued for its strong medicinal properties and intense yellow color. The powder is finely milled to ensure uniform consistency while retaining curcumin content and aroma.',
       features: [
@@ -114,9 +119,10 @@ const TurmericPage = () => {
       uses: 'Nutraceuticals, herbal formulations, health drinks, premium spice markets',
     },
     {
-      name: 'Selam Turmeric Powder',
+      name: 'Salem Turmeric Powder',
+      image: '/salem-turmeric-powder.jpg',
       description:
-        'Selam turmeric powder is produced from carefully selected Selam turmeric fingers and is known for its bright color, smooth texture, and consistent quality. It is suitable for large-scale food processing, spice blending, and commercial culinary use.',
+        'Salem turmeric powder is produced from carefully selected Salem turmeric fingers and is known for its bright color, smooth texture, and consistent quality. It is suitable for large-scale food processing, spice blending, and commercial culinary use.',
       features: [
         'Bright Color',
         'Smooth Texture',
@@ -241,7 +247,7 @@ const TurmericPage = () => {
 
       {/* Varieties Section */}
       <section className="py-20 bg-gradient-to-r from-yellow-600 to-orange-600">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
             Our Turmeric Varieties
           </h2>
@@ -263,24 +269,28 @@ const TurmericPage = () => {
             ))}
           </div>
 
-          {/* Active Variety Details */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Image Placeholder */}
-              <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl h-80 flex items-center justify-center border-2 border-dashed border-yellow-300">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">🧄</div>
-                  <p className="text-yellow-600 font-medium">
-                    {varieties[activeVariety].name}
-                  </p>
-                  <p className="text-yellow-500 text-sm">
-                    Image will be added here
-                  </p>
+          {/* Active Variety Details - Wider Layout (60/40) */}
+          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-8xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-8">
+              {/* Image Section - 60% width (3 columns) */}
+              <div className="md:col-span-3">
+                <div className="relative h-[700px] rounded-xl overflow-hidden shadow-2xl">
+                  <img
+                    src={varieties[activeVariety].image}
+                    alt={varieties[activeVariety].name}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-2xl font-bold drop-shadow-lg">
+                      {varieties[activeVariety].name}
+                    </h3>
+                  </div>
                 </div>
               </div>
 
-              {/* Variety Info */}
-              <div>
+              {/* Content Section - 40% width (2 columns) */}
+              <div className="md:col-span-2">
                 <h3 className="text-2xl font-bold text-yellow-900 mb-4">
                   {varieties[activeVariety].name}
                 </h3>
@@ -293,7 +303,7 @@ const TurmericPage = () => {
                   <h4 className="font-semibold text-yellow-800 mb-3">
                     Key Features:
                   </h4>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 gap-2">
                     {varieties[activeVariety].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
@@ -304,7 +314,7 @@ const TurmericPage = () => {
                 </div>
 
                 {/* Specifications */}
-                <div className="bg-yellow-50 rounded-lg p-4">
+                <div className="bg-yellow-50 rounded-lg p-4 mb-6">
                   <h4 className="font-semibold text-yellow-800 mb-3">
                     Specifications:
                   </h4>
@@ -335,16 +345,16 @@ const TurmericPage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Uses */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl">
-              <h4 className="font-semibold text-yellow-800 mb-3 flex items-center gap-2">
-                <Globe className="w-5 h-5" />
-                Applications:
-              </h4>
-              <p className="text-gray-800">{varieties[activeVariety].uses}</p>
+                {/* Uses */}
+                <div className="p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl">
+                  <h4 className="font-semibold text-yellow-800 mb-3 flex items-center gap-2">
+                    <Globe className="w-5 h-5" />
+                    Applications:
+                  </h4>
+                  <p className="text-gray-800 text-sm">{varieties[activeVariety].uses}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

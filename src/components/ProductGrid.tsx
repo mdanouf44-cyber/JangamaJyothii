@@ -27,7 +27,7 @@ const products = [
   },
   {
     name: 'Turmeric',
-    image: '/logo.png', // Will be replaced with turmeric image when available
+    image: '/alleppey-finger-turmeric.jpg', // Using actual turmeric image
     href: '/products/turmeric',
   },
   {

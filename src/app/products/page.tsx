@@ -64,7 +64,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Turmeric',
-      image: '/logo.png', // Will be replaced with turmeric image when available
+      image: '/alleppey-finger-turmeric.jpg', // Using actual turmeric image
       description:
         'Premium quality turmeric from Salem, Erode, Lakadong, and Alleppey Finger, known for rich color and high curcumin.',
       features: [
