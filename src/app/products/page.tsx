@@ -85,7 +85,11 @@ const ProductsPage = () => {
           {/* Products Grid - 3x4 layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <Link 
+                key={index} 
+                href={product.href}
+                className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+              >
                 {/* Product Image */}
                 <div className="relative overflow-hidden h-64">
                   <img
@@ -98,7 +102,7 @@ const ProductsPage = () => {
 
                 {/* Product Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
                     {product.name}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -120,15 +124,12 @@ const ProductsPage = () => {
                   </div>
 
                   {/* View Details Button */}
-                  <Link 
-                    href={product.href}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 group"
-                  >
+                  <div className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 group-hover:bg-green-700">
                     View Details
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
