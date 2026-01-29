@@ -70,8 +70,8 @@ const CoffeePage = () => {
         shelfLife: '12–18 months',
         moisture: 'Max 12.5%',
       },
-      color: 'from-brown-600 to-brown-800',
-      image: '/robusta-coffee-beans.png',
+      color: 'from-amber-600 to-amber-800',
+      image: '/arabica-coffee-beans.png',
     },
     {
       name: 'Roasted Coffee Beans',
@@ -138,6 +138,7 @@ const CoffeePage = () => {
             className={`transform transition-all duration-1500 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
             }`}
+            suppressHydrationWarning
           >
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
               <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-300 bg-clip-text text-transparent animate-gradient">
@@ -317,6 +318,7 @@ const CoffeePage = () => {
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 600}ms` }}
+                suppressHydrationWarning
               >
                 <point.icon className="w-12 h-12 text-brown-600 mb-4 mx-auto" />
                 <h3 className="text-xl font-semibold text-brown-800 mb-2 text-center">{point.title}</h3>

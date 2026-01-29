@@ -1,5 +1,7 @@
 'use client'
 
+'use client'
+
 import { useState, useEffect } from 'react'
 import { Thermometer, Palette, Award, Globe } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'

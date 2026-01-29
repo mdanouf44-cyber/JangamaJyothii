@@ -119,30 +119,16 @@ const ProductsSection = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <Link
-              key={index}
-              href={
-                product.name.toLowerCase() === 'coffee'
-                  ? '/products/coffee'
-                  : product.name.toLowerCase() === 'coconut'
-                    ? '/products/coconut'
-                    : product.name.toLowerCase() === 'red chilli'
-                      ? '/products/red-chilli'
-                      : product.name.toLowerCase() === 'rice'
-                        ? '/products/rice'
-                        : product.name.toLowerCase() === 'turmeric'
-                          ? '/products/turmeric'
-                          : product.name.toLowerCase() === 'tamarind'
-                            ? '/products/tamarind'
-                            : product.name.toLowerCase() === 'pulses'
-                              ? '/products/pulses'
-                              : product.name.toLowerCase() === 'areca plates'
-                                ? '/products/areca-plates'
-                                : '#'
-              }
-              className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer"
-            >
+          {products.map((product, index) => {
+            // Create URL from product name
+            const productUrl = `/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`
+            
+            return (
+              <Link
+                key={index}
+                href={productUrl}
+                className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer"
+              >
               {/* Product Image */}
               <div className="relative overflow-hidden">
                 <img
@@ -160,7 +146,8 @@ const ProductsSection = () => {
                 </h3>
               </div>
             </Link>
-          ))}
+            )
+          })}
         </div>
 
         {/* View All Products Button */}
