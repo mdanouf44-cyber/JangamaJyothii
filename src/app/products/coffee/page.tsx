@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { Coffee, Leaf, Award, Globe, Package, Clock, Thermometer } from 'lucide-react'
 import { ProductGrid } from '@/components'
 
@@ -8,6 +9,7 @@ const CoffeePage = () => {
   const [activeVariant, setActiveVariant] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [roastedImageIndex, setRoastedImageIndex] = useState(0)
 
   const coffeeVideos = [
     '/coffee-video-1.mp4',
@@ -33,8 +35,16 @@ const CoffeePage = () => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % coffeeVideos.length)
     }, 8000)
 
+    // Rotate roasted coffee images every 4 seconds
+    const roastedImageInterval = setInterval(() => {
+      setRoastedImageIndex((prevIndex) => (prevIndex + 1) % 2)
+    }, 4000)
+
     preloadVideos()
-    return () => clearInterval(videoInterval)
+    return () => {
+      clearInterval(videoInterval)
+      clearInterval(roastedImageInterval)
+    }
   }, [])
 
   const variants = [
@@ -48,7 +58,8 @@ const CoffeePage = () => {
         shelfLife: '12–18 months',
         moisture: 'Max 12.5%'
       },
-      color: 'from-amber-600 to-amber-800'
+      color: 'from-amber-600 to-amber-800',
+      image: '/arabica-coffee-beans.png'
     },
     {
       name: 'Robusta Coffee Beans',
@@ -60,7 +71,8 @@ const CoffeePage = () => {
         shelfLife: '12–18 months',
         moisture: 'Max 12.5%'
       },
-      color: 'from-brown-600 to-brown-800'
+      color: 'from-brown-600 to-brown-800',
+      image: '/robusta-coffee-beans.png'
     },
     {
       name: 'Roasted Coffee Beans',
@@ -72,7 +84,9 @@ const CoffeePage = () => {
         shelfLife: '6–12 months',
         moisture: 'Max 5%'
       },
-      color: 'from-orange-600 to-red-700'
+      color: 'from-orange-600 to-red-700',
+      images: ['/roasted-arabica.jpg', '/roasted-robusta.jpg'], // Rotating images for roasted beans
+      currentImageIndex: 0
     }
   ]
 
@@ -311,10 +325,55 @@ const CoffeePage = () => {
                 <div className={`bg-gradient-to-br ${variants[activeVariant].color} p-12 flex items-center justify-center min-h-[600px] relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/10"></div>
                   <div className="text-center text-white relative z-10">
-                    <Coffee className="w-40 h-40 mx-auto mb-8 opacity-90 animate-pulse-coffee" />
+                    {/* Display actual coffee images */}
+                    {activeVariant === 2 ? (
+                      // Roasted Coffee Beans - Rotating images
+                      <div className="relative w-80 h-80 mx-auto mb-8">
+                        {variants[activeVariant].images?.map((imageSrc, index) => (
+                          <Image
+                            key={index}
+                            src={imageSrc}
+                            alt={`${variants[activeVariant].name} - ${index === 0 ? 'Arabica' : 'Robusta'}`}
+                            width={320}
+                            height={320}
+                            className={`absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl transition-opacity duration-1000 ${
+                              index === roastedImageIndex ? 'opacity-100' : 'opacity-0'
+                            }`}
+                          />
+                        ))}
+                        {/* Image indicators for roasted beans */}
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                          {variants[activeVariant].images?.map((_, index) => (
+                            <div
+                              key={index}
+                              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                index === roastedImageIndex ? 'bg-white' : 'bg-white/50'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      // Single images for Arabica and Robusta
+                      <div className="w-80 h-80 mx-auto mb-8">
+                        <Image
+                          src={variants[activeVariant].image || ''}
+                          alt={variants[activeVariant].name}
+                          width={320}
+                          height={320}
+                          className="w-full h-full object-cover rounded-2xl shadow-2xl"
+                        />
+                      </div>
+                    )}
+                    
                     <div className="bg-black/40 backdrop-blur-md px-8 py-4 rounded-2xl border border-white/30">
                       <p className="text-2xl font-bold mb-2">Premium Quality</p>
                       <p className="text-lg opacity-90">{variants[activeVariant].name}</p>
+                      {activeVariant === 2 && (
+                        <p className="text-sm opacity-75 mt-2">
+                          {roastedImageIndex === 0 ? 'Roasted Arabica' : 'Roasted Robusta'}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
