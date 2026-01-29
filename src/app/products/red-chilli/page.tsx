@@ -55,53 +55,54 @@ const RedChilliPage = () => {
     }
   ]
 
-  // Floating chilli animation keyframes
-  const floatingChillies = Array.from({ length: 6 }, (_, i) => (
-    <div
-      key={i}
-      className={`absolute text-red-500 text-2xl opacity-20 animate-bounce`}
-      style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${i * 0.5}s`,
-        animationDuration: `${3 + Math.random() * 2}s`
-      }}
-    >
-      🌶️
-    </div>
-  ))
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
-      {/* Floating Chillies Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {floatingChillies}
-      </div>
 
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1 className={`text-5xl md:text-7xl font-bold text-red-800 mb-6 transform transition-all duration-1000 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
-              Red Chilli
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          >
+            <source src="/red-chilli-video.mp4" type="video/mp4" />
+            {/* Fallback background if video doesn't load */}
+            <div className="w-full h-full bg-gradient-to-br from-red-600 via-orange-600 to-red-700"></div>
+          </video>
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <div className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+            {/* Main Title */}
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-red-300 via-orange-300 to-yellow-300 bg-clip-text text-transparent animate-gradient">
+                Premium Red Chilli
+              </span>
             </h1>
-            <p className={`text-xl md:text-2xl text-red-600 mb-8 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
-              Premium Quality Red Chillies from India's Finest Growing Regions
+
+            {/* Subtitle */}
+            <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
+              Sourced from India's finest chilli-growing regions with superior quality, vibrant color, and authentic flavor
             </p>
-            
-            {/* Image Placeholder */}
-            <div className={`w-full max-w-4xl mx-auto h-96 bg-gradient-to-r from-red-100 to-orange-100 rounded-2xl border-2 border-dashed border-red-300 flex items-center justify-center mb-12 transform transition-all duration-1000 delay-500 ${
-              isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-            }`}>
-              <div className="text-center">
-                <div className="text-6xl mb-4">🌶️</div>
-                <p className="text-red-600 font-medium">Red Chilli Hero Image</p>
-                <p className="text-red-500 text-sm">Image will be added here</p>
-              </div>
+
+            {/* Feature Pills */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {['Premium Quality', 'Rich Color', 'Export Grade', 'Multiple Varieties'].map((feature, index) => (
+                <div
+                  key={index}
+                  className={`px-6 py-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-medium transform transition-all duration-500 hover:scale-110 hover:bg-white/40 hover:border-white hover:shadow-2xl cursor-default ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                  style={{ transitionDelay: `${index * 200 + 800}ms` }}
+                >
+                  {feature}
+                </div>
+              ))}
             </div>
           </div>
         </div>
