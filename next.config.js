@@ -12,7 +12,6 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
   },
   experimental: {
-    optimizeCss: true,
     scrollRestoration: true,
   },
   compiler: {
