@@ -10,7 +10,7 @@ const ProductsSection = () => {
   const products = [
     {
       name: 'Coffee',
-      image: '/arabica-coffee-beans.png',
+      image: '/cover-coffee.jpg',
       description:
         'We offer premium-quality Arabica beans, Robusta beans, and roasted coffee beans – hand-selected, expertly processed, and richly aromatic, flavorful, and fresh – ideal for specialty brews, roasting blends, and global coffee markets.',
       features: [
@@ -22,7 +22,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Coconut',
-      image: '/fresh-coconut.jpg',
+      image: '/cover-coconut.jpg',
       description:
         'We supply premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder, meeting international standards for food, cosmetic, industrial, and sustainable eco-friendly applications worldwide.',
       features: [
@@ -34,7 +34,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Red Chilli',
-      image: '/kashmiri-chilli.jpg', // Using actual red chilli image
+      image: '/cover-red-chilli.jpg', // Using actual red chilli image
       description:
         'We supply premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for their vibrant color, distinct flavor and varying heat levels, ideal for culinary use, spice blends and food processing industries worldwide.',
       features: [
@@ -46,7 +46,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Rice',
-      image: '/sona-masoori-rice.jpg', // Using actual rice image
+      image: '/cover-rice.jpg', // Using actual rice image
       description:
         'We supply premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, Jeera Samba and Broken Rice, known for their superior taste, texture, aroma, purity and consistency, ideal for culinary use and global food markets.',
       features: [
@@ -58,7 +58,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Turmeric',
-      image: '/alleppey-finger-turmeric.jpg', // Using actual turmeric image
+      image: '/cover-turmeric.jpg', // Using actual turmeric image
       description:
         'We supply premium quality turmeric from Salem and Erode in Tamil Nadu, Lakadong in Meghalaya, and Alleppey Finger from Kerala, known for rich color, high curcumin and distinctive aroma, ideal for culinary, medicinal and industrial use worldwide.',
       features: [
@@ -70,7 +70,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Tamarind',
-      image: '/tamarind-with-seeds.jpg', // Using actual tamarind image
+      image: '/cover-tamarind.jpg', // Using actual tamarind image
       description:
         'We supply premium quality tamarind, tamarind seeds, and tamarind kernels, known for their tangy flavor, rich nutritional value, and wide use in culinary, beverage, confectionery, and food processing industries worldwide, with consistent quality assurance.',
       features: [
@@ -82,7 +82,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Pulses',
-      image: '/black-chickpeas.jpg', // Using actual pulses image
+      image: '/cover-pulses.jpg', // Using actual pulses image
       description:
         'We supply premium pulses including Black Chickpeas, Chickpeas (Split), Pigeon Peas, Black Gram, Green Gram, and Horse Gram, known for their rich taste, high protein content, exceptional quality, long shelf life, freshness, and natural goodness.',
       features: [
@@ -94,7 +94,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Areca Plates',
-      image: '/round-areca-plates.jpg', // Using actual areca plates image
+      image: '/cover-areca-plates.jpg', // Using actual areca plates image
       description:
         'We supply premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and made from naturally fallen areca palm leaf sheaths – offering sustainable solutions for food service, catering, and retail needs.',
       features: [
