@@ -3,11 +3,13 @@ import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { Suspense } from 'react'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  preload: true,
 })
 
 const poppins = Poppins({
@@ -15,6 +17,7 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
   variable: '--font-poppins',
   display: 'swap',
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -92,6 +95,15 @@ export const metadata: Metadata = {
   },
 }
 
+// Loading component for better UX
+function Loading() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+    </div>
+  )
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -99,10 +111,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="min-h-screen bg-gray-50">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+      </head>
+      <body className="min-h-screen bg-gray-50 antialiased">
+        <Suspense fallback={<Loading />}>
+          <Header />
+          <main className="relative">{children}</main>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   )

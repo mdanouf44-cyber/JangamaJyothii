@@ -18,11 +18,23 @@ const CoffeePage = () => {
   useEffect(() => {
     setIsVisible(true)
     
-    // Rotate videos every 10 seconds
+    // Preload videos for better performance
+    const preloadVideos = () => {
+      coffeeVideos.forEach((videoSrc, index) => {
+        if (index < 2) { // Preload first 2 videos
+          const video = document.createElement('video')
+          video.preload = 'metadata'
+          video.src = videoSrc
+        }
+      })
+    }
+    
+    // Rotate videos every 8 seconds (reduced from 10 for faster rotation)
     const videoInterval = setInterval(() => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % coffeeVideos.length)
-    }, 10000)
+    }, 8000)
 
+    preloadVideos()
     return () => clearInterval(videoInterval)
   }, [])
 

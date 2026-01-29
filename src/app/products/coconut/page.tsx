@@ -98,6 +98,7 @@ const CoconutPage = () => {
             muted
             loop
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
           >
             <source src="/coconut-video-2.mp4" type="video/mp4" />
