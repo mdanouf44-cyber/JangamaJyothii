@@ -7,9 +7,35 @@ import ProductGrid from '@/components/ProductGrid'
 const RicePage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const riceVideos = [
+    '/rice-video-1.mp4',
+    '/rice-video-2.mp4',
+    '/rice-video-3.mp4'
+  ]
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Preload videos for better performance
+    const preloadVideos = () => {
+      riceVideos.forEach((videoSrc, index) => {
+        if (index < 2) { // Preload first 2 videos
+          const video = document.createElement('video')
+          video.preload = 'metadata'
+          video.src = videoSrc
+        }
+      })
+    }
+    
+    // Rotate videos every 8 seconds
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % riceVideos.length)
+    }, 8000)
+
+    preloadVideos()
+    return () => clearInterval(videoInterval)
   }, [])
 
   const varieties = [
@@ -75,53 +101,71 @@ const RicePage = () => {
     }
   ]
 
-  // Floating rice grain animation keyframes
-  const floatingRice = Array.from({ length: 8 }, (_, i) => (
-    <div
-      key={i}
-      className={`absolute text-yellow-600 text-xl opacity-20 animate-pulse`}
-      style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${i * 0.7}s`,
-        animationDuration: `${2 + Math.random() * 3}s`
-      }}
-    >
-      🌾
-    </div>
-  ))
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-amber-50 to-green-50">
-      {/* Floating Rice Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {floatingRice}
-      </div>
+      {/* Hero Section with Rotating Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Rotating Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          {riceVideos.map((videoSrc, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          ))}
+          <div className="absolute inset-0 bg-black/50"></div>
+          
+          {/* Video Indicators */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+            {riceVideos.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentVideoIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentVideoIndex 
+                    ? 'bg-white scale-125' 
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
 
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1 className={`text-5xl md:text-7xl font-bold text-amber-800 mb-6 transform transition-all duration-1000 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
-              Premium Rice
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <div className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+            {/* Main Title */}
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-yellow-300 via-amber-300 to-orange-300 bg-clip-text text-transparent animate-gradient">
+                Premium Rice
+              </span>
             </h1>
-            <p className={`text-xl md:text-2xl text-amber-600 mb-8 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
-              Superior Quality Rice Varieties from India's Fertile Agricultural Regions
+
+            {/* Subtitle */}
+            <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
+              Superior quality rice varieties from India's fertile agricultural regions with traditional farming excellence
             </p>
-            
-            {/* Image Placeholder */}
-            <div className={`w-full max-w-4xl mx-auto h-96 bg-gradient-to-r from-yellow-100 to-amber-100 rounded-2xl border-2 border-dashed border-amber-300 flex items-center justify-center mb-12 transform transition-all duration-1000 delay-500 ${
-              isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-            }`}>
-              <div className="text-center">
-                <div className="text-6xl mb-4">🌾</div>
-                <p className="text-amber-600 font-medium">Rice Hero Image</p>
-                <p className="text-amber-500 text-sm">Image will be added here</p>
-              </div>
+
+            {/* Feature Pills */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {['Premium Milling', 'Superior Quality', 'Export Grade', 'Multiple Varieties'].map((feature, index) => (
+                <div
+                  key={index}
+                  className={`px-6 py-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-medium transform transition-all duration-500 hover:scale-110 hover:bg-white/40 hover:border-white hover:shadow-2xl cursor-default ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                  style={{ transitionDelay: `${index * 200 + 800}ms` }}
+                >
+                  {feature}
+                </div>
+              ))}
             </div>
           </div>
         </div>
