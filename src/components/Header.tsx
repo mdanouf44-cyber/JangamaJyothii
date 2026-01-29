@@ -65,7 +65,7 @@ const Header = memo(() => {
             <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               <Link
                 href="/"
-                className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-75"
+                className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-200"
                 prefetch={true}
               >
                 Home
@@ -73,12 +73,12 @@ const Header = memo(() => {
               <div className="relative group">
                 <Link
                   href="/products"
-                  className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75 flex items-center gap-1"
+                  className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200 flex items-center gap-1"
                   prefetch={true}
                 >
                   Our Products
                   <svg
-                    className="w-4 h-4 transition-transform duration-75 group-hover:rotate-180"
+                    className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -97,7 +97,7 @@ const Header = memo(() => {
                       <Link
                         key={product.href}
                         href={product.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-75"
+                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-200"
                         prefetch={true}
                       >
                         {product.name}
@@ -108,14 +108,14 @@ const Header = memo(() => {
               </div>
               <Link
                 href="/about"
-                className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75"
+                className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
                 prefetch={true}
               >
                 About Us
               </Link>
               <Link
                 href="/contact"
-                className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75"
+                className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
                 prefetch={true}
               >
                 Contact Us
@@ -125,7 +125,7 @@ const Header = memo(() => {
             {/* CTA Button */}
             <div className="hidden md:flex items-center gap-4">
               <Link href="/contact" prefetch={true}>
-                <button className="bg-green-500 hover:bg-green-600 text-white px-6 xl:px-8 py-2 xl:py-3 rounded-full font-semibold text-sm uppercase tracking-wide transition-all duration-75 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <button className="bg-green-500 hover:bg-green-600 text-white px-6 xl:px-8 py-2 xl:py-3 rounded-full font-semibold text-sm uppercase tracking-wide transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
                   CONTACT NOW
                 </button>
               </Link>
@@ -134,7 +134,7 @@ const Header = memo(() => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="lg:hidden p-2 text-gray-700 hover:text-green-600 transition-colors duration-75"
+              className="lg:hidden p-2 text-gray-700 hover:text-green-600 transition-colors duration-200"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
@@ -159,7 +159,7 @@ const Header = memo(() => {
           <nav className="flex flex-col space-y-4">
             <Link
               href="/"
-              className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-75"
+              className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-200"
               onClick={closeMenu}
               prefetch={true}
             >
@@ -172,7 +172,7 @@ const Header = memo(() => {
                   <Link
                     key={product.href}
                     href={product.href}
-                    className="block text-gray-600 hover:text-green-600 transition-colors duration-75"
+                    className="block text-gray-600 hover:text-green-600 transition-colors duration-200"
                     onClick={closeMenu}
                     prefetch={true}
                   >
@@ -183,7 +183,7 @@ const Header = memo(() => {
             </div>
             <Link
               href="/about"
-              className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75"
+              className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
               onClick={closeMenu}
               prefetch={true}
             >
@@ -191,14 +191,14 @@ const Header = memo(() => {
             </Link>
             <Link
               href="/contact"
-              className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75"
+              className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
               onClick={closeMenu}
               prefetch={true}
             >
               Contact Us
             </Link>
             <Link href="/contact" onClick={closeMenu} prefetch={true}>
-              <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold text-sm uppercase tracking-wide transition-all duration-75 w-full shadow-lg hover:shadow-xl">
+              <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold text-sm uppercase tracking-wide transition-all duration-200 w-full shadow-lg hover:shadow-xl">
                 CONTACT NOW
               </button>
             </Link>
