@@ -22,8 +22,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Coconut',
-      image:
-        'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with coconut image when available
       description:
         'We supply premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder, meeting international standards for food, cosmetic, industrial, and sustainable eco-friendly applications worldwide.',
       features: [
@@ -35,8 +34,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Red Chilli',
-      image:
-        'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with red chilli image when available
       description:
         'We supply premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for their vibrant color, distinct flavor and varying heat levels, ideal for culinary use, spice blends and food processing industries worldwide.',
       features: [
@@ -48,8 +46,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Rice',
-      image:
-        'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with rice image when available
       description:
         'We supply premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, Jeera Samba and Broken Rice, known for their superior taste, texture, aroma, purity and consistency, ideal for culinary use and global food markets.',
       features: [
@@ -61,8 +58,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Turmeric',
-      image:
-        'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with turmeric image when available
       description:
         'We supply premium quality turmeric from Salem and Erode in Tamil Nadu, Lakadong in Meghalaya, and Alleppey Finger from Kerala, known for rich color, high curcumin and distinctive aroma, ideal for culinary, medicinal and industrial use worldwide.',
       features: [
@@ -74,8 +70,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Tamarind',
-      image:
-        'https://images.unsplash.com/photo-1609501676725-7186f0b4c4b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with tamarind image when available
       description:
         'We supply premium quality tamarind, tamarind seeds, and tamarind kernels, known for their tangy flavor, rich nutritional value, and wide use in culinary, beverage, confectionery, and food processing industries worldwide, with consistent quality assurance.',
       features: [
@@ -87,8 +82,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Pulses',
-      image:
-        'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with pulses image when available
       description:
         'We supply premium pulses including Black Chickpeas, Chickpeas (Split), Pigeon Peas, Black Gram, Green Gram, and Horse Gram, known for their rich taste, high protein content, exceptional quality, long shelf life, freshness, and natural goodness.',
       features: [
@@ -100,8 +94,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Areca Plates',
-      image:
-        'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with areca plates image when available
       description:
         'We supply premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and made from naturally fallen areca palm leaf sheaths – offering sustainable solutions for food service, catering, and retail needs.',
       features: [

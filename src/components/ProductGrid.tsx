@@ -12,37 +12,37 @@ const products = [
   },
   {
     name: 'Coconut',
-    image: '/logo.png', // Temporary placeholder
+    image: '/logo.png', // Will be replaced with coconut image when available
     href: '/products/coconut',
   },
   {
     name: 'Red Chilli',
-    image: '/logo.png', // Temporary placeholder
+    image: '/logo.png', // Will be replaced with red chilli image when available
     href: '/products/red-chilli',
   },
   {
     name: 'Rice',
-    image: '/logo.png', // Temporary placeholder
+    image: '/logo.png', // Will be replaced with rice image when available
     href: '/products/rice',
   },
   {
     name: 'Turmeric',
-    image: '/logo.png', // Temporary placeholder
+    image: '/logo.png', // Will be replaced with turmeric image when available
     href: '/products/turmeric',
   },
   {
     name: 'Tamarind',
-    image: '/logo.png', // Temporary placeholder
+    image: '/logo.png', // Will be replaced with tamarind image when available
     href: '/products/tamarind',
   },
   {
     name: 'Pulses',
-    image: '/logo.png', // Temporary placeholder
+    image: '/logo.png', // Will be replaced with pulses image when available
     href: '/products/pulses',
   },
   {
     name: 'Areca Plates',
-    image: '/logo.png', // Temporary placeholder
+    image: '/logo.png', // Will be replaced with areca plates image when available
     href: '/products/areca-plates',
   },
 ]

@@ -25,8 +25,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Coconut',
-      image:
-        'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with coconut image when available
       description:
         'Premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder.',
       features: [
@@ -39,8 +38,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Red Chilli',
-      image:
-        'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with red chilli image when available
       description:
         'Premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for vibrant color.',
       features: [
@@ -53,8 +51,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Rice',
-      image:
-        'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with rice image when available
       description:
         'Premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, and Jeera Samba.',
       features: [
@@ -67,8 +64,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Turmeric',
-      image:
-        'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with turmeric image when available
       description:
         'Premium quality turmeric from Salem, Erode, Lakadong, and Alleppey Finger, known for rich color and high curcumin.',
       features: [
@@ -81,8 +77,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Tamarind',
-      image:
-        'https://images.unsplash.com/photo-1609501676725-7186f0b4c4b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with tamarind image when available
       description:
         'Premium quality tamarind, tamarind seeds, and tamarind kernels, known for tangy flavor and rich nutrition.',
       features: [
@@ -95,8 +90,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Pulses',
-      image:
-        'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with pulses image when available
       description:
         'Premium pulses including Black Chickpeas, Chickpeas, Pigeon Peas, Black Gram, Green Gram, and Horse Gram.',
       features: [
@@ -109,8 +103,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Areca Plates',
-      image:
-        'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/logo.png', // Will be replaced with areca plates image when available
       description:
         'Premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and sustainable.',
       features: [
