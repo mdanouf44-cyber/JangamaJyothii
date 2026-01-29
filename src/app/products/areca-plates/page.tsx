@@ -126,6 +126,7 @@ const ArecaPlatesPage = () => {
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-10 opacity-0'
               }`}
+              suppressHydrationWarning
             >
               Areca Plates
             </h1>

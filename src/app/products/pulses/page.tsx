@@ -139,6 +139,7 @@ const PulsesPage = () => {
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-10 opacity-0'
               }`}
+              suppressHydrationWarning
             >
               Premium Pulses
             </h1>

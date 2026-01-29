@@ -174,6 +174,7 @@ const TurmericPage = () => {
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div
             className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+            suppressHydrationWarning
           >
             {/* Main Title */}
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
