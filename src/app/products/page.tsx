@@ -12,7 +12,7 @@ const ProductsPage = () => {
   const products = [
     {
       name: 'Coffee',
-      image: '/arabica-coffee-beans.png',
+      image: '/cover-coffee.jpg',
       description:
         'Premium-quality Arabica beans, Robusta beans, and roasted coffee beans – hand-selected and expertly processed.',
       features: [
@@ -25,7 +25,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Coconut',
-      image: '/fresh-coconut.jpg',
+      image: '/cover-coconut.jpg',
       description:
         'Premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder.',
       features: [
@@ -38,7 +38,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Red Chilli',
-      image: '/kashmiri-chilli.jpg', // Using actual red chilli image
+      image: '/cover-red-chilli.jpg', // Using cover image
       description:
         'Premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for vibrant color.',
       features: [
@@ -51,7 +51,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Rice',
-      image: '/sona-masoori-rice.jpg', // Using actual rice image
+      image: '/cover-rice.jpg', // Using cover image
       description:
         'Premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, and Jeera Samba.',
       features: [
@@ -64,7 +64,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Turmeric',
-      image: '/alleppey-finger-turmeric.jpg', // Using actual turmeric image
+      image: '/cover-turmeric.jpg', // Using cover image
       description:
         'Premium quality turmeric from Salem, Erode, Lakadong, and Alleppey Finger, known for rich color and high curcumin.',
       features: [
@@ -77,7 +77,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Tamarind',
-      image: '/tamarind-with-seeds.jpg', // Using actual tamarind image
+      image: '/cover-tamarind.jpg', // Using cover image
       description:
         'Premium quality tamarind, tamarind seeds, and tamarind kernels, known for tangy flavor and rich nutrition.',
       features: [
@@ -90,7 +90,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Pulses',
-      image: '/black-chickpeas.jpg', // Using actual pulses image
+      image: '/cover-pulses.jpg', // Using cover image
       description:
         'Premium pulses including Black Chickpeas, Chickpeas, Pigeon Peas, Black Gram, Green Gram, and Horse Gram.',
       features: [
@@ -103,7 +103,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Areca Plates',
-      image: '/round-areca-plates.jpg', // Using actual areca plates image
+      image: '/cover-areca-plates.jpg', // Using cover image
       description:
         'Premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and sustainable.',
       features: [
