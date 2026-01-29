@@ -42,12 +42,14 @@ const CountriesExportSection = () => {
                 key={index}
                 className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 border border-gray-100"
               >
-                <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm border">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-md border-2 border-gray-200">
                   <span
-                    className="text-xl leading-none"
+                    className="text-3xl leading-none"
                     style={{
                       fontFamily:
-                        'Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif',
+                        'Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, Android Emoji, EmojiSymbols, sans-serif',
+                      fontSize: '28px',
+                      display: 'inline-block',
                     }}
                   >
                     {country.flag}
