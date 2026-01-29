@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import {
   Leaf,
   Award,
@@ -60,6 +61,7 @@ const CoconutPage = () => {
       },
       color: 'from-green-600 to-emerald-800',
       icon: '🌿',
+      image: '/fresh-coconut.jpg',
     },
     {
       name: 'Copra (Dried Coconut)',
@@ -79,6 +81,7 @@ const CoconutPage = () => {
       },
       color: 'from-amber-600 to-orange-800',
       icon: '🌰',
+      image: '/copra-dried-coconut.jpg',
     },
     {
       name: 'Virgin Coconut Oil',
@@ -98,6 +101,7 @@ const CoconutPage = () => {
       },
       color: 'from-yellow-500 to-amber-700',
       icon: '🛢️',
+      image: '/virgin-coconut-oil.jpg',
     },
     {
       name: 'Refined Coconut Oil',
@@ -117,6 +121,7 @@ const CoconutPage = () => {
       },
       color: 'from-blue-500 to-teal-700',
       icon: '🏭',
+      image: '/refined-coconut-oil.jpg',
     },
     {
       name: 'Coconut Shell Charcoal Powder',
@@ -136,6 +141,7 @@ const CoconutPage = () => {
       },
       color: 'from-gray-700 to-black',
       icon: '⚫',
+      image: '/coconut-shell-charcoal-powder.jpg',
     },
   ]
 
@@ -435,19 +441,21 @@ const CoconutPage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                <div
-                  className={`bg-gradient-to-br ${variants[activeVariant].color} p-12 flex items-center justify-center min-h-[600px] relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-black/10"></div>
-                  <div className="text-center text-white relative z-10">
-                    <div className="text-8xl mb-8 opacity-90 animate-pulse-coffee">
-                      {variants[activeVariant].icon}
-                    </div>
-                    <div className="bg-black/40 backdrop-blur-md px-8 py-4 rounded-2xl border border-white/30">
-                      <p className="text-2xl font-bold mb-2">Premium Quality</p>
-                      <p className="text-lg opacity-90">
-                        {variants[activeVariant].name}
-                      </p>
+                {/* Image Section */}
+                <div className="bg-gray-100 min-h-[600px] relative overflow-hidden">
+                  {/* Display actual coconut images */}
+                  <div className="relative w-full h-full min-h-[600px]">
+                    <Image
+                      src={variants[activeVariant].image || ''}
+                      alt={variants[activeVariant].name}
+                      fill
+                      className="object-cover"
+                      priority={activeVariant === 0}
+                    />
+                    {/* Overlay label */}
+                    <div className="absolute bottom-8 right-8 bg-black/70 backdrop-blur-md px-6 py-3 rounded-xl border border-white/30 z-10">
+                      <p className="text-white font-bold text-lg">Premium Quality</p>
+                      <p className="text-green-200 text-sm">{variants[activeVariant].name}</p>
                     </div>
                   </div>
                 </div>

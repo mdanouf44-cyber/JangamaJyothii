@@ -25,7 +25,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Coconut',
-      image: '/logo.png', // Will be replaced with coconut image when available
+      image: '/fresh-coconut.jpg',
       description:
         'Premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder.',
       features: [

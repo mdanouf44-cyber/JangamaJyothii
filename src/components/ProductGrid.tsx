@@ -12,7 +12,7 @@ const products = [
   },
   {
     name: 'Coconut',
-    image: '/logo.png', // Will be replaced with coconut image when available
+    image: '/fresh-coconut.jpg',
     href: '/products/coconut',
   },
   {
