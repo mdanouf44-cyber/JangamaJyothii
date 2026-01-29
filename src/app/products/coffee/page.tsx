@@ -179,15 +179,15 @@ const CoffeePage = () => {
             ))}
           </div>
 
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-[1600px] mx-auto">
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-white/30">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section */}
-                <div className="bg-gray-100 min-h-[600px] relative overflow-hidden">
+                <div className="bg-gray-100 min-h-[700px] relative overflow-hidden">
                   {/* Display actual coffee images */}
                   {activeVariant === 2 ? (
                     // Roasted Coffee Beans - Rotating images
-                    <div className="relative w-full h-full min-h-[600px]">
+                    <div className="relative w-full h-full min-h-[700px]">
                       {variants[activeVariant].images?.map((imageSrc, index) => (
                         <div key={index} className="absolute inset-0">
                           <Image
@@ -222,7 +222,7 @@ const CoffeePage = () => {
                     </div>
                   ) : (
                     // Single images for Arabica and Robusta
-                    <div className="relative w-full h-full min-h-[600px]">
+                    <div className="relative w-full h-full min-h-[700px]">
                       <Image
                         src={variants[activeVariant].image || ''}
                         alt={variants[activeVariant].name}
