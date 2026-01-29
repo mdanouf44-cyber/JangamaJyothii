@@ -71,7 +71,7 @@ const CoffeePage = () => {
         moisture: 'Max 12.5%',
       },
       color: 'from-amber-600 to-amber-800',
-      image: '/arabica-coffee-beans.png',
+      image: '/robusta-coffee-beans.png',
     },
     {
       name: 'Roasted Coffee Beans',
