@@ -12,8 +12,7 @@ const ProductsPage = () => {
   const products = [
     {
       name: 'Coffee',
-      image:
-        'https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: '/arabica-coffee-beans.png',
       description:
         'Premium-quality Arabica beans, Robusta beans, and roasted coffee beans – hand-selected and expertly processed.',
       features: [

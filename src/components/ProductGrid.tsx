@@ -7,50 +7,42 @@ import { memo } from 'react'
 const products = [
   {
     name: 'Coffee',
-    image:
-      'https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/arabica-coffee-beans.png',
     href: '/products/coffee',
   },
   {
     name: 'Coconut',
-    image:
-      'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/logo.png', // Temporary placeholder
     href: '/products/coconut',
   },
   {
     name: 'Red Chilli',
-    image:
-      'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/logo.png', // Temporary placeholder
     href: '/products/red-chilli',
   },
   {
     name: 'Rice',
-    image:
-      'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/logo.png', // Temporary placeholder
     href: '/products/rice',
   },
   {
     name: 'Turmeric',
-    image:
-      'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/logo.png', // Temporary placeholder
     href: '/products/turmeric',
   },
   {
     name: 'Tamarind',
-    image:
-      'https://images.unsplash.com/photo-1609501676725-7186f0b4c4b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/logo.png', // Temporary placeholder
     href: '/products/tamarind',
   },
   {
     name: 'Pulses',
-    image:
-      'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/logo.png', // Temporary placeholder
     href: '/products/pulses',
   },
   {
     name: 'Areca Plates',
-    image:
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    image: '/logo.png', // Temporary placeholder
     href: '/products/areca-plates',
   },
 ]
