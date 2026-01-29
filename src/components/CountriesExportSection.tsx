@@ -1,20 +1,20 @@
 const CountriesExportSection = () => {
   const countries = [
-    { flag: '🇨🇦', name: 'Canada', code: 'CA' },
-    { flag: '🇮🇷', name: 'Iran', code: 'IR' },
-    { flag: '🇮🇱', name: 'Israel', code: 'IL' },
-    { flag: '🇰🇷', name: 'Korea (Republic of)', code: 'KR' },
-    { flag: '🇺🇸', name: 'United States of America', code: 'US' },
-    { flag: '🇹🇭', name: 'Thailand', code: 'TH' },
-    { flag: '🇬🇷', name: 'Greece', code: 'GR' },
-    { flag: '🇮🇶', name: 'Iraq', code: 'IQ' },
-    { flag: '🇦🇪', name: 'United Arab Emirates', code: 'AE' },
-    { flag: '🇸🇦', name: 'Saudi Arabia', code: 'SA' },
-    { flag: '🇬🇧', name: 'United Kingdom', code: 'GB' },
-    { flag: '🇷🇺', name: 'Russia', code: 'RU' },
-    { flag: '🇦🇺', name: 'Australia', code: 'AU' },
-    { flag: '🇲🇾', name: 'Malaysia', code: 'MY' },
-    { flag: '🇹🇼', name: 'Taiwan', code: 'TW' },
+    { flag: 'ca', name: 'Canada', code: 'CA' },
+    { flag: 'ir', name: 'Iran', code: 'IR' },
+    { flag: 'il', name: 'Israel', code: 'IL' },
+    { flag: 'kr', name: 'Korea (Republic of)', code: 'KR' },
+    { flag: 'us', name: 'United States of America', code: 'US' },
+    { flag: 'th', name: 'Thailand', code: 'TH' },
+    { flag: 'gr', name: 'Greece', code: 'GR' },
+    { flag: 'iq', name: 'Iraq', code: 'IQ' },
+    { flag: 'ae', name: 'United Arab Emirates', code: 'AE' },
+    { flag: 'sa', name: 'Saudi Arabia', code: 'SA' },
+    { flag: 'gb', name: 'United Kingdom', code: 'GB' },
+    { flag: 'ru', name: 'Russia', code: 'RU' },
+    { flag: 'au', name: 'Australia', code: 'AU' },
+    { flag: 'my', name: 'Malaysia', code: 'MY' },
+    { flag: 'tw', name: 'Taiwan', code: 'TW' },
   ]
 
   const stats = [
@@ -42,18 +42,16 @@ const CountriesExportSection = () => {
                 key={index}
                 className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 border border-gray-100"
               >
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-md border-2 border-gray-200">
-                  <span
-                    className="text-3xl leading-none"
-                    style={{
-                      fontFamily:
-                        'Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, Android Emoji, EmojiSymbols, sans-serif',
-                      fontSize: '28px',
-                      display: 'inline-block',
-                    }}
-                  >
-                    {country.flag}
-                  </span>
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-md border-2 border-gray-200 overflow-hidden">
+                  <img
+                    src={`https://flagcdn.com/w40/${country.flag}.png`}
+                    srcSet={`https://flagcdn.com/w80/${country.flag}.png 2x`}
+                    width="32"
+                    height="24"
+                    alt={`${country.name} flag`}
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="flex-1">
                   <span className="font-medium text-gray-800 text-lg">
