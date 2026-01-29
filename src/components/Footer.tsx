@@ -135,8 +135,8 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">+91 98765 43210</p>
-                  <p className="text-gray-300">+91 87654 32109</p>
+                  <p className="text-green-400">+91 80809 00723</p>
+                  <p className="text-green-400">+91 63604 15374</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -201,7 +201,7 @@ const Footer = () => {
       {/* WhatsApp Float Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/918080900723"
           target="_blank"
           rel="noopener noreferrer"
           className="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group"
