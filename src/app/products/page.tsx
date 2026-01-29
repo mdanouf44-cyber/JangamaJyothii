@@ -38,7 +38,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Red Chilli',
-      image: '/logo.png', // Will be replaced with red chilli image when available
+      image: '/kashmiri-chilli.jpg', // Using actual red chilli image
       description:
         'Premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for vibrant color.',
       features: [

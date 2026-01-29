@@ -34,7 +34,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Red Chilli',
-      image: '/logo.png', // Will be replaced with red chilli image when available
+      image: '/kashmiri-chilli.jpg', // Using actual red chilli image
       description:
         'We supply premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for their vibrant color, distinct flavor and varying heat levels, ideal for culinary use, spice blends and food processing industries worldwide.',
       features: [

@@ -17,7 +17,7 @@ const products = [
   },
   {
     name: 'Red Chilli',
-    image: '/logo.png', // Will be replaced with red chilli image when available
+    image: '/kashmiri-chilli.jpg', // Using actual red chilli image
     href: '/products/red-chilli',
   },
   {
