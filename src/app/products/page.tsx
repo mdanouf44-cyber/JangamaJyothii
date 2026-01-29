@@ -103,7 +103,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Areca Plates',
-      image: '/logo.png', // Will be replaced with areca plates image when available
+      image: '/round-areca-plates.jpg', // Using actual areca plates image
       description:
         'Premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and sustainable.',
       features: [

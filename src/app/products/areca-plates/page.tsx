@@ -15,6 +15,7 @@ const ArecaPlatesPage = () => {
   const varieties = [
     {
       name: 'Round Areca Plates',
+      image: '/round-areca-plates.jpg',
       description:
         'Round areca plates are the most commonly used eco-friendly tableware made from naturally fallen areca palm leaves. These plates are produced by cleaning and heat-pressing the leaves into a smooth, round shape without the use of chemicals or additives.',
       features: [
@@ -31,6 +32,7 @@ const ArecaPlatesPage = () => {
     },
     {
       name: 'Square Areca Plates',
+      image: '/square-areca-plates.jpg',
       description:
         'Square areca plates are designed for modern food presentation and efficient space usage. Made from natural areca palm leaves, these plates offer the same strength and eco-friendly benefits as round plates, with an added contemporary look.',
       features: [
@@ -47,6 +49,7 @@ const ArecaPlatesPage = () => {
     },
     {
       name: 'Compartment Areca Plates',
+      image: '/compartment-areca-plates.jpg',
       description:
         'Compartment areca plates are specially designed with multiple sections to separate different food items. These plates are ideal for serving full meals without mixing curries, rice, and side dishes using heat-press technology.',
       features: [
@@ -63,6 +66,7 @@ const ArecaPlatesPage = () => {
     },
     {
       name: 'Areca Bowls',
+      image: '/areca-bowls.jpg',
       description:
         'Areca bowls are molded from high-quality areca palm leaves and are ideal for serving gravies, curries, desserts, soups, and snacks. These bowls are naturally strong, leak-resistant, and safe for both hot and cold food items.',
       features: [
@@ -188,7 +192,7 @@ const ArecaPlatesPage = () => {
 
       {/* Varieties Section */}
       <section className="py-20 bg-gradient-to-r from-green-700 to-lime-700">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
             Our Areca Plate Varieties
           </h2>
@@ -210,24 +214,28 @@ const ArecaPlatesPage = () => {
             ))}
           </div>
 
-          {/* Active Variety Details */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Image Placeholder */}
-              <div className="bg-gradient-to-br from-green-100 to-lime-100 rounded-xl h-80 flex items-center justify-center border-2 border-dashed border-green-300">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">🍽️</div>
-                  <p className="text-green-700 font-medium">
-                    {varieties[activeVariety].name}
-                  </p>
-                  <p className="text-green-600 text-sm">
-                    Image will be added here
-                  </p>
+          {/* Active Variety Details - Wider Layout (60/40) */}
+          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-8xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-8">
+              {/* Image Section - 60% width (3 columns) */}
+              <div className="md:col-span-3">
+                <div className="relative h-[700px] rounded-xl overflow-hidden shadow-2xl">
+                  <img
+                    src={varieties[activeVariety].image}
+                    alt={varieties[activeVariety].name}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-2xl font-bold drop-shadow-lg">
+                      {varieties[activeVariety].name}
+                    </h3>
+                  </div>
                 </div>
               </div>
 
-              {/* Variety Info */}
-              <div>
+              {/* Content Section - 40% width (2 columns) */}
+              <div className="md:col-span-2">
                 <h3 className="text-2xl font-bold text-green-900 mb-4">
                   {varieties[activeVariety].name}
                 </h3>
@@ -240,7 +248,7 @@ const ArecaPlatesPage = () => {
                   <h4 className="font-semibold text-green-800 mb-3">
                     Key Features:
                   </h4>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 gap-2">
                     {varieties[activeVariety].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-green-600 rounded-full"></div>
@@ -251,7 +259,7 @@ const ArecaPlatesPage = () => {
                 </div>
 
                 {/* Specifications */}
-                <div className="bg-green-50 rounded-lg p-4">
+                <div className="bg-green-50 rounded-lg p-4 mb-6">
                   <h4 className="font-semibold text-green-800 mb-3">
                     Specifications:
                   </h4>
@@ -276,26 +284,26 @@ const ArecaPlatesPage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Uses and Packaging */}
-            <div className="mt-8 grid md:grid-cols-2 gap-6">
-              <div className="p-6 bg-gradient-to-r from-green-50 to-lime-50 rounded-xl">
-                <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
-                  <Globe className="w-5 h-5" />
-                  Applications:
-                </h4>
-                <p className="text-gray-800">{varieties[activeVariety].uses}</p>
-              </div>
-              <div className="p-6 bg-gradient-to-r from-lime-50 to-green-50 rounded-xl">
-                <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
-                  <Shield className="w-5 h-5" />
-                  Packaging:
-                </h4>
-                <p className="text-gray-800">
-                  {varieties[activeVariety].packaging}
-                </p>
+                {/* Uses and Packaging */}
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="p-4 bg-gradient-to-r from-green-50 to-lime-50 rounded-xl">
+                    <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
+                      <Globe className="w-4 h-4" />
+                      Applications:
+                    </h4>
+                    <p className="text-gray-800 text-sm">{varieties[activeVariety].uses}</p>
+                  </div>
+                  <div className="p-4 bg-gradient-to-r from-lime-50 to-green-50 rounded-xl">
+                    <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
+                      <Shield className="w-4 h-4" />
+                      Packaging:
+                    </h4>
+                    <p className="text-gray-800 text-sm">
+                      {varieties[activeVariety].packaging}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

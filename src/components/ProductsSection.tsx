@@ -94,7 +94,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Areca Plates',
-      image: '/logo.png', // Will be replaced with areca plates image when available
+      image: '/round-areca-plates.jpg', // Using actual areca plates image
       description:
         'We supply premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and made from naturally fallen areca palm leaf sheaths – offering sustainable solutions for food service, catering, and retail needs.',
       features: [

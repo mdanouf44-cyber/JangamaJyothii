@@ -42,7 +42,7 @@ const products = [
   },
   {
     name: 'Areca Plates',
-    image: '/logo.png', // Will be replaced with areca plates image when available
+    image: '/round-areca-plates.jpg', // Using actual areca plates image
     href: '/products/areca-plates',
   },
 ]
