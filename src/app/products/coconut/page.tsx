@@ -12,7 +12,7 @@ import {
   Droplets,
   Shield,
 } from 'lucide-react'
-import { ProductGrid } from '@/components'
+import { ProductGrid, OurProductsSection } from '@/components'
 
 const CoconutPage = () => {
   const [activeVariant, setActiveVariant] = useState(0)
@@ -614,6 +614,9 @@ const CoconutPage = () => {
 
       {/* Product Grid */}
       <ProductGrid />
+
+      {/* Our Products Section */}
+      <OurProductsSection />
     </div>
   )
 }
