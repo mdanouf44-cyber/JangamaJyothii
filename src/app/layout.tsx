@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Suspense } from 'react'
+import RoutePreloader from '@/components/RoutePreloader'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -118,6 +119,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body className="min-h-screen bg-gray-50 antialiased">
+        <RoutePreloader />
         <Suspense fallback={<Loading />}>
           <Header />
           <main className="relative">{children}</main>
