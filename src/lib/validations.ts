@@ -2,10 +2,18 @@ import { z } from 'zod'
 
 // Base validation schemas
 export const emailSchema = z.string().email('Invalid email address')
-export const phoneSchema = z.string().regex(/^\+?[\d\s\-\(\)]{10,}$/, 'Invalid phone number')
-export const countryCodeSchema = z.string().length(2, 'Country code must be 2 characters')
-export const hsCodeSchema = z.string().regex(/^\d{4}\.\d{2}\.\d{2}$/, 'Invalid HS code format')
-export const slugSchema = z.string().regex(/^[a-z0-9-]+$/, 'Invalid slug format')
+export const phoneSchema = z
+  .string()
+  .regex(/^\+?[\d\s\-\(\)]{10,}$/, 'Invalid phone number')
+export const countryCodeSchema = z
+  .string()
+  .length(2, 'Country code must be 2 characters')
+export const hsCodeSchema = z
+  .string()
+  .regex(/^\d{4}\.\d{2}\.\d{2}$/, 'Invalid HS code format')
+export const slugSchema = z
+  .string()
+  .regex(/^[a-z0-9-]+$/, 'Invalid slug format')
 
 // User validation schemas
 export const userCreateSchema = z.object({
@@ -82,10 +90,13 @@ export const productCreateSchema = z.object({
   complianceDocs: productComplianceDocsSchema.optional(),
 })
 
-export const productUpdateSchema = productCreateSchema.partial().omit({ categoryId: true }).extend({
-  categoryId: z.string().cuid().optional(),
-  isActive: z.boolean().optional(),
-})
+export const productUpdateSchema = productCreateSchema
+  .partial()
+  .omit({ categoryId: true })
+  .extend({
+    categoryId: z.string().cuid().optional(),
+    isActive: z.boolean().optional(),
+  })
 
 export const productSearchSchema = z.object({
   term: z.string().max(200).optional(),
@@ -112,19 +123,39 @@ export const rfqCreateSchema = z.object({
   targetPrice: z.number().positive('Target price must be positive').optional(),
   deliveryLocation: z.string().min(1, 'Delivery location is required').max(255),
   timeline: z.string().min(1, 'Timeline is required').max(100),
-  incoterms: z.enum(['FOB', 'CIF', 'CFR', 'EXW', 'DDP', 'DAP', 'FCA']).optional(),
+  incoterms: z
+    .enum(['FOB', 'CIF', 'CFR', 'EXW', 'DDP', 'DAP', 'FCA'])
+    .optional(),
   additionalRequirements: z.string().max(2000).optional(),
 })
 
 export const rfqUpdateSchema = z.object({
-  status: z.enum(['pending', 'in_progress', 'quoted', 'accepted', 'rejected', 'completed']).optional(),
+  status: z
+    .enum([
+      'pending',
+      'in_progress',
+      'quoted',
+      'accepted',
+      'rejected',
+      'completed',
+    ])
+    .optional(),
   priority: z.enum(['low', 'normal', 'high', 'urgent']).optional(),
   assignedTo: z.string().cuid().optional(),
   notes: z.string().max(2000).optional(),
 })
 
 export const rfqFilterSchema = z.object({
-  status: z.enum(['pending', 'in_progress', 'quoted', 'accepted', 'rejected', 'completed']).optional(),
+  status: z
+    .enum([
+      'pending',
+      'in_progress',
+      'quoted',
+      'accepted',
+      'rejected',
+      'completed',
+    ])
+    .optional(),
   priority: z.enum(['low', 'normal', 'high', 'urgent']).optional(),
   assignedTo: z.string().cuid().optional(),
   buyerCountry: countryCodeSchema.optional(),
@@ -138,7 +169,14 @@ export const rfqFilterSchema = z.object({
 // Certificate validation schemas
 export const certificateCreateSchema = z.object({
   name: z.string().min(1, 'Certificate name is required').max(255),
-  type: z.enum(['food_safety', 'organic', 'export_license', 'food_license', 'quality', 'environmental']),
+  type: z.enum([
+    'food_safety',
+    'organic',
+    'export_license',
+    'food_license',
+    'quality',
+    'environmental',
+  ]),
   issuer: z.string().max(255).optional(),
   issueDate: z.string().datetime().optional(),
   expiryDate: z.string().datetime().optional(),
@@ -147,9 +185,11 @@ export const certificateCreateSchema = z.object({
   fileSize: z.number().int().positive().optional(),
 })
 
-export const certificateUpdateSchema = certificateCreateSchema.partial().extend({
-  isActive: z.boolean().optional(),
-})
+export const certificateUpdateSchema = certificateCreateSchema
+  .partial()
+  .extend({
+    isActive: z.boolean().optional(),
+  })
 
 // Contact form validation schema
 export const contactFormSchema = z.object({
@@ -159,7 +199,10 @@ export const contactFormSchema = z.object({
   company: z.string().max(255).optional(),
   country: countryCodeSchema.optional(),
   subject: z.string().min(1, 'Subject is required').max(200),
-  message: z.string().min(10, 'Message must be at least 10 characters').max(2000),
+  message: z
+    .string()
+    .min(10, 'Message must be at least 10 characters')
+    .max(2000),
 })
 
 // Communication log validation schema
@@ -177,7 +220,11 @@ export const communicationLogSchema = z.object({
 export const fileUploadSchema = z.object({
   filename: z.string().min(1, 'Filename is required'),
   mimetype: z.string().min(1, 'MIME type is required'),
-  size: z.number().int().positive().max(10 * 1024 * 1024, 'File size must be less than 10MB'),
+  size: z
+    .number()
+    .int()
+    .positive()
+    .max(10 * 1024 * 1024, 'File size must be less than 10MB'),
 })
 
 // Pagination validation schema
@@ -273,7 +320,7 @@ export function validateInputSafe<T>(
 
 export function getValidationErrors(error: z.ZodError): Record<string, string> {
   const errors: Record<string, string> = {}
-  error.errors.forEach((err) => {
+  error.errors.forEach(err => {
     const path = err.path.join('.')
     errors[path] = err.message
   })

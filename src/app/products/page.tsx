@@ -4,67 +4,124 @@ import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Our Products - Shree Jangama Jyothi Global LLP',
-  description: 'Explore our premium agricultural products including coconut, coffee, spices, rice, and more. Quality-assured exports from India.',
+  description:
+    'Explore our premium agricultural products including coconut, coffee, spices, rice, and more. Quality-assured exports from India.',
 }
 
 const ProductsPage = () => {
   const products = [
     {
       name: 'Coffee',
-      image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium-quality Arabica beans, Robusta beans, and roasted coffee beans – hand-selected and expertly processed.',
-      features: ['Arabica & Robusta', 'Hand-Selected', 'Expertly Processed', 'Fresh & Aromatic'],
-      href: '/products/coffee'
+      image:
+        'https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description:
+        'Premium-quality Arabica beans, Robusta beans, and roasted coffee beans – hand-selected and expertly processed.',
+      features: [
+        'Arabica & Robusta',
+        'Hand-Selected',
+        'Expertly Processed',
+        'Fresh & Aromatic',
+      ],
+      href: '/products/coffee',
     },
     {
       name: 'Coconut',
-      image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder.',
-      features: ['Premium Quality', 'Multiple Products', 'International Standards', 'Eco-Friendly'],
-      href: '/products/coconut'
+      image:
+        'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description:
+        'Premium-quality fresh coconuts, dry copra, virgin coconut oil, coconut oil, coconut shells, and charcoal powder.',
+      features: [
+        'Premium Quality',
+        'Multiple Products',
+        'International Standards',
+        'Eco-Friendly',
+      ],
+      href: '/products/coconut',
     },
     {
       name: 'Red Chilli',
-      image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for vibrant color.',
-      features: ['Guntur & Byadgi', 'Vibrant Color', 'Distinct Flavor', 'Varying Heat Levels'],
-      href: '/products/red-chilli'
+      image:
+        'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description:
+        'Premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for vibrant color.',
+      features: [
+        'Guntur & Byadgi',
+        'Vibrant Color',
+        'Distinct Flavor',
+        'Varying Heat Levels',
+      ],
+      href: '/products/red-chilli',
     },
     {
       name: 'Rice',
-      image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, and Jeera Samba.',
-      features: ['Multiple Varieties', 'Superior Taste', 'Premium Quality', 'Global Standards'],
-      href: '/products/rice'
+      image:
+        'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description:
+        'Premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, and Jeera Samba.',
+      features: [
+        'Multiple Varieties',
+        'Superior Taste',
+        'Premium Quality',
+        'Global Standards',
+      ],
+      href: '/products/rice',
     },
     {
       name: 'Turmeric',
-      image: 'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium quality turmeric from Salem, Erode, Lakadong, and Alleppey Finger, known for rich color and high curcumin.',
-      features: ['High Curcumin', 'Rich Color', 'Multiple Origins', 'Medicinal Grade'],
-      href: '/products/turmeric'
+      image:
+        'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description:
+        'Premium quality turmeric from Salem, Erode, Lakadong, and Alleppey Finger, known for rich color and high curcumin.',
+      features: [
+        'High Curcumin',
+        'Rich Color',
+        'Multiple Origins',
+        'Medicinal Grade',
+      ],
+      href: '/products/turmeric',
     },
     {
       name: 'Tamarind',
-      image: 'https://images.unsplash.com/photo-1609501676725-7186f0b4c4b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium quality tamarind, tamarind seeds, and tamarind kernels, known for tangy flavor and rich nutrition.',
-      features: ['Tangy Flavor', 'Rich Nutrition', 'Multiple Forms', 'Quality Assured'],
-      href: '/products/tamarind'
+      image:
+        'https://images.unsplash.com/photo-1609501676725-7186f0b4c4b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description:
+        'Premium quality tamarind, tamarind seeds, and tamarind kernels, known for tangy flavor and rich nutrition.',
+      features: [
+        'Tangy Flavor',
+        'Rich Nutrition',
+        'Multiple Forms',
+        'Quality Assured',
+      ],
+      href: '/products/tamarind',
     },
     {
       name: 'Pulses',
-      image: 'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium pulses including Black Chickpeas, Chickpeas, Pigeon Peas, Black Gram, Green Gram, and Horse Gram.',
-      features: ['High Protein', 'Multiple Varieties', 'Long Shelf Life', 'Natural Goodness'],
-      href: '/products/pulses'
+      image:
+        'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description:
+        'Premium pulses including Black Chickpeas, Chickpeas, Pigeon Peas, Black Gram, Green Gram, and Horse Gram.',
+      features: [
+        'High Protein',
+        'Multiple Varieties',
+        'Long Shelf Life',
+        'Natural Goodness',
+      ],
+      href: '/products/pulses',
     },
     {
       name: 'Areca Plates',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      description: 'Premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and sustainable.',
-      features: ['Biodegradable', 'Compostable', 'Eco-Friendly', 'Sustainable Solutions'],
-      href: '/products/areca-plates'
-    }
+      image:
+        'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      description:
+        'Premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and sustainable.',
+      features: [
+        'Biodegradable',
+        'Compostable',
+        'Eco-Friendly',
+        'Sustainable Solutions',
+      ],
+      href: '/products/areca-plates',
+    },
   ]
 
   return (
@@ -74,7 +131,8 @@ const ProductsPage = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
           <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
-            Discover our premium range of agricultural products, sourced from the finest farms across India
+            Discover our premium range of agricultural products, sourced from
+            the finest farms across India
           </p>
         </div>
       </section>
@@ -85,8 +143,8 @@ const ProductsPage = () => {
           {/* Products Grid - 3x4 layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <Link 
-                key={index} 
+              <Link
+                key={index}
                 href={product.href}
                 className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
               >
@@ -139,7 +197,8 @@ const ProductsPage = () => {
               Interested in Our Products?
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Get in touch with us for bulk orders, custom packaging, or any inquiries about our premium agricultural products.
+              Get in touch with us for bulk orders, custom packaging, or any
+              inquiries about our premium agricultural products.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

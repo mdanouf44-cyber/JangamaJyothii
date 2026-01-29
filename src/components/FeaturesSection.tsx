@@ -5,23 +5,27 @@ const FeaturesSection = () => {
     {
       icon: <Leaf className="w-8 h-8" />,
       title: 'Science-Backed Seed Innovation',
-      description: 'Advanced agricultural techniques and quality seed selection for superior crop yields'
+      description:
+        'Advanced agricultural techniques and quality seed selection for superior crop yields',
     },
     {
       icon: <Droplets className="w-8 h-8" />,
       title: 'Farmer-First Philosophy',
-      description: 'Supporting local farmers with fair pricing and sustainable farming practices'
+      description:
+        'Supporting local farmers with fair pricing and sustainable farming practices',
     },
     {
       icon: <Award className="w-8 h-8" />,
       title: 'Sustainable Agricultural Practices',
-      description: 'Environmentally responsible farming methods for long-term sustainability'
+      description:
+        'Environmentally responsible farming methods for long-term sustainability',
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: 'Trusted and Compliant Operations',
-      description: 'Full compliance with international standards and quality certifications'
-    }
+      description:
+        'Full compliance with international standards and quality certifications',
+    },
   ]
 
   return (

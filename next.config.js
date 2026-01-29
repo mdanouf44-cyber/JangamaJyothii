@@ -2,10 +2,10 @@
 const nextConfig = {
   images: {
     domains: [
-      'images.unsplash.com', 
+      'images.unsplash.com',
       'via.placeholder.com',
       'localhost',
-      'res.cloudinary.com'
+      'res.cloudinary.com',
     ],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,

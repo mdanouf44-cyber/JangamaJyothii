@@ -2,7 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Coffee, Leaf, Award, Globe, Package, Clock, Thermometer } from 'lucide-react'
+import {
+  Coffee,
+  Leaf,
+  Award,
+  Globe,
+  Package,
+  Clock,
+  Thermometer,
+} from 'lucide-react'
 import { ProductGrid } from '@/components'
 
 const CoffeePage = () => {
@@ -11,33 +19,31 @@ const CoffeePage = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
   const [roastedImageIndex, setRoastedImageIndex] = useState(0)
 
-  const coffeeVideos = [
-    '/coffee-video-1.mp4',
-    '/coffee-video-2.mp4'
-  ]
+  const coffeeVideos = ['/coffee-video-1.mp4', '/coffee-video-2.mp4']
 
   useEffect(() => {
     setIsVisible(true)
-    
+
     // Preload videos for better performance
     const preloadVideos = () => {
       coffeeVideos.forEach((videoSrc, index) => {
-        if (index < 2) { // Preload first 2 videos
+        if (index < 2) {
+          // Preload first 2 videos
           const video = document.createElement('video')
           video.preload = 'metadata'
           video.src = videoSrc
         }
       })
     }
-    
+
     // Rotate videos every 8 seconds (reduced from 10 for faster rotation)
     const videoInterval = setInterval(() => {
-      setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % coffeeVideos.length)
+      setCurrentVideoIndex(prevIndex => (prevIndex + 1) % coffeeVideos.length)
     }, 8000)
 
     // Rotate roasted coffee images every 4 seconds
     const roastedImageInterval = setInterval(() => {
-      setRoastedImageIndex((prevIndex) => (prevIndex + 1) % 2)
+      setRoastedImageIndex(prevIndex => (prevIndex + 1) % 2)
     }, 4000)
 
     preloadVideos()
@@ -50,51 +56,81 @@ const CoffeePage = () => {
   const variants = [
     {
       name: 'Arabica Coffee Beans',
-      description: 'Arabica coffee beans are sourced from high-altitude plantations where climatic conditions support slow bean development and superior flavor formation. These beans are carefully handpicked at optimal ripeness to ensure uniform size, smooth texture, and rich aroma.',
-      features: ['Mild Acidity', 'Balanced Sweetness', 'Refined Taste', 'High Altitude Grown'],
+      description:
+        'Arabica coffee beans are sourced from high-altitude plantations where climatic conditions support slow bean development and superior flavor formation. These beans are carefully handpicked at optimal ripeness to ensure uniform size, smooth texture, and rich aroma.',
+      features: [
+        'Mild Acidity',
+        'Balanced Sweetness',
+        'Refined Taste',
+        'High Altitude Grown',
+      ],
       specs: {
         hsCode: '090111',
         moq: '1 Metric Ton',
         shelfLife: '12–18 months',
-        moisture: 'Max 12.5%'
+        moisture: 'Max 12.5%',
       },
       color: 'from-amber-600 to-amber-800',
-      image: '/arabica-coffee-beans.png'
+      image: '/arabica-coffee-beans.png',
     },
     {
       name: 'Robusta Coffee Beans',
-      description: 'Robusta coffee beans are cultivated in regions with warm climates and are valued for their strong body, bold flavor, and higher caffeine content. These beans are carefully harvested and processed to ensure consistency in quality and taste.',
-      features: ['Strong Body', 'Bold Flavor', 'Higher Caffeine', 'Excellent Crema'],
+      description:
+        'Robusta coffee beans are cultivated in regions with warm climates and are valued for their strong body, bold flavor, and higher caffeine content. These beans are carefully harvested and processed to ensure consistency in quality and taste.',
+      features: [
+        'Strong Body',
+        'Bold Flavor',
+        'Higher Caffeine',
+        'Excellent Crema',
+      ],
       specs: {
         hsCode: '090111',
         moq: '1 Metric Ton',
         shelfLife: '12–18 months',
-        moisture: 'Max 12.5%'
+        moisture: 'Max 12.5%',
       },
       color: 'from-brown-600 to-brown-800',
-      image: '/robusta-coffee-beans.png'
+      image: '/robusta-coffee-beans.png',
     },
     {
       name: 'Roasted Coffee Beans',
-      description: 'Our roasted coffee beans are prepared from high-quality Arabica and Robusta beans using controlled roasting techniques. The roasting process is carefully monitored to develop rich aroma, balanced flavor, and consistent color while preserving freshness.',
-      features: ['Controlled Roasting', 'Rich Aroma', 'Multiple Roast Profiles', 'Extended Shelf Life'],
+      description:
+        'Our roasted coffee beans are prepared from high-quality Arabica and Robusta beans using controlled roasting techniques. The roasting process is carefully monitored to develop rich aroma, balanced flavor, and consistent color while preserving freshness.',
+      features: [
+        'Controlled Roasting',
+        'Rich Aroma',
+        'Multiple Roast Profiles',
+        'Extended Shelf Life',
+      ],
       specs: {
         hsCode: '090121',
         moq: '500 KG',
         shelfLife: '6–12 months',
-        moisture: 'Max 5%'
+        moisture: 'Max 5%',
       },
       color: 'from-orange-600 to-red-700',
       images: ['/roasted-arabica.jpg', '/roasted-robusta.jpg'], // Rotating images for roasted beans
-      currentImageIndex: 0
-    }
+      currentImageIndex: 0,
+    },
   ]
 
   const qualityPoints = [
-    { icon: Leaf, title: 'Premium Quality', desc: 'Carefully selected from ideal plantations' },
-    { icon: Award, title: 'International Standards', desc: 'Meets global export requirements' },
+    {
+      icon: Leaf,
+      title: 'Premium Quality',
+      desc: 'Carefully selected from ideal plantations',
+    },
+    {
+      icon: Award,
+      title: 'International Standards',
+      desc: 'Meets global export requirements',
+    },
     { icon: Globe, title: 'Global Supply', desc: 'Serving markets worldwide' },
-    { icon: Package, title: 'Flexible Packaging', desc: 'Customized for your needs' }
+    {
+      icon: Package,
+      title: 'Flexible Packaging',
+      desc: 'Customized for your needs',
+    },
   ]
 
   return (
@@ -118,7 +154,7 @@ const CoffeePage = () => {
             </video>
           ))}
           <div className="absolute inset-0 bg-black/50"></div>
-          
+
           {/* Video Indicators */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
             {coffeeVideos.map((_, index) => (
@@ -126,8 +162,8 @@ const CoffeePage = () => {
                 key={index}
                 onClick={() => setCurrentVideoIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentVideoIndex 
-                    ? 'bg-white scale-125' 
+                  index === currentVideoIndex
+                    ? 'bg-white scale-125'
                     : 'bg-white/50 hover:bg-white/75'
                 }`}
               />
@@ -137,7 +173,9 @@ const CoffeePage = () => {
 
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <div className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+          <div
+            className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+          >
             {/* Main Title */}
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
               <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-300 bg-clip-text text-transparent animate-gradient">
@@ -147,7 +185,9 @@ const CoffeePage = () => {
 
             {/* Subtitle */}
             <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
-              Sourced from carefully selected plantations, processed with industry-standard methods to deliver exceptional quality and flavor
+              Sourced from carefully selected plantations, processed with
+              industry-standard methods to deliver exceptional quality and
+              flavor
             </p>
           </div>
         </div>
@@ -162,7 +202,8 @@ const CoffeePage = () => {
             </h2>
             <div className="w-24 h-1 bg-brown-600 mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              From plantation to your cup - discover our commitment to quality at every step
+              From plantation to your cup - discover our commitment to quality
+              at every step
             </p>
           </div>
 
@@ -171,24 +212,42 @@ const CoffeePage = () => {
               {
                 step: '01',
                 title: 'Plantation Selection',
-                description: 'Sourced from carefully selected plantations with ideal climate, rich soil, and traditional coffee-growing practices.',
+                description:
+                  'Sourced from carefully selected plantations with ideal climate, rich soil, and traditional coffee-growing practices.',
                 icon: '🌱',
-                features: ['High Altitude Farms', 'Rich Volcanic Soil', 'Optimal Climate', 'Traditional Methods']
+                features: [
+                  'High Altitude Farms',
+                  'Rich Volcanic Soil',
+                  'Optimal Climate',
+                  'Traditional Methods',
+                ],
               },
               {
                 step: '02',
                 title: 'Quality Processing',
-                description: 'Beans undergo thorough cleaning, grading, and quality checks using industry-standard methods.',
+                description:
+                  'Beans undergo thorough cleaning, grading, and quality checks using industry-standard methods.',
                 icon: '⚙️',
-                features: ['Advanced Sorting', 'Quality Testing', 'Moisture Control', 'Grade Classification']
+                features: [
+                  'Advanced Sorting',
+                  'Quality Testing',
+                  'Moisture Control',
+                  'Grade Classification',
+                ],
               },
               {
                 step: '03',
                 title: 'Global Export',
-                description: 'Carefully packaged and delivered to international markets with focus on quality and traceability.',
+                description:
+                  'Carefully packaged and delivered to international markets with focus on quality and traceability.',
                 icon: '🌍',
-                features: ['Quality Packaging', 'Global Shipping', 'Temperature Control', 'Full Traceability']
-              }
+                features: [
+                  'Quality Packaging',
+                  'Global Shipping',
+                  'Temperature Control',
+                  'Full Traceability',
+                ],
+              },
             ].map((step, index) => (
               <div
                 key={index}
@@ -214,7 +273,10 @@ const CoffeePage = () => {
                     Key Features
                   </h4>
                   {step.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-sm text-gray-600">
+                    <div
+                      key={featureIndex}
+                      className="flex items-center text-sm text-gray-600"
+                    >
                       <div className="w-2 h-2 bg-brown-600 rounded-full mr-3 flex-shrink-0"></div>
                       <span>{feature}</span>
                     </div>
@@ -243,9 +305,7 @@ const CoffeePage = () => {
                 <h3 className="text-xl font-semibold text-brown-800 mb-2 text-center">
                   {point.title}
                 </h3>
-                <p className="text-gray-600 text-center">
-                  {point.desc}
-                </p>
+                <p className="text-gray-600 text-center">{point.desc}</p>
               </div>
             ))}
           </div>
@@ -256,22 +316,25 @@ const CoffeePage = () => {
       <section className="py-20 bg-gradient-to-br from-red-900 via-amber-900 to-red-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div
+              className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+            >
               <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">
                 Coffee Heritage
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-amber-400 to-orange-400 mx-auto mb-8"></div>
               <p className="text-xl md:text-2xl text-white leading-relaxed mb-12">
-                "From the misty highlands where our coffee grows to the careful hands that harvest each bean, 
-                every cup tells a story of tradition, passion, and unwavering commitment to excellence."
+                "From the misty highlands where our coffee grows to the careful
+                hands that harvest each bean, every cup tells a story of
+                tradition, passion, and unwavering commitment to excellence."
               </p>
-              
+
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
                   { number: '1000+', label: 'Farmers', icon: '👨‍🌾' },
                   { number: '50+', label: 'Years Heritage', icon: '🏛️' },
                   { number: '15+', label: 'Regions', icon: '🌍' },
-                  { number: '100%', label: 'Sustainable', icon: '🌱' }
+                  { number: '100%', label: 'Sustainable', icon: '🌱' },
                 ].map((stat, index) => (
                   <div
                     key={index}
@@ -300,7 +363,8 @@ const CoffeePage = () => {
             Available Variants
           </h2>
           <p className="text-xl text-amber-200 text-center mb-16 max-w-2xl mx-auto drop-shadow-lg">
-            Choose from our premium selection of coffee varieties, each with unique characteristics and flavor profiles.
+            Choose from our premium selection of coffee varieties, each with
+            unique characteristics and flavor profiles.
           </p>
 
           <div className="flex flex-wrap justify-center gap-6 mb-16">
@@ -322,32 +386,40 @@ const CoffeePage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                <div className={`bg-gradient-to-br ${variants[activeVariant].color} p-12 flex items-center justify-center min-h-[600px] relative overflow-hidden`}>
+                <div
+                  className={`bg-gradient-to-br ${variants[activeVariant].color} p-12 flex items-center justify-center min-h-[600px] relative overflow-hidden`}
+                >
                   <div className="absolute inset-0 bg-black/10"></div>
                   <div className="text-center text-white relative z-10">
                     {/* Display actual coffee images */}
                     {activeVariant === 2 ? (
                       // Roasted Coffee Beans - Rotating images
                       <div className="relative w-80 h-80 mx-auto mb-8">
-                        {variants[activeVariant].images?.map((imageSrc, index) => (
-                          <Image
-                            key={index}
-                            src={imageSrc}
-                            alt={`${variants[activeVariant].name} - ${index === 0 ? 'Arabica' : 'Robusta'}`}
-                            width={320}
-                            height={320}
-                            className={`absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl transition-opacity duration-1000 ${
-                              index === roastedImageIndex ? 'opacity-100' : 'opacity-0'
-                            }`}
-                          />
-                        ))}
+                        {variants[activeVariant].images?.map(
+                          (imageSrc, index) => (
+                            <Image
+                              key={index}
+                              src={imageSrc}
+                              alt={`${variants[activeVariant].name} - ${index === 0 ? 'Arabica' : 'Robusta'}`}
+                              width={320}
+                              height={320}
+                              className={`absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl transition-opacity duration-1000 ${
+                                index === roastedImageIndex
+                                  ? 'opacity-100'
+                                  : 'opacity-0'
+                              }`}
+                            />
+                          )
+                        )}
                         {/* Image indicators for roasted beans */}
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                           {variants[activeVariant].images?.map((_, index) => (
                             <div
                               key={index}
                               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                index === roastedImageIndex ? 'bg-white' : 'bg-white/50'
+                                index === roastedImageIndex
+                                  ? 'bg-white'
+                                  : 'bg-white/50'
                               }`}
                             />
                           ))}
@@ -365,13 +437,17 @@ const CoffeePage = () => {
                         />
                       </div>
                     )}
-                    
+
                     <div className="bg-black/40 backdrop-blur-md px-8 py-4 rounded-2xl border border-white/30">
                       <p className="text-2xl font-bold mb-2">Premium Quality</p>
-                      <p className="text-lg opacity-90">{variants[activeVariant].name}</p>
+                      <p className="text-lg opacity-90">
+                        {variants[activeVariant].name}
+                      </p>
                       {activeVariant === 2 && (
                         <p className="text-sm opacity-75 mt-2">
-                          {roastedImageIndex === 0 ? 'Roasted Arabica' : 'Roasted Robusta'}
+                          {roastedImageIndex === 0
+                            ? 'Roasted Arabica'
+                            : 'Roasted Robusta'}
                         </p>
                       )}
                     </div>
@@ -384,11 +460,11 @@ const CoffeePage = () => {
                       Premium Quality Coffee
                     </span>
                   </div>
-                  
+
                   <h3 className="text-4xl font-bold text-brown-900 mb-8 leading-tight">
                     {variants[activeVariant].name}
                   </h3>
-                  
+
                   <p className="text-gray-700 leading-relaxed mb-10 text-xl">
                     {variants[activeVariant].description}
                   </p>
@@ -399,12 +475,19 @@ const CoffeePage = () => {
                       Key Features
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {variants[activeVariant].features.map((feature, index) => (
-                        <div key={index} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl shadow-sm border border-brown-100 hover:shadow-md transition-shadow">
-                          <div className="w-4 h-4 bg-gradient-to-r from-brown-600 to-amber-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-lg">{feature}</span>
-                        </div>
-                      ))}
+                      {variants[activeVariant].features.map(
+                        (feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl shadow-sm border border-brown-100 hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-4 h-4 bg-gradient-to-r from-brown-600 to-amber-600 rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-800 font-semibold text-lg">
+                              {feature}
+                            </span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -415,20 +498,36 @@ const CoffeePage = () => {
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-2xl mt-2">{variants[activeVariant].specs.hsCode}</p>
+                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">
+                          HS Code
+                        </span>
+                        <p className="font-bold text-black text-2xl mt-2">
+                          {variants[activeVariant].specs.hsCode}
+                        </p>
                       </div>
                       <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Minimum Order</span>
-                        <p className="font-bold text-black text-2xl mt-2">{variants[activeVariant].specs.moq}</p>
+                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">
+                          Minimum Order
+                        </span>
+                        <p className="font-bold text-black text-2xl mt-2">
+                          {variants[activeVariant].specs.moq}
+                        </p>
                       </div>
                       <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-2xl mt-2">{variants[activeVariant].specs.shelfLife}</p>
+                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">
+                          Shelf Life
+                        </span>
+                        <p className="font-bold text-black text-2xl mt-2">
+                          {variants[activeVariant].specs.shelfLife}
+                        </p>
                       </div>
                       <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Moisture Content</span>
-                        <p className="font-bold text-black text-2xl mt-2">{variants[activeVariant].specs.moisture}</p>
+                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">
+                          Moisture Content
+                        </span>
+                        <p className="font-bold text-black text-2xl mt-2">
+                          {variants[activeVariant].specs.moisture}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -447,19 +546,43 @@ const CoffeePage = () => {
               Global Coffee Solutions
             </h2>
             <p className="text-xl text-gray-700 leading-relaxed mb-12">
-              We offer flexible packaging options to suit bulk buyers, roasters, distributors, and international importers. Our focus on quality, traceability, and timely delivery makes our coffee suitable for global markets.
+              We offer flexible packaging options to suit bulk buyers, roasters,
+              distributors, and international importers. Our focus on quality,
+              traceability, and timely delivery makes our coffee suitable for
+              global markets.
             </p>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
               {[
-                { icon: Clock, label: 'Timely Delivery', desc: 'On-time shipping worldwide' },
-                { icon: Thermometer, label: 'Quality Control', desc: '24/7 monitoring systems' },
-                { icon: Globe, label: 'Global Reach', desc: '25+ countries served' },
-                { icon: Package, label: 'Flexible Packaging', desc: 'Custom solutions available' }
+                {
+                  icon: Clock,
+                  label: 'Timely Delivery',
+                  desc: 'On-time shipping worldwide',
+                },
+                {
+                  icon: Thermometer,
+                  label: 'Quality Control',
+                  desc: '24/7 monitoring systems',
+                },
+                {
+                  icon: Globe,
+                  label: 'Global Reach',
+                  desc: '25+ countries served',
+                },
+                {
+                  icon: Package,
+                  label: 'Flexible Packaging',
+                  desc: 'Custom solutions available',
+                },
               ].map((service, index) => (
-                <div key={index} className="text-center p-6 bg-gray-50 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                <div
+                  key={index}
+                  className="text-center p-6 bg-gray-50 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+                >
                   <service.icon className="w-12 h-12 text-brown-600 mx-auto mb-4" />
-                  <h3 className="font-bold text-brown-800 mb-2">{service.label}</h3>
+                  <h3 className="font-bold text-brown-800 mb-2">
+                    {service.label}
+                  </h3>
                   <p className="text-sm text-gray-600">{service.desc}</p>
                 </div>
               ))}
@@ -470,7 +593,9 @@ const CoffeePage = () => {
                 Ready to Partner With Us?
               </h3>
               <p className="text-lg mb-6 opacity-90">
-                Contact us today to discuss your coffee requirements and discover how we can support your business with premium quality coffee products.
+                Contact us today to discuss your coffee requirements and
+                discover how we can support your business with premium quality
+                coffee products.
               </p>
               <button className="bg-white text-red-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg">
                 Get In Touch

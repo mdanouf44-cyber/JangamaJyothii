@@ -1,8 +1,19 @@
 import { prisma } from './prisma'
-import type { User, Product, Category, RFQ, Certificate, CommunicationLog, AuditLog, Content } from '@/types'
+import type {
+  User,
+  Product,
+  Category,
+  RFQ,
+  Certificate,
+  CommunicationLog,
+  AuditLog,
+  Content,
+} from '@/types'
 
 // Define Prisma transaction type locally to avoid import issues
-type PrismaTransactionClient = Parameters<Parameters<typeof prisma.$transaction>[0]>[0]
+type PrismaTransactionClient = Parameters<
+  Parameters<typeof prisma.$transaction>[0]
+>[0]
 
 // Database connection health check
 export async function checkDatabaseConnection(): Promise<boolean> {
@@ -111,7 +122,7 @@ export async function bulkUpsert<T>(
   uniqueField: keyof T
 ) {
   const results = []
-  
+
   for (const item of data) {
     const result = await model.upsert({
       where: { [uniqueField]: item[uniqueField] },
@@ -120,7 +131,7 @@ export async function bulkUpsert<T>(
     })
     results.push(result)
   }
-  
+
   return results
 }
 

@@ -98,7 +98,8 @@ export function transformUser(user: User): TransformedUser {
   return {
     id: user.id,
     email: user.email,
-    fullName: `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.email,
+    fullName:
+      `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.email,
     role: user.role,
     isActive: user.isActive,
     lastLogin: user.lastLogin?.toISOString(),
@@ -134,7 +135,9 @@ export function transformProduct(
     originCountry: product.originCountry || undefined,
     moq: product.moq || undefined,
     unit: product.unit || undefined,
-    pricePerUnit: product.pricePerUnit ? Number(product.pricePerUnit) : undefined,
+    pricePerUnit: product.pricePerUnit
+      ? Number(product.pricePerUnit)
+      : undefined,
     formattedPrice: product.pricePerUnit
       ? formatCurrency(Number(product.pricePerUnit))
       : undefined,
@@ -195,9 +198,10 @@ export function transformRFQ(
     assignedUser: rfq.assignedUser
       ? {
           id: rfq.assignedUser.id,
-          fullName: `${rfq.assignedUser.firstName || ''} ${
-            rfq.assignedUser.lastName || ''
-          }`.trim() || rfq.assignedUser.email,
+          fullName:
+            `${rfq.assignedUser.firstName || ''} ${
+              rfq.assignedUser.lastName || ''
+            }`.trim() || rfq.assignedUser.email,
         }
       : undefined,
     createdAt: rfq.createdAt.toISOString(),
@@ -215,7 +219,9 @@ export function transformRFQs(
 }
 
 // Certificate transformers
-export function transformCertificate(certificate: Certificate): TransformedCertificate {
+export function transformCertificate(
+  certificate: Certificate
+): TransformedCertificate {
   const now = new Date()
   const expiryDate = certificate.expiryDate
   const isExpired = expiryDate ? expiryDate < now : false
@@ -237,18 +243,23 @@ export function transformCertificate(certificate: Certificate): TransformedCerti
       ? formatFileSize(certificate.fileSize)
       : undefined,
     isExpired,
-    daysUntilExpiry: daysUntilExpiry && daysUntilExpiry > 0 ? daysUntilExpiry : undefined,
+    daysUntilExpiry:
+      daysUntilExpiry && daysUntilExpiry > 0 ? daysUntilExpiry : undefined,
     isActive: certificate.isActive,
     createdAt: certificate.createdAt.toISOString(),
   }
 }
 
-export function transformCertificates(certificates: Certificate[]): TransformedCertificate[] {
+export function transformCertificates(
+  certificates: Certificate[]
+): TransformedCertificate[] {
   return certificates.map(transformCertificate)
 }
 
 // Communication log transformers
-export function transformCommunicationLog(log: CommunicationLog & { user?: User }) {
+export function transformCommunicationLog(
+  log: CommunicationLog & { user?: User }
+) {
   return {
     id: log.id,
     type: log.type,
@@ -259,7 +270,9 @@ export function transformCommunicationLog(log: CommunicationLog & { user?: User 
     user: log.user
       ? {
           id: log.user.id,
-          fullName: `${log.user.firstName || ''} ${log.user.lastName || ''}`.trim() || log.user.email,
+          fullName:
+            `${log.user.firstName || ''} ${log.user.lastName || ''}`.trim() ||
+            log.user.email,
         }
       : undefined,
     metadata: log.metadata,
@@ -295,7 +308,7 @@ function formatFileSize(bytes: number): string {
   const sizes = ['Bytes', 'KB', 'MB', 'GB']
   if (bytes === 0) return '0 Bytes'
   const i = Math.floor(Math.log(bytes) / Math.log(1024))
-  return Math.round(bytes / Math.pow(1024, i) * 100) / 100 + ' ' + sizes[i]
+  return Math.round((bytes / Math.pow(1024, i)) * 100) / 100 + ' ' + sizes[i]
 }
 
 // Database query result transformers
@@ -370,7 +383,7 @@ export function createPaginatedResponse<T>(
 // Form data transformers
 export function transformFormData(formData: FormData): Record<string, any> {
   const data: Record<string, any> = {}
-  
+
   for (const [key, value] of formData.entries()) {
     if (data[key]) {
       // Handle multiple values for the same key
@@ -383,12 +396,15 @@ export function transformFormData(formData: FormData): Record<string, any> {
       data[key] = value
     }
   }
-  
+
   return data
 }
 
 // Date transformers
-export function formatDate(date: Date | string, locale: string = 'en-US'): string {
+export function formatDate(
+  date: Date | string,
+  locale: string = 'en-US'
+): string {
   return new Intl.DateTimeFormat(locale, {
     year: 'numeric',
     month: 'long',
@@ -396,7 +412,10 @@ export function formatDate(date: Date | string, locale: string = 'en-US'): strin
   }).format(new Date(date))
 }
 
-export function formatDateTime(date: Date | string, locale: string = 'en-US'): string {
+export function formatDateTime(
+  date: Date | string,
+  locale: string = 'en-US'
+): string {
   return new Intl.DateTimeFormat(locale, {
     year: 'numeric',
     month: 'short',
@@ -406,12 +425,15 @@ export function formatDateTime(date: Date | string, locale: string = 'en-US'): s
   }).format(new Date(date))
 }
 
-export function getRelativeTime(date: Date | string, locale: string = 'en-US'): string {
+export function getRelativeTime(
+  date: Date | string,
+  locale: string = 'en-US'
+): string {
   // Fallback implementation for older browsers
   const now = new Date()
   const targetDate = new Date(date)
   const diffInSeconds = (targetDate.getTime() - now.getTime()) / 1000
-  
+
   const intervals = [
     { unit: 'year', seconds: 31536000 },
     { unit: 'month', seconds: 2628000 },
@@ -419,7 +441,7 @@ export function getRelativeTime(date: Date | string, locale: string = 'en-US'): 
     { unit: 'hour', seconds: 3600 },
     { unit: 'minute', seconds: 60 },
   ] as const
-  
+
   for (const interval of intervals) {
     const count = Math.floor(Math.abs(diffInSeconds) / interval.seconds)
     if (count >= 1) {
@@ -427,6 +449,6 @@ export function getRelativeTime(date: Date | string, locale: string = 'en-US'): 
       return `${count} ${interval.unit}${count > 1 ? 's' : ''} ${suffix}`
     }
   }
-  
+
   return 'just now'
 }

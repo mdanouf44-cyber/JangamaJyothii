@@ -13,14 +13,19 @@ interface MockPrismaClient {
 
 // Mock bcrypt for development
 const bcrypt = {
-  hash: async (password: string, rounds: number) => `hashed_${password}_${rounds}`
+  hash: async (password: string, rounds: number) =>
+    `hashed_${password}_${rounds}`,
 }
 
 // Create a mock prisma client for development
 const prisma: MockPrismaClient = {
   $connect: async () => {},
   user: {
-    upsert: async (data: any) => ({ id: 'user-1', email: data.create.email, ...data.create }),
+    upsert: async (data: any) => ({
+      id: 'user-1',
+      email: data.create.email,
+      ...data.create,
+    }),
   },
   category: {
     upsert: async (data: any) => ({ id: `cat-${Date.now()}`, ...data.create }),
@@ -38,7 +43,10 @@ const prisma: MockPrismaClient = {
     create: async (data: any) => ({ id: `rfq-${Date.now()}`, ...data }),
   },
   content: {
-    upsert: async (data: any) => ({ id: `content-${Date.now()}`, ...data.create }),
+    upsert: async (data: any) => ({
+      id: `content-${Date.now()}`,
+      ...data.create,
+    }),
   },
   $disconnect: async () => {},
 }
@@ -140,7 +148,8 @@ async function main() {
     {
       name: 'APEDA Registration',
       type: 'export_license',
-      issuer: 'Agricultural and Processed Food Products Export Development Authority',
+      issuer:
+        'Agricultural and Processed Food Products Export Development Authority',
       issueDate: new Date('2022-06-01'),
       expiryDate: new Date('2027-06-01'),
       certificateNumber: 'APEDA-REG-2022-12345',
@@ -181,13 +190,14 @@ async function main() {
   const products = [
     {
       name: 'Premium Basmati Rice',
-      description: 'Aged premium basmati rice with long grains and aromatic fragrance. Perfect for international markets.',
+      description:
+        'Aged premium basmati rice with long grains and aromatic fragrance. Perfect for international markets.',
       categoryId: createdCategories.find(c => c.slug === 'grains-cereals')!.id,
       hsCode: '1006.30.10',
       originCountry: 'IN',
       moq: 1000,
       unit: 'MT',
-      pricePerUnit: 850.00,
+      pricePerUnit: 850.0,
       packagingDetails: '25kg, 50kg PP bags or as per buyer requirement',
       shelfLife: '24 months',
       certifications: {
@@ -212,13 +222,14 @@ async function main() {
     },
     {
       name: 'Red Chili Powder',
-      description: 'Premium quality red chili powder with high color value and pungency. Sourced from the best chili growing regions.',
+      description:
+        'Premium quality red chili powder with high color value and pungency. Sourced from the best chili growing regions.',
       categoryId: createdCategories.find(c => c.slug === 'spices-herbs')!.id,
       hsCode: '0904.20.10',
       originCountry: 'IN',
       moq: 500,
       unit: 'MT',
-      pricePerUnit: 2200.00,
+      pricePerUnit: 2200.0,
       packagingDetails: '25kg multi-layer paper bags with inner PE lining',
       shelfLife: '18 months',
       certifications: {
@@ -243,13 +254,14 @@ async function main() {
     },
     {
       name: 'Turmeric Powder',
-      description: 'High curcumin content turmeric powder with vibrant color and medicinal properties.',
+      description:
+        'High curcumin content turmeric powder with vibrant color and medicinal properties.',
       categoryId: createdCategories.find(c => c.slug === 'spices-herbs')!.id,
       hsCode: '0910.30.00',
       originCountry: 'IN',
       moq: 300,
       unit: 'MT',
-      pricePerUnit: 1800.00,
+      pricePerUnit: 1800.0,
       packagingDetails: '25kg multi-layer paper bags or as per requirement',
       shelfLife: '24 months',
       certifications: {
@@ -273,13 +285,14 @@ async function main() {
     },
     {
       name: 'Toor Dal (Pigeon Peas)',
-      description: 'Premium quality toor dal, rich in protein and essential nutrients. Machine cleaned and sorted.',
+      description:
+        'Premium quality toor dal, rich in protein and essential nutrients. Machine cleaned and sorted.',
       categoryId: createdCategories.find(c => c.slug === 'pulses-legumes')!.id,
       hsCode: '0713.60.00',
       originCountry: 'IN',
       moq: 800,
       unit: 'MT',
-      pricePerUnit: 1200.00,
+      pricePerUnit: 1200.0,
       packagingDetails: '50kg PP bags with inner PE lining',
       shelfLife: '12 months',
       certifications: {
@@ -302,13 +315,14 @@ async function main() {
     },
     {
       name: 'Sesame Seeds',
-      description: 'Natural white sesame seeds with high oil content. Cleaned, sorted, and ready for export.',
+      description:
+        'Natural white sesame seeds with high oil content. Cleaned, sorted, and ready for export.',
       categoryId: createdCategories.find(c => c.slug === 'oil-seeds')!.id,
       hsCode: '1207.40.00',
       originCountry: 'IN',
       moq: 500,
       unit: 'MT',
-      pricePerUnit: 1500.00,
+      pricePerUnit: 1500.0,
       packagingDetails: '25kg jute bags or PP bags as per requirement',
       shelfLife: '18 months',
       certifications: {
@@ -348,7 +362,12 @@ async function main() {
       if (cert.type === 'food_safety') return true
       if (cert.type === 'export_license') return true
       if (cert.type === 'food_license') return true
-      if (cert.type === 'organic' && product.certifications && (product.certifications as any).organic) return true
+      if (
+        cert.type === 'organic' &&
+        product.certifications &&
+        (product.certifications as any).organic
+      )
+        return true
       return false
     })
 
@@ -373,11 +392,12 @@ async function main() {
       buyerCompany: 'Middle East Trading LLC',
       buyerCountry: 'AE',
       quantity: 2000,
-      targetPrice: 800.00,
+      targetPrice: 800.0,
       deliveryLocation: 'Dubai, UAE',
       timeline: '30 days',
       incoterms: 'CIF',
-      additionalRequirements: 'Need samples before bulk order. Prefer 1121 variety.',
+      additionalRequirements:
+        'Need samples before bulk order. Prefer 1121 variety.',
       status: 'pending',
       priority: 'high',
       assignedTo: adminUser.id,
@@ -393,7 +413,8 @@ async function main() {
       deliveryLocation: 'Los Angeles, USA',
       timeline: '45 days',
       incoterms: 'FOB',
-      additionalRequirements: 'Require ASTA color value minimum 120. Need COA and pesticide residue report.',
+      additionalRequirements:
+        'Require ASTA color value minimum 120. Need COA and pesticide residue report.',
       status: 'pending',
       priority: 'normal',
       assignedTo: adminUser.id,
@@ -406,11 +427,12 @@ async function main() {
       buyerCompany: 'Organic Spices GmbH',
       buyerCountry: 'DE',
       quantity: 500,
-      targetPrice: 1750.00,
+      targetPrice: 1750.0,
       deliveryLocation: 'Hamburg, Germany',
       timeline: '60 days',
       incoterms: 'CIF',
-      additionalRequirements: 'Must be organic certified. Need minimum 3% curcumin content.',
+      additionalRequirements:
+        'Must be organic certified. Need minimum 3% curcumin content.',
       status: 'in_progress',
       priority: 'normal',
       assignedTo: adminUser.id,
@@ -444,7 +466,8 @@ async function main() {
       metadata: {
         seo: {
           title: 'About Us - Leading Agricultural Exporter',
-          description: 'Learn about our commitment to quality agricultural exports and sustainable farming practices.',
+          description:
+            'Learn about our commitment to quality agricultural exports and sustainable farming practices.',
         },
       },
     },
@@ -501,7 +524,7 @@ async function main() {
 }
 
 main()
-  .catch((e) => {
+  .catch(e => {
     console.error('❌ Error during seeding:', e)
     if (typeof globalThis !== 'undefined' && (globalThis as any).process) {
       ;(globalThis as any).process.exit(1)

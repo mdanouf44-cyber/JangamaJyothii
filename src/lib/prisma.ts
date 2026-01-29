@@ -15,7 +15,7 @@ interface MockPrismaClient {
 
 const createMockPrisma = (): MockPrismaClient => ({
   $queryRaw: async () => [{ result: 1 }],
-  $transaction: async (callback) => callback(createMockPrisma()),
+  $transaction: async callback => callback(createMockPrisma()),
   $disconnect: async () => {},
   user: {
     count: async () => 0,

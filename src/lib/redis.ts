@@ -48,11 +48,7 @@ export const cacheGet = async (key: string) => {
   }
 }
 
-export const cacheSet = async (
-  key: string,
-  value: any,
-  ttl: number = 3600
-) => {
+export const cacheSet = async (key: string, value: any, ttl: number = 3600) => {
   try {
     await redis.setEx(key, ttl, JSON.stringify(value))
     return true

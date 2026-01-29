@@ -25,29 +25,29 @@ graph TB
     subgraph "CDN Layer"
         CDN[Cloudflare/AWS CloudFront]
     end
-    
+
     subgraph "Frontend Tier"
         NEXT[Next.js Application]
         STATIC[Static Assets]
     end
-    
+
     subgraph "API Tier"
         BFF[Next.js API Routes]
         BACKEND[Node.js Backend Services]
     end
-    
+
     subgraph "Data Tier"
         DB[(PostgreSQL)]
         REDIS[(Redis Cache)]
         FILES[File Storage S3]
     end
-    
+
     subgraph "External Services"
         WHATSAPP[WhatsApp Business API]
         EMAIL[Email Service]
         MAPS[Google Maps API]
     end
-    
+
     CDN --> NEXT
     CDN --> STATIC
     NEXT --> BFF
@@ -81,7 +81,7 @@ graph TD
         FOOTER[Footer]
         SIDEBAR[Admin Sidebar]
     end
-    
+
     subgraph "Page Components"
         HOME[Home Page]
         PRODUCTS[Product Catalog]
@@ -89,7 +89,7 @@ graph TD
         RFQ_FORM[RFQ Form]
         ADMIN[Admin Dashboard]
     end
-    
+
     subgraph "Feature Components"
         SEARCH[Product Search]
         FILTERS[Product Filters]
@@ -97,14 +97,14 @@ graph TD
         CONTACT[Contact Forms]
         TRUST[Trust Badges]
     end
-    
+
     subgraph "UI Components"
         BUTTONS[Button System]
         FORMS[Form Components]
         MODALS[Modal System]
         CARDS[Card Components]
     end
-    
+
     HOME --> HEADER
     HOME --> PRODUCTS
     HOME --> TRUST
@@ -123,7 +123,7 @@ graph LR
         AUTH[Auth Middleware]
         RATE[Rate Limiter]
     end
-    
+
     subgraph "Business Services"
         PRODUCT_SVC[Product Service]
         RFQ_SVC[RFQ Service]
@@ -131,21 +131,21 @@ graph LR
         MEDIA_SVC[Media Service]
         NOTIFICATION_SVC[Notification Service]
     end
-    
+
     subgraph "Data Access Layer"
         PRODUCT_DAO[Product DAO]
         RFQ_DAO[RFQ DAO]
         USER_DAO[User DAO]
         MEDIA_DAO[Media DAO]
     end
-    
+
     GATEWAY --> AUTH
     AUTH --> RATE
     RATE --> PRODUCT_SVC
     RATE --> RFQ_SVC
     RATE --> USER_SVC
     RATE --> MEDIA_SVC
-    
+
     PRODUCT_SVC --> PRODUCT_DAO
     RFQ_SVC --> RFQ_DAO
     USER_SVC --> USER_DAO
@@ -155,6 +155,7 @@ graph LR
 ### Key Interface Definitions
 
 **Product Catalog Interface**
+
 ```typescript
 interface ProductCatalog {
   searchProducts(query: SearchQuery): Promise<ProductSearchResult>
@@ -174,6 +175,7 @@ interface SearchQuery {
 ```
 
 **RFQ System Interface**
+
 ```typescript
 interface RFQSystem {
   submitRFQ(rfq: RFQSubmission): Promise<RFQResponse>
@@ -194,10 +196,18 @@ interface RFQSubmission {
 ```
 
 **Communication Interface**
+
 ```typescript
 interface CommunicationService {
-  sendWhatsAppMessage(recipient: string, message: WhatsAppMessage): Promise<void>
-  sendEmail(recipient: string, template: EmailTemplate, data: any): Promise<void>
+  sendWhatsAppMessage(
+    recipient: string,
+    message: WhatsAppMessage
+  ): Promise<void>
+  sendEmail(
+    recipient: string,
+    template: EmailTemplate,
+    data: any
+  ): Promise<void>
   logCommunication(interaction: CommunicationLog): Promise<void>
 }
 ```
@@ -207,6 +217,7 @@ interface CommunicationService {
 ### Core Entity Models
 
 **Product Entity**
+
 ```sql
 CREATE TABLE products (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -229,6 +240,7 @@ CREATE TABLE products (
 ```
 
 **RFQ Entity**
+
 ```sql
 CREATE TABLE rfqs (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -252,6 +264,7 @@ CREATE TABLE rfqs (
 ```
 
 **User Entity**
+
 ```sql
 CREATE TABLE users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -268,6 +281,7 @@ CREATE TABLE users (
 ```
 
 **Certificate Entity**
+
 ```sql
 CREATE TABLE certificates (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -295,7 +309,7 @@ erDiagram
     USERS ||--o{ COMMUNICATION_LOGS : "handles"
     CERTIFICATES ||--o{ PRODUCT_CERTIFICATES : "validates"
     PRODUCTS ||--o{ PRODUCT_CERTIFICATES : "certified_by"
-    
+
     PRODUCTS {
         uuid id PK
         string name
@@ -308,7 +322,7 @@ erDiagram
         jsonb certifications
         boolean is_active
     }
-    
+
     RFQ {
         uuid id PK
         uuid product_id FK
@@ -319,7 +333,7 @@ erDiagram
         string status
         uuid assigned_to FK
     }
-    
+
     USERS {
         uuid id PK
         string email
@@ -328,7 +342,7 @@ erDiagram
         string last_name
         boolean is_active
     }
-    
+
     CERTIFICATES {
         uuid id PK
         string name
@@ -341,136 +355,136 @@ erDiagram
 
 ## Correctness Properties
 
-*A property is a characteristic or behavior that should hold true across all valid executions of a system—essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees.*
+_A property is a characteristic or behavior that should hold true across all valid executions of a system—essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees._
 
 ### Performance Properties
 
 **Property 1: Page Load Performance**
-*For any* page request under normal network conditions, the complete page load time should be under 3 seconds and achieve Core Web Vitals compliance scores
+_For any_ page request under normal network conditions, the complete page load time should be under 3 seconds and achieve Core Web Vitals compliance scores
 **Validates: Requirements 1.1, 1.2**
 
 **Property 2: Lazy Loading Optimization**
-*For any* page with media content, images and videos outside the initial viewport should not be loaded until they become visible or near-visible
+_For any_ page with media content, images and videos outside the initial viewport should not be loaded until they become visible or near-visible
 **Validates: Requirements 2.4, 10.2**
 
 **Property 3: Mobile Responsiveness**
-*For any* viewport size from 320px to 1920px width, all interface elements should be properly sized, accessible, and functional
+_For any_ viewport size from 320px to 1920px width, all interface elements should be properly sized, accessible, and functional
 **Validates: Requirements 1.4**
 
 ### Data Integrity Properties
 
 **Property 4: RFQ Data Completeness**
-*For any* submitted RFQ, all required fields (product details, quantity, delivery location, timeline, buyer information) should be captured and stored correctly
+_For any_ submitted RFQ, all required fields (product details, quantity, delivery location, timeline, buyer information) should be captured and stored correctly
 **Validates: Requirements 3.1**
 
 **Property 5: Product Information Completeness**
-*For any* product detail page, all mandatory product information (HS code, MOQ, packaging specifications, compliance documentation) should be displayed when available
+_For any_ product detail page, all mandatory product information (HS code, MOQ, packaging specifications, compliance documentation) should be displayed when available
 **Validates: Requirements 2.2**
 
 **Property 6: Certificate Validation**
-*For any* uploaded certificate, the system should validate file format, extract expiry date, and reject invalid documents with appropriate error messages
+_For any_ uploaded certificate, the system should validate file format, extract expiry date, and reject invalid documents with appropriate error messages
 **Validates: Requirements 4.3**
 
 ### Search and Filter Properties
 
 **Property 7: Product Search Relevance**
-*For any* search query, returned results should match the search criteria based on product name, category, or specifications, ordered by relevance
+_For any_ search query, returned results should match the search criteria based on product name, category, or specifications, ordered by relevance
 **Validates: Requirements 2.3**
 
 **Property 8: Filter Accuracy**
-*For any* combination of product filters (category, origin, certification, price range), the results should include only products that match all selected criteria
+_For any_ combination of product filters (category, origin, certification, price range), the results should include only products that match all selected criteria
 **Validates: Requirements 2.1**
 
 **Property 9: Certificate Search Functionality**
-*For any* search term in the certificate gallery, results should include only certificates whose name, type, or issuer contains the search term
+_For any_ search term in the certificate gallery, results should include only certificates whose name, type, or issuer contains the search term
 **Validates: Requirements 4.1**
 
 ### Communication Properties
 
 **Property 10: Notification Delivery**
-*For any* RFQ submission, both buyer acknowledgment email and admin panel notification should be triggered and delivered successfully
+_For any_ RFQ submission, both buyer acknowledgment email and admin panel notification should be triggered and delivered successfully
 **Validates: Requirements 3.2, 3.3**
 
 **Property 11: WhatsApp Context Preservation**
-*For any* WhatsApp contact initiation from a product page, the message should include relevant product information and buyer context
+_For any_ WhatsApp contact initiation from a product page, the message should include relevant product information and buyer context
 **Validates: Requirements 5.1**
 
 **Property 12: Communication Logging**
-*For any* communication attempt (WhatsApp, email, phone), the interaction should be logged with timestamp, type, and relevant context for follow-up tracking
+_For any_ communication attempt (WhatsApp, email, phone), the interaction should be logged with timestamp, type, and relevant context for follow-up tracking
 **Validates: Requirements 5.5**
 
 ### Security Properties
 
 **Property 13: Form Protection**
-*For any* form submission, reCAPTCHA validation should be required and spam submissions should be blocked with appropriate error messages
+_For any_ form submission, reCAPTCHA validation should be required and spam submissions should be blocked with appropriate error messages
 **Validates: Requirements 9.1, 5.3**
 
 **Property 14: Data Encryption**
-*For any* sensitive data (user credentials, personal information, business data), information should be encrypted both in transit (HTTPS) and at rest (database encryption)
+_For any_ sensitive data (user credentials, personal information, business data), information should be encrypted both in transit (HTTPS) and at rest (database encryption)
 **Validates: Requirements 1.5, 9.2**
 
 **Property 15: Access Control**
-*For any* admin panel access attempt, proper authentication should be required and role-based permissions should be enforced based on user role
+_For any_ admin panel access attempt, proper authentication should be required and role-based permissions should be enforced based on user role
 **Validates: Requirements 9.3**
 
 **Property 16: Audit Trail Completeness**
-*For any* administrative action (content updates, user management, system configuration), the action should be logged with user ID, timestamp, and action details
+_For any_ administrative action (content updates, user management, system configuration), the action should be logged with user ID, timestamp, and action details
 **Validates: Requirements 9.4**
 
 ### Content Management Properties
 
 **Property 17: Real-time Content Updates**
-*For any* content modification through the CMS, changes should be immediately visible on the public website without requiring manual deployment
+_For any_ content modification through the CMS, changes should be immediately visible on the public website without requiring manual deployment
 **Validates: Requirements 2.5, 6.1**
 
 **Property 18: Bulk Import Accuracy**
-*For any* CSV file uploaded for bulk product import, valid records should be processed successfully and invalid records should be reported with specific error details
+_For any_ CSV file uploaded for bulk product import, valid records should be processed successfully and invalid records should be reported with specific error details
 **Validates: Requirements 6.3**
 
 **Property 19: Version Control Integrity**
-*For any* content update, the previous version should be stored and available for rollback, maintaining complete change history
+_For any_ content update, the previous version should be stored and available for rollback, maintaining complete change history
 **Validates: Requirements 6.4**
 
 ### SEO and Internationalization Properties
 
 **Property 20: Schema Markup Completeness**
-*For any* page with structured content (products, organization, contact), appropriate schema markup should be automatically generated and validated
+_For any_ page with structured content (products, organization, contact), appropriate schema markup should be automatically generated and validated
 **Validates: Requirements 7.1, 7.4**
 
 **Property 21: Multi-language Consistency**
-*For any* supported language, content should be properly translated, hreflang tags should be correctly implemented, and language switching should preserve user context
+_For any_ supported language, content should be properly translated, hreflang tags should be correctly implemented, and language switching should preserve user context
 **Validates: Requirements 7.3**
 
 **Property 22: Country-specific Optimization**
-*For any* target market, country-specific landing pages should be generated with appropriate currency, language, and regulatory information
+_For any_ target market, country-specific landing pages should be generated with appropriate currency, language, and regulatory information
 **Validates: Requirements 7.2**
 
 ### Analytics and Reporting Properties
 
 **Property 23: Dashboard Metrics Accuracy**
-*For any* time period, dashboard metrics (RFQ counts, conversion rates, inquiry sources) should accurately reflect the underlying data and update in real-time
+_For any_ time period, dashboard metrics (RFQ counts, conversion rates, inquiry sources) should accurately reflect the underlying data and update in real-time
 **Validates: Requirements 8.1, 8.5**
 
 **Property 24: Export Data Integrity**
-*For any* lead export request, data should be accurately formatted in the requested format (CSV, Excel) and include all selected fields without corruption
+_For any_ lead export request, data should be accurately formatted in the requested format (CSV, Excel) and include all selected fields without corruption
 **Validates: Requirements 8.2**
 
 **Property 25: Report Generation Accuracy**
-*For any* report request (product interest, geographic distribution, inquiry trends), generated reports should accurately reflect the underlying data and be properly formatted
+_For any_ report request (product interest, geographic distribution, inquiry trends), generated reports should accurately reflect the underlying data and be properly formatted
 **Validates: Requirements 8.4**
 
 ### Media Management Properties
 
 **Property 26: Media Gallery Functionality**
-*For any* media gallery, images should display with proper optimization, zoom functionality should work correctly, and videos should be playable across different devices
+_For any_ media gallery, images should display with proper optimization, zoom functionality should work correctly, and videos should be playable across different devices
 **Validates: Requirements 10.1, 10.4**
 
 **Property 27: Image Optimization**
-*For any* uploaded image, the system should automatically compress, resize for different viewports, and generate appropriate formats while maintaining visual quality
+_For any_ uploaded image, the system should automatically compress, resize for different viewports, and generate appropriate formats while maintaining visual quality
 **Validates: Requirements 10.3**
 
 **Property 28: Media Accessibility**
-*For any* displayed media, appropriate alt text, captions, and accessibility descriptions should be provided to ensure WCAG 2.1 AA compliance
+_For any_ displayed media, appropriate alt text, captions, and accessibility descriptions should be provided to ensure WCAG 2.1 AA compliance
 **Validates: Requirements 1.3, 10.5**
 
 ## Error Handling
@@ -480,6 +494,7 @@ erDiagram
 The platform implements a comprehensive error handling strategy with categorized error types:
 
 **Client Errors (4xx)**
+
 - **400 Bad Request**: Invalid input data, malformed requests
 - **401 Unauthorized**: Authentication required or failed
 - **403 Forbidden**: Insufficient permissions for requested action
@@ -488,6 +503,7 @@ The platform implements a comprehensive error handling strategy with categorized
 - **429 Too Many Requests**: Rate limit exceeded
 
 **Server Errors (5xx)**
+
 - **500 Internal Server Error**: Unexpected server-side errors
 - **502 Bad Gateway**: External service integration failures
 - **503 Service Unavailable**: Temporary service outages or maintenance
@@ -512,18 +528,21 @@ interface ErrorResponse {
 ### Error Handling Strategies
 
 **Frontend Error Handling**
+
 - **Network Errors**: Automatic retry with exponential backoff
 - **Validation Errors**: Real-time field validation with user-friendly messages
 - **Authentication Errors**: Automatic token refresh or redirect to login
 - **Rate Limiting**: User-friendly messages with retry suggestions
 
 **Backend Error Handling**
+
 - **Database Errors**: Connection pooling with failover mechanisms
 - **External API Failures**: Circuit breaker pattern with fallback responses
 - **File Upload Errors**: Comprehensive validation with detailed error messages
 - **Email Delivery Failures**: Queue-based retry mechanism with dead letter handling
 
 **Monitoring and Alerting**
+
 - **Error Rate Monitoring**: Real-time error rate tracking with threshold alerts
 - **Performance Monitoring**: Response time and availability monitoring
 - **Business Logic Errors**: Custom alerts for critical business process failures
@@ -536,6 +555,7 @@ interface ErrorResponse {
 The platform employs both unit testing and property-based testing for comprehensive coverage:
 
 **Unit Testing Focus**
+
 - Specific business logic examples and edge cases
 - Integration points between components
 - Error condition handling and recovery
@@ -543,6 +563,7 @@ The platform employs both unit testing and property-based testing for comprehens
 - External API integration mocking
 
 **Property-Based Testing Focus**
+
 - Universal properties that hold across all inputs
 - Data validation and transformation correctness
 - Search and filter functionality across diverse datasets
@@ -552,17 +573,20 @@ The platform employs both unit testing and property-based testing for comprehens
 ### Property-Based Testing Configuration
 
 **Testing Framework**: Fast-check for JavaScript/TypeScript property-based testing
+
 - **Minimum Iterations**: 100 iterations per property test
 - **Shrinking Strategy**: Automatic input minimization for failed test cases
 - **Custom Generators**: Domain-specific generators for products, RFQs, and user data
 
 **Test Tagging Convention**
 Each property-based test includes a comment referencing the design document property:
+
 ```typescript
 // Feature: agro-export-platform, Property 1: Page Load Performance
 ```
 
 **Coverage Requirements**
+
 - **Unit Tests**: Minimum 80% code coverage for business logic
 - **Property Tests**: All 28 correctness properties must be implemented
 - **Integration Tests**: End-to-end workflows for critical user journeys
@@ -571,12 +595,14 @@ Each property-based test includes a comment referencing the design document prop
 ### Test Data Management
 
 **Test Data Strategy**
+
 - **Synthetic Data Generation**: Faker.js for realistic test data
 - **Database Seeding**: Consistent test database states
 - **File Upload Testing**: Various file types and sizes for media testing
 - **Internationalization Testing**: Multi-language content validation
 
 **Test Environment Management**
+
 - **Isolated Test Databases**: Separate databases for each test suite
 - **External Service Mocking**: Mock implementations for WhatsApp API, email services
 - **Performance Test Environment**: Dedicated environment for load testing

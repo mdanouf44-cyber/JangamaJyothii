@@ -26,7 +26,7 @@ async function testSetup() {
       lastName: 'Doe',
       role: 'admin',
     }
-    
+
     const validatedData = validateInput(userCreateSchema, testUserData)
     console.log('✅ Validation schemas working')
     console.log('📝 Validated data:', validatedData)
@@ -46,7 +46,7 @@ async function testSetup() {
       createdAt: new Date(),
       updatedAt: new Date(),
     }
-    
+
     const transformedUser = transformUser(mockUser)
     console.log('✅ Data transformers working')
     console.log('🔄 Transformed user:', transformedUser)
@@ -54,7 +54,8 @@ async function testSetup() {
 
     // Test 4: Property-based tests
     console.log('4. Testing property-based test setup...')
-    const { mockTest, mockFc } = await import('../src/__tests__/properties/database-integrity.test')
+    const { mockTest, mockFc } =
+      await import('../src/__tests__/properties/database-integrity.test')
     console.log('✅ Property-based tests loaded successfully')
     console.log()
 
@@ -65,7 +66,6 @@ async function testSetup() {
     console.log('3. Run migrations: npm run db:migrate')
     console.log('4. Seed database: npm run db:seed')
     console.log('5. Start development: npm run dev')
-
   } catch (error) {
     console.error('❌ Setup test failed:', error)
     process.exit(1)

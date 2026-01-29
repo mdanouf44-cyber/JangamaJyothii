@@ -1,43 +1,56 @@
-import { CheckCircle, Truck, DollarSign, Globe, Settings, Leaf } from 'lucide-react'
+import {
+  CheckCircle,
+  Truck,
+  DollarSign,
+  Globe,
+  Settings,
+  Leaf,
+} from 'lucide-react'
 
 const WhyChooseUsSection = () => {
   const reasons = [
     {
       icon: <CheckCircle className="w-8 h-8" />,
       title: 'Unmatched Quality',
-      description: 'Our agricultural products are carefully sourced from the best farms and processed using cutting-edge technology to ensure they meet the highest industry standards.',
-      gradient: 'from-green-500 to-green-600'
+      description:
+        'Our agricultural products are carefully sourced from the best farms and processed using cutting-edge technology to ensure they meet the highest industry standards.',
+      gradient: 'from-green-500 to-green-600',
     },
     {
       icon: <Truck className="w-8 h-8" />,
       title: 'Consistent Supply',
-      description: 'With a robust production capacity and dedicated team, we guarantee reliable and consistent supply of products, no matter the size of your order.',
-      gradient: 'from-blue-500 to-blue-600'
+      description:
+        'With a robust production capacity and dedicated team, we guarantee reliable and consistent supply of products, no matter the size of your order.',
+      gradient: 'from-blue-500 to-blue-600',
     },
     {
       icon: <DollarSign className="w-8 h-8" />,
       title: 'Competitive Pricing',
-      description: 'Our streamlined manufacturing processes and direct sourcing allow us to offer highly competitive prices without compromising on quality.',
-      gradient: 'from-orange-500 to-orange-600'
+      description:
+        'Our streamlined manufacturing processes and direct sourcing allow us to offer highly competitive prices without compromising on quality.',
+      gradient: 'from-orange-500 to-orange-600',
     },
     {
       icon: <Globe className="w-8 h-8" />,
       title: 'Global Reach',
-      description: 'We have established ourselves as a trusted exporter with growing presence in international markets, ensuring timely delivery worldwide.',
-      gradient: 'from-purple-500 to-purple-600'
+      description:
+        'We have established ourselves as a trusted exporter with growing presence in international markets, ensuring timely delivery worldwide.',
+      gradient: 'from-purple-500 to-purple-600',
     },
     {
       icon: <Settings className="w-8 h-8" />,
       title: 'Customizable Solutions',
-      description: 'We offer customizable packaging and branding solutions, allowing you to create products that align perfectly with your market requirements.',
-      gradient: 'from-red-500 to-red-600'
+      description:
+        'We offer customizable packaging and branding solutions, allowing you to create products that align perfectly with your market requirements.',
+      gradient: 'from-red-500 to-red-600',
     },
     {
       icon: <Leaf className="w-8 h-8" />,
       title: 'Sustainable Practices',
-      description: 'We are committed to sustainability at every step, from responsible sourcing to eco-friendly packaging options for a healthier planet.',
-      gradient: 'from-teal-500 to-teal-600'
-    }
+      description:
+        'We are committed to sustainability at every step, from responsible sourcing to eco-friendly packaging options for a healthier planet.',
+      gradient: 'from-teal-500 to-teal-600',
+    },
   ]
 
   return (
@@ -49,8 +62,9 @@ const WhyChooseUsSection = () => {
             Why Choose Us?
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            The industry we represent produces the best in quality and price. People are attracted to it because 
-            they can get special experiences and products that show they have a lot of money and good taste.
+            The industry we represent produces the best in quality and price.
+            People are attracted to it because they can get special experiences
+            and products that show they have a lot of money and good taste.
           </p>
         </div>
 
@@ -75,9 +89,7 @@ const WhyChooseUsSection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold mb-4">
-                  {reason.title}
-                </h3>
+                <h3 className="text-xl font-bold mb-4">{reason.title}</h3>
 
                 {/* Description */}
                 <p className="text-white/90 leading-relaxed">
@@ -92,19 +104,27 @@ const WhyChooseUsSection = () => {
         <div className="mt-20 bg-gray-50 rounded-2xl p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">27+</div>
+              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+                27+
+              </div>
               <div className="text-gray-600 font-medium">Countries</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">2.9M+</div>
+              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+                2.9M+
+              </div>
               <div className="text-gray-600 font-medium">Hectares Field</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">87K+</div>
+              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+                87K+
+              </div>
               <div className="text-gray-600 font-medium">Happy Farms</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">5+</div>
+              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+                5+
+              </div>
               <div className="text-gray-600 font-medium">Years Experience</div>
             </div>
           </div>

@@ -27,35 +27,41 @@ A comprehensive B2B platform designed to connect agricultural exporters with int
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - Docker and Docker Compose
 - Git
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd agro-export-platform
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
+
    ```bash
    cp .env.example .env.local
    ```
+
    Edit `.env.local` with your configuration values.
 
 4. **Start the database services**
+
    ```bash
    docker-compose up -d postgres redis
    ```
 
 5. **Run database migrations**
+
    ```bash
    npm run db:generate
    npm run db:migrate
@@ -63,6 +69,7 @@ A comprehensive B2B platform designed to connect agricultural exporters with int
    ```
 
 6. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -73,6 +80,7 @@ A comprehensive B2B platform designed to connect agricultural exporters with int
 ### Optional Development Tools
 
 Start additional development tools:
+
 ```bash
 # Start pgAdmin and Redis Commander
 docker-compose --profile tools up -d
@@ -143,6 +151,7 @@ The project uses a dual testing approach:
 2. **Property-Based Tests**: Fast-check for testing universal properties
 
 Run specific test types:
+
 ```bash
 npm run test:pbt        # Property-based tests only
 npm run test:coverage   # With coverage report

@@ -37,8 +37,8 @@ const Header = memo(() => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="flex items-center gap-2 md:gap-4 hover:opacity-80 transition-opacity duration-75"
               onClick={closeMenu}
               prefetch={true}
@@ -63,30 +63,40 @@ const Header = memo(() => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-75"
                 prefetch={true}
               >
                 Home
               </Link>
               <div className="relative group">
-                <Link 
-                  href="/products" 
+                <Link
+                  href="/products"
                   className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75 flex items-center gap-1"
                   prefetch={true}
                 >
                   Our Products
-                  <svg className="w-4 h-4 transition-transform duration-75 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <svg
+                    className="w-4 h-4 transition-transform duration-75 group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </Link>
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 z-50">
                   <div className="py-2">
-                    {memoizedProducts.map((product) => (
-                      <Link 
+                    {memoizedProducts.map(product => (
+                      <Link
                         key={product.href}
-                        href={product.href} 
+                        href={product.href}
                         className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-75"
                         prefetch={true}
                       >
@@ -96,15 +106,15 @@ const Header = memo(() => {
                   </div>
                 </div>
               </div>
-              <Link 
-                href="/about" 
+              <Link
+                href="/about"
                 className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75"
                 prefetch={true}
               >
                 About Us
               </Link>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75"
                 prefetch={true}
               >
@@ -127,20 +137,28 @@ const Header = memo(() => {
               className="lg:hidden p-2 text-gray-700 hover:text-green-600 transition-colors duration-75"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden bg-white border-t transition-all duration-150 ease-in-out ${
-        isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-      }`}>
+      <div
+        className={`lg:hidden bg-white border-t transition-all duration-150 ease-in-out ${
+          isMenuOpen
+            ? 'max-h-screen opacity-100'
+            : 'max-h-0 opacity-0 overflow-hidden'
+        }`}
+      >
         <div className="container mx-auto px-4 py-4">
           <nav className="flex flex-col space-y-4">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-75"
               onClick={closeMenu}
               prefetch={true}
@@ -150,10 +168,10 @@ const Header = memo(() => {
             <div className="space-y-2">
               <p className="text-gray-700 font-medium">Our Products</p>
               <div className="pl-4 space-y-2">
-                {memoizedProducts.map((product) => (
-                  <Link 
+                {memoizedProducts.map(product => (
+                  <Link
                     key={product.href}
-                    href={product.href} 
+                    href={product.href}
                     className="block text-gray-600 hover:text-green-600 transition-colors duration-75"
                     onClick={closeMenu}
                     prefetch={true}
@@ -163,16 +181,16 @@ const Header = memo(() => {
                 ))}
               </div>
             </div>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75"
               onClick={closeMenu}
               prefetch={true}
             >
               About Us
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-75"
               onClick={closeMenu}
               prefetch={true}

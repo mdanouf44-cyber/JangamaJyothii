@@ -6,31 +6,37 @@
   * {
     box-sizing: border-box;
   }
-  
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-  
+
   body {
     @apply font-sans antialiased;
     font-display: swap;
     line-height: 1.6;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
     font-display: swap;
   }
-  
+
   /* Performance optimizations */
-  img, video {
+  img,
+  video {
     max-width: 100%;
     height: auto;
   }
-  
+
   /* Reduce motion for users who prefer it */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -42,7 +48,7 @@
       scroll-behavior: auto !important;
     }
   }
-  
+
   /* Optimize focus styles */
   :focus-visible {
     outline: 2px solid #10b981;
@@ -55,67 +61,69 @@
     @apply bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
     will-change: background-color;
   }
-  
+
   .btn-secondary {
     @apply bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
     will-change: background-color;
   }
-  
+
   .btn-outline {
     @apply border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
     will-change: background-color, color;
   }
-  
+
   .card {
     @apply bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden;
     will-change: transform;
   }
-  
+
   .input-field {
     @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500;
   }
-  
+
   .section-padding {
     @apply py-16 px-4 sm:px-6 lg:px-8;
   }
-  
+
   .container-max {
     @apply max-w-7xl mx-auto;
   }
-  
+
   .hero-gradient {
     @apply bg-gradient-to-r from-green-600 to-green-800;
   }
-  
+
   .text-primary {
     @apply text-green-600;
   }
-  
+
   .bg-primary {
     @apply bg-green-600;
   }
-  
+
   .border-primary {
     @apply border-green-600;
   }
-  
+
   /* Optimized hover effects */
   .hover-lift {
-    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+    transition:
+      transform 0.15s ease-out,
+      box-shadow 0.15s ease-out;
     will-change: transform;
   }
-  
+
   .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   }
-  
+
   /* Video optimization */
   video {
     object-fit: cover;
     will-change: auto;
   }
-  
+
   /* Loading states */
   .loading-skeleton {
     background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
@@ -128,63 +136,71 @@
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .text-shadow-lg {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   .backdrop-blur-xs {
     backdrop-filter: blur(2px);
   }
-  
+
   .will-change-transform {
     will-change: transform;
   }
-  
+
   .will-change-opacity {
     will-change: opacity;
   }
-  
+
   .gpu-accelerated {
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
   }
-  
+
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .animate-fade-in {
     animation: fadeIn 0.8s ease-in-out;
   }
-  
+
   .animate-slide-up {
     animation: slideUp 0.6s ease-out;
   }
-  
+
   .animate-pulse-coffee {
     animation: pulseCoffee 2s ease-in-out infinite;
   }
-  
+
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradientShift 3s ease infinite;
   }
-  
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
-  
+
   .animate-steam {
     animation: steam 2.5s ease-in-out infinite;
   }
-  
+
   /* Stagger animation for cards */
-  .animate-stagger-1 { animation-delay: 0.1s; }
-  .animate-stagger-2 { animation-delay: 0.2s; }
-  .animate-stagger-3 { animation-delay: 0.3s; }
-  .animate-stagger-4 { animation-delay: 0.4s; }
+  .animate-stagger-1 {
+    animation-delay: 0.1s;
+  }
+  .animate-stagger-2 {
+    animation-delay: 0.2s;
+  }
+  .animate-stagger-3 {
+    animation-delay: 0.3s;
+  }
+  .animate-stagger-4 {
+    animation-delay: 0.4s;
+  }
 }
 
 /* Keyframe animations */
@@ -211,7 +227,8 @@
 }
 
 @keyframes pulseCoffee {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -243,7 +260,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
     opacity: 0.3;
   }
