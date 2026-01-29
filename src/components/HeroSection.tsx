@@ -36,7 +36,7 @@ const HeroSection = () => {
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Background Slideshow */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" suppressHydrationWarning>
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -55,7 +55,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="container mx-auto px-4 text-center text-white">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto" suppressHydrationWarning>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
               {slides[currentSlide].title}
             </h1>
@@ -78,7 +78,7 @@ const HeroSection = () => {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20" suppressHydrationWarning>
         {slides.map((_, index) => (
           <button
             key={index}

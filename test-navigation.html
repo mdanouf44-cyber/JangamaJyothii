@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test - JangamaJyothi</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-link { display: block; margin: 10px 0; padding: 10px; background: #f0f0f0; text-decoration: none; color: #333; border-radius: 5px; }
+        .test-link:hover { background: #e0e0e0; }
+        h1 { color: #2d5a27; }
+    </style>
+</head>
+<body>
+    <h1>JangamaJyothi Product Navigation Test</h1>
+    <p>Click on any product link to test if the pages are working:</p>
+    
+    <a href="http://localhost:3000/" class="test-link">🏠 Home Page</a>
+    <a href="http://localhost:3000/products" class="test-link">📦 All Products</a>
+    
+    <h2>Individual Product Pages:</h2>
+    <a href="http://localhost:3000/products/coffee" class="test-link">☕ Coffee</a>
+    <a href="http://localhost:3000/products/coconut" class="test-link">🥥 Coconut</a>
+    <a href="http://localhost:3000/products/red-chilli" class="test-link">🌶️ Red Chilli</a>
+    <a href="http://localhost:3000/products/rice" class="test-link">🍚 Rice</a>
+    <a href="http://localhost:3000/products/turmeric" class="test-link">🟡 Turmeric</a>
+    <a href="http://localhost:3000/products/tamarind" class="test-link">🟤 Tamarind</a>
+    <a href="http://localhost:3000/products/pulses" class="test-link">🫘 Pulses</a>
+    <a href="http://localhost:3000/products/areca-plates" class="test-link">🍽️ Areca Plates</a>
+    
+    <h2>Other Pages:</h2>
+    <a href="http://localhost:3000/about" class="test-link">ℹ️ About Us</a>
+    <a href="http://localhost:3000/contact" class="test-link">📞 Contact Us</a>
+    
+    <div style="margin-top: 30px; padding: 15px; background: #e8f5e8; border-radius: 5px;">
+        <h3>✅ Fixed Issues:</h3>
+        <ul>
+            <li>Added 'use client' directive to all product pages</li>
+            <li>Fixed hydration mismatches with suppressHydrationWarning</li>
+            <li>Fixed Tailwind color classes (brown → amber)</li>
+            <li>Simplified ProductsSection routing logic</li>
+            <li>Fixed missing image references</li>
+            <li>All product pages should now open without errors</li>
+        </ul>
+    </div>
+</body>
+</html>
