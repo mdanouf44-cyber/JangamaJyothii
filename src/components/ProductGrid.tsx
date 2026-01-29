@@ -32,7 +32,7 @@ const products = [
   },
   {
     name: 'Tamarind',
-    image: '/logo.png', // Will be replaced with tamarind image when available
+    image: '/tamarind-with-seeds.jpg', // Using actual tamarind image
     href: '/products/tamarind',
   },
   {

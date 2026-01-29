@@ -15,6 +15,7 @@ const TamarindPage = () => {
   const varieties = [
     {
       name: 'Tamarind with Seeds',
+      image: '/tamarind-with-seeds.jpg',
       description:
         "Tamarind with seeds is the natural and unprocessed form of tamarind pulp, retaining its original fibrous structure and seeds. It is harvested from fully matured tamarind pods and cleaned to remove outer shells while preserving the pulp's natural sourness and flavor.",
       features: [
@@ -31,6 +32,7 @@ const TamarindPage = () => {
     },
     {
       name: 'Tamarind Without Seeds (Seedless)',
+      image: '/tamarind-seedless.jpg',
       description:
         'Seedless tamarind is processed to remove seeds and excess fibers, resulting in clean and convenient tamarind pulp. This form is preferred by commercial kitchens, food manufacturers, and exporters due to its ease of use and uniform quality.',
       features: [
@@ -47,6 +49,7 @@ const TamarindPage = () => {
     },
     {
       name: 'Tamarind Seeds',
+      image: '/tamarind-seeds.jpg',
       description:
         'Tamarind seeds are separated during tamarind pulp processing and cleaned thoroughly to remove residual pulp and impurities. These seeds are hard, glossy, and rich in starch content, making them valuable for various industrial and agricultural applications.',
       features: [
@@ -63,6 +66,7 @@ const TamarindPage = () => {
     },
     {
       name: 'Kernel Seeds of Tamarind',
+      image: '/tamarind-kernel-seeds.jpg',
       description:
         'Kernel seeds of tamarind are obtained by removing the outer seed coat and processing the inner kernel. These kernels are rich in polysaccharides and are widely used in textile sizing, adhesive manufacturing, food stabilizers, and pharmaceutical applications.',
       features: [
@@ -169,7 +173,7 @@ const TamarindPage = () => {
 
       {/* Varieties Section */}
       <section className="py-20 bg-gradient-to-r from-amber-700 to-orange-700">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
             Our Tamarind Varieties
           </h2>
@@ -191,24 +195,28 @@ const TamarindPage = () => {
             ))}
           </div>
 
-          {/* Active Variety Details */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Image Placeholder */}
-              <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl h-80 flex items-center justify-center border-2 border-dashed border-amber-300">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">🫘</div>
-                  <p className="text-amber-700 font-medium">
-                    {varieties[activeVariety].name}
-                  </p>
-                  <p className="text-amber-600 text-sm">
-                    Image will be added here
-                  </p>
+          {/* Active Variety Details - Wider Layout (60/40) */}
+          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-8xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-8">
+              {/* Image Section - 60% width (3 columns) */}
+              <div className="md:col-span-3">
+                <div className="relative h-[700px] rounded-xl overflow-hidden shadow-2xl">
+                  <img
+                    src={varieties[activeVariety].image}
+                    alt={varieties[activeVariety].name}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-2xl font-bold drop-shadow-lg">
+                      {varieties[activeVariety].name}
+                    </h3>
+                  </div>
                 </div>
               </div>
 
-              {/* Variety Info */}
-              <div>
+              {/* Content Section - 40% width (2 columns) */}
+              <div className="md:col-span-2">
                 <h3 className="text-2xl font-bold text-amber-900 mb-4">
                   {varieties[activeVariety].name}
                 </h3>
@@ -221,7 +229,7 @@ const TamarindPage = () => {
                   <h4 className="font-semibold text-amber-800 mb-3">
                     Key Features:
                   </h4>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 gap-2">
                     {varieties[activeVariety].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-amber-600 rounded-full"></div>
@@ -232,7 +240,7 @@ const TamarindPage = () => {
                 </div>
 
                 {/* Specifications */}
-                <div className="bg-amber-50 rounded-lg p-4">
+                <div className="bg-amber-50 rounded-lg p-4 mb-6">
                   <h4 className="font-semibold text-amber-800 mb-3">
                     Specifications:
                   </h4>
@@ -263,16 +271,16 @@ const TamarindPage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Uses */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl">
-              <h4 className="font-semibold text-amber-800 mb-3 flex items-center gap-2">
-                <Globe className="w-5 h-5" />
-                Applications:
-              </h4>
-              <p className="text-gray-800">{varieties[activeVariety].uses}</p>
+                {/* Uses */}
+                <div className="p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl">
+                  <h4 className="font-semibold text-amber-800 mb-3 flex items-center gap-2">
+                    <Globe className="w-5 h-5" />
+                    Applications:
+                  </h4>
+                  <p className="text-gray-800 text-sm">{varieties[activeVariety].uses}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

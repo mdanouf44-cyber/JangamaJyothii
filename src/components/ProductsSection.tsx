@@ -70,7 +70,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Tamarind',
-      image: '/logo.png', // Will be replaced with tamarind image when available
+      image: '/tamarind-with-seeds.jpg', // Using actual tamarind image
       description:
         'We supply premium quality tamarind, tamarind seeds, and tamarind kernels, known for their tangy flavor, rich nutritional value, and wide use in culinary, beverage, confectionery, and food processing industries worldwide, with consistent quality assurance.',
       features: [
