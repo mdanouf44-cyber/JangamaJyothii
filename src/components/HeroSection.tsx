@@ -8,21 +8,18 @@ const HeroSection = () => {
 
   const slides = [
     {
-      image:
-        'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+      image: '',
       title: 'Leading Export House of General Merchandise',
       subtitle:
         'Premium quality agricultural commodities from India to global markets',
     },
     {
-      image:
-        'https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+      image: '',
       title: 'Quality Assured Agricultural Exports',
       subtitle: 'Connecting farmers with international buyers worldwide',
     },
     {
-      image:
-        'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+      image: '',
       title: 'Sustainable Farming Practices',
       subtitle:
         'Committed to environmental responsibility and quality excellence',
@@ -48,8 +45,7 @@ const HeroSection = () => {
             }`}
           >
             <div
-              className="w-full h-full bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${slide.image})` }}
+              className="w-full h-full bg-gradient-to-br from-green-600 to-green-800"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50" />
           </div>

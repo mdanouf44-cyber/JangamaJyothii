@@ -92,11 +92,12 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Agricultural export operations"
-                className="w-full h-96 object-cover rounded-lg shadow-2xl"
-              />
+              <div className="w-full h-96 bg-gradient-to-br from-green-600 to-green-800 rounded-lg shadow-2xl flex items-center justify-center">
+                <div className="text-white text-center">
+                  <h3 className="text-2xl font-bold mb-2">Global Export</h3>
+                  <p className="text-green-100">Agricultural Excellence</p>
+                </div>
+              </div>
               <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4 text-center">
                 <div className="text-3xl font-bold text-green-600">5+</div>
                 <div className="text-sm text-gray-700 font-medium">

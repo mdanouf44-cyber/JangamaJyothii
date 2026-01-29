@@ -54,14 +54,14 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Image/Video */}
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden rounded-lg shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Container ship for export"
-                className="w-full h-96 object-cover"
-              />
+              <div className="w-full h-96 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <h3 className="text-2xl font-bold mb-2">Export Excellence</h3>
+                  <p className="text-green-100">Premium Agricultural Products</p>
+                </div>
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
               {/* Experience Badge */}

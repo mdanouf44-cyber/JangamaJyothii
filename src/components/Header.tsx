@@ -39,7 +39,7 @@ const Header = memo(() => {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 md:gap-4 hover:opacity-80 transition-opacity duration-75"
+              className="flex items-center gap-2 md:gap-4 hover:opacity-80 transition-opacity duration-200"
               onClick={closeMenu}
               prefetch={true}
             >

@@ -63,9 +63,7 @@ export function getOptimizedImageUrl(
   width: number,
   quality: number = 85
 ): string {
-  if (baseUrl.includes('unsplash.com')) {
-    return `${baseUrl}&w=${width}&q=${quality}&fm=webp`
-  }
+  // Return the base URL as-is for local images
   return baseUrl
 }
 
