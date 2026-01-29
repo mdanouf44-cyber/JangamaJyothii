@@ -46,7 +46,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Rice',
-      image: '/logo.png', // Will be replaced with rice image when available
+      image: '/sona-masoori-rice.jpg', // Using actual rice image
       description:
         'We supply premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, Jeera Samba and Broken Rice, known for their superior taste, texture, aroma, purity and consistency, ideal for culinary use and global food markets.',
       features: [

@@ -22,7 +22,7 @@ const products = [
   },
   {
     name: 'Rice',
-    image: '/logo.png', // Will be replaced with rice image when available
+    image: '/sona-masoori-rice.jpg', // Using actual rice image
     href: '/products/rice',
   },
   {

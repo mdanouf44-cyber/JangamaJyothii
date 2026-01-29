@@ -38,6 +38,7 @@ const RicePage = () => {
   const varieties = [
     {
       name: 'Sona Masoori Rice',
+      image: '/sona-masoori-rice.jpg',
       description:
         'Sona Masoori rice is a premium medium-grain rice known for its soft texture, light aroma, and easy digestibility. It is cultivated in fertile regions using traditional farming methods supported by modern milling practices.',
       features: [
@@ -54,6 +55,7 @@ const RicePage = () => {
     },
     {
       name: 'IR64 Parboiled Rice',
+      image: '/ir64-parboiled-rice.jpg',
       description:
         'IR64 parboiled rice is processed using a parboiling method that enhances grain strength, nutritional value, and shelf stability. The grains are firm, uniform, and less prone to breakage during cooking.',
       features: [
@@ -70,6 +72,7 @@ const RicePage = () => {
     },
     {
       name: 'IR36 Rice',
+      image: '/ir36-rice.jpg',
       description:
         'IR36 rice is a medium-grain variety known for its consistent grain size, neutral taste, and good cooking performance. It is cultivated using controlled agricultural practices to ensure uniform quality.',
       features: [
@@ -86,6 +89,7 @@ const RicePage = () => {
     },
     {
       name: 'Ponni Rice',
+      image: '/ponni-rice.jpg',
       description:
         'Ponni rice is a popular South Indian rice variety valued for its slender grains, soft texture, and pleasant taste. It is grown in nutrient-rich delta regions and processed using modern milling techniques.',
       features: [
@@ -102,6 +106,7 @@ const RicePage = () => {
     },
     {
       name: 'Jeera Samba Rice',
+      image: '/jeera-samba-rice.jpg',
       description:
         'Jeera Samba rice is a premium short-grain aromatic rice known for its distinctive fragrance and rich flavor. It is traditionally cultivated in specific regions and is widely used for special dishes.',
       features: [
@@ -118,6 +123,7 @@ const RicePage = () => {
     },
     {
       name: 'Broken Rice',
+      image: '/broken-rice.jpg',
       description:
         'Broken rice consists of rice fragments generated during the milling process. Despite being broken, it retains the same nutritional value as whole rice grains and is widely used in various applications.',
       features: [
@@ -243,7 +249,7 @@ const RicePage = () => {
 
       {/* Varieties Section */}
       <section className="py-20 bg-gradient-to-r from-amber-600 to-yellow-600">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
             Our Rice Varieties
           </h2>
@@ -265,24 +271,28 @@ const RicePage = () => {
             ))}
           </div>
 
-          {/* Active Variety Details */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Image Placeholder */}
-              <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-xl h-80 flex items-center justify-center border-2 border-dashed border-amber-300">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">🌾</div>
-                  <p className="text-amber-600 font-medium">
-                    {varieties[activeVariety].name}
-                  </p>
-                  <p className="text-amber-500 text-sm">
-                    Image will be added here
-                  </p>
+          {/* Active Variety Details - Wider Layout (60/40) */}
+          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-8xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-8">
+              {/* Image Section - 60% width (3 columns) */}
+              <div className="md:col-span-3">
+                <div className="relative h-[700px] rounded-xl overflow-hidden shadow-2xl">
+                  <img
+                    src={varieties[activeVariety].image}
+                    alt={varieties[activeVariety].name}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-2xl font-bold drop-shadow-lg">
+                      {varieties[activeVariety].name}
+                    </h3>
+                  </div>
                 </div>
               </div>
 
-              {/* Variety Info */}
-              <div>
+              {/* Content Section - 40% width (2 columns) */}
+              <div className="md:col-span-2">
                 <h3 className="text-2xl font-bold text-amber-800 mb-4">
                   {varieties[activeVariety].name}
                 </h3>
@@ -295,7 +305,7 @@ const RicePage = () => {
                   <h4 className="font-semibold text-amber-700 mb-3">
                     Key Features:
                   </h4>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 gap-2">
                     {varieties[activeVariety].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
@@ -306,7 +316,7 @@ const RicePage = () => {
                 </div>
 
                 {/* Specifications */}
-                <div className="bg-amber-50 rounded-lg p-4">
+                <div className="bg-amber-50 rounded-lg p-4 mb-6">
                   <h4 className="font-semibold text-amber-700 mb-3">
                     Specifications:
                   </h4>
@@ -337,16 +347,16 @@ const RicePage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Uses */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl">
-              <h4 className="font-semibold text-amber-700 mb-3 flex items-center gap-2">
-                <Globe className="w-5 h-5" />
-                Applications:
-              </h4>
-              <p className="text-gray-700">{varieties[activeVariety].uses}</p>
+                {/* Uses */}
+                <div className="p-6 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl">
+                  <h4 className="font-semibold text-amber-700 mb-3 flex items-center gap-2">
+                    <Globe className="w-5 h-5" />
+                    Applications:
+                  </h4>
+                  <p className="text-gray-700 text-sm">{varieties[activeVariety].uses}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

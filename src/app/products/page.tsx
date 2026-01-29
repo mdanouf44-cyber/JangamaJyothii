@@ -51,7 +51,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Rice',
-      image: '/logo.png', // Will be replaced with rice image when available
+      image: '/sona-masoori-rice.jpg', // Using actual rice image
       description:
         'Premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, and Jeera Samba.',
       features: [
