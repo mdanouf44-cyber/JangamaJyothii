@@ -37,7 +37,7 @@ const products = [
   },
   {
     name: 'Pulses',
-    image: '/logo.png', // Will be replaced with pulses image when available
+    image: '/black-chickpeas.jpg', // Using actual pulses image
     href: '/products/pulses',
   },
   {

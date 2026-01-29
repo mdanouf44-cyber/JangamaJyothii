@@ -15,6 +15,7 @@ const PulsesPage = () => {
   const varieties = [
     {
       name: 'Black Chickpeas (Kala Chana)',
+      image: '/black-chickpeas.jpg',
       description:
         'Black chickpeas are a hardy pulse variety known for their firm texture, nutty flavor, and high nutritional value. They are cultivated in dry regions and harvested at full maturity to ensure uniform grain size and natural hardness.',
       features: [
@@ -31,6 +32,7 @@ const PulsesPage = () => {
     },
     {
       name: 'Black Gram (Urad Dal)',
+      image: '/black-gram.jpg',
       description:
         'Black gram is a popular pulse valued for its high protein content, creamy texture when cooked, and strong binding properties. It is cultivated under controlled farming practices and processed carefully to maintain grain integrity and freshness.',
       features: [
@@ -47,6 +49,7 @@ const PulsesPage = () => {
     },
     {
       name: 'Chickpeas (Split)',
+      image: '/chickpeas-split.jpg',
       description:
         'Split chickpeas are produced by dehusking and splitting whole chickpeas, resulting in uniform yellow pulses with smooth texture. This form cooks faster and is widely used in daily cooking and food processing applications.',
       features: [
@@ -63,6 +66,7 @@ const PulsesPage = () => {
     },
     {
       name: 'Green Gram (Moong Beans)',
+      image: '/green-gram.jpg',
       description:
         'Green gram is a highly nutritious pulse known for its easy digestibility, mild flavor, and high protein content. It is harvested at the right maturity stage and processed to retain its natural green color and nutritional benefits.',
       features: [
@@ -79,6 +83,7 @@ const PulsesPage = () => {
     },
     {
       name: 'Horse Gram',
+      image: '/horse-gram.jpg',
       description:
         'Horse gram is a traditional pulse valued for its high fiber content and strong nutritional profile. It is cultivated in dry regions and known for its resilience and long storage life. The grains are processed carefully to remove impurities.',
       features: [
@@ -95,6 +100,7 @@ const PulsesPage = () => {
     },
     {
       name: 'Pigeon Peas (Toor Dal)',
+      image: '/pigeon-peas.jpg',
       description:
         'Pigeon peas are one of the most commonly consumed pulses, known for their soft texture, mild taste, and high protein content. They are harvested at optimal maturity and processed to ensure uniform grain size and consistent cooking quality.',
       features: ['Soft Texture', 'Mild Taste', 'High Protein', 'Uniform Size'],
@@ -200,7 +206,7 @@ const PulsesPage = () => {
 
       {/* Varieties Section */}
       <section className="py-20 bg-gradient-to-r from-green-700 to-emerald-700">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
             Our Pulse Varieties
           </h2>
@@ -222,24 +228,28 @@ const PulsesPage = () => {
             ))}
           </div>
 
-          {/* Active Variety Details */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Image Placeholder */}
-              <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl h-80 flex items-center justify-center border-2 border-dashed border-green-300">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">🫘</div>
-                  <p className="text-green-700 font-medium">
-                    {varieties[activeVariety].name}
-                  </p>
-                  <p className="text-green-600 text-sm">
-                    Image will be added here
-                  </p>
+          {/* Active Variety Details - Wider Layout (60/40) */}
+          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-8xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-8">
+              {/* Image Section - 60% width (3 columns) */}
+              <div className="md:col-span-3">
+                <div className="relative h-[700px] rounded-xl overflow-hidden shadow-2xl">
+                  <img
+                    src={varieties[activeVariety].image}
+                    alt={varieties[activeVariety].name}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-2xl font-bold drop-shadow-lg">
+                      {varieties[activeVariety].name}
+                    </h3>
+                  </div>
                 </div>
               </div>
 
-              {/* Variety Info */}
-              <div>
+              {/* Content Section - 40% width (2 columns) */}
+              <div className="md:col-span-2">
                 <h3 className="text-2xl font-bold text-green-900 mb-4">
                   {varieties[activeVariety].name}
                 </h3>
@@ -252,7 +262,7 @@ const PulsesPage = () => {
                   <h4 className="font-semibold text-green-800 mb-3">
                     Key Features:
                   </h4>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 gap-2">
                     {varieties[activeVariety].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-green-600 rounded-full"></div>
@@ -263,7 +273,7 @@ const PulsesPage = () => {
                 </div>
 
                 {/* Specifications */}
-                <div className="bg-green-50 rounded-lg p-4">
+                <div className="bg-green-50 rounded-lg p-4 mb-6">
                   <h4 className="font-semibold text-green-800 mb-3">
                     Specifications:
                   </h4>
@@ -294,16 +304,16 @@ const PulsesPage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Uses */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
-              <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
-                <Globe className="w-5 h-5" />
-                Applications:
-              </h4>
-              <p className="text-gray-800">{varieties[activeVariety].uses}</p>
+                {/* Uses */}
+                <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
+                  <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
+                    <Globe className="w-5 h-5" />
+                    Applications:
+                  </h4>
+                  <p className="text-gray-800 text-sm">{varieties[activeVariety].uses}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

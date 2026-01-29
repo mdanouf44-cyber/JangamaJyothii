@@ -82,7 +82,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Pulses',
-      image: '/logo.png', // Will be replaced with pulses image when available
+      image: '/black-chickpeas.jpg', // Using actual pulses image
       description:
         'We supply premium pulses including Black Chickpeas, Chickpeas (Split), Pigeon Peas, Black Gram, Green Gram, and Horse Gram, known for their rich taste, high protein content, exceptional quality, long shelf life, freshness, and natural goodness.',
       features: [

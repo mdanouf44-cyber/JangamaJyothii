@@ -90,7 +90,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Pulses',
-      image: '/logo.png', // Will be replaced with pulses image when available
+      image: '/black-chickpeas.jpg', // Using actual pulses image
       description:
         'Premium pulses including Black Chickpeas, Chickpeas, Pigeon Peas, Black Gram, Green Gram, and Horse Gram.',
       features: [
