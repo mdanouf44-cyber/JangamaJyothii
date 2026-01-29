@@ -7,9 +7,32 @@ import { ProductGrid } from '@/components'
 const CoconutPage = () => {
   const [activeVariant, setActiveVariant] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const coconutVideos = [
+    '/coconut-video-1.mp4',
+    '/coconut-video-2.mp4'
+  ]
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Preload videos for better performance
+    const preloadVideos = () => {
+      coconutVideos.forEach((videoSrc) => {
+        const video = document.createElement('video')
+        video.preload = 'metadata'
+        video.src = videoSrc
+      })
+    }
+    
+    // Rotate videos every 10 seconds
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % coconutVideos.length)
+    }, 10000)
+
+    preloadVideos()
+    return () => clearInterval(videoInterval)
   }, [])
 
   const variants = [
@@ -89,23 +112,41 @@ const CoconutPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
-      {/* Hero Section */}
+      {/* Hero Section with Rotating Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
+        {/* Rotating Video Background */}
         <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
-          >
-            <source src="/coconut-video-2.mp4" type="video/mp4" />
-            {/* Fallback background if video doesn't load */}
-            <div className="w-full h-full bg-gradient-to-br from-green-400 via-emerald-400 to-teal-400"></div>
-          </video>
+          {coconutVideos.map((videoSrc, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          ))}
           <div className="absolute inset-0 bg-black/40"></div>
+          
+          {/* Video Indicators */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+            {coconutVideos.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentVideoIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentVideoIndex 
+                    ? 'bg-white scale-125' 
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
 

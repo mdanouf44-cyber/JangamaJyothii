@@ -11,8 +11,7 @@ const CoffeePage = () => {
 
   const coffeeVideos = [
     '/coffee-video-1.mp4',
-    '/coffee-video-2.mp4',
-    '/coffee-video-3.mp4'
+    '/coffee-video-2.mp4'
   ]
 
   useEffect(() => {

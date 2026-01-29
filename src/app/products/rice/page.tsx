@@ -11,8 +11,7 @@ const RicePage = () => {
 
   const riceVideos = [
     '/rice-video-1.mp4',
-    '/rice-video-2.mp4',
-    '/rice-video-3.mp4'
+    '/rice-video-2.mp4'
   ]
 
   useEffect(() => {
