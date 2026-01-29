@@ -182,62 +182,60 @@ const CoffeePage = () => {
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image Section */}
-                <div className="bg-gray-100 p-12 flex items-center justify-center min-h-[600px] relative overflow-hidden">
-                  <div className="text-center relative z-10">
-                    {/* Display actual coffee images */}
-                    {activeVariant === 2 ? (
-                      // Roasted Coffee Beans - Rotating images
-                      <div className="relative w-80 h-80 mx-auto mb-8">
-                        {variants[activeVariant].images?.map((imageSrc, index) => (
-                          <div key={index} className="absolute inset-0">
-                            <Image
-                              src={imageSrc}
-                              alt={`${variants[activeVariant].name} - ${index === 0 ? 'Arabica' : 'Robusta'}`}
-                              width={320}
-                              height={320}
-                              className={`w-full h-full object-cover rounded-2xl shadow-2xl transition-opacity duration-1000 ${
-                                index === roastedImageIndex ? 'opacity-100' : 'opacity-0'
-                              }`}
-                              priority={index === 0}
-                            />
-                          </div>
-                        ))}
-                        {/* Image indicators for roasted beans */}
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                          {variants[activeVariant].images?.map((_, index) => (
-                            <div
-                              key={index}
-                              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                index === roastedImageIndex ? 'bg-amber-600' : 'bg-gray-400'
-                              }`}
-                            />
-                          ))}
+                <div className="bg-gray-100 min-h-[600px] relative overflow-hidden">
+                  {/* Display actual coffee images */}
+                  {activeVariant === 2 ? (
+                    // Roasted Coffee Beans - Rotating images
+                    <div className="relative w-full h-full min-h-[600px]">
+                      {variants[activeVariant].images?.map((imageSrc, index) => (
+                        <div key={index} className="absolute inset-0">
+                          <Image
+                            src={imageSrc}
+                            alt={`${variants[activeVariant].name} - ${index === 0 ? 'Arabica' : 'Robusta'}`}
+                            fill
+                            className={`object-cover transition-opacity duration-1000 ${
+                              index === roastedImageIndex ? 'opacity-100' : 'opacity-0'
+                            }`}
+                            priority={index === 0}
+                          />
                         </div>
+                      ))}
+                      {/* Image indicators for roasted beans */}
+                      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                        {variants[activeVariant].images?.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`w-4 h-4 rounded-full transition-all duration-300 border-2 border-white ${
+                              index === roastedImageIndex ? 'bg-amber-600' : 'bg-white/50'
+                            }`}
+                          />
+                        ))}
                       </div>
-                    ) : (
-                      // Single images for Arabica and Robusta
-                      <div className="w-80 h-80 mx-auto mb-8">
-                        <Image
-                          src={variants[activeVariant].image || ''}
-                          alt={variants[activeVariant].name}
-                          width={320}
-                          height={320}
-                          className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                          priority={activeVariant === 0}
-                        />
-                      </div>
-                    )}
-
-                    <div className="bg-amber-900/90 backdrop-blur-md px-8 py-4 rounded-2xl border border-amber-600/30">
-                      <p className="text-2xl font-bold mb-2 text-white">Premium Quality</p>
-                      <p className="text-lg text-amber-200">{variants[activeVariant].name}</p>
-                      {activeVariant === 2 && (
-                        <p className="text-sm text-amber-300 mt-2">
+                      {/* Overlay label */}
+                      <div className="absolute bottom-8 right-8 bg-black/70 backdrop-blur-md px-6 py-3 rounded-xl border border-white/30 z-10">
+                        <p className="text-white font-bold text-lg">Premium Quality</p>
+                        <p className="text-amber-200 text-sm">
                           {roastedImageIndex === 0 ? 'Roasted Arabica' : 'Roasted Robusta'}
                         </p>
-                      )}
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    // Single images for Arabica and Robusta
+                    <div className="relative w-full h-full min-h-[600px]">
+                      <Image
+                        src={variants[activeVariant].image || ''}
+                        alt={variants[activeVariant].name}
+                        fill
+                        className="object-cover"
+                        priority={activeVariant === 0}
+                      />
+                      {/* Overlay label */}
+                      <div className="absolute bottom-8 right-8 bg-black/70 backdrop-blur-md px-6 py-3 rounded-xl border border-white/30 z-10">
+                        <p className="text-white font-bold text-lg">Premium Quality</p>
+                        <p className="text-amber-200 text-sm">{variants[activeVariant].name}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content Section */}
