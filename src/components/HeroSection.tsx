@@ -8,18 +8,18 @@ const HeroSection = () => {
 
   const slides = [
     {
-      image: '',
+      video: '/hero-leading-export.mp4',
       title: 'Leading Export House of General Merchandise',
       subtitle:
         'Premium quality agricultural commodities from India to global markets',
     },
     {
-      image: '',
+      video: '/hero-quality-assured.mp4',
       title: 'Quality Assured Agricultural Exports',
       subtitle: 'Connecting farmers with international buyers worldwide',
     },
     {
-      image: '',
+      video: '/hero-sustainable-farming.mp4',
       title: 'Sustainable Farming Practices',
       subtitle:
         'Committed to environmental responsibility and quality excellence',
@@ -33,6 +33,19 @@ const HeroSection = () => {
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length)
     }, 5000)
+
+    // Preload videos for better performance
+    const preloadVideos = () => {
+      slides.forEach((slide, index) => {
+        if (index < 2) { // Preload first 2 videos
+          const video = document.createElement('video')
+          video.preload = 'metadata'
+          video.src = slide.video
+        }
+      })
+    }
+
+    preloadVideos()
     return () => clearInterval(timer)
   }, [])
 
@@ -57,7 +70,7 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Background Slideshow */}
+      {/* Background Video Slideshow */}
       <div className="absolute inset-0" suppressHydrationWarning>
         {slides.map((slide, index) => (
           <div
@@ -66,10 +79,19 @@ const HeroSection = () => {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div
-              className="w-full h-full bg-gradient-to-br from-green-600 to-green-800"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover"
+            >
+              <source src={slide.video} type="video/mp4" />
+              {/* Fallback gradient background */}
+              <div className="w-full h-full bg-gradient-to-br from-green-600 to-green-800" />
+            </video>
+            <div className="absolute inset-0 bg-black bg-opacity-40" />
           </div>
         ))}
       </div>
