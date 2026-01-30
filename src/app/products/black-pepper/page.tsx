@@ -193,20 +193,17 @@ const BlackPepperPage = () => {
 
       {/* Black Pepper Varieties Section */}
       <section className="py-12 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative">
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-[1100px] mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
             Premium Black Pepper Varieties
           </h2>
-          <p className="text-base text-gray-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
-            Choose from our exceptional selection of black pepper varieties, each with unique characteristics and superior quality.
-          </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
             {varieties.map((variety, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariety(index)}
-                className={`px-6 py-3 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                className={`px-6 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
                   activeVariety === index
                     ? 'bg-white text-gray-900 shadow-2xl border-white scale-105'
                     : 'bg-gray-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
