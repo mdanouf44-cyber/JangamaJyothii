@@ -6,6 +6,7 @@ import {
   ProductsSection,
   WhyChooseUsSection,
   CountriesExportSection,
+  CertificationSection,
 } from '@/components'
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function HomePage() {
       <ProductsSection />
       <WhyChooseUsSection />
       <CountriesExportSection />
+      <CertificationSection />
     </div>
   )
 }
