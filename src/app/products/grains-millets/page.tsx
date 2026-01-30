@@ -162,21 +162,21 @@ const GrainsMilletsPage = () => {
       </section>
 
       {/* Grains & Millets Varieties Section */}
-      <section className="py-16 bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 relative">
+      <section className="py-12 bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 relative">
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-6 drop-shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
             Premium Millet Varieties
           </h2>
-          <p className="text-lg text-amber-200 text-center mb-12 max-w-2xl mx-auto drop-shadow-lg">
+          <p className="text-base text-amber-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
             Choose from our exceptional selection of nutritious millets, each with unique health benefits and culinary applications.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-5 mb-14">
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
             {varieties.map((variety, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariety(index)}
-                className={`px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                className={`px-6 py-3 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
                   activeVariety === index
                     ? 'bg-white text-amber-900 shadow-2xl border-white scale-105'
                     : 'bg-amber-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
@@ -187,85 +187,85 @@ const GrainsMilletsPage = () => {
             ))}
           </div>
 
-          <div className="max-w-[1200px] mx-auto">
+          <div className="max-w-[1100px] mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section - Empty for now */}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-200 min-h-[420px] relative overflow-hidden flex items-center justify-center">
+                <div className="bg-gradient-to-br from-amber-100 to-orange-200 min-h-[380px] relative overflow-hidden flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-24 h-24 bg-amber-300 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <span className="text-5xl">🌾</span>
+                    <div className="w-20 h-20 bg-amber-300 rounded-full flex items-center justify-center mb-3 mx-auto">
+                      <span className="text-4xl">🌾</span>
                     </div>
-                    <p className="text-amber-800 font-bold text-lg">
+                    <p className="text-amber-800 font-bold text-base">
                       {varieties[activeVariety].name}
                     </p>
-                    <p className="text-amber-600 text-sm mt-2">
+                    <p className="text-amber-600 text-xs mt-1">
                       Image will be added here
                     </p>
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6 bg-white">
-                  <div className="mb-4">
-                    <span className="inline-block px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-bold">
+                <div className="p-5 bg-white">
+                  <div className="mb-3">
+                    <span className="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold">
                       Premium Quality Millet
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-amber-900 mb-4 leading-tight">
+                  <h3 className="text-xl font-bold text-amber-900 mb-3 leading-tight">
                     {varieties[activeVariety].name}
                   </h3>
 
-                  <p className="text-gray-700 leading-relaxed mb-5 text-base">
+                  <p className="text-gray-700 leading-relaxed mb-4 text-sm">
                     {varieties[activeVariety].description}
                   </p>
 
-                  <div className="mb-5">
-                    <h4 className="text-lg font-bold text-amber-900 mb-4 flex items-center gap-2">
-                      <Sparkles className="w-5 h-5 text-amber-600" />
+                  <div className="mb-4">
+                    <h4 className="text-base font-bold text-amber-900 mb-3 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-amber-600" />
                       Key Features
                     </h4>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-2">
                       {varieties[activeVariety].features.map((feature, index) => (
                         <div
                           key={index}
-                          className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg shadow-sm border border-amber-100 hover:shadow-md transition-shadow"
+                          className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg shadow-sm border border-amber-100 hover:shadow-md transition-shadow"
                         >
-                          <div className="w-2 h-2 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-sm">{feature}</span>
+                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full flex-shrink-0"></div>
+                          <span className="text-gray-800 font-semibold text-xs">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-amber-900 to-orange-900 rounded-lg p-5 border border-amber-800">
-                    <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                      <Package className="w-5 h-5 text-white" />
+                  <div className="bg-gradient-to-r from-amber-900 to-orange-900 rounded-lg p-4 border border-amber-800">
+                    <h4 className="text-base font-bold text-white mb-3 flex items-center gap-2">
+                      <Package className="w-4 h-4 text-white" />
                       Technical Specifications
                     </h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-white p-3 rounded-lg shadow-md border border-amber-200">
-                        <span className="text-xs font-bold text-amber-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-base mt-1">{varieties[activeVariety].specs.hsCode}</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-amber-200">
+                        <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wide">HS Code</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].specs.hsCode}</p>
                       </div>
-                      <div className="bg-white p-3 rounded-lg shadow-md border border-amber-200">
-                        <span className="text-xs font-bold text-amber-800 uppercase tracking-wide">Min Order</span>
-                        <p className="font-bold text-black text-base mt-1">{varieties[activeVariety].specs.moq}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-amber-200">
+                        <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wide">Min Order</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].specs.moq}</p>
                       </div>
-                      <div className="bg-white p-3 rounded-lg shadow-md border border-amber-200">
-                        <span className="text-xs font-bold text-amber-800 uppercase tracking-wide">Moisture</span>
-                        <p className="font-bold text-black text-base mt-1">{varieties[activeVariety].specs.moisture}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-amber-200">
+                        <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wide">Moisture</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].specs.moisture}</p>
                       </div>
-                      <div className="bg-white p-3 rounded-lg shadow-md border border-amber-200">
-                        <span className="text-xs font-bold text-amber-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-base mt-1">{varieties[activeVariety].specs.shelfLife}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-amber-200">
+                        <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wide">Shelf Life</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].specs.shelfLife}</p>
                       </div>
                     </div>
                     
-                    <div className="mt-4 bg-white p-4 rounded-lg shadow-md border border-amber-200">
-                      <span className="text-xs font-bold text-amber-800 uppercase tracking-wide">Primary Uses</span>
-                      <p className="text-gray-700 text-sm mt-2 leading-relaxed">{varieties[activeVariety].uses}</p>
+                    <div className="mt-3 bg-white p-3 rounded-lg shadow-md border border-amber-200">
+                      <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wide">Primary Uses</span>
+                      <p className="text-gray-700 text-xs mt-1 leading-relaxed">{varieties[activeVariety].uses}</p>
                     </div>
                   </div>
                 </div>
