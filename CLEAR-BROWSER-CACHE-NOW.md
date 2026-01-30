@@ -1,8 +1,8 @@
 # ⚠️ IMPORTANT: CLEAR YOUR BROWSER CACHE
 
-## All product variety pages have been updated with compact sizing!
+## All product pages have been updated with compact sizing!
 
-The changes have been successfully applied to ALL product pages:
+The changes have been successfully applied to ALL 9 product pages:
 - ✅ Cardamom
 - ✅ Turmeric  
 - ✅ Rice
@@ -10,6 +10,8 @@ The changes have been successfully applied to ALL product pages:
 - ✅ Red Chilli
 - ✅ Pulses
 - ✅ Areca Plates
+- ✅ Coffee (JUST UPDATED!)
+- ✅ Coconut (JUST UPDATED!)
 
 ## Changes Applied:
 - Container width: **1100px** (was 1400-1600px)
@@ -51,4 +53,4 @@ After clearing cache, check any product variety page (e.g., /products/cardamom) 
 - Smaller fonts and buttons
 - Overall more compact layout that fits better on screen
 
-All changes have been committed to GitHub: commit `ecd4131`
+All changes have been committed to GitHub: commits `ecd4131` and `5dac500`
