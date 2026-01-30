@@ -191,14 +191,14 @@ const ArecaPlatesPage = () => {
       </section>
 
       {/* Varieties Section */}
-      <section className="py-20 bg-gradient-to-r from-green-700 to-lime-700">
+      <section className="py-12 bg-gradient-to-r from-green-700 to-lime-700">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">
             Our Areca Plate Varieties
           </h2>
 
           {/* Variety Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
             {varieties.map((variety, index) => (
               <button
                 key={index}
@@ -215,19 +215,19 @@ const ArecaPlatesPage = () => {
           </div>
 
           {/* Active Variety Details - Wider Layout (60/40) */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-8xl mx-auto">
-            <div className="grid md:grid-cols-5 gap-8">
+          <div className="bg-white rounded-2xl p-5 shadow-2xl max-w-[1100px] mx-auto">
+            <div className="grid md:grid-cols-5 gap-0">
               {/* Image Section - 60% width (3 columns) */}
               <div className="md:col-span-3">
-                <div className="relative h-[700px] rounded-xl overflow-hidden shadow-2xl">
+                <div className="relative h-[380px] rounded-xl overflow-hidden shadow-2xl">
                   <img
                     src={varieties[activeVariety].image}
                     alt={varieties[activeVariety].name}
                     className="w-full h-full object-cover transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-2xl font-bold drop-shadow-lg">
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <h3 className="text-lg font-bold drop-shadow-lg">
                       {varieties[activeVariety].name}
                     </h3>
                   </div>
@@ -235,35 +235,35 @@ const ArecaPlatesPage = () => {
               </div>
 
               {/* Content Section - 40% width (2 columns) */}
-              <div className="md:col-span-2">
-                <h3 className="text-2xl font-bold text-green-900 mb-4">
+              <div className="md:col-span-2 p-5">
+                <h3 className="text-xl font-bold text-green-900 mb-3">
                   {varieties[activeVariety].name}
                 </h3>
-                <p className="text-gray-800 mb-6 leading-relaxed">
+                <p className="text-gray-800 mb-4 leading-relaxed text-sm">
                   {varieties[activeVariety].description}
                 </p>
 
                 {/* Features */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-green-800 mb-3">
+                <div className="mb-4">
+                  <h4 className="font-semibold text-green-800 mb-2 text-base">
                     Key Features:
                   </h4>
                   <div className="grid grid-cols-1 gap-2">
                     {varieties[activeVariety].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                        <span className="text-sm text-gray-700">{feature}</span>
+                        <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                        <span className="text-xs text-gray-700">{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Specifications */}
-                <div className="bg-green-50 rounded-lg p-4 mb-6">
-                  <h4 className="font-semibold text-green-800 mb-3">
+                <div className="bg-green-50 rounded-lg p-3 mb-4">
+                  <h4 className="font-semibold text-green-800 mb-2 text-base">
                     Specifications:
                   </h4>
-                  <div className="space-y-2 text-sm">
+                  <div className="space-y-1 text-xs">
                     <div className="flex justify-between">
                       <span className="text-gray-700">HS Code:</span>
                       <span className="font-medium">
@@ -286,20 +286,20 @@ const ArecaPlatesPage = () => {
                 </div>
 
                 {/* Uses and Packaging */}
-                <div className="grid grid-cols-1 gap-4">
-                  <div className="p-4 bg-gradient-to-r from-green-50 to-lime-50 rounded-xl">
-                    <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="p-3 bg-gradient-to-r from-green-50 to-lime-50 rounded-lg">
+                    <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2 text-base">
                       <Globe className="w-4 h-4" />
                       Applications:
                     </h4>
-                    <p className="text-gray-800 text-sm">{varieties[activeVariety].uses}</p>
+                    <p className="text-gray-800 text-xs">{varieties[activeVariety].uses}</p>
                   </div>
-                  <div className="p-4 bg-gradient-to-r from-lime-50 to-green-50 rounded-xl">
-                    <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
+                  <div className="p-3 bg-gradient-to-r from-lime-50 to-green-50 rounded-lg">
+                    <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2 text-base">
                       <Shield className="w-4 h-4" />
                       Packaging:
                     </h4>
-                    <p className="text-gray-800 text-sm">
+                    <p className="text-gray-800 text-xs">
                       {varieties[activeVariety].packaging}
                     </p>
                   </div>

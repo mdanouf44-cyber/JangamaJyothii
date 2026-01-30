@@ -180,21 +180,21 @@ const RedChilliPage = () => {
       </section>
 
       {/* Red Chilli Varieties Section */}
-      <section className="py-20 bg-gradient-to-br from-red-900 via-orange-900 to-red-900 relative">
+      <section className="py-12 bg-gradient-to-br from-red-900 via-orange-900 to-red-900 relative">
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-6 drop-shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
             Premium Red Chilli Varieties
           </h2>
-          <p className="text-xl text-red-200 text-center mb-16 max-w-2xl mx-auto drop-shadow-lg">
+          <p className="text-base text-red-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
             Discover our authentic red chilli varieties, each with unique characteristics and flavor profiles.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-6 mb-16">
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
             {varieties.map((variety, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariety(index)}
-                className={`px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                className={`px-6 py-3 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
                   activeVariety === index
                     ? 'bg-white text-red-900 shadow-2xl border-white scale-105'
                     : 'bg-red-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
@@ -205,12 +205,12 @@ const RedChilliPage = () => {
             ))}
           </div>
 
-          <div className="max-w-[1600px] mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-white/30">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section */}
-                <div className="bg-gray-100 min-h-[700px] relative overflow-hidden">
-                  <div className="relative w-full h-full min-h-[700px]">
+                <div className="bg-gray-100 min-h-[380px] relative overflow-hidden">
+                  <div className="relative w-full h-full min-h-[380px]">
                     <Image
                       src={varieties[activeVariety].image || ''}
                       alt={varieties[activeVariety].name}
@@ -219,74 +219,74 @@ const RedChilliPage = () => {
                       priority={activeVariety === 0}
                     />
                     {/* Overlay label */}
-                    <div className="absolute bottom-8 right-8 bg-black/70 backdrop-blur-md px-6 py-3 rounded-xl border border-white/30 z-10">
-                      <p className="text-white font-bold text-lg">Premium Quality</p>
-                      <p className="text-red-200 text-sm">{varieties[activeVariety].name}</p>
+                    <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/30 z-10">
+                      <p className="text-white font-bold text-sm">Premium Quality</p>
+                      <p className="text-red-200 text-xs">{varieties[activeVariety].name}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-10 lg:p-12 bg-white">
-                  <div className="mb-6">
-                    <span className="inline-block px-6 py-3 bg-red-100 text-red-800 rounded-full text-lg font-bold mb-6">
+                <div className="p-5 bg-white">
+                  <div className="mb-3">
+                    <span className="inline-block px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs font-bold">
                       Premium Red Chilli
                     </span>
                   </div>
 
-                  <h3 className="text-4xl font-bold text-red-900 mb-8 leading-tight">
+                  <h3 className="text-xl font-bold text-red-900 mb-3 leading-tight">
                     {varieties[activeVariety].name}
                   </h3>
 
-                  <p className="text-gray-700 leading-relaxed mb-10 text-xl">
+                  <p className="text-gray-700 leading-relaxed mb-4 text-sm">
                     {varieties[activeVariety].description}
                   </p>
 
-                  <div className="mb-10">
-                    <h4 className="text-2xl font-bold text-red-900 mb-8 flex items-center gap-3">
-                      <Award className="w-8 h-8 text-red-600" />
+                  <div className="mb-4">
+                    <h4 className="text-base font-bold text-red-900 mb-3 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-red-600" />
                       Key Features
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {varieties[activeVariety].features.map((feature, index) => (
                         <div
                           key={index}
-                          className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl shadow-sm border border-red-100 hover:shadow-md transition-shadow"
+                          className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg shadow-sm border border-red-100 hover:shadow-md transition-shadow"
                         >
-                          <div className="w-4 h-4 bg-gradient-to-r from-red-600 to-orange-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-lg">{feature}</span>
+                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-red-600 to-orange-600 rounded-full flex-shrink-0"></div>
+                          <span className="text-gray-800 font-semibold text-xs">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-red-900 to-orange-900 rounded-2xl p-8 border-2 border-red-800">
-                    <h4 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                      <Package className="w-8 h-8 text-white" />
+                  <div className="bg-gradient-to-r from-red-900 to-orange-900 rounded-lg p-4 border border-red-800">
+                    <h4 className="text-base font-bold text-white mb-3 flex items-center gap-2">
+                      <Package className="w-4 h-4 text-white" />
                       Technical Specifications
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-2xl mt-2">{varieties[activeVariety].hsCode}</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-red-200">
+                        <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">HS Code</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].hsCode}</p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Minimum Order</span>
-                        <p className="font-bold text-black text-2xl mt-2">{varieties[activeVariety].moq}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-red-200">
+                        <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">Minimum Order</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].moq}</p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-2xl mt-2">{varieties[activeVariety].shelfLife}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-red-200">
+                        <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">Shelf Life</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].shelfLife}</p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Moisture Content</span>
-                        <p className="font-bold text-black text-2xl mt-2">{varieties[activeVariety].moisture}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-red-200">
+                        <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">Moisture Content</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].moisture}</p>
                       </div>
                     </div>
                     
-                    <div className="mt-6 bg-white p-6 rounded-xl shadow-md border border-red-200">
-                      <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Primary Uses</span>
-                      <p className="text-gray-700 text-lg mt-2 leading-relaxed">{varieties[activeVariety].uses}</p>
+                    <div className="mt-3 bg-white p-3 rounded-lg shadow-md border border-red-200">
+                      <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">Primary Uses</span>
+                      <p className="text-gray-700 text-xs mt-1 leading-relaxed">{varieties[activeVariety].uses}</p>
                     </div>
                   </div>
                 </div>
