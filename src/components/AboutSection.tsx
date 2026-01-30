@@ -31,8 +31,7 @@ const AboutSection = () => {
                 natural products to global markets, we specialize in a wide
                 range of goods including{' '}
                 <strong className="text-gray-900">
-                  Coffee, Areca Nut, Areca nut Plates, Spices, Pulses, Rice,
-                  Grains & Coconuts
+                  Coffee, Coconut, Red Chilli, Rice, Turmeric, Tamarind, Pulses, and Areca Plates
                 </strong>
                 .
               </p>
