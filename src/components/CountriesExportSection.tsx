@@ -21,7 +21,7 @@ const CountriesExportSection = () => {
     { number: '27+', label: 'Countries' },
     { number: '2.9M+', label: 'Hectares Field' },
     { number: '87K+', label: "Happy Farm's" },
-    { number: '5+', label: 'Years Experience' },
+    { number: '15+', label: 'Years Experience' },
   ]
 
   return (

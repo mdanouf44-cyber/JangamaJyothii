@@ -387,7 +387,7 @@ const CoconutPage = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
                   { number: '500+', label: 'Partner Farms', icon: '🌱' },
-                  { number: '25+', label: 'Years Experience', icon: '🏆' },
+                  { number: '15+', label: 'Years Experience', icon: '🏆' },
                   { number: '30+', label: 'Countries', icon: '🌍' },
                   { number: '100%', label: 'Natural', icon: '🌿' },
                 ].map((stat, index) => (
