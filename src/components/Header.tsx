@@ -3,6 +3,7 @@
 import { useState, useCallback, memo, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
 const products = [
@@ -22,6 +23,7 @@ const products = [
 
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen(prev => !prev)
@@ -33,6 +35,17 @@ const Header = memo(() => {
 
   // Memoize products to prevent re-renders
   const memoizedProducts = useMemo(() => products, [])
+
+  // Helper function to determine if a link is active
+  const isActiveLink = useCallback((href: string) => {
+    if (href === '/') {
+      return pathname === '/'
+    }
+    if (href === '/products') {
+      return pathname === '/products' || pathname.startsWith('/products/')
+    }
+    return pathname === href
+  }, [pathname])
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -69,7 +82,11 @@ const Header = memo(() => {
             <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               <Link
                 href="/"
-                className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-200"
+                className={`font-medium transition-colors duration-200 ${
+                  isActiveLink('/') 
+                    ? 'text-orange-500 hover:text-orange-600' 
+                    : 'text-gray-700 hover:text-orange-500'
+                }`}
                 prefetch={true}
               >
                 Home
@@ -77,7 +94,11 @@ const Header = memo(() => {
               <div className="relative group">
                 <Link
                   href="/products"
-                  className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200 flex items-center gap-1"
+                  className={`font-medium transition-colors duration-200 flex items-center gap-1 ${
+                    isActiveLink('/products')
+                      ? 'text-orange-500 hover:text-orange-600'
+                      : 'text-gray-700 hover:text-orange-500'
+                  }`}
                   prefetch={true}
                 >
                   Our Products
@@ -101,7 +122,7 @@ const Header = memo(() => {
                       <Link
                         key={product.href}
                         href={product.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-200"
+                        className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
                         prefetch={true}
                       >
                         {product.name}
@@ -112,14 +133,22 @@ const Header = memo(() => {
               </div>
               <Link
                 href="/about"
-                className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
+                className={`font-medium transition-colors duration-200 ${
+                  isActiveLink('/about')
+                    ? 'text-orange-500 hover:text-orange-600'
+                    : 'text-gray-700 hover:text-orange-500'
+                }`}
                 prefetch={true}
               >
                 About Us
               </Link>
               <Link
                 href="/contact"
-                className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
+                className={`font-medium transition-colors duration-200 ${
+                  isActiveLink('/contact')
+                    ? 'text-orange-500 hover:text-orange-600'
+                    : 'text-gray-700 hover:text-orange-500'
+                }`}
                 prefetch={true}
               >
                 Contact Us
@@ -163,20 +192,26 @@ const Header = memo(() => {
           <nav className="flex flex-col space-y-4">
             <Link
               href="/"
-              className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-200"
+              className={`font-medium transition-colors duration-200 ${
+                isActiveLink('/') 
+                  ? 'text-orange-500 hover:text-orange-600' 
+                  : 'text-gray-700 hover:text-orange-500'
+              }`}
               onClick={closeMenu}
               prefetch={true}
             >
               Home
             </Link>
             <div className="space-y-2">
-              <p className="text-gray-700 font-medium">Our Products</p>
+              <p className={`font-medium ${
+                isActiveLink('/products') ? 'text-orange-500' : 'text-gray-700'
+              }`}>Our Products</p>
               <div className="pl-4 space-y-2">
                 {memoizedProducts.map(product => (
                   <Link
                     key={product.href}
                     href={product.href}
-                    className="block text-gray-600 hover:text-green-600 transition-colors duration-200"
+                    className="block text-gray-600 hover:text-orange-600 transition-colors duration-200"
                     onClick={closeMenu}
                     prefetch={true}
                   >
@@ -187,7 +222,11 @@ const Header = memo(() => {
             </div>
             <Link
               href="/about"
-              className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
+              className={`font-medium transition-colors duration-200 ${
+                isActiveLink('/about')
+                  ? 'text-orange-500 hover:text-orange-600'
+                  : 'text-gray-700 hover:text-orange-500'
+              }`}
               onClick={closeMenu}
               prefetch={true}
             >
@@ -195,7 +234,11 @@ const Header = memo(() => {
             </Link>
             <Link
               href="/contact"
-              className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
+              className={`font-medium transition-colors duration-200 ${
+                isActiveLink('/contact')
+                  ? 'text-orange-500 hover:text-orange-600'
+                  : 'text-gray-700 hover:text-orange-500'
+              }`}
               onClick={closeMenu}
               prefetch={true}
             >
