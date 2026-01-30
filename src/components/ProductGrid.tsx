@@ -45,6 +45,26 @@ const products = [
     image: '/round-areca-plates.jpg', // Using actual areca plates image
     href: '/products/areca-plates',
   },
+  {
+    name: 'Black Pepper',
+    image: '/cover-black-pepper.jpg', // Will use cover image for now
+    href: '/products/black-pepper',
+  },
+  {
+    name: 'Cardamom',
+    image: '/cover-cardamom.jpg', // Will use cover image for now
+    href: '/products/cardamom',
+  },
+  {
+    name: 'Grains & Millets',
+    image: '/cover-grains-millets.jpg', // Will use cover image for now
+    href: '/products/grains-millets',
+  },
+  {
+    name: 'Jute & Paper Products',
+    image: '/cover-jute-paper-products.jpg', // Will use cover image for now
+    href: '/products/jute-paper-products',
+  },
 ]
 
 const ProductCard = memo(

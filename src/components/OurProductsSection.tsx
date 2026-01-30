@@ -45,6 +45,26 @@ const OurProductsSection = () => {
       image: '/areca-plates-cover.jpg',
       href: '/products/areca-plates',
     },
+    {
+      name: 'Black Pepper',
+      image: '/cover-black-pepper.jpg',
+      href: '/products/black-pepper',
+    },
+    {
+      name: 'Cardamom',
+      image: '/cover-cardamom.jpg',
+      href: '/products/cardamom',
+    },
+    {
+      name: 'Grains & Millets',
+      image: '/cover-grains-millets.jpg',
+      href: '/products/grains-millets',
+    },
+    {
+      name: 'Jute & Paper Products',
+      image: '/cover-jute-paper-products.jpg',
+      href: '/products/jute-paper-products',
+    },
   ]
 
   return (

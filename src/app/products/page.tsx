@@ -115,6 +115,58 @@ const ProductsPage = () => {
       ],
       href: '/products/areca-plates',
     },
+    {
+      name: 'Black Pepper',
+      image: '/cover-black-pepper.jpg',
+      description:
+        'Premium black pepper varieties including Panniyur series, Karimunda, and traditional types for bold flavor.',
+      features: [
+        'Bold Flavor',
+        'High Piperine',
+        'Premium Quality',
+        'Multiple Varieties',
+      ],
+      href: '/products/black-pepper',
+    },
+    {
+      name: 'Cardamom',
+      image: '/cover-cardamom.jpg',
+      description:
+        'Premium Malabar cardamom, Mysore cardamom, and Vazhukkha type for rich aroma and culinary applications.',
+      features: [
+        'Rich Aroma',
+        'Strong Flavor',
+        'Premium Grade',
+        'Multiple Types',
+      ],
+      href: '/products/cardamom',
+    },
+    {
+      name: 'Grains & Millets',
+      image: '/cover-grains-millets.jpg',
+      description:
+        'Premium grains and millet varieties including Finger, Pearl, Foxtail, and Little for rich nutrition.',
+      features: [
+        'Rich Nutrition',
+        'Natural Flavor',
+        'Health Benefits',
+        'Multiple Varieties',
+      ],
+      href: '/products/grains-millets',
+    },
+    {
+      name: 'Jute & Paper Products',
+      image: '/cover-jute-paper-products.jpg',
+      description:
+        'High-quality eco-friendly paper bags, jute products, and sustainable packaging solutions.',
+      features: [
+        'Eco-Friendly',
+        'Sustainable',
+        'Innovative',
+        'Cost-Effective',
+      ],
+      href: '/products/jute-paper-products',
+    },
   ]
 
   return (

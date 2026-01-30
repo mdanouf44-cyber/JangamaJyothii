@@ -30,6 +30,10 @@ const Footer = () => {
     { name: 'Tamarind', href: '/products/tamarind' },
     { name: 'Pulses', href: '/products/pulses' },
     { name: 'Areca Plates', href: '/products/areca-plates' },
+    { name: 'Black Pepper', href: '/products/black-pepper' },
+    { name: 'Cardamom', href: '/products/cardamom' },
+    { name: 'Grains & Millets', href: '/products/grains-millets' },
+    { name: 'Jute & Paper Products', href: '/products/jute-paper-products' },
   ]
 
   return (
