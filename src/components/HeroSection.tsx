@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isMounted, setIsMounted] = useState(false)
 
   const slides = [
     {
@@ -30,6 +31,8 @@ const HeroSection = () => {
   const floatingIcons = ['🌾', '☕', '🥥', '🌶️', '🍚', '🟡', '🫘', '🍽️', '🌿', '🌱', '🍃', '🌾']
 
   useEffect(() => {
+    setIsMounted(true)
+    
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length)
     }, 5000)
@@ -51,27 +54,29 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Floating Agricultural Icons */}
-      <div className="absolute inset-0 pointer-events-none z-5" suppressHydrationWarning>
-        {floatingIcons.map((icon, index) => (
-          <div
-            key={index}
-            className="absolute text-white opacity-20 animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${index * 0.5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
-              fontSize: `${20 + Math.random() * 20}px`,
-            }}
-          >
-            {icon}
-          </div>
-        ))}
-      </div>
+      {/* Floating Agricultural Icons - Only render on client */}
+      {isMounted && (
+        <div className="absolute inset-0 pointer-events-none z-5">
+          {floatingIcons.map((icon, index) => (
+            <div
+              key={index}
+              className="absolute text-white opacity-20 animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${index * 0.5}s`,
+                animationDuration: `${3 + Math.random() * 4}s`,
+                fontSize: `${20 + Math.random() * 20}px`,
+              }}
+            >
+              {icon}
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Background Video Slideshow */}
-      <div className="absolute inset-0" suppressHydrationWarning>
+      <div className="absolute inset-0">
         {slides.map((slide, index) => (
           <div
             key={index}
