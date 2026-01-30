@@ -1,28 +1,50 @@
 # Product Page Variety Section - Standard Sizing
 
-## ⚠️ UPDATED SIZING STANDARD (January 2026)
+## ⚠️ FINAL SIZING STANDARD (January 2026)
 
-**Use this sizing for ALL new product pages going forward!**
+**Use this sizing for ALL product pages - MANDATORY!**
 
-This is the compact, professional sizing - a bit smaller but still very readable.
+This is the most compact, professional sizing with reduced vertical spacing.
 
 ### Section & Layout
-- **Section padding**: `py-12` 
-- **Container max-width**: `max-w-[1100px]`
-- **Image height**: `min-h-[380px]`
-- **Content padding**: `p-5`
+- **Section padding**: `py-10` 
+- **Container max-width**: `max-w-[1050px]`
+- **Image height**: `min-h-[360px]`
+- **Content padding**: `p-4` (reduced from p-5)
 
 ### Headings & Text
-- **Main heading**: `text-3xl md:text-4xl` with `mb-4`
-- **Subtitle**: Remove subtitle text (no longer needed)
-- **Variety name (in box)**: `text-xl font-bold` with `mb-3`
-- **Description text**: `text-sm` with `mb-4`
-- **Section titles**: `text-base font-bold` with `mb-3`
+- **Main heading**: `text-3xl md:text-4xl` with `mb-3`
+- **Variety name (in box)**: `text-lg font-bold` with `mb-2` (reduced from text-xl mb-3)
+- **Description text**: `text-sm` with `mb-3` (reduced from mb-4)
+- **Section titles**: `text-sm font-bold` with `mb-2` (reduced from text-base mb-3)
 
 ### Buttons
-- **Button gaps**: `gap-3` with `mb-10`
-- **Button size**: `px-6 py-2`
+- **Button gaps**: `gap-2` with `mb-8`
+- **Button size**: `px-5 py-2`
 - **Button text**: `text-sm font-bold`
+
+### Badges & Icons
+- **Badge margin**: `mb-2` (reduced from mb-3)
+- **Icon sizes**: `w-3 h-3` (reduced from w-4 h-4)
+
+### Feature Section
+- **Feature grid gaps**: `gap-1.5` (reduced from gap-2)
+- **Feature padding**: `p-1.5` (reduced from p-2)
+- **Feature text**: `text-xs font-semibold`
+- **Feature dot**: `w-1.5 h-1.5`
+
+### Specifications Box
+- **Spec box padding**: `p-3` (reduced from p-4)
+- **Spec box heading**: `text-sm font-bold mb-2` (reduced from text-base mb-3)
+- **Spec card padding**: `p-1.5` (reduced from p-2)
+- **Spec card gaps**: `gap-1.5` (reduced from gap-2)
+- **Spec label**: `text-[9px] font-bold` (reduced from text-[10px])
+- **Spec value**: `text-xs font-bold mt-0.5` (reduced from text-sm mt-0.5)
+
+### Info Boxes (Packaging/Uses)
+- **Info box margins**: `mt-2` (reduced from mt-3)
+- **Info box padding**: `p-2` (reduced from p-3)
+- **Info box text**: `text-xs mt-0.5` (reduced from text-xs mt-1)
 
 ### Image Placeholder
 - **Icon container**: `w-22 h-22` (or w-20 h-20)
