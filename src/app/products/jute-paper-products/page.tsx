@@ -148,18 +148,18 @@ const JutePaperPage = () => {
       </section>
 
       {/* Jute & Paper Varieties Section */}
-      <section className="py-12 bg-gradient-to-br from-amber-900 via-green-900 to-blue-900 relative">
-        <div className="max-w-[1100px] mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
+      <section className="py-10 bg-gradient-to-br from-amber-900 via-green-900 to-blue-900 relative">
+        <div className="max-w-[1050px] mx-auto px-4 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-3 drop-shadow-2xl">
             Our Product Range
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
             {varieties.map((variety, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariety(index)}
-                className={`px-6 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                className={`px-5 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
                   activeVariety === index
                     ? 'bg-white text-gray-900 shadow-2xl border-white scale-105'
                     : 'bg-gray-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
@@ -170,11 +170,11 @@ const JutePaperPage = () => {
             ))}
           </div>
 
-          <div className="max-w-[1100px] mx-auto">
+          <div className="max-w-[1050px] mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section - Empty for now */}
-                <div className="bg-gradient-to-br from-amber-100 to-green-200 min-h-[380px] relative overflow-hidden flex items-center justify-center">
+                <div className="bg-gradient-to-br from-amber-100 to-green-200 min-h-[360px] relative overflow-hidden flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-amber-300 rounded-full flex items-center justify-center mb-3 mx-auto">
                       <span className="text-4xl">
