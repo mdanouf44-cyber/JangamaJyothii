@@ -68,10 +68,10 @@ export default function Error({
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a
-              href="tel:+918680909723"
+              href="tel:+916362315374"
               className="text-sm text-red-600 hover:text-red-700 hover:underline"
             >
-              Call: +91 86809 09723
+              Call: +91 6362315374
             </a>
             <span className="text-gray-300">•</span>
             <a

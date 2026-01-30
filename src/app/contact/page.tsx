@@ -80,9 +80,9 @@ const ContactPage = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Customer Care',
-      details: ['+91 86809 09723', '+91 6362315374'],
+      details: ['+91 6362315374', '+91 9035505951'],
       action: 'Call Now',
-      link: 'tel:+918680909723',
+      link: 'tel:+916362315374',
     },
     {
       icon: <Mail className="w-6 h-6" />,
@@ -93,10 +93,14 @@ const ContactPage = () => {
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Location',
-      details: ['India'],
+      title: 'Office Address',
+      details: [
+        '4th Floor, Om Chamber, 648/A, 1st Stage',
+        'Binnamangala, Stage 1, Indiranagar',
+        'Bengaluru, Karnataka 560038, India'
+      ],
       action: 'Get Directions',
-      link: 'https://maps.google.com/?q=India',
+      link: 'https://maps.google.com/?q=4th+Floor+Om+Chamber+648A+1st+Stage+Binnamangala+Indiranagar+Bengaluru+Karnataka+560038',
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -316,14 +320,14 @@ const ContactPage = () => {
               {/* Google Map */}
               <div className="bg-gray-200 rounded-lg h-64 mb-6 overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15776846.05093!2d73.0!3d20.5937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.840234567890!2d77.6413!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjgiTiA3N8KwMzgnMjguNyJF!5e0!3m2!1sen!2sin!4v1234567890"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="India Location Map"
+                  title="Shree Jangama Jyothi Global LLP Office Location"
                 ></iframe>
               </div>
 
@@ -336,19 +340,19 @@ const ContactPage = () => {
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-green-600" />
                     <a
-                      href="tel:+918680909723"
+                      href="tel:+916362315374"
                       className="text-gray-700 hover:text-green-600 transition-colors"
                     >
-                      +91 86809 09723
+                      +91 6362315374
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-green-600" />
                     <a
-                      href="tel:+916362315374"
+                      href="tel:+919035505951"
                       className="text-gray-700 hover:text-green-600 transition-colors"
                     >
-                      +91 6362315374
+                      +91 9035505951
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
@@ -363,7 +367,9 @@ const ContactPage = () => {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-green-600 mt-1" />
                     <div className="text-gray-700">
-                      <p>India</p>
+                      <p>4th Floor, Om Chamber, 648/A, 1st Stage</p>
+                      <p>Binnamangala, Stage 1, Indiranagar</p>
+                      <p>Bengaluru, Karnataka 560038, India</p>
                     </div>
                   </div>
                 </div>
@@ -395,7 +401,7 @@ const ContactPage = () => {
             queries and urgent requirements.
           </p>
           <a
-            href="https://wa.me/918680909723"
+            href="https://wa.me/916362315374"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white text-green-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"

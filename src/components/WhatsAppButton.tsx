@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
     return () => clearTimeout(timer)
   }, [])
 
-  const whatsappNumber = '918680909723' // Your WhatsApp number
+  const whatsappNumber = '916362315374' // Your WhatsApp number
   const message = encodeURIComponent(
     'Hello! I am interested in your agricultural products.'
   )
