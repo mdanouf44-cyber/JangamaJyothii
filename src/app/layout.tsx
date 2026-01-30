@@ -3,6 +3,8 @@ import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
+import WhatsAppButton from '@/components/WhatsAppButton'
 import { Suspense } from 'react'
 
 const inter = Inter({
@@ -124,10 +126,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body className="min-h-screen bg-gray-50 antialiased">
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
         <Suspense fallback={<Loading />}>
           <Header />
           <main className="relative">{children}</main>
           <Footer />
+          <WhatsAppButton />
         </Suspense>
       </body>
     </html>

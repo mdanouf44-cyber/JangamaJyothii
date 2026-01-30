@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect } from 'react'
+import Link from 'next/link'
+import { Home, RefreshCw } from 'lucide-react'
 
 export default function Error({
   error,
@@ -10,39 +12,76 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
-    console.error(error)
+    // Log the error to an error reporting service
+    console.error('Application error:', error)
   }, [error])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="text-center max-w-md mx-auto px-4">
-        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg
-            className="w-8 h-8 text-red-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-            />
-          </svg>
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 flex items-center justify-center px-4">
+      <div className="max-w-2xl w-full text-center">
+        {/* Error Illustration */}
+        <div className="mb-8">
+          <h1 className="text-9xl font-bold text-red-600 mb-4">500</h1>
+          <div className="w-32 h-1 bg-red-600 mx-auto rounded-full"></div>
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Something went wrong!
+
+        {/* Error Message */}
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Something Went Wrong
         </h2>
-        <p className="text-gray-600 mb-6">
-          We apologize for the inconvenience. Please try again.
+        <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
+          We're sorry, but something unexpected happened. Our team has been
+          notified and we're working to fix it.
         </p>
-        <button
-          onClick={reset}
-          className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200"
-        >
-          Try again
-        </button>
+
+        {/* Error Details (only in development) */}
+        {process.env.NODE_ENV === 'development' && (
+          <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg text-left max-w-lg mx-auto">
+            <p className="text-sm font-mono text-red-800 break-all">
+              {error.message}
+            </p>
+          </div>
+        )}
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={reset}
+            className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            <RefreshCw className="w-5 h-5" />
+            Try Again
+          </button>
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center gap-2 border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300"
+          >
+            <Home className="w-5 h-5" />
+            Go to Homepage
+          </Link>
+        </div>
+
+        {/* Support Info */}
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <p className="text-sm text-gray-600 mb-4">
+            Need immediate assistance?
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a
+              href="tel:+918680909723"
+              className="text-sm text-red-600 hover:text-red-700 hover:underline"
+            >
+              Call: +91 86809 09723
+            </a>
+            <span className="text-gray-300">•</span>
+            <a
+              href="mailto:info@shreejangamajyothi.com"
+              className="text-sm text-red-600 hover:text-red-700 hover:underline"
+            >
+              Email: info@shreejangamajyothi.com
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )
