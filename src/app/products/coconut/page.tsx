@@ -412,40 +412,40 @@ const CoconutPage = () => {
       </section>
 
       {/* Coconut Variants */}
-      <section className="py-20 bg-gradient-to-br from-emerald-900 via-green-900 to-teal-900 relative">
+      <section className="py-12 bg-gradient-to-br from-emerald-900 via-green-900 to-teal-900 relative">
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-6 drop-shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
             Available Products
           </h2>
-          <p className="text-xl text-green-200 text-center mb-16 max-w-2xl mx-auto drop-shadow-lg">
+          <p className="text-base text-green-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
             Choose from our comprehensive range of coconut products, each
             processed to maintain natural quality and freshness.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
             {variants.map((variant, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariant(index)}
-                className={`px-6 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 border-2 shadow-xl flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl flex items-center gap-2 ${
                   activeVariant === index
                     ? 'bg-white text-green-900 shadow-2xl border-white scale-105'
                     : 'bg-green-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
                 }`}
               >
-                <span className="text-2xl">{variant.icon}</span>
+                <span className="text-lg">{variant.icon}</span>
                 {variant.name}
               </button>
             ))}
           </div>
 
-          <div className="max-w-[1600px] mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-white/30">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section */}
-                <div className="bg-gray-100 min-h-[700px] relative overflow-hidden">
+                <div className="bg-gray-100 min-h-[380px] relative overflow-hidden">
                   {/* Display actual coconut images */}
-                  <div className="relative w-full h-full min-h-[700px]">
+                  <div className="relative w-full h-full min-h-[380px]">
                     <Image
                       src={variants[activeVariant].image || ''}
                       alt={variants[activeVariant].name}
@@ -454,42 +454,42 @@ const CoconutPage = () => {
                       priority={activeVariant === 0}
                     />
                     {/* Overlay label */}
-                    <div className="absolute bottom-8 right-8 bg-black/70 backdrop-blur-md px-6 py-3 rounded-xl border border-white/30 z-10">
-                      <p className="text-white font-bold text-lg">Premium Quality</p>
-                      <p className="text-green-200 text-sm">{variants[activeVariant].name}</p>
+                    <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/30 z-10">
+                      <p className="text-white font-bold text-sm">Premium Quality</p>
+                      <p className="text-green-200 text-xs">{variants[activeVariant].name}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-10 lg:p-12 bg-white">
-                  <div className="mb-6">
-                    <span className="inline-block px-6 py-3 bg-green-100 text-green-800 rounded-full text-lg font-bold mb-6">
+                <div className="p-5 bg-white">
+                  <div className="mb-3">
+                    <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold">
                       Premium Coconut Product
                     </span>
                   </div>
 
-                  <h3 className="text-4xl font-bold text-green-900 mb-8 leading-tight">
+                  <h3 className="text-xl font-bold text-green-900 mb-3 leading-tight">
                     {variants[activeVariant].name}
                   </h3>
 
-                  <p className="text-gray-700 leading-relaxed mb-10 text-xl">
+                  <p className="text-gray-700 leading-relaxed mb-4 text-sm">
                     {variants[activeVariant].description}
                   </p>
 
-                  <div className="mb-10">
-                    <h4 className="text-2xl font-bold text-green-900 mb-8 flex items-center gap-3">
-                      <Award className="w-8 h-8 text-green-600" />
+                  <div className="mb-4">
+                    <h4 className="text-base font-bold text-green-900 mb-3 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-green-600" />
                       Key Features
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {variants[activeVariant].features.map(
                         (feature, index) => (
                           <div
                             key={index}
-                            className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-shadow"
+                            className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg shadow-sm border border-green-100 hover:shadow-md transition-shadow"
                           >
-                            <div className="w-4 h-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex-shrink-0"></div>
-                            <span className="text-gray-800 font-semibold text-lg">
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-800 font-semibold text-xs">
                               {feature}
                             </span>
                           </div>
@@ -498,41 +498,41 @@ const CoconutPage = () => {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-green-900 to-emerald-900 rounded-2xl p-8 border-2 border-green-800">
-                    <h4 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                      <Package className="w-8 h-8 text-white" />
+                  <div className="bg-gradient-to-r from-green-900 to-emerald-900 rounded-lg p-4 border border-green-800">
+                    <h4 className="text-base font-bold text-white mb-3 flex items-center gap-2">
+                      <Package className="w-4 h-4 text-white" />
                       Technical Specifications
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-green-200">
-                        <span className="text-sm font-bold text-green-800 uppercase tracking-wide">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-green-200">
+                        <span className="text-[10px] font-bold text-green-800 uppercase tracking-wide">
                           HS Code
                         </span>
-                        <p className="font-bold text-black text-2xl mt-2">
+                        <p className="font-bold text-black text-sm mt-0.5">
                           {variants[activeVariant].specs.hsCode}
                         </p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-green-200">
-                        <span className="text-sm font-bold text-green-800 uppercase tracking-wide">
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-green-200">
+                        <span className="text-[10px] font-bold text-green-800 uppercase tracking-wide">
                           Minimum Order
                         </span>
-                        <p className="font-bold text-black text-2xl mt-2">
+                        <p className="font-bold text-black text-sm mt-0.5">
                           {variants[activeVariant].specs.moq}
                         </p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-green-200">
-                        <span className="text-sm font-bold text-green-800 uppercase tracking-wide">
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-green-200">
+                        <span className="text-[10px] font-bold text-green-800 uppercase tracking-wide">
                           Shelf Life
                         </span>
-                        <p className="font-bold text-black text-2xl mt-2">
+                        <p className="font-bold text-black text-sm mt-0.5">
                           {variants[activeVariant].specs.shelfLife}
                         </p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-green-200">
-                        <span className="text-sm font-bold text-green-800 uppercase tracking-wide">
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-green-200">
+                        <span className="text-[10px] font-bold text-green-800 uppercase tracking-wide">
                           Moisture Content
                         </span>
-                        <p className="font-bold text-black text-2xl mt-2">
+                        <p className="font-bold text-black text-sm mt-0.5">
                           {variants[activeVariant].specs.moisture}
                         </p>
                       </div>

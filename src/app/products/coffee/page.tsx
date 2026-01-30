@@ -154,21 +154,21 @@ const CoffeePage = () => {
       </section>
 
       {/* Coffee Variants Section */}
-      <section className="py-20 bg-gradient-to-br from-amber-900 via-red-900 to-amber-900 relative">
+      <section className="py-12 bg-gradient-to-br from-amber-900 via-red-900 to-amber-900 relative">
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-6 drop-shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
             Available Variants
           </h2>
-          <p className="text-xl text-amber-200 text-center mb-16 max-w-2xl mx-auto drop-shadow-lg">
+          <p className="text-base text-amber-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
             Choose from our premium selection of coffee varieties, each with unique characteristics and flavor profiles.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-6 mb-16">
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
             {variants.map((variant, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariant(index)}
-                className={`px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                className={`px-6 py-3 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
                   activeVariant === index
                     ? 'bg-white text-amber-900 shadow-2xl border-white scale-105'
                     : 'bg-amber-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
@@ -179,15 +179,15 @@ const CoffeePage = () => {
             ))}
           </div>
 
-          <div className="max-w-[1600px] mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-white/30">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section */}
-                <div className="bg-gray-100 min-h-[700px] relative overflow-hidden">
+                <div className="bg-gray-100 min-h-[380px] relative overflow-hidden">
                   {/* Display actual coffee images */}
                   {activeVariant === 2 ? (
                     // Roasted Coffee Beans - Rotating images
-                    <div className="relative w-full h-full min-h-[700px]">
+                    <div className="relative w-full h-full min-h-[380px]">
                       {variants[activeVariant].images?.map((imageSrc, index) => (
                         <div key={index} className="absolute inset-0">
                           <Image
@@ -202,27 +202,27 @@ const CoffeePage = () => {
                         </div>
                       ))}
                       {/* Image indicators for roasted beans */}
-                      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
                         {variants[activeVariant].images?.map((_, index) => (
                           <div
                             key={index}
-                            className={`w-4 h-4 rounded-full transition-all duration-300 border-2 border-white ${
+                            className={`w-3 h-3 rounded-full transition-all duration-300 border-2 border-white ${
                               index === roastedImageIndex ? 'bg-amber-600' : 'bg-white/50'
                             }`}
                           />
                         ))}
                       </div>
                       {/* Overlay label */}
-                      <div className="absolute bottom-8 right-8 bg-black/70 backdrop-blur-md px-6 py-3 rounded-xl border border-white/30 z-10">
-                        <p className="text-white font-bold text-lg">Premium Quality</p>
-                        <p className="text-amber-200 text-sm">
+                      <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/30 z-10">
+                        <p className="text-white font-bold text-sm">Premium Quality</p>
+                        <p className="text-amber-200 text-xs">
                           {roastedImageIndex === 0 ? 'Roasted Arabica' : 'Roasted Robusta'}
                         </p>
                       </div>
                     </div>
                   ) : (
                     // Single images for Arabica and Robusta
-                    <div className="relative w-full h-full min-h-[700px]">
+                    <div className="relative w-full h-full min-h-[380px]">
                       <Image
                         src={variants[activeVariant].image || ''}
                         alt={variants[activeVariant].name}
@@ -231,69 +231,69 @@ const CoffeePage = () => {
                         priority={activeVariant === 0}
                       />
                       {/* Overlay label */}
-                      <div className="absolute bottom-8 right-8 bg-black/70 backdrop-blur-md px-6 py-3 rounded-xl border border-white/30 z-10">
-                        <p className="text-white font-bold text-lg">Premium Quality</p>
-                        <p className="text-amber-200 text-sm">{variants[activeVariant].name}</p>
+                      <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/30 z-10">
+                        <p className="text-white font-bold text-sm">Premium Quality</p>
+                        <p className="text-amber-200 text-xs">{variants[activeVariant].name}</p>
                       </div>
                     </div>
                   )}
                 </div>
 
                 {/* Content Section */}
-                <div className="p-10 lg:p-12 bg-white">
-                  <div className="mb-6">
-                    <span className="inline-block px-6 py-3 bg-brown-100 text-brown-800 rounded-full text-lg font-bold mb-6">
+                <div className="p-5 bg-white">
+                  <div className="mb-3">
+                    <span className="inline-block px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-xs font-bold">
                       Premium Quality Coffee
                     </span>
                   </div>
 
-                  <h3 className="text-4xl font-bold text-brown-900 mb-8 leading-tight">
+                  <h3 className="text-xl font-bold text-brown-900 mb-3 leading-tight">
                     {variants[activeVariant].name}
                   </h3>
 
-                  <p className="text-gray-700 leading-relaxed mb-10 text-xl">
+                  <p className="text-gray-700 leading-relaxed mb-4 text-sm">
                     {variants[activeVariant].description}
                   </p>
 
-                  <div className="mb-10">
-                    <h4 className="text-2xl font-bold text-brown-900 mb-8 flex items-center gap-3">
-                      <Award className="w-8 h-8 text-brown-600" />
+                  <div className="mb-4">
+                    <h4 className="text-base font-bold text-brown-900 mb-3 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-brown-600" />
                       Key Features
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {variants[activeVariant].features.map((feature, index) => (
                         <div
                           key={index}
-                          className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl shadow-sm border border-brown-100 hover:shadow-md transition-shadow"
+                          className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg shadow-sm border border-brown-100 hover:shadow-md transition-shadow"
                         >
-                          <div className="w-4 h-4 bg-gradient-to-r from-brown-600 to-amber-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-lg">{feature}</span>
+                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-brown-600 to-amber-600 rounded-full flex-shrink-0"></div>
+                          <span className="text-gray-800 font-semibold text-xs">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-red-900 to-amber-900 rounded-2xl p-8 border-2 border-red-800">
-                    <h4 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                      <Package className="w-8 h-8 text-white" />
+                  <div className="bg-gradient-to-r from-red-900 to-amber-900 rounded-lg p-4 border border-red-800">
+                    <h4 className="text-base font-bold text-white mb-3 flex items-center gap-2">
+                      <Package className="w-4 h-4 text-white" />
                       Technical Specifications
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-2xl mt-2">{variants[activeVariant].specs.hsCode}</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-red-200">
+                        <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">HS Code</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{variants[activeVariant].specs.hsCode}</p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Minimum Order</span>
-                        <p className="font-bold text-black text-2xl mt-2">{variants[activeVariant].specs.moq}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-red-200">
+                        <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">Minimum Order</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{variants[activeVariant].specs.moq}</p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-2xl mt-2">{variants[activeVariant].specs.shelfLife}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-red-200">
+                        <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">Shelf Life</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{variants[activeVariant].specs.shelfLife}</p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl shadow-md border border-red-200">
-                        <span className="text-sm font-bold text-red-800 uppercase tracking-wide">Moisture Content</span>
-                        <p className="font-bold text-black text-2xl mt-2">{variants[activeVariant].specs.moisture}</p>
+                      <div className="bg-white p-2 rounded-lg shadow-md border border-red-200">
+                        <span className="text-[10px] font-bold text-red-800 uppercase tracking-wide">Moisture Content</span>
+                        <p className="font-bold text-black text-sm mt-0.5">{variants[activeVariant].specs.moisture}</p>
                       </div>
                     </div>
                   </div>
