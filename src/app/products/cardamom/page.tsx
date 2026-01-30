@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Sparkles, Award, Shield, Globe, Package, Leaf } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
-import OurProductsSection from '@/components/OurProductsSection'
 
 const CardamomPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
@@ -303,9 +302,6 @@ const CardamomPage = () => {
 
       {/* Product Grid */}
       <ProductGrid />
-
-      {/* Our Products Section */}
-      <OurProductsSection />
     </div>
   )
 }

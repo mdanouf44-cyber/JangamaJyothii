@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { Sparkles, Award, Shield, Globe, Package, Leaf } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
-import OurProductsSection from '@/components/OurProductsSection'
 
 const BlackPepperPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
@@ -381,9 +380,6 @@ const BlackPepperPage = () => {
 
       {/* Product Grid */}
       <ProductGrid />
-
-      {/* Our Products Section */}
-      <OurProductsSection />
     </div>
   )
 }
