@@ -16,7 +16,7 @@ const JutePaperPage = () => {
     {
       name: 'Paper Bags',
       description:
-        'Our paper bags are manufactured using high-quality kraft and recycled paper, ensuring strength, flexibility, and eco-friendliness. These bags are suitable for carrying light to medium-weight products and are widely used in retail stores, food outlets, and corporate gifting. Paper bags can be customized with handles, printing, logos, and branding as per buyer requirements. They offer a clean, professional appearance while supporting sustainable packaging initiatives.',
+        'Our paper bags are manufactured using high-quality kraft and recycled paper, ensuring strength, flexibility, and eco-friendliness. These bags are suitable for carrying light to medium-weight products and are widely used in retail stores, food outlets, and corporate gifting.',
       features: ['High-Quality Kraft Paper', 'Customizable Design', 'Strong & Flexible', 'Professional Appearance'],
       specs: {
         hsCode: '481940',
@@ -31,7 +31,7 @@ const JutePaperPage = () => {
     {
       name: 'Jute Bags',
       description:
-        'Jute bags are made from natural jute fiber, known for its strength, durability, and reusability. These bags are designed to carry heavier loads and are ideal for shopping, promotional use, and long-term reuse. Jute bags provide a rustic, eco-conscious look that appeals strongly to global sustainable markets. They are available in plain, laminated, printed, and customized designs, making them suitable for branding and promotional activities.',
+        'Jute bags are made from natural jute fiber, known for its strength, durability, and reusability. These bags are designed to carry heavier loads and are ideal for shopping, promotional use, and long-term reuse. Available in plain, laminated, printed, and customized designs.',
       features: ['Natural Jute Fiber', 'Heavy Load Capacity', 'Reusable & Durable', 'Rustic Eco-Look'],
       specs: {
         hsCode: '420222',
@@ -46,7 +46,7 @@ const JutePaperPage = () => {
     {
       name: 'Paper Stationery Items',
       description:
-        'Our paper stationery products include notebooks, envelopes, folders, writing pads, and office paper products made from quality paper materials. These products are designed for daily office use, schools, institutions, and corporate environments. The stationery items are produced with attention to durability, smooth finish, and usability. Custom sizes, branding, and packaging options are available for bulk and export orders.',
+        'Our paper stationery products include notebooks, envelopes, folders, writing pads, and office paper products made from quality paper materials. Designed for daily office use, schools, institutions, and corporate environments with attention to durability and smooth finish.',
       features: ['Quality Paper Materials', 'Smooth Finish', 'Durable Design', 'Custom Branding'],
       specs: {
         hsCode: '482010',
