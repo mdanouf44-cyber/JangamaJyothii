@@ -248,19 +248,19 @@ const RicePage = () => {
       </section>
 
       {/* Varieties Section */}
-      <section className="py-12 bg-gradient-to-r from-amber-600 to-yellow-600">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">
+      <section className="py-14 bg-gradient-to-r from-amber-600 to-yellow-600">
+        <div className="max-w-[1150px] mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 text-center">
             Our Rice Varieties
           </h2>
 
           {/* Variety Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             {varieties.map((variety, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariety(index)}
-                className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 text-sm ${
+                className={`px-7 py-3 rounded-full font-bold transition-all duration-300 text-base ${
                   activeVariety === index
                     ? 'bg-white text-amber-600 shadow-lg transform scale-105'
                     : 'bg-amber-500 text-white hover:bg-amber-400'
@@ -272,11 +272,11 @@ const RicePage = () => {
           </div>
 
           {/* Active Variety Details - Wider Layout (60/40) */}
-          <div className="bg-white rounded-2xl p-5 shadow-2xl max-w-[1100px] mx-auto">
+          <div className="bg-white rounded-2xl p-5 shadow-2xl max-w-[1150px] mx-auto">
             <div className="grid md:grid-cols-5 gap-0">
               {/* Image Section - 60% width (3 columns) */}
               <div className="md:col-span-3">
-                <div className="relative h-[380px] rounded-xl overflow-hidden shadow-2xl">
+                <div className="relative min-h-[400px] rounded-xl overflow-hidden shadow-2xl">
                   <img
                     src={varieties[activeVariety].image}
                     alt={varieties[activeVariety].name}

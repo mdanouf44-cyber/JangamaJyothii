@@ -412,22 +412,18 @@ const CoconutPage = () => {
       </section>
 
       {/* Coconut Variants */}
-      <section className="py-12 bg-gradient-to-br from-emerald-900 via-green-900 to-teal-900 relative">
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
+      <section className="py-14 bg-gradient-to-br from-emerald-900 via-green-900 to-teal-900 relative">
+        <div className="max-w-[1150px] mx-auto px-4 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-5 drop-shadow-2xl">
             Available Products
           </h2>
-          <p className="text-base text-green-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
-            Choose from our comprehensive range of coconut products, each
-            processed to maintain natural quality and freshness.
-          </p>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             {variants.map((variant, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariant(index)}
-                className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl flex items-center gap-2 ${
+                className={`px-7 py-3 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 border-2 shadow-xl flex items-center gap-2 ${
                   activeVariant === index
                     ? 'bg-white text-green-900 shadow-2xl border-white scale-105'
                     : 'bg-green-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
@@ -439,11 +435,11 @@ const CoconutPage = () => {
             ))}
           </div>
 
-          <div className="max-w-[1100px] mx-auto">
+          <div className="max-w-[1150px] mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section */}
-                <div className="bg-gray-100 min-h-[380px] relative overflow-hidden">
+                <div className="bg-gray-100 min-h-[400px] relative overflow-hidden">
                   {/* Display actual coconut images */}
                   <div className="relative w-full h-full min-h-[380px]">
                     <Image
