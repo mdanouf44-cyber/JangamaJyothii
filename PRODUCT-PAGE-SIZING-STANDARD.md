@@ -1,26 +1,28 @@
 # Product Page Variety Section - Standard Sizing
 
-## Final Sizing Standard (Medium - Not Too Small, Not Too Large)
+## ⚠️ UPDATED SIZING STANDARD (January 2026)
 
-This is the perfect middle ground sizing to be applied to ALL product variety pages.
+**Use this sizing for ALL new product pages going forward!**
+
+This is the compact, professional sizing - a bit smaller but still very readable.
 
 ### Section & Layout
-- **Section padding**: `py-14` 
-- **Container max-width**: `max-w-[1150px]`
-- **Image height**: `min-h-[400px]`
+- **Section padding**: `py-12` 
+- **Container max-width**: `max-w-[1100px]`
+- **Image height**: `min-h-[380px]`
 - **Content padding**: `p-5`
 
 ### Headings & Text
-- **Main heading**: `text-3xl md:text-4xl` with `mb-5`
-- **Subtitle**: `text-base` with `mb-11`
+- **Main heading**: `text-3xl md:text-4xl` with `mb-4`
+- **Subtitle**: Remove subtitle text (no longer needed)
 - **Variety name (in box)**: `text-xl font-bold` with `mb-3`
 - **Description text**: `text-sm` with `mb-4`
 - **Section titles**: `text-base font-bold` with `mb-3`
 
 ### Buttons
-- **Button gaps**: `gap-4` with `mb-12`
-- **Button size**: `px-7 py-3`
-- **Button text**: `text-base font-bold`
+- **Button gaps**: `gap-3` with `mb-10`
+- **Button size**: `px-6 py-2`
+- **Button text**: `text-sm font-bold`
 
 ### Image Placeholder
 - **Icon container**: `w-22 h-22` (or w-20 h-20)
@@ -40,18 +42,28 @@ This is the perfect middle ground sizing to be applied to ALL product variety pa
 - **Uses box**: `p-3` with `mt-3`
 - **Uses text**: `text-xs` with `mt-1`
 
-## Pages to Update
-1. ✅ Grains & Millets (template - needs update)
-2. ✅ Black Pepper (needs update)
-3. ✅ Cardamom (needs update)
-4. ⏳ Turmeric
-5. ⏳ Rice
-6. ⏳ Tamarind
-7. ⏳ Red Chilli
-8. ⏳ Pulses
-9. ⏳ Areca Plates
-10. ⏳ Coffee
-11. ⏳ Coconut
+## Current Status of All Product Pages
 
-## Key Principle
-**"Medium sizing - readable but compact"** - Not as tiny as the first version, not as large as the second version. Perfect balance for professional look while fitting well on screen.
+### ✅ Using NEW Compact Sizing (Recommended for all future products)
+1. ✅ **Areca Plates** - Updated to compact sizing
+2. ✅ **Black Pepper** - Updated to compact sizing
+3. ✅ **Grains & Millets** - Updated to compact sizing
+
+### 📦 Using Medium Sizing (Slightly larger)
+4. ✅ **Cardamom** - Medium sizing
+5. ✅ **Turmeric** - Medium sizing
+6. ✅ **Rice** - Medium sizing
+7. ✅ **Tamarind** - Medium sizing
+8. ✅ **Red Chilli** - Medium sizing
+9. ✅ **Pulses** - Medium sizing
+10. ✅ **Coffee** - Medium sizing
+11. ✅ **Coconut** - Medium sizing
+
+## 🎯 Key Principle for NEW Products
+**"Compact but readable"** - Use the sizing from Areca Plates, Black Pepper, and Grains & Millets as the template. This is the preferred sizing going forward - professional, clean, and space-efficient while maintaining excellent readability.
+
+## 📝 Template Reference
+When creating new product pages, copy the variety section structure from:
+- `src/app/products/areca-plates/page.tsx`
+- `src/app/products/black-pepper/page.tsx`
+- `src/app/products/grains-millets/page.tsx`
