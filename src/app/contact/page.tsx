@@ -1,14 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Metadata } from 'next'
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Contact Us - Shree Jangama Jyothi Global LLP',
-  description:
-    'Get in touch with Shree Jangama Jyothi Global LLP for premium agricultural exports. Contact us for inquiries, quotes, and partnerships.',
-}
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
