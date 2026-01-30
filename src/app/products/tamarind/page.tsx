@@ -216,20 +216,20 @@ const TamarindPage = () => {
               </div>
 
               {/* Content Section - 40% width (2 columns) */}
-              <div className="md:col-span-2 p-5">
-                <h3 className="text-xl font-bold text-amber-900 mb-3">
+              <div className="md:col-span-2 p-4">
+                <h3 className="text-lg font-bold text-amber-900 mb-2">
                   {varieties[activeVariety].name}
                 </h3>
-                <p className="text-gray-800 mb-4 leading-relaxed text-sm">
+                <p className="text-gray-800 mb-3 leading-relaxed text-sm">
                   {varieties[activeVariety].description}
                 </p>
 
                 {/* Features */}
-                <div className="mb-4">
-                  <h4 className="font-semibold text-amber-800 mb-2 text-base">
+                <div className="mb-3">
+                  <h4 className="font-semibold text-amber-800 mb-2 text-sm">
                     Key Features:
                   </h4>
-                  <div className="grid grid-cols-1 gap-2">
+                  <div className="grid grid-cols-1 gap-1.5">
                     {varieties[activeVariety].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-amber-600 rounded-full"></div>
@@ -240,8 +240,8 @@ const TamarindPage = () => {
                 </div>
 
                 {/* Specifications */}
-                <div className="bg-amber-50 rounded-lg p-3 mb-4">
-                  <h4 className="font-semibold text-amber-800 mb-2 text-base">
+                <div className="bg-amber-50 rounded-lg p-3 mb-3">
+                  <h4 className="font-semibold text-amber-800 mb-2 text-sm">
                     Specifications:
                   </h4>
                   <div className="space-y-1 text-xs">
@@ -273,9 +273,9 @@ const TamarindPage = () => {
                 </div>
 
                 {/* Uses */}
-                <div className="p-3 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg">
-                  <h4 className="font-semibold text-amber-800 mb-2 flex items-center gap-2 text-base">
-                    <Globe className="w-4 h-4" />
+                <div className="p-2 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg">
+                  <h4 className="font-semibold text-amber-800 mb-2 flex items-center gap-2 text-sm">
+                    <Globe className="w-3 h-3" />
                     Applications:
                   </h4>
                   <p className="text-gray-800 text-xs">{varieties[activeVariety].uses}</p>

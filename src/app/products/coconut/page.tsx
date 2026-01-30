@@ -457,32 +457,32 @@ const CoconutPage = () => {
                   </div>
                 </div>
 
-                <div className="p-5 bg-white">
-                  <div className="mb-3">
+                <div className="p-4 bg-white">
+                  <div className="mb-2">
                     <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold">
                       Premium Coconut Product
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-green-900 mb-3 leading-tight">
+                  <h3 className="text-lg font-bold text-green-900 mb-2 leading-tight">
                     {variants[activeVariant].name}
                   </h3>
 
-                  <p className="text-gray-700 leading-relaxed mb-4 text-sm">
+                  <p className="text-gray-700 leading-relaxed mb-3 text-sm">
                     {variants[activeVariant].description}
                   </p>
 
-                  <div className="mb-4">
-                    <h4 className="text-base font-bold text-green-900 mb-3 flex items-center gap-2">
-                      <Award className="w-4 h-4 text-green-600" />
+                  <div className="mb-3">
+                    <h4 className="text-sm font-bold text-green-900 mb-2 flex items-center gap-2">
+                      <Award className="w-3 h-3 text-green-600" />
                       Key Features
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                       {variants[activeVariant].features.map(
                         (feature, index) => (
                           <div
                             key={index}
-                            className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg shadow-sm border border-green-100 hover:shadow-md transition-shadow"
+                            className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-green-100 hover:shadow-md transition-shadow"
                           >
                             <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex-shrink-0"></div>
                             <span className="text-gray-800 font-semibold text-xs">
@@ -494,41 +494,41 @@ const CoconutPage = () => {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-green-900 to-emerald-900 rounded-lg p-4 border border-green-800">
-                    <h4 className="text-base font-bold text-white mb-3 flex items-center gap-2">
-                      <Package className="w-4 h-4 text-white" />
+                  <div className="bg-gradient-to-r from-green-900 to-emerald-900 rounded-lg p-3 border border-green-800">
+                    <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                      <Package className="w-3 h-3 text-white" />
                       Technical Specifications
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      <div className="bg-white p-2 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[10px] font-bold text-green-800 uppercase tracking-wide">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                      <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
                           HS Code
                         </span>
-                        <p className="font-bold text-black text-sm mt-0.5">
+                        <p className="font-bold text-black text-xs mt-0.5">
                           {variants[activeVariant].specs.hsCode}
                         </p>
                       </div>
-                      <div className="bg-white p-2 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[10px] font-bold text-green-800 uppercase tracking-wide">
+                      <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
                           Minimum Order
                         </span>
-                        <p className="font-bold text-black text-sm mt-0.5">
+                        <p className="font-bold text-black text-xs mt-0.5">
                           {variants[activeVariant].specs.moq}
                         </p>
                       </div>
-                      <div className="bg-white p-2 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[10px] font-bold text-green-800 uppercase tracking-wide">
+                      <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
                           Shelf Life
                         </span>
-                        <p className="font-bold text-black text-sm mt-0.5">
+                        <p className="font-bold text-black text-xs mt-0.5">
                           {variants[activeVariant].specs.shelfLife}
                         </p>
                       </div>
-                      <div className="bg-white p-2 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[10px] font-bold text-green-800 uppercase tracking-wide">
+                      <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
                           Moisture Content
                         </span>
-                        <p className="font-bold text-black text-sm mt-0.5">
+                        <p className="font-bold text-black text-xs mt-0.5">
                           {variants[activeVariant].specs.moisture}
                         </p>
                       </div>

@@ -232,31 +232,31 @@ const BlackPepperPage = () => {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 bg-white">
-                  <div className="mb-3">
+                <div className="p-4 bg-white">
+                  <div className="mb-2">
                     <span className="inline-block px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-bold">
                       Premium Quality Black Pepper
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
                     {varieties[activeVariety].name}
                   </h3>
 
-                  <p className="text-gray-700 leading-relaxed mb-4 text-sm">
+                  <p className="text-gray-700 leading-relaxed mb-3 text-sm">
                     {varieties[activeVariety].description}
                   </p>
 
-                  <div className="mb-4">
-                    <h4 className="text-base font-bold text-gray-900 mb-3 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-gray-600" />
+                  <div className="mb-3">
+                    <h4 className="text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <Sparkles className="w-3 h-3 text-gray-600" />
                       Key Features
                     </h4>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-1.5">
                       {varieties[activeVariety].features.map((feature, index) => (
                         <div
                           key={index}
-                          className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                          className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
                         >
                           <div className="w-1.5 h-1.5 bg-gradient-to-r from-gray-600 to-black rounded-full flex-shrink-0"></div>
                           <span className="text-gray-800 font-semibold text-xs">{feature}</span>
@@ -265,33 +265,33 @@ const BlackPepperPage = () => {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-gray-900 to-black rounded-lg p-4 border border-gray-800">
-                    <h4 className="text-base font-bold text-white mb-3 flex items-center gap-2">
-                      <Package className="w-4 h-4 text-white" />
+                  <div className="bg-gradient-to-r from-gray-900 to-black rounded-lg p-3 border border-gray-800">
+                    <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                      <Package className="w-3 h-3 text-white" />
                       Technical Specifications
                     </h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="bg-white p-2 rounded-lg shadow-md border border-gray-200">
-                        <span className="text-[10px] font-bold text-gray-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].specs.hsCode}</p>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <div className="bg-white p-1.5 rounded-lg shadow-md border border-gray-200">
+                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">HS Code</span>
+                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.hsCode}</p>
                       </div>
-                      <div className="bg-white p-2 rounded-lg shadow-md border border-gray-200">
-                        <span className="text-[10px] font-bold text-gray-800 uppercase tracking-wide">Min Order</span>
-                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].specs.moq}</p>
+                      <div className="bg-white p-1.5 rounded-lg shadow-md border border-gray-200">
+                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">Min Order</span>
+                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.moq}</p>
                       </div>
-                      <div className="bg-white p-2 rounded-lg shadow-md border border-gray-200">
-                        <span className="text-[10px] font-bold text-gray-800 uppercase tracking-wide">Moisture</span>
-                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].specs.moisture}</p>
+                      <div className="bg-white p-1.5 rounded-lg shadow-md border border-gray-200">
+                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">Moisture</span>
+                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.moisture}</p>
                       </div>
-                      <div className="bg-white p-2 rounded-lg shadow-md border border-gray-200">
-                        <span className="text-[10px] font-bold text-gray-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-sm mt-0.5">{varieties[activeVariety].specs.shelfLife}</p>
+                      <div className="bg-white p-1.5 rounded-lg shadow-md border border-gray-200">
+                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">Shelf Life</span>
+                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.shelfLife}</p>
                       </div>
                     </div>
                     
-                    <div className="mt-3 bg-white p-3 rounded-lg shadow-md border border-gray-200">
-                      <span className="text-[10px] font-bold text-gray-800 uppercase tracking-wide">Primary Uses</span>
-                      <p className="text-gray-700 text-xs mt-1 leading-relaxed">{varieties[activeVariety].uses}</p>
+                    <div className="mt-2 bg-white p-2 rounded-lg shadow-md border border-gray-200">
+                      <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">Primary Uses</span>
+                      <p className="text-gray-700 text-xs mt-0.5 leading-relaxed">{varieties[activeVariety].uses}</p>
                     </div>
                   </div>
                 </div>
