@@ -1,13 +1,26 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import { Metadata } from 'next'
 import { CheckCircle, Globe, Users, Award } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'About Us - Shree Jangama Jyothi Global LLP',
-  description:
-    'Learn about Shree Jangama Jyothi Global LLP, a leading exporter of premium agricultural products from India to global markets.',
-}
-
 const AboutPage = () => {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const videos = [
+    '/ab1.mp4',
+    '/ab2.mp4',
+    '/ab3.mp4',
+  ]
+
+  useEffect(() => {
+    // Auto-rotate videos every 6 seconds
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+    }, 6000)
+
+    return () => clearInterval(videoInterval)
+  }, []) => {
   const values = [
     {
       icon: <CheckCircle className="w-8 h-8" />,
@@ -37,13 +50,37 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
-            Leading the way in premium agricultural exports from India to the
-            world
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0">
+          {videos.map((video, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          ))}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
+            <span className="bg-gradient-to-r from-green-300 via-emerald-300 to-green-300 bg-clip-text text-transparent animate-gradient">
+              About Us
+            </span>
+          </h1>
+          <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
+            Leading the way in premium agricultural exports from India to the world
           </p>
         </div>
       </section>
