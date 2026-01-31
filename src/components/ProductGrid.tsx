@@ -37,7 +37,7 @@ const products = [
   },
   {
     name: 'Pulses',
-    image: '/black-chickpeas.jpg', // Using actual pulses image
+    image: '/istockphoto-1280448548-612x612-1.jpg', // Using uploaded pulses image
     href: '/products/pulses',
   },
   {
@@ -47,22 +47,22 @@ const products = [
   },
   {
     name: 'Black Pepper',
-    image: '/cover-black-pepper.jpg', // Will use cover image for now
+    image: '/Karimunda Black Pepper.jpg', // Using actual black pepper image
     href: '/products/black-pepper',
   },
   {
     name: 'Cardamom',
-    image: '/cover-cardamom.jpg', // Will use cover image for now
+    image: '/Malabar Cardamom.jpg', // Using actual cardamom image
     href: '/products/cardamom',
   },
   {
     name: 'Grains & Millets',
-    image: '/cover-grains-millets.jpg', // Will use cover image for now
+    image: '/Finger Millet (Ragi).jpg', // Using actual grains & millets image
     href: '/products/grains-millets',
   },
   {
     name: 'Jute & Paper Products',
-    image: '/cover-jute-paper-products.jpg', // Will use cover image for now
+    image: '/Jute Bags.jpg', // Using actual jute products image
     href: '/products/jute-paper-products',
   },
 ]
