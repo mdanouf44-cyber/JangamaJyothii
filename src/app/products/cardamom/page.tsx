@@ -123,6 +123,7 @@ const CardamomPage = () => {
                 animationDelay: `${i * 0.5}s`,
                 animationDuration: `${4 + Math.random() * 3}s`,
               }}
+              suppressHydrationWarning
             >
               <span className="text-white text-2xl">•</span>
             </div>
