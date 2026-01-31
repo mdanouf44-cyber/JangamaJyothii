@@ -18,7 +18,6 @@ const Footer = () => {
     { name: 'About Us', href: '/about' },
     { name: 'Contact Us', href: '/contact' },
     { name: 'Certifications', href: '/certifications' },
-    { name: 'Quality Policy', href: '/quality' },
   ]
 
   const products = [
