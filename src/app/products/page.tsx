@@ -194,7 +194,7 @@ const ProductsPage = () => {
                 className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer flex flex-col h-full"
               >
                 {/* Product Image */}
-                <div className="relative overflow-hidden h-64 flex-shrink-0">
+                <div className="relative overflow-hidden h-56 flex-shrink-0">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -206,16 +206,16 @@ const ProductsPage = () => {
                 </div>
 
                 {/* Product Content */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">
                     {product.name}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-3 flex-grow">
                     {product.description}
                   </p>
 
                   {/* Features */}
-                  <div className="mb-6">
+                  <div className="mb-4">
                     <div className="flex flex-wrap gap-2">
                       {product.features.map((feature, featureIndex) => (
                         <span
@@ -239,11 +239,11 @@ const ProductsPage = () => {
           </div>
 
           {/* Contact CTA */}
-          <div className="mt-16 text-center bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          <div className="mt-12 text-center bg-white rounded-2xl p-6 shadow-lg">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
               Interested in Our Products?
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-600 mb-4 max-w-2xl mx-auto">
               Get in touch with us for bulk orders, custom packaging, or any
               inquiries about our premium agricultural products.
             </p>

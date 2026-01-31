@@ -169,7 +169,7 @@ const CardamomPage = () => {
             ))}
           </div>
 
-          <div className="max-w-[1100px] mx-auto">
+          <div className="max-w-[1000px] mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section - Empty for now */}
