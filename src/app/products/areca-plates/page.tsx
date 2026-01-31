@@ -215,7 +215,7 @@ const ArecaPlatesPage = () => {
           </div>
 
           {/* Active Variety Details - Wider Layout (60/40) */}
-          <div className="bg-white rounded-2xl p-5 shadow-2xl max-w-[1100px] mx-auto">
+          <div className="bg-white rounded-2xl p-5 shadow-2xl max-w-[1050px] mx-auto">
             <div className="grid md:grid-cols-5 gap-0">
               {/* Image Section - 60% width (3 columns) */}
               <div className="md:col-span-3">
