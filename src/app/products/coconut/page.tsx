@@ -506,6 +506,7 @@ const CoconutPage = () => {
                       src={variants[activeVariant].image || ''}
                       alt={variants[activeVariant].name}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 60vw"
                       className="object-cover"
                       priority={activeVariant === 0}
                     />
