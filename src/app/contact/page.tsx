@@ -87,9 +87,9 @@ const ContactPage = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Us',
-      details: ['info@shreejangamajyothi.com'],
+      details: ['shreejangamajyothi@gmail.com'],
       action: 'Send Email',
-      link: 'mailto:info@shreejangamajyothi.com',
+      link: 'mailto:shreejangamajyothi@gmail.com',
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -357,10 +357,10 @@ const ContactPage = () => {
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-green-600" />
                     <a
-                      href="mailto:info@shreejangamajyothi.com"
+                      href="mailto:shreejangamajyothi@gmail.com"
                       className="text-gray-700 hover:text-green-600 transition-colors"
                     >
-                      info@shreejangamajyothi.com
+                      shreejangamajyothi@gmail.com
                     </a>
                   </div>
                   <div className="flex items-start gap-3">

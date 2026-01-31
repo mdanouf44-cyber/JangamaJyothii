@@ -75,10 +75,10 @@ export default function Error({
             </a>
             <span className="text-gray-300">•</span>
             <a
-              href="mailto:info@shreejangamajyothi.com"
+              href="mailto:shreejangamajyothi@gmail.com"
               className="text-sm text-red-600 hover:text-red-700 hover:underline"
             >
-              Email: info@shreejangamajyothi.com
+              Email: shreejangamajyothi@gmail.com
             </a>
           </div>
         </div>
