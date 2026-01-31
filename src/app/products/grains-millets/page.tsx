@@ -1,121 +1,147 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Sparkles, Award, Shield, Globe, Package, Leaf } from 'lucide-react'
+import Image from 'next/image'
+import { Sparkles, Award, Shield, Globe, Package, Wheat } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
 
 const GrainsMilletsPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const videos = [
+    '/gm 1.mp4',
+    '/gm 2.mp4',
+    '/gm 3.mp4',
+  ]
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Auto-rotate videos every 6 seconds
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+    }, 6000)
+
+    return () => clearInterval(videoInterval)
   }, [])
 
   const varieties = [
     {
       name: 'Finger Millet (Ragi)',
       description:
-        'Finger millet is a highly nutritious millet known for its high calcium content, rich fiber, and excellent digestibility. It is widely cultivated in dry regions and harvested at full maturity to ensure strong grains and consistent quality. The grains are carefully cleaned and processed to retain their natural reddish-brown color and nutritional value.',
-      features: ['High Calcium Content', 'Rich Fiber', 'Excellent Digestibility', 'Natural Reddish-Brown Color'],
+        'Finger millet, commonly known as Ragi, is a highly nutritious cereal grain rich in calcium, iron, and dietary fiber. This drought-resistant crop is cultivated in semi-arid regions and is valued for its exceptional nutritional profile and long shelf life. Ragi is gluten-free and has a low glycemic index, making it ideal for health-conscious consumers.',
+      features: ['High Calcium', 'Rich in Iron', 'Gluten-Free', 'Low Glycemic Index'],
       specs: {
-        hsCode: '100821',
-        moq: '1 Metric Ton',
+        hsCode: '100829',
+        moq: '1000 KG',
         moisture: 'Max 12%',
-        shelfLife: '12–18 months',
+        shelfLife: '12 months',
       },
       color: 'from-amber-600 to-orange-700',
-      image: '/finger-millet-ragi.jpg',
-      uses: 'Porridges, rotis, malted foods, health drinks, baby food formulations, wellness-focused markets',
+      image: '/Finger Millet (Ragi).jpg',
     },
     {
       name: 'Pearl Millet (Bajra)',
       description:
-        'Pearl millet is a robust grain valued for its high energy content, iron, and protein. It is cultivated in arid and semi-arid regions and is known for its strong grains and earthy flavor. The millet is processed under hygienic conditions to ensure purity and uniformity.',
-      features: ['High Energy Content', 'Rich in Iron', 'High Protein', 'Strong Grains'],
+        'Pearl millet, known as Bajra, is a drought-tolerant cereal grain with high nutritional value and excellent storage properties. It is rich in protein, fiber, and essential minerals, making it a staple food in arid regions. Pearl millet is naturally gluten-free and provides sustained energy, making it popular among health-conscious consumers.',
+      features: ['High Protein', 'Drought Tolerant', 'Rich in Minerals', 'Sustained Energy'],
       specs: {
         hsCode: '100829',
-        moq: '1 Metric Ton',
+        moq: '1000 KG',
         moisture: 'Max 12%',
-        shelfLife: '12–18 months',
+        shelfLife: '12 months',
       },
       color: 'from-yellow-600 to-amber-700',
-      image: '/pearl-millet-bajra.jpg',
-      uses: 'Flatbreads, porridges, traditional dishes, animal feed, food and feed industries',
+      image: '/Pearl Millet (Bajra).jpg',
     },
     {
       name: 'Foxtail Millet',
       description:
-        'Foxtail millet is a light-colored millet known for its mild taste, quick cooking properties, and easy digestibility. It is cultivated using traditional methods and processed carefully to maintain grain integrity and freshness.',
-      features: ['Mild Taste', 'Quick Cooking', 'Easy Digestibility', 'Light Colored'],
+        'Foxtail millet is an ancient grain known for its excellent nutritional profile and easy digestibility. It is rich in protein, dietary fiber, and essential amino acids. This millet variety has a mild, nutty flavor and is naturally gluten-free. It cooks quickly and is versatile for various culinary applications.',
+      features: ['Easy Digestibility', 'Rich in Protein', 'Nutty Flavor', 'Quick Cooking'],
       specs: {
         hsCode: '100829',
-        moq: '1 Metric Ton',
+        moq: '1000 KG',
         moisture: 'Max 12%',
         shelfLife: '12 months',
       },
       color: 'from-green-600 to-emerald-700',
-      image: '/foxtail-millet.jpg',
-      uses: 'Rice substitute, salads, upma, health foods, ready-to-cook products, gluten-free diets',
+      image: '/Foxtail Millet.jpg',
     },
     {
       name: 'Little Millet',
       description:
-        'Little millet is a small-grained millet known for its high fiber content, low glycemic index, and light texture. It is grown in dry regions and harvested carefully to maintain grain quality. The millet is cleaned and graded to meet export standards.',
-      features: ['High Fiber Content', 'Low Glycemic Index', 'Light Texture', 'Small Grains'],
+        'Little millet is a small-grained cereal with exceptional nutritional benefits and excellent storage properties. It is rich in B-vitamins, minerals, and antioxidants. This millet variety has a mild taste and fine texture, making it suitable for various food preparations. It is naturally gluten-free and has good cooking characteristics.',
+      features: ['Rich in B-Vitamins', 'Fine Texture', 'Mild Taste', 'Good Storage'],
       specs: {
         hsCode: '100829',
-        moq: '1 Metric Ton',
+        moq: '1000 KG',
         moisture: 'Max 12%',
         shelfLife: '12 months',
       },
       color: 'from-teal-600 to-cyan-700',
-      image: '/little-millet.jpg',
-      uses: 'Traditional recipes, health foods, breakfast items, processed food products, health-conscious consumers',
+      image: '/Little Millet.jpg',
     },
   ]
 
   const applications = [
-    { icon: '🍽️', title: 'Household Cooking', desc: 'Daily meals, porridges, rotis, and rice alternatives' },
-    { icon: '💪', title: 'Health & Wellness Foods', desc: 'Gluten-free and high-fiber diet products' },
-    { icon: '🏭', title: 'Food Processing Industry', desc: 'Flours, snacks, breakfast cereals, ready-to-eat foods' },
-    { icon: '🍞', title: 'Bakery & Confectionery', desc: 'Multigrain breads, cookies, and health bars' },
-    { icon: '🏥', title: 'Institutional & Catering', desc: 'Schools, hospitals, and large food supply programs' },
-    { icon: '🐄', title: 'Animal & Poultry Feed', desc: 'Select varieties used in feed formulations' },
+    { icon: '•', title: 'Food Products', desc: 'Base ingredient for various food preparations' },
+    { icon: '•', title: 'Health Foods', desc: 'Nutritious alternatives for health-conscious consumers' },
+    { icon: '•', title: 'Baby Foods', desc: 'Easily digestible nutrition for infants' },
+    { icon: '•', title: 'Bakery Products', desc: 'Gluten-free flour for baking applications' },
+    { icon: '•', title: 'Breakfast Cereals', desc: 'Nutritious breakfast and snack options' },
+    { icon: '•', title: 'Traditional Foods', desc: 'Traditional recipes and ethnic cuisines' },
   ]
 
   const qualityPoints = [
-    { icon: Leaf, title: 'Naturally Grown & Sustainably Sourced', desc: 'Cultivated using traditional and eco-friendly farming practices' },
-    { icon: Award, title: 'High Nutritional Value', desc: 'Rich in fiber, minerals, and essential nutrients' },
-    { icon: Shield, title: 'Carefully Cleaned & Graded', desc: 'Processed to ensure uniform size, low impurities, and export quality' },
-    { icon: Globe, title: 'Reliable Bulk Supply', desc: 'Consistent quality and volume for domestic and international buyers' },
+    { icon: Wheat, title: 'Premium Quality', desc: 'Sourced from certified organic farms' },
+    { icon: Award, title: 'Export Grade', desc: 'Meets international quality standards' },
+    { icon: Shield, title: 'Quality Assurance', desc: 'Strict cleaning, grading, and sorting processes' },
+    { icon: Globe, title: 'Global Supply', desc: 'Serving health food markets worldwide' },
   ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-600 via-orange-600 to-yellow-600">
-          <div className="absolute inset-0 bg-black/30"></div>
-          
-          {/* Floating Grain Icons */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(18)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute animate-float opacity-20"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${i * 0.3}s`,
-                  animationDuration: `${4 + Math.random() * 3}s`,
-                }}
-              >
-                <span className="text-white text-2xl">🌾</span>
-              </div>
-            ))}
-          </div>
+        {/* Video Background */}
+        <div className="absolute inset-0">
+          {videos.map((video, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          ))}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        {/* Floating Grain Icons */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute animate-float opacity-20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${i * 0.4}s`,
+                animationDuration: `${5 + Math.random() * 3}s`,
+              }}
+            >
+              <span className="text-white text-3xl">•</span>
+            </div>
+          ))}
         </div>
 
         {/* Content */}
@@ -126,13 +152,13 @@ const GrainsMilletsPage = () => {
             }`}
           >
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
-              <span className="bg-gradient-to-r from-yellow-300 via-amber-300 to-orange-300 bg-clip-text text-transparent animate-gradient">
-                Premium Grains & Millets
+              <span className="bg-gradient-to-r from-amber-300 via-yellow-300 to-orange-300 bg-clip-text text-transparent animate-gradient">
+                Grains & Millets
               </span>
             </h1>
             <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
-              Premium-quality grains and millets sourced from carefully selected farms 
-              with traditional cultivation and sustainable farming methods
+              Premium-quality grains and millet varieties sourced from certified farms, 
+              offering rich nutrition, health benefits, and natural goodness
             </p>
           </div>
         </div>
@@ -142,18 +168,18 @@ const GrainsMilletsPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-8">
-              Nature's Nutritional Powerhouse
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              Ancient Grains for Modern Nutrition
             </h2>
             <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
               <p className="text-xl mb-6">
-                We supply premium-quality grains and millets sourced from carefully selected farms where traditional cultivation practices are combined with sustainable farming methods. Our product range includes nutritionally rich varieties such as <strong>Finger Millet (Ragi)</strong>, <strong>Pearl Millet (Bajra)</strong>, <strong>Foxtail Millet</strong>, <strong>Little Millet</strong>, and other commonly traded grains. These crops are grown in natural conditions that enhance their nutritional value, taste, and shelf stability.
+                We offer premium-quality grains and millet varieties sourced from certified farms known for producing nutritious and high-quality cereals. Our range includes <strong>Finger Millet (Ragi)</strong>, <strong>Pearl Millet (Bajra)</strong>, <strong>Foxtail Millet</strong>, and <strong>Little Millet</strong>, each valued for its distinctive nutritional profile, health benefits, and culinary versatility.
               </p>
               <p className="text-lg mb-6">
-                Each batch is harvested at the right stage of maturity and processed using modern cleaning and grading techniques to ensure purity, uniform grain size, and minimal foreign matter. Our grains and millets are valued for their high fiber content, essential minerals, natural flavor, and long shelf life, making them suitable for both daily consumption and large-scale food processing.
+                These ancient grains are carefully harvested at optimal maturity and processed using modern techniques to retain their natural nutrients, flavor, and texture. Strict quality control measures including cleaning, grading, and sorting ensure uniform quality and export-grade standards. The result is premium grains with excellent nutritional value, natural taste, and long shelf life.
               </p>
               <p className="text-lg">
-                Millets are increasingly recognized for their health benefits, including easy digestibility and suitability for gluten-free diets. They are widely used in traditional cooking, modern health foods, breakfast cereals, snacks, and value-added food products. Proper handling and hygienic packaging help preserve freshness and nutritional quality during storage and long-distance transportation.
+                Our grains and millets are widely used in food products, health foods, baby foods, bakery applications, and traditional cuisines across global markets. They are particularly valued for being gluten-free, high in protein, and rich in essential minerals. Proper packaging and storage help maintain quality during transportation and storage.
               </p>
             </div>
           </div>
@@ -162,17 +188,20 @@ const GrainsMilletsPage = () => {
 
       {/* Grains & Millets Varieties Section */}
       <section className="py-12 bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 relative">
-        <div className="max-w-[1100px] mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
-            Premium Millet Varieties
+            Premium Varieties
           </h2>
+          <p className="text-base text-amber-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
+            Choose from our exceptional selection of grains and millets, each with unique nutritional benefits and superior quality.
+          </p>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
             {varieties.map((variety, index) => (
               <button
                 key={index}
                 onClick={() => setActiveVariety(index)}
-                className={`px-6 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
                   activeVariety === index
                     ? 'bg-white text-amber-900 shadow-2xl border-white scale-105'
                     : 'bg-amber-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
@@ -183,29 +212,27 @@ const GrainsMilletsPage = () => {
             ))}
           </div>
 
-          <div className="max-w-[1100px] mx-auto">
+          <div className="max-w-[1000px] mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
-                {/* Image Section - Empty for now */}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-200 min-h-[380px] relative overflow-hidden flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-amber-300 rounded-full flex items-center justify-center mb-3 mx-auto">
-                      <span className="text-4xl">🌾</span>
-                    </div>
-                    <p className="text-amber-800 font-bold text-base">
-                      {varieties[activeVariety].name}
-                    </p>
-                    <p className="text-amber-600 text-xs mt-1">
-                      Image will be added here
-                    </p>
-                  </div>
+                {/* Image Section */}
+                <div className="relative overflow-hidden min-h-[380px]">
+                  <Image
+                    src={varieties[activeVariety].image}
+                    alt={varieties[activeVariety].name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
 
                 {/* Content Section */}
                 <div className="p-4 bg-white">
                   <div className="mb-2">
                     <span className="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold">
-                      Premium Quality Millet
+                      Premium Quality Grains & Millets
                     </span>
                   </div>
 
@@ -258,11 +285,6 @@ const GrainsMilletsPage = () => {
                         <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.shelfLife}</p>
                       </div>
                     </div>
-                    
-                    <div className="mt-2 bg-white p-2 rounded-lg shadow-md border border-amber-200">
-                      <span className="text-[9px] font-bold text-amber-800 uppercase tracking-wide">Primary Uses</span>
-                      <p className="text-gray-700 text-xs mt-0.5 leading-relaxed">{varieties[activeVariety].uses}</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -274,19 +296,19 @@ const GrainsMilletsPage = () => {
       {/* Applications Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-amber-900 mb-16">
-            Applications of Grains & Millets
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+            Applications & Uses
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {applications.map((app, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 border border-amber-100 ${
+                className={`bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 border border-amber-200 ${
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 800}ms` }}
               >
-                <div className="text-4xl mb-4 text-center">{app.icon}</div>
+                <div className="text-4xl mb-4 text-center text-amber-600">{app.icon}</div>
                 <h3 className="text-xl font-bold text-amber-900 mb-3 text-center">{app.title}</h3>
                 <p className="text-gray-700 text-center leading-relaxed">{app.desc}</p>
               </div>
@@ -295,10 +317,10 @@ const GrainsMilletsPage = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Quality Points */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-amber-800 mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
             Why Choose Our Grains & Millets
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -311,73 +333,10 @@ const GrainsMilletsPage = () => {
                 style={{ transitionDelay: `${index * 100 + 1200}ms` }}
               >
                 <point.icon className="w-12 h-12 text-amber-600 mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-amber-800 mb-2 text-center">{point.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">{point.title}</h3>
                 <p className="text-gray-600 text-center">{point.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Benefits */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-8">
-              Additional Benefits
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8 text-left">
-              <div className="bg-amber-50 rounded-lg p-6 shadow-md">
-                <h3 className="text-xl font-semibold text-amber-800 mb-4">
-                  🌱 Long Shelf Life & Quality Storage
-                </h3>
-                <p className="text-gray-700">
-                  Low moisture content ensures safe storage and transport. Our commitment to quality assurance and sustainable sourcing makes our products ideal for both domestic and international markets.
-                </p>
-              </div>
-              <div className="bg-orange-50 rounded-lg p-6 shadow-md">
-                <h3 className="text-xl font-semibold text-amber-800 mb-4">
-                  📦 Hygienic Processing & Packing
-                </h3>
-                <p className="text-gray-700">
-                  Packed using food-grade materials suitable for export markets. Consistent quality and volume supply for domestic and international buyers with reliable delivery schedules.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Health Benefits Section */}
-      <section className="py-16 bg-gradient-to-r from-amber-50 to-orange-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-8">
-              Health & Nutritional Benefits
-            </h2>
-            <p className="text-lg text-gray-800 mb-8">
-              Grains and millets are widely consumed across global markets due to their high nutritional value, versatility, and long shelf life. They are increasingly recognized for their health benefits and suitability for modern dietary needs.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: '💪', title: 'High Fiber & Protein', desc: 'Essential for muscle development and digestive health' },
-                { icon: '🌾', title: 'Gluten-Free Options', desc: 'Perfect for celiac and gluten-sensitive individuals' },
-                { icon: '⚡', title: 'Low Glycemic Index', desc: 'Helps maintain stable blood sugar levels' },
-                { icon: '🦴', title: 'Rich in Minerals', desc: 'High calcium, iron, and essential nutrients' },
-                { icon: '❤️', title: 'Heart Healthy', desc: 'Supports cardiovascular health and wellness' },
-                { icon: '🧠', title: 'Easy Digestibility', desc: 'Gentle on stomach and suitable for all ages' },
-              ].map((benefit, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <div className="text-3xl mb-3">{benefit.icon}</div>
-                  <h3 className="font-semibold text-amber-800 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm">{benefit.desc}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
