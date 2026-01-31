@@ -72,12 +72,12 @@ const CardamomPage = () => {
   ]
 
   const applications = [
-    { icon: '🍽️', title: 'Culinary Preparations', desc: 'Premium spice for cooking and flavoring' },
-    { icon: '🍬', title: 'Confectionery Products', desc: 'Essential ingredient for sweets and desserts' },
-    { icon: '☕', title: 'Beverages', desc: 'Aromatic flavoring for teas and drinks' },
-    { icon: '🌿', title: 'Spice Blends', desc: 'Key component in garam masala and spice mixes' },
-    { icon: '🏭', title: 'Food Processing', desc: 'Industrial applications in food manufacturing' },
-    { icon: '💊', title: 'Traditional Medicine', desc: 'Valued for wellness and medicinal properties' },
+    { icon: '•', title: 'Culinary Preparations', desc: 'Premium spice for cooking and flavoring' },
+    { icon: '•', title: 'Confectionery Products', desc: 'Essential ingredient for sweets and desserts' },
+    { icon: '•', title: 'Beverages', desc: 'Aromatic flavoring for teas and drinks' },
+    { icon: '•', title: 'Spice Blends', desc: 'Key component in garam masala and spice mixes' },
+    { icon: '•', title: 'Food Processing', desc: 'Industrial applications in food manufacturing' },
+    { icon: '•', title: 'Traditional Medicine', desc: 'Valued for wellness and medicinal properties' },
   ]
 
   const qualityPoints = [
@@ -124,7 +124,7 @@ const CardamomPage = () => {
                 animationDuration: `${4 + Math.random() * 3}s`,
               }}
             >
-              <span className="text-white text-2xl">🌿</span>
+              <span className="text-white text-2xl">•</span>
             </div>
           ))}
         </div>
