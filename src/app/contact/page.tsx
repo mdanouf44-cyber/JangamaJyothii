@@ -106,8 +106,7 @@ const ContactPage = () => {
       icon: <Clock className="w-6 h-6" />,
       title: 'Business Hours',
       details: [
-        'Monday - Friday: 9:00 AM - 6:00 PM',
-        'Saturday: 9:00 AM - 2:00 PM',
+        'Monday - Saturday: 9:00 AM - 10:00 PM',
         'Sunday: Closed',
       ],
       action: 'View Schedule',
@@ -379,8 +378,7 @@ const ContactPage = () => {
                     Business Hours
                   </h4>
                   <div className="text-sm text-gray-600 space-y-1">
-                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p>Saturday: 9:00 AM - 2:00 PM</p>
+                    <p>Monday - Saturday: 9:00 AM - 10:00 PM</p>
                     <p>Sunday: Closed</p>
                   </div>
                 </div>
