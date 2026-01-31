@@ -191,25 +191,26 @@ const ProductsPage = () => {
               <Link
                 key={index}
                 href={product.href}
-                className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+                className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer flex flex-col h-full"
               >
                 {/* Product Image */}
-                <div className="relative overflow-hidden h-64">
+                <div className="relative overflow-hidden h-64 flex-shrink-0">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
                 </div>
 
                 {/* Product Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
                     {product.name}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
                     {product.description}
                   </p>
 
@@ -227,8 +228,8 @@ const ProductsPage = () => {
                     </div>
                   </div>
 
-                  {/* View Details Button */}
-                  <div className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 group-hover:bg-green-700">
+                  {/* View Details Button - Always at bottom */}
+                  <div className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 group-hover:bg-green-700 mt-auto">
                     View Details
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
