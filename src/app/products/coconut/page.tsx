@@ -46,7 +46,7 @@ const CoconutPage = () => {
     {
       name: 'Fresh Coconut',
       description:
-        'Our fresh coconuts are harvested from healthy, mature coconut palms grown under favorable climatic conditions. Each coconut is carefully selected to ensure good kernel thickness, natural sweetness, and freshness. The coconuts are cleaned and packed under hygienic conditions to maintain quality during storage and transportation.',
+        'Our fresh coconuts are harvested from healthy, mature coconut palms grown under favorable climatic conditions. Each coconut is carefully selected to ensure good kernel thickness, natural sweetness, and freshness.',
       features: [
         'Natural Sweetness',
         'Good Kernel Thickness',
@@ -66,7 +66,7 @@ const CoconutPage = () => {
     {
       name: 'Copra (Dried Coconut)',
       description:
-        'Copra is produced by drying mature coconut kernels under controlled conditions to reduce moisture content and increase oil yield. Our copra is known for its uniform drying, high oil content, and low moisture level. It is processed and graded to meet international export standards.',
+        'Copra is produced by drying mature coconut kernels under controlled conditions to reduce moisture content and increase oil yield. Our copra is known for its uniform drying, high oil content, and low moisture level.',
       features: [
         'Uniform Drying',
         'High Oil Content',
@@ -86,7 +86,7 @@ const CoconutPage = () => {
     {
       name: 'Virgin Coconut Oil',
       description:
-        'Virgin coconut oil is extracted from fresh coconut kernels using cold-processing methods without the use of chemicals or high heat. This process helps retain the natural aroma, nutrients, and beneficial properties of coconut oil. The oil is clear, naturally fragrant, and rich in medium-chain fatty acids.',
+        'Virgin coconut oil is extracted from fresh coconut kernels using cold-processing methods without the use of chemicals or high heat. This process helps retain the natural aroma, nutrients, and beneficial properties of coconut oil.',
       features: [
         'Cold-Processed',
         'Chemical-Free',
@@ -106,7 +106,7 @@ const CoconutPage = () => {
     {
       name: 'Refined Coconut Oil',
       description:
-        'Refined coconut oil is produced from dried copra and refined to remove impurities, odor, and color, resulting in a stable and neutral oil. This oil is suitable for high-temperature cooking and large-scale food manufacturing due to its long shelf life and consistent quality.',
+        'Refined coconut oil is produced from dried copra and refined to remove impurities, odor, and color, resulting in a stable and neutral oil. This oil is suitable for high-temperature cooking and large-scale food manufacturing.',
       features: [
         'Neutral Taste',
         'High Temperature Stable',
@@ -126,7 +126,7 @@ const CoconutPage = () => {
     {
       name: 'Coconut Shell Charcoal Powder',
       description:
-        'Coconut shell charcoal powder is produced from mature coconut shells through controlled carbonization. The resulting charcoal is high in carbon content, low in ash, and environmentally friendly. It is a sustainable product made from agricultural waste without the use of chemical additives.',
+        'Coconut shell charcoal powder is produced from mature coconut shells through controlled carbonization. The resulting charcoal is high in carbon content, low in ash, and environmentally friendly.',
       features: [
         'High Carbon Content',
         'Low Ash',
@@ -142,6 +142,66 @@ const CoconutPage = () => {
       color: 'from-gray-700 to-black',
       icon: '⚫',
       image: '/coconut-shell-charcoal-powder.jpg',
+    },
+    {
+      name: 'Coco Fiber',
+      description:
+        'Coco fiber is a natural fiber extracted from the outer husk of mature coconuts. It is known for its high strength, durability, resistance to saltwater, and eco-friendly nature.',
+      features: [
+        'High Strength',
+        'Saltwater Resistant',
+        'Eco-Friendly',
+        'Natural Resilience',
+      ],
+      specs: {
+        hsCode: '530500',
+        moq: '1 Metric Ton',
+        shelfLife: '24 months',
+        moisture: 'Max 15%',
+      },
+      color: 'from-brown-600 to-amber-800',
+      icon: '🧶',
+      image: '/coco-fiber.jpg',
+    },
+    {
+      name: 'Cocopeat',
+      description:
+        'Cocopeat, also known as coir pith, is a natural by-product obtained during the extraction of coconut fiber. It is widely valued for its excellent water retention capacity, high porosity, and eco-friendly properties.',
+      features: [
+        'Water Retention',
+        'High Porosity',
+        'Soil Conditioning',
+        'Organic Farming',
+      ],
+      specs: {
+        hsCode: '270300',
+        moq: '1 Metric Ton',
+        shelfLife: '24–36 months',
+        moisture: 'Max 15–18%',
+      },
+      color: 'from-orange-600 to-red-700',
+      icon: '🌱',
+      image: '/cocopeat.jpg',
+    },
+    {
+      name: 'Coir Fiber Yarn',
+      description:
+        'Coir fiber yarn is produced by spinning natural coconut fibers into uniform yarn using traditional and mechanized processes. It is known for its high tensile strength, durability, and resistance to moisture.',
+      features: [
+        'High Tensile Strength',
+        'Moisture Resistant',
+        'Biodegradable',
+        'Various Thicknesses',
+      ],
+      specs: {
+        hsCode: '530820',
+        moq: '500 KG',
+        shelfLife: '24 months',
+        moisture: 'Max 15%',
+      },
+      color: 'from-yellow-600 to-orange-700',
+      icon: '🪢',
+      image: '/coir-fiber-yarn.jpg',
     },
   ]
 
@@ -551,8 +611,8 @@ const CoconutPage = () => {
             <p className="text-xl text-gray-700 leading-relaxed mb-12">
               Our coconut products serve diverse industries with applications in
               food processing, edible oil extraction, cosmetics, personal care
-              products, water filtration, industrial use, and retail
-              consumption.
+              products, water filtration, industrial use, horticulture, agriculture,
+              rope making, mat weaving, and sustainable manufacturing.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
@@ -568,6 +628,16 @@ const CoconutPage = () => {
                   desc: 'Personal care and beauty products',
                 },
                 {
+                  icon: '🌱',
+                  label: 'Horticulture',
+                  desc: 'Greenhouse cultivation and nurseries',
+                },
+                {
+                  icon: '🪢',
+                  label: 'Rope & Textiles',
+                  desc: 'Rope making, mats, and yarn production',
+                },
+                {
                   icon: '💧',
                   label: 'Water Filtration',
                   desc: 'Industrial filtration systems',
@@ -576,6 +646,16 @@ const CoconutPage = () => {
                   icon: '🏭',
                   label: 'Industrial Use',
                   desc: 'Manufacturing and processing',
+                },
+                {
+                  icon: '🌾',
+                  label: 'Agriculture',
+                  desc: 'Soil conditioning and hydroponics',
+                },
+                {
+                  icon: '♻️',
+                  label: 'Eco Products',
+                  desc: 'Sustainable alternatives to synthetics',
                 },
               ].map((application, index) => (
                 <div
