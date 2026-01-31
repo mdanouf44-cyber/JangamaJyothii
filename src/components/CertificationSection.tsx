@@ -10,51 +10,35 @@ const CertificationSection = () => {
   const certifications = [
     {
       id: 1,
-      name: 'Certificate 1',
       image: '/Screenshot 2026-01-31 191822.png',
-      description: 'Official Certification',
     },
     {
       id: 2,
-      name: 'Certificate 2',
       image: '/Screenshot 2026-01-31 191826.png',
-      description: 'Quality Assurance',
     },
     {
       id: 3,
-      name: 'Certificate 3',
       image: '/Screenshot 2026-01-31 191830.png',
-      description: 'Industry Standards',
     },
     {
       id: 4,
-      name: 'Certificate 4',
       image: '/Screenshot 2026-01-31 191836.png',
-      description: 'Compliance Certification',
     },
     {
       id: 5,
-      name: 'Certificate 5',
       image: '/Screenshot 2026-01-31 191846.png',
-      description: 'Export Authorization',
     },
     {
       id: 6,
-      name: 'Certificate 6',
       image: '/Screenshot 2026-01-31 191857.png',
-      description: 'Quality Management',
     },
     {
       id: 7,
-      name: 'Certificate 7',
       image: '/Screenshot 2026-01-31 191912.png',
-      description: 'Business Registration',
     },
     {
       id: 8,
-      name: 'Certificate 8',
       image: '/Screenshot 2026-01-31 192147.png',
-      description: 'Industry Membership',
     },
   ]
 
@@ -96,25 +80,15 @@ const CertificationSection = () => {
                   className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
                 >
                   {/* Certification Image */}
-                  <div className="relative h-32 mb-4 flex items-center justify-center">
+                  <div className="relative h-40 flex items-center justify-center">
                     <Image
                       src={cert.image}
-                      alt={cert.name}
+                      alt={`Certificate ${cert.id}`}
                       fill
                       className="object-contain"
                       sizes="(max-width: 768px) 50vw, 25vw"
                     />
                   </div>
-
-                  {/* Certification Name */}
-                  <h3 className="text-lg font-bold text-gray-900 text-center mb-2 group-hover:text-green-700 transition-colors duration-300">
-                    {cert.name}
-                  </h3>
-
-                  {/* Certification Description */}
-                  <p className="text-sm text-gray-600 text-center leading-relaxed">
-                    {cert.description}
-                  </p>
                 </div>
               ))}
             </div>
