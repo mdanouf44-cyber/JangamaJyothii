@@ -111,23 +111,22 @@ const CardamomPage = () => {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
           
-          {/* Floating Cardamom Icons */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(12)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute animate-float opacity-20"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${i * 0.5}s`,
-                  animationDuration: `${4 + Math.random() * 3}s`,
-                }}
-              >
-                <span className="text-white text-2xl">🌿</span>
-              </div>
-            ))}
-          </div>
+        {/* Floating Cardamom Icons */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute animate-float opacity-20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${i * 0.5}s`,
+                animationDuration: `${4 + Math.random() * 3}s`,
+              }}
+            >
+              <span className="text-white text-2xl">🌿</span>
+            </div>
+          ))}
         </div>
 
         {/* Content */}
