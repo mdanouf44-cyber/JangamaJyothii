@@ -91,7 +91,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Pulses',
-      image: '/cover-pulses.jpg', // Using cover image
+      image: '/istockphoto-1280448548-612x612-1.jpg', // Using uploaded pulses image
       description:
         'Premium pulses including Black Chickpeas, Chickpeas, Pigeon Peas, Black Gram, Green Gram, and Horse Gram.',
       features: [
@@ -117,7 +117,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Black Pepper',
-      image: '/cover-black-pepper.jpg',
+      image: '/Karimunda Black Pepper.jpg', // Using actual black pepper image
       description:
         'Premium black pepper varieties including Panniyur series, Karimunda, and traditional types for bold flavor.',
       features: [
@@ -130,7 +130,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Cardamom',
-      image: '/cover-cardamom.jpg',
+      image: '/Malabar Cardamom.jpg', // Using actual cardamom image
       description:
         'Premium Malabar cardamom, Mysore cardamom, and Vazhukkha type for rich aroma and culinary applications.',
       features: [
@@ -143,7 +143,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Grains & Millets',
-      image: '/cover-grains-millets.jpg',
+      image: '/Finger Millet (Ragi).jpg', // Using actual grains & millets image
       description:
         'Premium grains and millet varieties including Finger, Pearl, Foxtail, and Little for rich nutrition.',
       features: [
@@ -156,7 +156,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Jute & Paper Products',
-      image: '/cover-jute-paper-products.jpg',
+      image: '/Jute Bags.jpg', // Using actual jute products image
       description:
         'High-quality eco-friendly paper bags, jute products, and sustainable packaging solutions.',
       features: [
