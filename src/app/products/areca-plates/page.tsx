@@ -7,9 +7,22 @@ import ProductGrid from '@/components/ProductGrid'
 const ArecaPlatesPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const videos = [
+    '/Areca_Plate_Stock_Video_Generation.mp4',
+  ]
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Since we only have one video, we can still show it as background
+    // If more videos are added later, this will auto-rotate
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+    }, 8000)
+
+    return () => clearInterval(videoInterval)
   }, [])
 
   const varieties = [
@@ -120,46 +133,62 @@ const ArecaPlatesPage = () => {
         `}</style>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1
-              className={`text-5xl md:text-7xl font-bold text-green-900 mb-6 transform transition-all duration-1000 ${
-                isVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-10 opacity-0'
-              }`}
-              suppressHydrationWarning
-            >
-              Areca Plates
-            </h1>
-            <p
-              className={`text-xl md:text-2xl text-green-800 mb-8 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 ${
-                isVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-10 opacity-0'
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0">
+          {videos.map((video, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              100% Natural, Biodegradable & Eco-Friendly Tableware
-            </p>
+              <source src={video} type="video/mp4" />
+            </video>
+          ))}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
 
-            {/* Image Placeholder */}
+        {/* Floating Eco Icons */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(12)].map((_, i) => (
             <div
-              className={`w-full max-w-4xl mx-auto h-96 bg-gradient-to-r from-green-100 to-lime-100 rounded-2xl border-2 border-dashed border-green-300 flex items-center justify-center mb-12 transform transition-all duration-1000 delay-500 ${
-                isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-              }`}
+              key={i}
+              className="absolute animate-float opacity-20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${i * 0.5}s`,
+                animationDuration: `${4 + Math.random() * 3}s`,
+              }}
             >
-              <div className="text-center">
-                <div className="text-6xl mb-4">🍽️</div>
-                <p className="text-green-700 font-medium">
-                  Areca Plates Hero Image
-                </p>
-                <p className="text-green-600 text-sm">
-                  Image will be added here
-                </p>
-              </div>
+              <span className="text-white text-2xl">•</span>
             </div>
+          ))}
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <div
+            className={`transform transition-all duration-1500 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+            }`}
+          >
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-green-300 via-lime-300 to-emerald-300 bg-clip-text text-transparent animate-gradient">
+                Areca Plates
+              </span>
+            </h1>
+            <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
+              100% Natural, Biodegradable & Eco-Friendly Tableware
+              for sustainable dining solutions
+            </p>
           </div>
         </div>
       </section>
