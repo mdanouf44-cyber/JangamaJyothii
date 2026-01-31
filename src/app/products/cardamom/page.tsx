@@ -9,8 +9,22 @@ const CardamomPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const videos = [
+    '/Cardamom 1.mp4',
+  ]
+
   useEffect(() => {
     setIsVisible(true)
+    
+    // Since we only have one video, we can still show it as background
+    // If more videos are added later, this will auto-rotate
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+    }, 8000)
+
+    return () => clearInterval(videoInterval)
   }, [])
 
   const varieties = [
@@ -26,7 +40,7 @@ const CardamomPage = () => {
         shelfLife: '12–18 months',
       },
       color: 'from-green-600 to-emerald-700',
-      image: '/malabar-cardamom.jpg', // You'll add this image
+      image: '/Malabar Cardamom.jpg',
     },
     {
       name: 'Mysore Cardamom',
@@ -40,7 +54,7 @@ const CardamomPage = () => {
         shelfLife: '12–18 months',
       },
       color: 'from-emerald-600 to-green-700',
-      image: '/mysore-cardamom.jpg', // You'll add this image
+      image: '/Mysore Cardamom.jpg',
     },
     {
       name: 'Vazhukka Cardamom',
@@ -54,7 +68,7 @@ const CardamomPage = () => {
         shelfLife: '12–18 months',
       },
       color: 'from-green-700 to-emerald-800',
-      image: '/vazhukka-cardamom.jpg', // You'll add this image
+      image: '/Vazhukka Cardamom.jpg',
     },
   ]
 
@@ -76,11 +90,27 @@ const CardamomPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-50">
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-600 via-emerald-600 to-green-700">
-          <div className="absolute inset-0 bg-black/30"></div>
+        {/* Video Background */}
+        <div className="absolute inset-0">
+          {videos.map((video, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          ))}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
           
           {/* Floating Cardamom Icons */}
           <div className="absolute inset-0 overflow-hidden">
@@ -172,19 +202,17 @@ const CardamomPage = () => {
           <div className="max-w-[1000px] mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
-                {/* Image Section - Empty for now */}
-                <div className="bg-gradient-to-br from-green-100 to-emerald-200 min-h-[380px] relative overflow-hidden flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-green-300 rounded-full flex items-center justify-center mb-3 mx-auto">
-                      <span className="text-4xl">🌿</span>
-                    </div>
-                    <p className="text-green-800 font-bold text-base">
-                      {varieties[activeVariety].name}
-                    </p>
-                    <p className="text-green-600 text-xs mt-1">
-                      Image will be added here
-                    </p>
-                  </div>
+                {/* Image Section */}
+                <div className="relative overflow-hidden min-h-[380px]">
+                  <Image
+                    src={varieties[activeVariety].image}
+                    alt={varieties[activeVariety].name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
 
                 {/* Content Section */}
