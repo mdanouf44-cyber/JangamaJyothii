@@ -8,7 +8,6 @@ import ProductGrid from '@/components/ProductGrid'
 const CardamomPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
-
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
   const videos = [
