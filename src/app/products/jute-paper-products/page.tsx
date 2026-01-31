@@ -9,8 +9,22 @@ const JutePaperProductsPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const videos = [
+    '/Stock_Video_Jute_and_Paper_Products.mp4',
+  ]
+
   useEffect(() => {
     setIsVisible(true)
+    
+    // Since we only have one video, we can still show it as background
+    // If more videos are added later, this will auto-rotate
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+    }, 8000)
+
+    return () => clearInterval(videoInterval)
   }, [])
 
   const varieties = [
@@ -76,16 +90,26 @@ const JutePaperProductsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-amber-50 to-blue-50">
-      {/* Hero Section with Gradient Background */}
+      {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-600 via-amber-600 to-blue-600">
-          <div className="absolute inset-0 bg-black/40"></div>
-          
-          {/* Animated Pattern Overlay */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
-          </div>
+        {/* Video Background */}
+        <div className="absolute inset-0">
+          {videos.map((video, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          ))}
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         {/* Floating Eco Icons */}
