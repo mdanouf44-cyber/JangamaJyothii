@@ -20,7 +20,8 @@ const AboutPage = () => {
     }, 6000)
 
     return () => clearInterval(videoInterval)
-  }, []) => {
+  }, [])
+
   const values = [
     {
       icon: <CheckCircle className="w-8 h-8" />,
