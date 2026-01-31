@@ -106,7 +106,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Black Pepper',
-      image: '/cover-black-pepper.jpg',
+      image: '/Karimunda Black Pepper.jpg', // Using actual black pepper image
       description:
         'We supply premium black pepper varieties including Panniyur series, Karimunda, and traditional types, renowned for bold flavor, aroma, and high piperine content.',
       features: [
@@ -118,7 +118,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Cardamom',
-      image: '/cover-cardamom.jpg',
+      image: '/Malabar Cardamom.jpg', // Using actual cardamom image
       description:
         'We offer premium Malabar cardamom, Mysore cardamom, and Vazhukkha type, prized for their rich aroma, strong flavor, and essential use in culinary applications worldwide.',
       features: [
@@ -130,7 +130,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Grains & Millets',
-      image: '/cover-grains-millets.jpg',
+      image: '/Finger Millet (Ragi).jpg', // Using actual grains & millets image
       description:
         'We supply premium grains and millet varieties including Finger, Pearl, Foxtail, and Little, renowned for their rich nutrition, natural flavor, and exceptional health benefits.',
       features: [
@@ -142,7 +142,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Jute & Paper Products',
-      image: '/cover-jute-paper-products.jpg',
+      image: '/Jute Bags.jpg', // Using actual jute products image
       description:
         'We supply high-quality eco-friendly paper bags, jute products, and sustainable packaging solutions, catering to international markets with reliable and innovative products.',
       features: [
