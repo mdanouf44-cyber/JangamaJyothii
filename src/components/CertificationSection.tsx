@@ -6,43 +6,55 @@ import Image from 'next/image'
 const CertificationSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Placeholder certification data - you can add real images later
+  // Certification data with actual images
   const certifications = [
     {
       id: 1,
-      name: 'APEDA',
-      image: '/certifications/apeda.png', // You'll add this later
-      description: 'Agricultural and Processed Food Products Export Development Authority',
+      name: 'Certificate 1',
+      image: '/Screenshot 2026-01-31 191822.png',
+      description: 'Official Certification',
     },
     {
       id: 2,
-      name: 'FSSAI',
-      image: '/certifications/fssai.png', // You'll add this later
-      description: 'Food Safety and Standards Authority of India',
+      name: 'Certificate 2',
+      image: '/Screenshot 2026-01-31 191826.png',
+      description: 'Quality Assurance',
     },
     {
       id: 3,
-      name: 'GMP Quality',
-      image: '/certifications/gmp.png', // You'll add this later
-      description: 'Good Manufacturing Practice Certification',
+      name: 'Certificate 3',
+      image: '/Screenshot 2026-01-31 191830.png',
+      description: 'Industry Standards',
     },
     {
       id: 4,
-      name: 'ISO 9001:2015',
-      image: '/certifications/iso.png', // You'll add this later
-      description: 'International Organization for Standardization',
+      name: 'Certificate 4',
+      image: '/Screenshot 2026-01-31 191836.png',
+      description: 'Compliance Certification',
     },
     {
       id: 5,
-      name: 'Aadhaar',
-      image: '/certifications/aadhaar.png', // You'll add this later
-      description: 'Government of India Digital Identity',
+      name: 'Certificate 5',
+      image: '/Screenshot 2026-01-31 191846.png',
+      description: 'Export Authorization',
     },
     {
       id: 6,
-      name: 'MSME',
-      image: '/certifications/msme.png', // You'll add this later
-      description: 'Micro, Small and Medium Enterprises',
+      name: 'Certificate 6',
+      image: '/Screenshot 2026-01-31 191857.png',
+      description: 'Quality Management',
+    },
+    {
+      id: 7,
+      name: 'Certificate 7',
+      image: '/Screenshot 2026-01-31 191912.png',
+      description: 'Business Registration',
+    },
+    {
+      id: 8,
+      name: 'Certificate 8',
+      image: '/Screenshot 2026-01-31 192147.png',
+      description: 'Industry Membership',
     },
   ]
 
@@ -84,20 +96,14 @@ const CertificationSection = () => {
                   className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
                 >
                   {/* Certification Image */}
-                  <div className="relative h-24 mb-4 flex items-center justify-center">
-                    {/* Placeholder until you add real images */}
-                    <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center group-hover:from-green-200 group-hover:to-green-300 transition-all duration-300">
-                      <span className="text-green-700 font-bold text-lg">
-                        {cert.name.charAt(0)}
-                      </span>
-                    </div>
-                    {/* Uncomment when you add real images */}
-                    {/* <Image
+                  <div className="relative h-32 mb-4 flex items-center justify-center">
+                    <Image
                       src={cert.image}
                       alt={cert.name}
                       fill
                       className="object-contain"
-                    /> */}
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
                   </div>
 
                   {/* Certification Name */}
