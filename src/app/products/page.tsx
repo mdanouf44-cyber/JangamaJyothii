@@ -169,7 +169,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Tissue',
-      image: '/cover-tissue.jpg', // Placeholder for tissue image
+      image: '/Facial Tissue Boxes.jpg', // Using actual tissue image
       description:
         'Premium quality tissues and paper products for personal care, hospitality, and commercial use.',
       features: [

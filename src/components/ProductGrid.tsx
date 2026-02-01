@@ -67,7 +67,7 @@ const products = [
   },
   {
     name: 'Tissue',
-    image: '/cover-tissue.jpg', // Placeholder for tissue image
+    image: '/Facial Tissue Boxes.jpg', // Using actual tissue image
     href: '/products/tissue',
   },
 ]

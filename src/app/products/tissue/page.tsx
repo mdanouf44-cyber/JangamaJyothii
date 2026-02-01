@@ -40,7 +40,7 @@ const TissuePage = () => {
         shelfLife: '3–5 years (stored in dry conditions)',
       },
       color: 'from-blue-600 to-cyan-700',
-      image: '/toilet-rolls.jpg', // Placeholder - will be provided by user
+      image: '/Toilet Rolls.jpg', // Using actual toilet rolls image
     },
     {
       name: 'Facial Tissue Boxes',
@@ -54,7 +54,7 @@ const TissuePage = () => {
         shelfLife: '3–5 years (moisture-free storage)',
       },
       color: 'from-green-600 to-emerald-700',
-      image: '/facial-tissue-boxes.jpg', // Placeholder - will be provided by user
+      image: '/Facial Tissue Boxes.jpg', // Using actual facial tissue boxes image
     },
     {
       name: 'Kitchen Rolls',
@@ -68,7 +68,7 @@ const TissuePage = () => {
         shelfLife: '3–5 years (cool, dry storage)',
       },
       color: 'from-orange-600 to-red-700',
-      image: '/kitchen-rolls.jpg', // Placeholder - will be provided by user
+      image: '/Kitchen Rolls.jpg', // Using actual kitchen rolls image
     },
     {
       name: 'Jumbo Parent Rolls',
@@ -82,7 +82,7 @@ const TissuePage = () => {
         shelfLife: '5 years (stored in dry, ventilated warehouses)',
       },
       color: 'from-purple-600 to-indigo-700',
-      image: '/jumbo-parent-rolls.jpg', // Placeholder - will be provided by user
+      image: '/Jumbo Parent Rolls.webp', // Using actual jumbo parent rolls image
     },
     {
       name: 'Hand Towels (C & M Fold)',
@@ -96,7 +96,7 @@ const TissuePage = () => {
         shelfLife: '3–5 years (dry storage)',
       },
       color: 'from-teal-600 to-blue-700',
-      image: '/hand-towels.jpg', // Placeholder - will be provided by user
+      image: '/Hand Towels (C & M Fold).jpg', // Using actual hand towels image
     },
   ]
 
@@ -215,14 +215,16 @@ const TissuePage = () => {
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
               <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
                 {/* Image Section */}
-                <div className="relative overflow-hidden min-h-[360px] bg-gradient-to-br from-blue-100 to-cyan-200 flex items-center justify-center">
-                  <div className="text-center text-blue-700">
-                    <div className="w-22 h-22 mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-4xl">🧻</span>
-                    </div>
-                    <p className="text-base font-semibold">{varieties[activeVariety].name}</p>
-                    <p className="text-xs opacity-75">Image will be added here</p>
-                  </div>
+                <div className="relative overflow-hidden min-h-[360px]">
+                  <Image
+                    src={varieties[activeVariety].image}
+                    alt={varieties[activeVariety].name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
 
                 {/* Content Section */}

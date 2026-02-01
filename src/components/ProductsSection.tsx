@@ -154,7 +154,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Tissue',
-      image: '/cover-tissue.jpg', // Placeholder for tissue image
+      image: '/Facial Tissue Boxes.jpg', // Using actual tissue image
       description:
         'We supply premium quality tissues and paper products, known for their softness, absorbency, and hygiene standards, ideal for personal care, hospitality, and commercial use worldwide.',
       features: [
