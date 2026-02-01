@@ -33,6 +33,7 @@ const Footer = () => {
     { name: 'Cardamom', href: '/products/cardamom' },
     { name: 'Grains & Millets', href: '/products/grains-millets' },
     { name: 'Jute & Paper Products', href: '/products/jute-paper-products' },
+    { name: 'Tissue', href: '/products/tissue' },
   ]
 
   return (

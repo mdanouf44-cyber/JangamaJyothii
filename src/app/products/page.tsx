@@ -167,6 +167,19 @@ const ProductsPage = () => {
       ],
       href: '/products/jute-paper-products',
     },
+    {
+      name: 'Tissue',
+      image: '/cover-tissue.jpg', // Placeholder for tissue image
+      description:
+        'Premium quality tissues and paper products for personal care, hospitality, and commercial use.',
+      features: [
+        'Premium Quality',
+        'Soft & Absorbent',
+        'Hygiene Standards',
+        'Commercial Grade',
+      ],
+      href: '/products/tissue',
+    },
   ]
 
   return (

@@ -152,6 +152,18 @@ const ProductsSection = () => {
         'Cost-Effective',
       ],
     },
+    {
+      name: 'Tissue',
+      image: '/cover-tissue.jpg', // Placeholder for tissue image
+      description:
+        'We supply premium quality tissues and paper products, known for their softness, absorbency, and hygiene standards, ideal for personal care, hospitality, and commercial use worldwide.',
+      features: [
+        'Premium Quality',
+        'Soft & Absorbent',
+        'Hygiene Standards',
+        'Commercial Grade',
+      ],
+    },
   ]
 
   return (
@@ -174,6 +186,8 @@ const ProductsSection = () => {
               productUrl = '/products/jute-paper-products'
             } else if (product.name === 'Grains & Millets') {
               productUrl = '/products/grains-millets'
+            } else if (product.name === 'Tissue') {
+              productUrl = '/products/tissue'
             } else {
               productUrl = `/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`
             }

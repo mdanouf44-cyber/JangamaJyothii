@@ -65,6 +65,11 @@ const products = [
     image: '/Jute Bags.jpg', // Using actual jute products image
     href: '/products/jute-paper-products',
   },
+  {
+    name: 'Tissue',
+    image: '/cover-tissue.jpg', // Placeholder for tissue image
+    href: '/products/tissue',
+  },
 ]
 
 const ProductCard = memo(
