@@ -124,25 +124,6 @@ const TissuePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50">
-      {/* Floating Tissue Icons */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {floatingIcons.map((icon, index) => (
-          <div
-            key={index}
-            className="absolute text-2xl opacity-10 animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${index * 0.5}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
-            }}
-            suppressHydrationWarning
-          >
-            {icon}
-          </div>
-        ))}
-      </div>
-
       {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
