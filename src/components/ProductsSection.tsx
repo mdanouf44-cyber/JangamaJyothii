@@ -168,8 +168,15 @@ const ProductsSection = () => {
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => {
-            // Create URL from product name
-            const productUrl = `/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`
+            // Create URL from product name - handle special cases
+            let productUrl
+            if (product.name === 'Jute & Paper Products') {
+              productUrl = '/products/jute-paper-products'
+            } else if (product.name === 'Grains & Millets') {
+              productUrl = '/products/grains-millets'
+            } else {
+              productUrl = `/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`
+            }
             
             return (
               <Link
