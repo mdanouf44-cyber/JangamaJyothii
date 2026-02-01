@@ -2,142 +2,305 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { ArrowLeft, Star, Shield, Truck, Award } from 'lucide-react'
-import Link from 'next/link'
+import { Sparkles, Award, Shield, Globe, Package, Leaf, CheckCircle } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
 
 const TissuePage = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [activeVariety, setActiveVariety] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
-  // Placeholder videos - will be updated when user provides videos
   const videos = [
-    '/tissue-video-1.mp4', // Placeholder
-    '/tissue-video-2.mp4', // Placeholder
+    '/tissue-video-1.mp4', // Placeholder - will be provided by user
+    '/tissue-video-2.mp4', // Placeholder - will be provided by user
   ]
 
-  // Tissue varieties with placeholder images
-  const varieties = [
-    {
-      name: 'Facial Tissues',
-      image: '/facial-tissues.jpg', // Placeholder
-      description: 'Soft and gentle facial tissues for everyday use',
-    },
-    {
-      name: 'Toilet Paper',
-      image: '/toilet-paper.jpg', // Placeholder
-      description: 'Premium quality toilet paper rolls',
-    },
-    {
-      name: 'Paper Towels',
-      image: '/paper-towels.jpg', // Placeholder
-      description: 'Absorbent paper towels for kitchen and cleaning',
-    },
-    {
-      name: 'Napkins',
-      image: '/napkins.jpg', // Placeholder
-      description: 'Elegant napkins for dining and hospitality',
-    },
-  ]
-
-  // Auto-rotate videos every 8 seconds
   useEffect(() => {
+    setIsVisible(true)
+    
     const videoInterval = setInterval(() => {
       setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
     }, 8000)
 
     return () => clearInterval(videoInterval)
-  }, [videos.length])
+  }, [])
 
-  // Auto-rotate images every 5 seconds
-  useEffect(() => {
-    const imageInterval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % varieties.length)
-    }, 5000)
+  // Tissue product varieties based on the detailed description
+  const varieties = [
+    {
+      name: 'Toilet Rolls',
+      description:
+        'Essential personal hygiene products designed for daily use in homes and public washrooms. Made from soft and absorbent tissue paper, they provide comfort while maintaining sufficient strength. Designed to break down easily in water, reducing plumbing blockages.',
+      features: ['Soft & Absorbent', 'Water Disintegrable', 'Multiple Ply Options', 'Commercial Grade'],
+      specs: {
+        hsCode: '481810',
+        moq: '10,000 rolls',
+        packaging: 'Poly-wrapped packs, packed in corrugated export cartons',
+        shelfLife: '3–5 years (stored in dry conditions)',
+      },
+      color: 'from-blue-600 to-cyan-700',
+      image: '/toilet-rolls.jpg', // Placeholder - will be provided by user
+    },
+    {
+      name: 'Facial Tissue Boxes',
+      description:
+        'Soft, lightweight tissues packed in convenient dispenser boxes for hygienic personal use. Specially designed for face care, personal hygiene, and light cleaning purposes, making them gentle enough for sensitive skin. Ideal for wiping the face, handling colds, removing makeup.',
+      features: ['Gentle on Skin', 'Convenient Dispenser', 'Hygienic Use', 'Travel Friendly'],
+      specs: {
+        hsCode: '481820',
+        moq: '5,000 boxes',
+        packaging: 'Inner poly wrap with printed cartons and export-grade outer boxes',
+        shelfLife: '3–5 years (moisture-free storage)',
+      },
+      color: 'from-green-600 to-emerald-700',
+      image: '/facial-tissue-boxes.jpg', // Placeholder - will be provided by user
+    },
+    {
+      name: 'Kitchen Rolls',
+      description:
+        'Strong and highly absorbent paper towels designed for cleaning and food-handling tasks. Thicker and more durable than regular tissues, suitable for wiping spills, absorbing oil, drying hands, and cleaning kitchen surfaces. Remain effective even when wet.',
+      features: ['High Absorbency', 'Strong & Thick', 'Oil Resistant', 'Food Safe'],
+      specs: {
+        hsCode: '481810',
+        moq: '5,000 rolls',
+        packaging: 'Shrink-wrapped rolls packed in corrugated cartons',
+        shelfLife: '3–5 years (cool, dry storage)',
+      },
+      color: 'from-orange-600 to-red-700',
+      image: '/kitchen-rolls.jpg', // Placeholder - will be provided by user
+    },
+    {
+      name: 'Jumbo Parent Rolls',
+      description:
+        'Large tissue paper rolls used as raw material for converting into finished tissue products such as toilet rolls, napkins, facial tissues, and hand towels. Produced with consistent GSM, thickness, and absorbency to ensure uniform quality during conversion.',
+      features: ['Consistent Quality', 'Industrial Grade', 'Bulk Supply', 'Converting Ready'],
+      specs: {
+        hsCode: '480300',
+        moq: '1 Metric Ton',
+        packaging: 'Wrapped with protective paper and stretch film',
+        shelfLife: '5 years (stored in dry, ventilated warehouses)',
+      },
+      color: 'from-purple-600 to-indigo-700',
+      image: '/jumbo-parent-rolls.jpg', // Placeholder - will be provided by user
+    },
+    {
+      name: 'Hand Towels (C & M Fold)',
+      description:
+        'Hand towels in C-fold and M-fold formats designed for hygienic hand drying in public and commercial washrooms. Single-sheet dispensing reduces waste and improves hygiene. Offer excellent absorbency and strength for effective hand drying with minimal waste.',
+      features: ['Single Sheet Dispensing', 'Waste Reduction', 'Commercial Use', 'Hygienic Design'],
+      specs: {
+        hsCode: '481890',
+        moq: '5,000 packs',
+        packaging: 'Paper-wrapped bundles packed in export cartons',
+        shelfLife: '3–5 years (dry storage)',
+      },
+      color: 'from-teal-600 to-blue-700',
+      image: '/hand-towels.jpg', // Placeholder - will be provided by user
+    },
+  ]
 
-    return () => clearInterval(imageInterval)
-  }, [varieties.length])
+  // Floating tissue icons animation
+  const floatingIcons = ['🧻', '📄', '🧽', '📦', '🏠', '🏢', '🏨', '🧼', '✨', '💧', '🌟', '🔄']
+
+  const applications = [
+    { icon: '🏠', title: 'Households', desc: 'Daily personal hygiene, kitchen cleaning, and general home use' },
+    { icon: '🏨', title: 'Hotels & Hospitality', desc: 'Guest rooms, washrooms, dining areas, and housekeeping' },
+    { icon: '🏥', title: 'Healthcare Facilities', desc: 'Patient care, hygiene maintenance, and sanitation' },
+    { icon: '🏢', title: 'Offices & Corporate', desc: 'Washrooms, pantry areas, and common spaces' },
+    { icon: '🍽️', title: 'Restaurants', desc: 'Food handling, cleaning, and customer hygiene' },
+    { icon: '🛍️', title: 'Shopping Malls', desc: 'High-traffic washrooms and hand-drying stations' },
+    { icon: '🏭', title: 'Industrial Units', desc: 'Bulk hygiene solutions and tissue converting units' },
+  ]
+
+  const qualityPoints = [
+    { icon: Shield, title: 'High Hygiene Standards', desc: 'Manufactured under controlled and hygienic conditions' },
+    { icon: Award, title: 'Soft Yet Strong Quality', desc: 'Balanced softness and strength for comfort and durability' },
+    { icon: Package, title: 'Multiple Formats & Sizes', desc: 'Available in retail, commercial, and industrial formats' },
+    { icon: Globe, title: 'Bulk Supply Capability', desc: 'Reliable supply for large-volume domestic and export requirements' },
+    { icon: Leaf, title: 'Eco-Conscious Production', desc: 'Made using recyclable and biodegradable paper materials' },
+    { icon: CheckCircle, title: 'Consistent Quality', desc: 'Uniform texture, thickness, and performance across batches' },
+  ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50">
+      {/* Floating Tissue Icons */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        {floatingIcons.map((icon, index) => (
+          <div
+            key={index}
+            className="absolute text-2xl opacity-10 animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${index * 0.5}s`,
+              animationDuration: `${3 + Math.random() * 2}s`,
+            }}
+            suppressHydrationWarning
+          >
+            {icon}
+          </div>
+        ))}
+      </div>
+
       {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
-        <div className="absolute inset-0 w-full h-full">
-          <video
-            key={currentVideoIndex}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-            preload="metadata"
-          >
-            <source src={videos[currentVideoIndex]} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0">
+          {videos.map((video, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          ))}
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center min-h-[600px]">
-              {/* Left side - Image (60% width) */}
-              <div className="lg:col-span-3 relative">
-                <div className="relative w-full h-[700px] rounded-2xl overflow-hidden shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                    <div className="text-center text-blue-600">
-                      <div className="text-6xl mb-4">🧻</div>
-                      <p className="text-xl font-semibold">Tissue Image</p>
-                      <p className="text-sm opacity-75">Image will be added here</p>
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <div
+            className={`transform transition-all duration-1500 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+            }`}
+          >
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-teal-300 bg-clip-text text-transparent animate-gradient">
+                Premium Tissue
+              </span>
+            </h1>
+            <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
+              Essential hygiene and cleaning products manufactured from quality paper pulp 
+              for households, commercial spaces, and institutional environments
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Description */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              Premium Tissue Products
+            </h2>
+            <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
+              <p className="text-xl mb-6">
+                <strong>Tissues are essential hygiene and cleaning products</strong> used daily across households, commercial spaces, and institutional environments. Manufactured from quality paper pulp and processed under hygienic conditions, tissue products are designed to provide <strong>softness, absorbency, strength, and convenience</strong> while supporting cleanliness and personal hygiene.
+              </p>
+              <p className="text-lg mb-6">
+                Our range of tissue products caters to diverse requirements—from personal care and kitchen cleaning to large-scale commercial and industrial usage. Each type is produced to meet specific performance needs, ensuring <strong>comfort, durability, and reliable quality</strong>. These products are widely used in homes, hotels, hospitals, offices, restaurants, shopping complexes, educational institutions, and public facilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Varieties Section - Following Compact Sizing Standard */}
+      <section className="py-10 bg-gradient-to-br from-blue-900 via-cyan-900 to-teal-900 relative">
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 drop-shadow-2xl">
+            Types of Tissue Products
+          </h2>
+          <p className="text-base text-blue-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
+            Choose from our comprehensive selection of tissue products, each designed for specific applications and performance needs.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
+            {varieties.map((variety, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveVariety(index)}
+                className={`px-6 py-3 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                  activeVariety === index
+                    ? 'bg-white text-gray-900 shadow-2xl border-white scale-105'
+                    : 'bg-gray-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
+                }`}
+              >
+                {variety.name}
+              </button>
+            ))}
+          </div>
+
+          <div className="max-w-[1050px] mx-auto">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
+              <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
+                {/* Image Section */}
+                <div className="relative overflow-hidden min-h-[360px] bg-gradient-to-br from-blue-100 to-cyan-200 flex items-center justify-center">
+                  <div className="text-center text-blue-700">
+                    <div className="w-22 h-22 mx-auto mb-3 flex items-center justify-center">
+                      <span className="text-4xl">🧻</span>
                     </div>
+                    <p className="text-base font-semibold">{varieties[activeVariety].name}</p>
+                    <p className="text-xs opacity-75">Image will be added here</p>
                   </div>
                 </div>
-              </div>
 
-              {/* Right side - Content (40% width) */}
-              <div className="lg:col-span-2 text-white">
-                <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-8">
-                  <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                    Premium Tissue
-                  </h1>
-                  <p className="text-xl mb-8 text-blue-100 leading-relaxed">
-                    High-quality tissues and paper products for personal care, hospitality, and commercial applications worldwide.
-                  </p>
-                  
-                  {/* Key Features */}
-                  <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="flex items-center gap-3">
-                      <Star className="w-6 h-6 text-yellow-400" />
-                      <span className="text-blue-100">Premium Quality</span>
+                {/* Content Section */}
+                <div className="p-4 bg-white">
+                  <div className="h-full flex flex-col">
+                    {/* Header */}
+                    <div className="mb-2">
+                      <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">
+                        Premium Grade
+                      </span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Shield className="w-6 h-6 text-green-400" />
-                      <span className="text-blue-100">Hygiene Standards</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Truck className="w-6 h-6 text-blue-400" />
-                      <span className="text-blue-100">Global Export</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Award className="w-6 h-6 text-purple-400" />
-                      <span className="text-blue-100">15+ Years Experience</span>
-                    </div>
-                  </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      href="/contact"
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl"
-                    >
-                      Get Quote
-                    </Link>
-                    <Link
-                      href="#varieties"
-                      className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-center"
-                    >
-                      View Products
-                    </Link>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      {varieties[activeVariety].name}
+                    </h3>
+
+                    <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                      {varieties[activeVariety].description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="mb-3">
+                      <h4 className="text-sm font-bold text-gray-900 mb-2">Key Features</h4>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {varieties[activeVariety].features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center gap-1.5 p-1.5 bg-blue-50 rounded">
+                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0"></div>
+                            <span className="text-xs font-semibold text-gray-700">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Specifications */}
+                    <div className="bg-gray-50 rounded-lg p-3 mb-2">
+                      <h4 className="text-sm font-bold text-gray-900 mb-2">Specifications</h4>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <div className="p-1.5 bg-white rounded border">
+                          <div className="text-[9px] font-bold text-gray-500 uppercase">HS Code</div>
+                          <div className="text-xs font-bold text-gray-900 mt-0.5">{varieties[activeVariety].specs.hsCode}</div>
+                        </div>
+                        <div className="p-1.5 bg-white rounded border">
+                          <div className="text-[9px] font-bold text-gray-500 uppercase">MOQ</div>
+                          <div className="text-xs font-bold text-gray-900 mt-0.5">{varieties[activeVariety].specs.moq}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Packaging Info */}
+                    <div className="bg-blue-50 rounded-lg p-2 mt-2">
+                      <div className="text-[9px] font-bold text-blue-700 uppercase mb-0.5">Packaging</div>
+                      <div className="text-xs text-blue-800 mt-0.5">{varieties[activeVariety].specs.packaging}</div>
+                    </div>
+
+                    {/* Shelf Life */}
+                    <div className="bg-green-50 rounded-lg p-2 mt-2">
+                      <div className="text-[9px] font-bold text-green-700 uppercase mb-0.5">Shelf Life</div>
+                      <div className="text-xs text-green-800 mt-0.5">{varieties[activeVariety].specs.shelfLife}</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -146,130 +309,55 @@ const TissuePage = () => {
         </div>
       </section>
 
-      {/* Varieties Section */}
-      <section id="varieties" className="py-20 bg-white">
+      {/* Applications Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Tissue Products
-            </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We offer a comprehensive range of tissue products designed for various applications
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {varieties.map((variety, index) => (
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+            Applications of Tissue Products
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {applications.map((app, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                className={`bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 border border-blue-200 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 100 + 800}ms` }}
               >
-                <div className="relative h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                  <div className="text-center text-blue-600">
-                    <div className="text-4xl mb-2">🧻</div>
-                    <p className="text-sm font-medium">{variety.name}</p>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {variety.name}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {variety.description}
-                  </p>
-                </div>
+                <div className="text-4xl mb-4 text-center">{app.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">{app.title}</h3>
+                <p className="text-gray-700 text-center leading-relaxed text-sm">{app.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Applications Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Applications
-            </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-white">🏠</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Household Use</h3>
-              <p className="text-gray-600">Daily personal care and cleaning applications</p>
-            </div>
-
-            <div className="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-white">🏨</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Hospitality</h3>
-              <p className="text-gray-600">Hotels, restaurants, and service industries</p>
-            </div>
-
-            <div className="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-white">🏢</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Commercial</h3>
-              <p className="text-gray-600">Offices, institutions, and commercial spaces</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose Our Tissue?
-            </h2>
-            <div className="w-24 h-1 bg-white mx-auto"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-yellow-400" />
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+            Why Choose Our Tissue Products
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {qualityPoints.map((point, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 100 + 1200}ms` }}
+              >
+                <point.icon className="w-12 h-12 text-blue-600 mb-4 mx-auto" />
+                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">{point.title}</h3>
+                <p className="text-gray-600 text-center text-sm">{point.desc}</p>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Premium Quality</h3>
-              <p className="text-blue-100">Made from 100% virgin pulp for superior softness</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-green-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Hygienic Standards</h3>
-              <p className="text-blue-100">Manufactured under strict hygiene protocols</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Global Export</h3>
-              <p className="text-blue-100">Reliable supply chain for international markets</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Certified Quality</h3>
-              <p className="text-blue-100">ISO certified manufacturing processes</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Other Products Section */}
+      {/* Product Grid */}
       <ProductGrid />
     </div>
   )
