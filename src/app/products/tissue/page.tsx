@@ -29,10 +29,10 @@ const TissuePage = () => {
   useEffect(() => {
     setIsVisible(true)
     
-    // Auto-rotate hero images every 4 seconds
+    // Auto-rotate hero images every 1.5 seconds
     const imageInterval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
-    }, 4000)
+    }, 1500)
 
     // Auto-rotate videos every 8 seconds (if videos are available)
     const videoInterval = setInterval(() => {
