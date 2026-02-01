@@ -10,21 +10,40 @@ const TissuePage = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const videos = [
     '/tissue-video-1.mp4', // Placeholder - will be provided by user
     '/tissue-video-2.mp4', // Placeholder - will be provided by user
   ]
 
+  // Tissue images for hero carousel
+  const heroImages = [
+    '/Toilet Rolls.jpg',
+    '/Facial Tissue Boxes.jpg',
+    '/Kitchen Rolls.jpg',
+    '/Jumbo Parent Rolls.webp',
+    '/Hand Towels (C & M Fold).jpg',
+  ]
+
   useEffect(() => {
     setIsVisible(true)
     
+    // Auto-rotate hero images every 4 seconds
+    const imageInterval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
+    }, 4000)
+
+    // Auto-rotate videos every 8 seconds (if videos are available)
     const videoInterval = setInterval(() => {
       setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
     }, 8000)
 
-    return () => clearInterval(videoInterval)
-  }, [])
+    return () => {
+      clearInterval(imageInterval)
+      clearInterval(videoInterval)
+    }
+  }, [heroImages.length, videos.length])
 
   // Tissue product varieties based on the detailed description
   const varieties = [
@@ -124,24 +143,26 @@ const TissuePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50">
-      {/* Hero Section with Video Background */}
+      {/* Hero Section with Image/Video Background */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
+        {/* Image Background Carousel */}
         <div className="absolute inset-0">
-          {videos.map((video, index) => (
-            <video
+          {heroImages.map((image, index) => (
+            <div
               key={index}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <source src={video} type="video/mp4" />
-            </video>
+              <Image
+                src={image}
+                alt={`Tissue Product ${index + 1}`}
+                fill
+                className="object-cover"
+                priority={index === 0}
+                sizes="100vw"
+              />
+            </div>
           ))}
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -162,6 +183,22 @@ const TissuePage = () => {
               Essential hygiene and cleaning products manufactured from quality paper pulp 
               for households, commercial spaces, and institutional environments
             </p>
+          </div>
+
+          {/* Image Navigation Dots */}
+          <div className="flex justify-center space-x-3 mt-8">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentImageIndex
+                    ? 'bg-white scale-125 shadow-lg'
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+                aria-label={`View image ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
