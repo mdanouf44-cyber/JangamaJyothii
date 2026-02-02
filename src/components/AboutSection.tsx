@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Play } from 'lucide-react'
 
 const AboutSection = () => {
@@ -47,9 +48,11 @@ const AboutSection = () => {
               </p>
             </div>
             <div className="mt-8">
-              <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                Discover More
-              </button>
+              <Link href="/about">
+                <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                  Discover More
+                </button>
+              </Link>
             </div>
           </div>
 
