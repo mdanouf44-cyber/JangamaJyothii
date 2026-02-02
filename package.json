@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next build",
+    "cpanel-build": "npm run export && echo 'Static files generated in out/ folder - Ready for cPanel upload!'",
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",

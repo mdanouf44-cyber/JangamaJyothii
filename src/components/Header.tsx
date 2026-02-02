@@ -69,6 +69,7 @@ const Header = memo(() => {
                   height={64}
                   className="w-12 h-12 md:w-16 md:h-16 object-contain"
                   priority
+                  unoptimized
                 />
               </div>
               <div>

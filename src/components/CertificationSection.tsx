@@ -87,6 +87,11 @@ const CertificationSection = () => {
                       fill
                       className="object-contain"
                       sizes="(max-width: 768px) 50vw, 25vw"
+                      unoptimized
+                      onError={(e) => {
+                        console.log(`Failed to load image: ${cert.image}`)
+                        e.currentTarget.style.display = 'none'
+                      }}
                     />
                   </div>
                 </div>
