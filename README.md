@@ -1,4 +1,4 @@
-# Agro Export Website Platform
+# Shree jangama jyothi global LLP
 
 A comprehensive B2B platform designed to connect agricultural exporters with international buyers. Built with Next.js 14, TypeScript, PostgreSQL, and Redis.
 
