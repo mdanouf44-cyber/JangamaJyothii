@@ -38,15 +38,18 @@ const Header = memo(() => {
   const memoizedProducts = useMemo(() => products, [])
 
   // Helper function to determine if a link is active
-  const isActiveLink = useCallback((href: string) => {
-    if (href === '/') {
-      return pathname === '/'
-    }
-    if (href === '/products') {
-      return pathname === '/products' || pathname.startsWith('/products/')
-    }
-    return pathname === href
-  }, [pathname])
+  const isActiveLink = useCallback(
+    (href: string) => {
+      if (href === '/') {
+        return pathname === '/'
+      }
+      if (href === '/products') {
+        return pathname === '/products' || pathname.startsWith('/products/')
+      }
+      return pathname === href
+    },
+    [pathname]
+  )
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -85,8 +88,8 @@ const Header = memo(() => {
               <Link
                 href="/"
                 className={`font-medium transition-colors duration-200 ${
-                  isActiveLink('/') 
-                    ? 'text-orange-500 hover:text-orange-600' 
+                  isActiveLink('/')
+                    ? 'text-orange-500 hover:text-orange-600'
                     : 'text-gray-700 hover:text-orange-500'
                 }`}
                 prefetch={true}
@@ -195,8 +198,8 @@ const Header = memo(() => {
             <Link
               href="/"
               className={`font-medium transition-colors duration-200 ${
-                isActiveLink('/') 
-                  ? 'text-orange-500 hover:text-orange-600' 
+                isActiveLink('/')
+                  ? 'text-orange-500 hover:text-orange-600'
                   : 'text-gray-700 hover:text-orange-500'
               }`}
               onClick={closeMenu}
@@ -205,9 +208,15 @@ const Header = memo(() => {
               Home
             </Link>
             <div className="space-y-2">
-              <p className={`font-medium ${
-                isActiveLink('/products') ? 'text-orange-500' : 'text-gray-700'
-              }`}>Our Products</p>
+              <p
+                className={`font-medium ${
+                  isActiveLink('/products')
+                    ? 'text-orange-500'
+                    : 'text-gray-700'
+                }`}
+              >
+                Our Products
+              </p>
               <div className="pl-4 space-y-2">
                 {memoizedProducts.map(product => (
                   <Link

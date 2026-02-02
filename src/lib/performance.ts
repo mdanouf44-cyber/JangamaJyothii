@@ -87,11 +87,10 @@ export function getDeviceType(): 'mobile' | 'tablet' | 'desktop' {
 export function getVideoQuality(): 'low' | 'medium' | 'high' {
   if (typeof navigator === 'undefined') return 'medium'
 
-  // @ts-ignore - connection API is experimental
   const connection =
-    navigator.connection ||
-    navigator.mozConnection ||
-    navigator.webkitConnection
+    (navigator as any).connection ||
+    (navigator as any).mozConnection ||
+    (navigator as any).webkitConnection
 
   if (!connection) return 'medium'
 

@@ -10,17 +10,15 @@ const CardamomPage = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
-  const videos = [
-    '/Cardamom 1.mp4',
-  ]
+  const videos = ['/Cardamom 1.mp4']
 
   useEffect(() => {
     setIsVisible(true)
-    
+
     // Since we only have one video, we can still show it as background
     // If more videos are added later, this will auto-rotate
     const videoInterval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
     }, 8000)
 
     return () => clearInterval(videoInterval)
@@ -31,7 +29,12 @@ const CardamomPage = () => {
       name: 'Malabar Cardamom',
       description:
         'Malabar cardamom is a traditional variety known for its bold aroma, medium-sized pods, and balanced flavor profile. It is primarily cultivated in regions with high rainfall and rich forest soil, which contribute to its distinctive fragrance and oil content. The pods are harvested at the correct maturity stage and dried carefully to retain their natural green color and essential oils.',
-      features: ['Bold Aroma', 'Medium-Sized Pods', 'Balanced Flavor', 'Rich Oil Content'],
+      features: [
+        'Bold Aroma',
+        'Medium-Sized Pods',
+        'Balanced Flavor',
+        'Rich Oil Content',
+      ],
       specs: {
         hsCode: '090831',
         moq: '500 KG',
@@ -45,7 +48,12 @@ const CardamomPage = () => {
       name: 'Mysore Cardamom',
       description:
         'Mysore cardamom is characterized by its larger pod size, lighter green color, and mild yet pleasant aroma. It is grown in regions with moderate climatic conditions, resulting in pods that are uniform in appearance and smooth in texture. The pods are carefully graded and sorted to ensure consistent quality for export.',
-      features: ['Larger Pod Size', 'Lighter Green Color', 'Mild Pleasant Aroma', 'Uniform Appearance'],
+      features: [
+        'Larger Pod Size',
+        'Lighter Green Color',
+        'Mild Pleasant Aroma',
+        'Uniform Appearance',
+      ],
       specs: {
         hsCode: '090831',
         moq: '500 KG',
@@ -59,7 +67,12 @@ const CardamomPage = () => {
       name: 'Vazhukka Cardamom',
       description:
         'Vazhukka cardamom is a natural hybrid of Malabar and Mysore varieties, combining the strong aroma of Malabar with the larger pod size of Mysore. This makes it one of the most commercially preferred varieties in global markets. The pods are bright green, well-filled, and rich in essential oils.',
-      features: ['Natural Hybrid', 'Strong Aroma', 'Larger Pod Size', 'Rich Essential Oils'],
+      features: [
+        'Natural Hybrid',
+        'Strong Aroma',
+        'Larger Pod Size',
+        'Rich Essential Oils',
+      ],
       specs: {
         hsCode: '090831',
         moq: '500 KG',
@@ -72,19 +85,59 @@ const CardamomPage = () => {
   ]
 
   const applications = [
-    { icon: '•', title: 'Culinary Preparations', desc: 'Premium spice for cooking and flavoring' },
-    { icon: '•', title: 'Confectionery Products', desc: 'Essential ingredient for sweets and desserts' },
-    { icon: '•', title: 'Beverages', desc: 'Aromatic flavoring for teas and drinks' },
-    { icon: '•', title: 'Spice Blends', desc: 'Key component in garam masala and spice mixes' },
-    { icon: '•', title: 'Food Processing', desc: 'Industrial applications in food manufacturing' },
-    { icon: '•', title: 'Traditional Medicine', desc: 'Valued for wellness and medicinal properties' },
+    {
+      icon: '•',
+      title: 'Culinary Preparations',
+      desc: 'Premium spice for cooking and flavoring',
+    },
+    {
+      icon: '•',
+      title: 'Confectionery Products',
+      desc: 'Essential ingredient for sweets and desserts',
+    },
+    {
+      icon: '•',
+      title: 'Beverages',
+      desc: 'Aromatic flavoring for teas and drinks',
+    },
+    {
+      icon: '•',
+      title: 'Spice Blends',
+      desc: 'Key component in garam masala and spice mixes',
+    },
+    {
+      icon: '•',
+      title: 'Food Processing',
+      desc: 'Industrial applications in food manufacturing',
+    },
+    {
+      icon: '•',
+      title: 'Traditional Medicine',
+      desc: 'Valued for wellness and medicinal properties',
+    },
   ]
 
   const qualityPoints = [
-    { icon: Leaf, title: 'Premium Quality', desc: 'Sourced from carefully selected plantations' },
-    { icon: Award, title: 'Export Grade', desc: 'Meets international quality standards' },
-    { icon: Shield, title: 'Quality Control', desc: 'Strict cleaning, grading, and sorting processes' },
-    { icon: Globe, title: 'Global Supply', desc: 'Serving markets worldwide with reliability' },
+    {
+      icon: Leaf,
+      title: 'Premium Quality',
+      desc: 'Sourced from carefully selected plantations',
+    },
+    {
+      icon: Award,
+      title: 'Export Grade',
+      desc: 'Meets international quality standards',
+    },
+    {
+      icon: Shield,
+      title: 'Quality Control',
+      desc: 'Strict cleaning, grading, and sorting processes',
+    },
+    {
+      icon: Globe,
+      title: 'Global Supply',
+      desc: 'Serving markets worldwide with reliability',
+    },
   ]
 
   return (
@@ -110,7 +163,7 @@ const CardamomPage = () => {
           ))}
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-          
+
         {/* Floating Cardamom Icons */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(12)].map((_, i) => (
@@ -134,7 +187,9 @@ const CardamomPage = () => {
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div
             className={`transform transition-all duration-1500 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+              isVisible
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-20 opacity-0'
             }`}
           >
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
@@ -143,8 +198,9 @@ const CardamomPage = () => {
               </span>
             </h1>
             <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
-              Premium-quality Indian cardamom sourced from carefully selected plantations, 
-              offering distinctive aroma, oil content, and bold flavor profile
+              Premium-quality Indian cardamom sourced from carefully selected
+              plantations, offering distinctive aroma, oil content, and bold
+              flavor profile
             </p>
           </div>
         </div>
@@ -159,13 +215,31 @@ const CardamomPage = () => {
             </h2>
             <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
               <p className="text-xl mb-6">
-                We offer premium-quality Indian cardamom sourced from carefully selected plantations located in regions known for producing aromatic and flavorful pods. Our range includes <strong>Malabar cardamom</strong>, <strong>Mysore cardamom</strong>, and <strong>Vazhukka cardamom</strong> (a natural hybrid of Malabar and Mysore), each valued for its distinctive aroma, oil content, and bold flavor profile.
+                We offer premium-quality Indian cardamom sourced from carefully
+                selected plantations located in regions known for producing
+                aromatic and flavorful pods. Our range includes{' '}
+                <strong>Malabar cardamom</strong>,{' '}
+                <strong>Mysore cardamom</strong>, and{' '}
+                <strong>Vazhukka cardamom</strong> (a natural hybrid of Malabar
+                and Mysore), each valued for its distinctive aroma, oil content,
+                and bold flavor profile.
               </p>
               <p className="text-lg mb-6">
-                The cardamom pods are harvested at the right stage of maturity and carefully dried to preserve their natural green color, freshness, and essential oils. Strict quality control measures such as cleaning, grading, and sorting are followed to ensure uniform size and export-grade standards. The result is cardamom with strong fragrance, pleasant sweetness, and long-lasting flavor.
+                The cardamom pods are harvested at the right stage of maturity
+                and carefully dried to preserve their natural green color,
+                freshness, and essential oils. Strict quality control measures
+                such as cleaning, grading, and sorting are followed to ensure
+                uniform size and export-grade standards. The result is cardamom
+                with strong fragrance, pleasant sweetness, and long-lasting
+                flavor.
               </p>
               <p className="text-lg">
-                Our cardamom is widely used in culinary preparations, confectionery products, beverages, spice blends, and food processing industries across global markets. It is also highly valued in traditional medicine and wellness applications. Hygienic packing and proper moisture control help retain quality during storage and long-distance transportation.
+                Our cardamom is widely used in culinary preparations,
+                confectionery products, beverages, spice blends, and food
+                processing industries across global markets. It is also highly
+                valued in traditional medicine and wellness applications.
+                Hygienic packing and proper moisture control help retain quality
+                during storage and long-distance transportation.
               </p>
             </div>
           </div>
@@ -179,7 +253,8 @@ const CardamomPage = () => {
             Premium Varieties
           </h2>
           <p className="text-base text-green-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
-            Choose from our exceptional selection of cardamom varieties, each with unique characteristics and superior quality.
+            Choose from our exceptional selection of cardamom varieties, each
+            with unique characteristics and superior quality.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
@@ -236,15 +311,19 @@ const CardamomPage = () => {
                       Key Features
                     </h4>
                     <div className="grid grid-cols-2 gap-1.5">
-                      {varieties[activeVariety].features.map((feature, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-green-100 hover:shadow-md transition-shadow"
-                        >
-                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-xs">{feature}</span>
-                        </div>
-                      ))}
+                      {varieties[activeVariety].features.map(
+                        (feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-green-100 hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-800 font-semibold text-xs">
+                              {feature}
+                            </span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -255,20 +334,36 @@ const CardamomPage = () => {
                     </h4>
                     <div className="grid grid-cols-2 gap-1.5">
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.hsCode}</p>
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
+                          HS Code
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.hsCode}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">Min Order</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.moq}</p>
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
+                          Min Order
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.moq}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">Moisture</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.moisture}</p>
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
+                          Moisture
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.moisture}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.shelfLife}</p>
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
+                          Shelf Life
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.shelfLife}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -290,13 +385,19 @@ const CardamomPage = () => {
               <div
                 key={index}
                 className={`bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 border border-green-100 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  isVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 800}ms` }}
               >
                 <div className="text-4xl mb-4 text-center">{app.icon}</div>
-                <h3 className="text-xl font-bold text-green-900 mb-3 text-center">{app.title}</h3>
-                <p className="text-gray-700 text-center leading-relaxed">{app.desc}</p>
+                <h3 className="text-xl font-bold text-green-900 mb-3 text-center">
+                  {app.title}
+                </h3>
+                <p className="text-gray-700 text-center leading-relaxed">
+                  {app.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -314,12 +415,16 @@ const CardamomPage = () => {
               <div
                 key={index}
                 className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  isVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 1200}ms` }}
               >
                 <point.icon className="w-12 h-12 text-green-600 mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">{point.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">
+                  {point.title}
+                </h3>
                 <p className="text-gray-600 text-center">{point.desc}</p>
               </div>
             ))}

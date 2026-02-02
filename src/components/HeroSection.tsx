@@ -28,11 +28,24 @@ const HeroSection = () => {
   ]
 
   // Floating agricultural icons
-  const floatingIcons = ['🌾', '☕', '🥥', '🌶️', '🍚', '🟡', '🫘', '🍽️', '🌿', '🌱', '🍃', '🌾']
+  const floatingIcons = [
+    '🌾',
+    '☕',
+    '🥥',
+    '🌶️',
+    '🍚',
+    '🟡',
+    '🫘',
+    '🍽️',
+    '🌿',
+    '🌱',
+    '🍃',
+    '🌾',
+  ]
 
   useEffect(() => {
     setIsMounted(true)
-    
+
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length)
     }, 5000)
@@ -40,7 +53,8 @@ const HeroSection = () => {
     // Preload videos for better performance
     const preloadVideos = () => {
       slides.forEach((slide, index) => {
-        if (index < 2) { // Preload first 2 videos
+        if (index < 2) {
+          // Preload first 2 videos
           const video = document.createElement('video')
           video.preload = 'metadata'
           video.src = slide.video
@@ -127,7 +141,10 @@ const HeroSection = () => {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20" suppressHydrationWarning>
+      <div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20"
+        suppressHydrationWarning
+      >
         {slides.map((_, index) => (
           <button
             key={index}

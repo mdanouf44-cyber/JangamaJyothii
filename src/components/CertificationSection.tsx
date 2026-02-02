@@ -88,7 +88,7 @@ const CertificationSection = () => {
                       className="object-contain"
                       sizes="(max-width: 768px) 50vw, 25vw"
                       unoptimized
-                      onError={(e) => {
+                      onError={e => {
                         console.log(`Failed to load image: ${cert.image}`)
                         e.currentTarget.style.display = 'none'
                       }}
@@ -117,12 +117,24 @@ const CertificationSection = () => {
 
           {/* Navigation Arrows */}
           <button
-            onClick={() => setCurrentSlide(prev => (prev - 1 + totalSlides) % totalSlides)}
+            onClick={() =>
+              setCurrentSlide(prev => (prev - 1 + totalSlides) % totalSlides)
+            }
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-green-600 hover:shadow-xl transition-all duration-300 group"
             aria-label="Previous slide"
           >
-            <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
 
@@ -131,8 +143,18 @@ const CertificationSection = () => {
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-green-600 hover:shadow-xl transition-all duration-300 group"
             aria-label="Next slide"
           >
-            <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </div>
@@ -140,8 +162,9 @@ const CertificationSection = () => {
         {/* Trust Message */}
         <div className="text-center mt-12">
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Our certifications and memberships ensure that we maintain the highest standards of quality, 
-            safety, and compliance in all our agricultural export operations.
+            Our certifications and memberships ensure that we maintain the
+            highest standards of quality, safety, and compliance in all our
+            agricultural export operations.
           </p>
         </div>
       </div>

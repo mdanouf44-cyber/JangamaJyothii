@@ -11,17 +11,15 @@ const JutePaperProductsPage = () => {
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
-  const videos = [
-    '/Stock_Video_Jute_and_Paper_Products.mp4',
-  ]
+  const videos = ['/Stock_Video_Jute_and_Paper_Products.mp4']
 
   useEffect(() => {
     setIsVisible(true)
-    
+
     // Since we only have one video, we can still show it as background
     // If more videos are added later, this will auto-rotate
     const videoInterval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
     }, 8000)
 
     return () => clearInterval(videoInterval)
@@ -32,7 +30,12 @@ const JutePaperProductsPage = () => {
       name: 'Jute Bags',
       description:
         'Premium-quality jute bags manufactured from natural jute fibers, offering excellent strength, durability, and eco-friendliness. These biodegradable bags are perfect for shopping, promotional purposes, and sustainable packaging solutions. Available in various sizes, designs, and customization options to meet diverse market requirements.',
-      features: ['100% Natural Fiber', 'Biodegradable', 'High Strength', 'Customizable Design'],
+      features: [
+        '100% Natural Fiber',
+        'Biodegradable',
+        'High Strength',
+        'Customizable Design',
+      ],
       specs: {
         hsCode: '630510',
         moq: '1000 PCS',
@@ -46,7 +49,12 @@ const JutePaperProductsPage = () => {
       name: 'Paper Bags',
       description:
         'High-quality paper bags made from recycled and virgin paper materials, providing excellent printing quality and structural integrity. These eco-friendly bags are ideal for retail packaging, food service, and promotional applications. Available in various sizes, colors, and finishing options with custom branding capabilities.',
-      features: ['Recyclable Material', 'Excellent Print Quality', 'Food Safe', 'Custom Branding'],
+      features: [
+        'Recyclable Material',
+        'Excellent Print Quality',
+        'Food Safe',
+        'Custom Branding',
+      ],
       specs: {
         hsCode: '481910',
         moq: '5000 PCS',
@@ -60,7 +68,12 @@ const JutePaperProductsPage = () => {
       name: 'Paper Stationery Items',
       description:
         'Comprehensive range of paper stationery products including notebooks, writing pads, office supplies, and educational materials. Manufactured using high-quality paper with excellent writing surface and durability. Available in various formats, sizes, and binding options to cater to educational and professional requirements.',
-      features: ['High-Quality Paper', 'Smooth Writing Surface', 'Durable Binding', 'Various Formats'],
+      features: [
+        'High-Quality Paper',
+        'Smooth Writing Surface',
+        'Durable Binding',
+        'Various Formats',
+      ],
       specs: {
         hsCode: '482010',
         moq: '2000 PCS',
@@ -73,19 +86,59 @@ const JutePaperProductsPage = () => {
   ]
 
   const applications = [
-    { icon: '•', title: 'Retail Packaging', desc: 'Sustainable packaging solutions for retail businesses' },
-    { icon: '•', title: 'Promotional Items', desc: 'Branded bags and stationery for marketing campaigns' },
-    { icon: '•', title: 'Food Service', desc: 'Food-safe packaging for restaurants and cafes' },
-    { icon: '•', title: 'Educational Supplies', desc: 'Notebooks and stationery for schools and offices' },
-    { icon: '•', title: 'Corporate Gifts', desc: 'Eco-friendly corporate gifting solutions' },
-    { icon: '•', title: 'Event Management', desc: 'Sustainable packaging for events and conferences' },
+    {
+      icon: '•',
+      title: 'Retail Packaging',
+      desc: 'Sustainable packaging solutions for retail businesses',
+    },
+    {
+      icon: '•',
+      title: 'Promotional Items',
+      desc: 'Branded bags and stationery for marketing campaigns',
+    },
+    {
+      icon: '•',
+      title: 'Food Service',
+      desc: 'Food-safe packaging for restaurants and cafes',
+    },
+    {
+      icon: '•',
+      title: 'Educational Supplies',
+      desc: 'Notebooks and stationery for schools and offices',
+    },
+    {
+      icon: '•',
+      title: 'Corporate Gifts',
+      desc: 'Eco-friendly corporate gifting solutions',
+    },
+    {
+      icon: '•',
+      title: 'Event Management',
+      desc: 'Sustainable packaging for events and conferences',
+    },
   ]
 
   const qualityPoints = [
-    { icon: Leaf, title: 'Eco-Friendly', desc: 'Sustainable and biodegradable materials' },
-    { icon: Award, title: 'Premium Quality', desc: 'High-grade materials and manufacturing standards' },
-    { icon: Shield, title: 'Durable Design', desc: 'Strong construction for reliable performance' },
-    { icon: Globe, title: 'Global Supply', desc: 'Serving packaging markets worldwide' },
+    {
+      icon: Leaf,
+      title: 'Eco-Friendly',
+      desc: 'Sustainable and biodegradable materials',
+    },
+    {
+      icon: Award,
+      title: 'Premium Quality',
+      desc: 'High-grade materials and manufacturing standards',
+    },
+    {
+      icon: Shield,
+      title: 'Durable Design',
+      desc: 'Strong construction for reliable performance',
+    },
+    {
+      icon: Globe,
+      title: 'Global Supply',
+      desc: 'Serving packaging markets worldwide',
+    },
   ]
 
   return (
@@ -134,7 +187,9 @@ const JutePaperProductsPage = () => {
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div
             className={`transform transition-all duration-1500 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+              isVisible
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-20 opacity-0'
             }`}
           >
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
@@ -143,8 +198,9 @@ const JutePaperProductsPage = () => {
               </span>
             </h1>
             <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
-              High-quality eco-friendly jute products and sustainable packaging solutions 
-              for innovative, cost-effective, and environmentally conscious applications
+              High-quality eco-friendly jute products and sustainable packaging
+              solutions for innovative, cost-effective, and environmentally
+              conscious applications
             </p>
           </div>
         </div>
@@ -159,13 +215,28 @@ const JutePaperProductsPage = () => {
             </h2>
             <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
               <p className="text-xl mb-6">
-                We offer high-quality eco-friendly jute products and sustainable packaging solutions designed for modern businesses seeking innovative, cost-effective, and environmentally conscious alternatives. Our range includes <strong>Jute Bags</strong>, <strong>Paper Bags</strong>, and <strong>Paper Stationery Items</strong>, each crafted with superior materials and manufacturing standards.
+                We offer high-quality eco-friendly jute products and sustainable
+                packaging solutions designed for modern businesses seeking
+                innovative, cost-effective, and environmentally conscious
+                alternatives. Our range includes <strong>Jute Bags</strong>,{' '}
+                <strong>Paper Bags</strong>, and{' '}
+                <strong>Paper Stationery Items</strong>, each crafted with
+                superior materials and manufacturing standards.
               </p>
               <p className="text-lg mb-6">
-                Our products are manufactured using natural jute fibers, recycled paper materials, and high-grade wood-free paper to ensure durability, functionality, and environmental sustainability. Strict quality control measures including material selection, manufacturing processes, and finishing ensure consistent quality and customer satisfaction.
+                Our products are manufactured using natural jute fibers,
+                recycled paper materials, and high-grade wood-free paper to
+                ensure durability, functionality, and environmental
+                sustainability. Strict quality control measures including
+                material selection, manufacturing processes, and finishing
+                ensure consistent quality and customer satisfaction.
               </p>
               <p className="text-lg">
-                These products are widely used in retail packaging, promotional campaigns, food service applications, educational supplies, and corporate gifting across global markets. They offer excellent branding opportunities, customization options, and sustainable alternatives to conventional packaging materials.
+                These products are widely used in retail packaging, promotional
+                campaigns, food service applications, educational supplies, and
+                corporate gifting across global markets. They offer excellent
+                branding opportunities, customization options, and sustainable
+                alternatives to conventional packaging materials.
               </p>
             </div>
           </div>
@@ -179,7 +250,8 @@ const JutePaperProductsPage = () => {
             Premium Product Range
           </h2>
           <p className="text-base text-green-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
-            Choose from our exceptional selection of eco-friendly products, each designed for sustainability and superior performance.
+            Choose from our exceptional selection of eco-friendly products, each
+            designed for sustainability and superior performance.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
@@ -236,15 +308,19 @@ const JutePaperProductsPage = () => {
                       Key Features
                     </h4>
                     <div className="grid grid-cols-2 gap-1.5">
-                      {varieties[activeVariety].features.map((feature, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-green-100 hover:shadow-md transition-shadow"
-                        >
-                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-xs">{feature}</span>
-                        </div>
-                      ))}
+                      {varieties[activeVariety].features.map(
+                        (feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-green-100 hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-800 font-semibold text-xs">
+                              {feature}
+                            </span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -255,20 +331,36 @@ const JutePaperProductsPage = () => {
                     </h4>
                     <div className="grid grid-cols-2 gap-1.5">
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.hsCode}</p>
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
+                          HS Code
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.hsCode}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">Min Order</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.moq}</p>
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
+                          Min Order
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.moq}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">Material</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.material}</p>
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
+                          Material
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.material}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-green-200">
-                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.shelfLife}</p>
+                        <span className="text-[9px] font-bold text-green-800 uppercase tracking-wide">
+                          Shelf Life
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.shelfLife}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -290,13 +382,21 @@ const JutePaperProductsPage = () => {
               <div
                 key={index}
                 className={`bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 border border-green-200 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  isVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 800}ms` }}
               >
-                <div className="text-4xl mb-4 text-center text-green-600">{app.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">{app.title}</h3>
-                <p className="text-gray-700 text-center leading-relaxed">{app.desc}</p>
+                <div className="text-4xl mb-4 text-center text-green-600">
+                  {app.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                  {app.title}
+                </h3>
+                <p className="text-gray-700 text-center leading-relaxed">
+                  {app.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -314,12 +414,16 @@ const JutePaperProductsPage = () => {
               <div
                 key={index}
                 className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  isVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 1200}ms` }}
               >
                 <point.icon className="w-12 h-12 text-green-600 mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">{point.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">
+                  {point.title}
+                </h3>
                 <p className="text-gray-600 text-center">{point.desc}</p>
               </div>
             ))}

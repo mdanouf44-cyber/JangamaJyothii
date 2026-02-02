@@ -9,17 +9,15 @@ const ArecaPlatesPage = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
-  const videos = [
-    '/Areca_Plate_Stock_Video_Generation.mp4',
-  ]
+  const videos = ['/Areca_Plate_Stock_Video_Generation.mp4']
 
   useEffect(() => {
     setIsVisible(true)
-    
+
     // Since we only have one video, we can still show it as background
     // If more videos are added later, this will auto-rotate
     const videoInterval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
     }, 8000)
 
     return () => clearInterval(videoInterval)
@@ -177,7 +175,9 @@ const ArecaPlatesPage = () => {
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div
             className={`transform transition-all duration-1500 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+              isVisible
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-20 opacity-0'
             }`}
           >
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
@@ -186,8 +186,8 @@ const ArecaPlatesPage = () => {
               </span>
             </h1>
             <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
-              100% Natural, Biodegradable & Eco-Friendly Tableware
-              for sustainable dining solutions
+              100% Natural, Biodegradable & Eco-Friendly Tableware for
+              sustainable dining solutions
             </p>
           </div>
         </div>
@@ -321,7 +321,9 @@ const ArecaPlatesPage = () => {
                       <Globe className="w-3 h-3" />
                       Applications:
                     </h4>
-                    <p className="text-gray-800 text-xs">{varieties[activeVariety].uses}</p>
+                    <p className="text-gray-800 text-xs">
+                      {varieties[activeVariety].uses}
+                    </p>
                   </div>
                   <div className="p-2 bg-gradient-to-r from-lime-50 to-green-50 rounded-lg">
                     <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2 text-sm">

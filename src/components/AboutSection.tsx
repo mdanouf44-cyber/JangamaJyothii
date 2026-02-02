@@ -32,7 +32,9 @@ const AboutSection = () => {
                 natural products to global markets, we specialize in a wide
                 range of goods including{' '}
                 <strong className="text-gray-900">
-                  Coffee, Coconut, Red Chilli, Rice, Turmeric, Tamarind, Pulses, Areca Plates, Black Pepper, Cardamom, Grains & Millets, Jute & Paper Products, and Tissue
+                  Coffee, Coconut, Red Chilli, Rice, Turmeric, Tamarind, Pulses,
+                  Areca Plates, Black Pepper, Cardamom, Grains & Millets, Jute &
+                  Paper Products, and Tissue
                 </strong>
                 .
               </p>
@@ -61,7 +63,9 @@ const AboutSection = () => {
               <div className="w-full h-96 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
                 <div className="text-white text-center">
                   <h3 className="text-2xl font-bold mb-2">Export Excellence</h3>
-                  <p className="text-green-100">Premium Agricultural Products</p>
+                  <p className="text-green-100">
+                    Premium Agricultural Products
+                  </p>
                 </div>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

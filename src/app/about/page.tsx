@@ -7,16 +7,12 @@ import { CheckCircle, Globe, Users, Award } from 'lucide-react'
 const AboutPage = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
-  const videos = [
-    '/ab1.mp4',
-    '/ab2.mp4',
-    '/ab3.mp4',
-  ]
+  const videos = ['/ab1.mp4', '/ab2.mp4', '/ab3.mp4']
 
   useEffect(() => {
     // Auto-rotate videos every 6 seconds
     const videoInterval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
     }, 6000)
 
     return () => clearInterval(videoInterval)
@@ -81,7 +77,8 @@ const AboutPage = () => {
             </span>
           </h1>
           <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
-            Leading the way in premium agricultural exports from India to the world
+            Leading the way in premium agricultural exports from India to the
+            world
           </p>
         </div>
       </section>
@@ -105,9 +102,9 @@ const AboutPage = () => {
                   we specialize in a wide range of goods including
                   <strong className="text-gray-900">
                     {' '}
-                    Coffee, Coconut, Red Chilli, Rice, Turmeric, Tamarind, 
-                    Pulses, Areca Plates, Black Pepper, Cardamom, Grains & Millets, 
-                    and Jute & Paper Products
+                    Coffee, Coconut, Red Chilli, Rice, Turmeric, Tamarind,
+                    Pulses, Areca Plates, Black Pepper, Cardamom, Grains &
+                    Millets, and Jute & Paper Products
                   </strong>
                   .
                 </p>

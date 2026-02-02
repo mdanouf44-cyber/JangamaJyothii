@@ -159,12 +159,7 @@ const ProductsPage = () => {
       image: '/Jute Bags.jpg', // Using actual jute products image
       description:
         'High-quality eco-friendly paper bags, jute products, and sustainable packaging solutions.',
-      features: [
-        'Eco-Friendly',
-        'Sustainable',
-        'Innovative',
-        'Cost-Effective',
-      ],
+      features: ['Eco-Friendly', 'Sustainable', 'Innovative', 'Cost-Effective'],
       href: '/products/jute-paper-products',
     },
     {

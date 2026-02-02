@@ -2,7 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Coffee, Leaf, Award, Globe, Package, Clock, Thermometer } from 'lucide-react'
+import {
+  Coffee,
+  Leaf,
+  Award,
+  Globe,
+  Package,
+  Clock,
+  Thermometer,
+} from 'lucide-react'
 import { ProductGrid } from '@/components'
 
 const CoffeePage = () => {
@@ -49,7 +57,12 @@ const CoffeePage = () => {
       name: 'Arabica Coffee Beans',
       description:
         'Arabica coffee beans are sourced from high-altitude plantations where climatic conditions support slow bean development and superior flavor formation. These beans are carefully handpicked at optimal ripeness to ensure uniform size, smooth texture, and rich aroma.',
-      features: ['Mild Acidity', 'Balanced Sweetness', 'Refined Taste', 'High Altitude Grown'],
+      features: [
+        'Mild Acidity',
+        'Balanced Sweetness',
+        'Refined Taste',
+        'High Altitude Grown',
+      ],
       specs: {
         hsCode: '090111',
         moq: '1 Metric Ton',
@@ -63,7 +76,12 @@ const CoffeePage = () => {
       name: 'Robusta Coffee Beans',
       description:
         'Robusta coffee beans are cultivated in regions with warm climates and are valued for their strong body, bold flavor, and higher caffeine content. These beans are carefully harvested and processed to ensure consistency in quality and taste.',
-      features: ['Strong Body', 'Bold Flavor', 'Higher Caffeine', 'Excellent Crema'],
+      features: [
+        'Strong Body',
+        'Bold Flavor',
+        'Higher Caffeine',
+        'Excellent Crema',
+      ],
       specs: {
         hsCode: '090111',
         moq: '1 Metric Ton',
@@ -77,7 +95,12 @@ const CoffeePage = () => {
       name: 'Roasted Coffee Beans',
       description:
         'Our roasted coffee beans are prepared from high-quality Arabica and Robusta beans using controlled roasting techniques. The roasting process is carefully monitored to develop rich aroma, balanced flavor, and consistent color while preserving freshness.',
-      features: ['Controlled Roasting', 'Rich Aroma', 'Multiple Roast Profiles', 'Extended Shelf Life'],
+      features: [
+        'Controlled Roasting',
+        'Rich Aroma',
+        'Multiple Roast Profiles',
+        'Extended Shelf Life',
+      ],
       specs: {
         hsCode: '090121',
         moq: '500 KG',
@@ -90,10 +113,22 @@ const CoffeePage = () => {
   ]
 
   const qualityPoints = [
-    { icon: Leaf, title: 'Premium Quality', desc: 'Carefully selected from ideal plantations' },
-    { icon: Award, title: 'International Standards', desc: 'Meets global export requirements' },
+    {
+      icon: Leaf,
+      title: 'Premium Quality',
+      desc: 'Carefully selected from ideal plantations',
+    },
+    {
+      icon: Award,
+      title: 'International Standards',
+      desc: 'Meets global export requirements',
+    },
     { icon: Globe, title: 'Global Supply', desc: 'Serving markets worldwide' },
-    { icon: Package, title: 'Flexible Packaging', desc: 'Customized for your needs' },
+    {
+      icon: Package,
+      title: 'Flexible Packaging',
+      desc: 'Customized for your needs',
+    },
   ]
 
   return (
@@ -125,7 +160,9 @@ const CoffeePage = () => {
                 key={index}
                 onClick={() => setCurrentVideoIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentVideoIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+                  index === currentVideoIndex
+                    ? 'bg-white scale-125'
+                    : 'bg-white/50 hover:bg-white/75'
                 }`}
               />
             ))}
@@ -136,7 +173,9 @@ const CoffeePage = () => {
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div
             className={`transform transition-all duration-1500 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+              isVisible
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-20 opacity-0'
             }`}
             suppressHydrationWarning
           >
@@ -146,8 +185,9 @@ const CoffeePage = () => {
               </span>
             </h1>
             <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
-              Sourced from carefully selected plantations, processed with industry-standard methods to deliver
-              exceptional quality and flavor
+              Sourced from carefully selected plantations, processed with
+              industry-standard methods to deliver exceptional quality and
+              flavor
             </p>
           </div>
         </div>
@@ -185,35 +225,45 @@ const CoffeePage = () => {
                   {activeVariant === 2 ? (
                     // Roasted Coffee Beans - Rotating images
                     <div className="relative w-full h-full min-h-[380px]">
-                      {variants[activeVariant].images?.map((imageSrc, index) => (
-                        <div key={index} className="absolute inset-0">
-                          <Image
-                            src={imageSrc}
-                            alt={`${variants[activeVariant].name} - ${index === 0 ? 'Arabica' : 'Robusta'}`}
-                            fill
-                            className={`object-cover transition-opacity duration-1000 ${
-                              index === roastedImageIndex ? 'opacity-100' : 'opacity-0'
-                            }`}
-                            priority={index === 0}
-                          />
-                        </div>
-                      ))}
+                      {variants[activeVariant].images?.map(
+                        (imageSrc, index) => (
+                          <div key={index} className="absolute inset-0">
+                            <Image
+                              src={imageSrc}
+                              alt={`${variants[activeVariant].name} - ${index === 0 ? 'Arabica' : 'Robusta'}`}
+                              fill
+                              className={`object-cover transition-opacity duration-1000 ${
+                                index === roastedImageIndex
+                                  ? 'opacity-100'
+                                  : 'opacity-0'
+                              }`}
+                              priority={index === 0}
+                            />
+                          </div>
+                        )
+                      )}
                       {/* Image indicators for roasted beans */}
                       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
                         {variants[activeVariant].images?.map((_, index) => (
                           <div
                             key={index}
                             className={`w-3 h-3 rounded-full transition-all duration-300 border-2 border-white ${
-                              index === roastedImageIndex ? 'bg-amber-600' : 'bg-white/50'
+                              index === roastedImageIndex
+                                ? 'bg-amber-600'
+                                : 'bg-white/50'
                             }`}
                           />
                         ))}
                       </div>
                       {/* Overlay label */}
                       <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/30 z-10">
-                        <p className="text-white font-bold text-sm">Premium Quality</p>
+                        <p className="text-white font-bold text-sm">
+                          Premium Quality
+                        </p>
                         <p className="text-amber-200 text-xs">
-                          {roastedImageIndex === 0 ? 'Roasted Arabica' : 'Roasted Robusta'}
+                          {roastedImageIndex === 0
+                            ? 'Roasted Arabica'
+                            : 'Roasted Robusta'}
                         </p>
                       </div>
                     </div>
@@ -229,8 +279,12 @@ const CoffeePage = () => {
                       />
                       {/* Overlay label */}
                       <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/30 z-10">
-                        <p className="text-white font-bold text-sm">Premium Quality</p>
-                        <p className="text-amber-200 text-xs">{variants[activeVariant].name}</p>
+                        <p className="text-white font-bold text-sm">
+                          Premium Quality
+                        </p>
+                        <p className="text-amber-200 text-xs">
+                          {variants[activeVariant].name}
+                        </p>
                       </div>
                     </div>
                   )}
@@ -258,15 +312,19 @@ const CoffeePage = () => {
                       Key Features
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {variants[activeVariant].features.map((feature, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-brown-100 hover:shadow-md transition-shadow"
-                        >
-                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-brown-600 to-amber-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-xs">{feature}</span>
-                        </div>
-                      ))}
+                      {variants[activeVariant].features.map(
+                        (feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-brown-100 hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-brown-600 to-amber-600 rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-800 font-semibold text-xs">
+                              {feature}
+                            </span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -277,20 +335,36 @@ const CoffeePage = () => {
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-red-200">
-                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{variants[activeVariant].specs.hsCode}</p>
+                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                          HS Code
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {variants[activeVariant].specs.hsCode}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-red-200">
-                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">Minimum Order</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{variants[activeVariant].specs.moq}</p>
+                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                          Minimum Order
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {variants[activeVariant].specs.moq}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-red-200">
-                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{variants[activeVariant].specs.shelfLife}</p>
+                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                          Shelf Life
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {variants[activeVariant].specs.shelfLife}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-red-200">
-                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">Moisture Content</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{variants[activeVariant].specs.moisture}</p>
+                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                          Moisture Content
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {variants[activeVariant].specs.moisture}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -312,13 +386,17 @@ const CoffeePage = () => {
               <div
                 key={index}
                 className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  isVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 600}ms` }}
                 suppressHydrationWarning
               >
                 <point.icon className="w-12 h-12 text-brown-600 mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-brown-800 mb-2 text-center">{point.title}</h3>
+                <h3 className="text-xl font-semibold text-brown-800 mb-2 text-center">
+                  {point.title}
+                </h3>
                 <p className="text-gray-600 text-center">{point.desc}</p>
               </div>
             ))}

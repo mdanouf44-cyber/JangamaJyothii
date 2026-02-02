@@ -145,12 +145,7 @@ const ProductsSection = () => {
       image: '/Jute Bags.jpg', // Using actual jute products image
       description:
         'We supply high-quality eco-friendly paper bags, jute products, and sustainable packaging solutions, catering to international markets with reliable and innovative products.',
-      features: [
-        'Eco-Friendly',
-        'Sustainable',
-        'Innovative',
-        'Cost-Effective',
-      ],
+      features: ['Eco-Friendly', 'Sustainable', 'Innovative', 'Cost-Effective'],
     },
     {
       name: 'Tissue',
@@ -191,30 +186,30 @@ const ProductsSection = () => {
             } else {
               productUrl = `/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`
             }
-            
+
             return (
               <Link
                 key={index}
                 href={productUrl}
                 className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
-              {/* Product Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
-              </div>
+                {/* Product Image */}
+                <div className="relative overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
+                </div>
 
-              {/* Product Content */}
-              <div className="p-4">
-                <h3 className="text-xl font-semibold text-gray-900 text-center">
-                  {product.name}
-                </h3>
-              </div>
-            </Link>
+                {/* Product Content */}
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold text-gray-900 text-center">
+                    {product.name}
+                  </h3>
+                </div>
+              </Link>
             )
           })}
         </div>

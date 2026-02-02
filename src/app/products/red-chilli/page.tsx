@@ -217,8 +217,12 @@ const RedChilliPage = () => {
                     />
                     {/* Overlay label */}
                     <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/30 z-10">
-                      <p className="text-white font-bold text-sm">Premium Quality</p>
-                      <p className="text-red-200 text-xs">{varieties[activeVariety].name}</p>
+                      <p className="text-white font-bold text-sm">
+                        Premium Quality
+                      </p>
+                      <p className="text-red-200 text-xs">
+                        {varieties[activeVariety].name}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -245,15 +249,19 @@ const RedChilliPage = () => {
                       Key Features
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {varieties[activeVariety].features.map((feature, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-red-100 hover:shadow-md transition-shadow"
-                        >
-                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-red-600 to-orange-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-xs">{feature}</span>
-                        </div>
-                      ))}
+                      {varieties[activeVariety].features.map(
+                        (feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-red-100 hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-red-600 to-orange-600 rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-800 font-semibold text-xs">
+                              {feature}
+                            </span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -264,26 +272,46 @@ const RedChilliPage = () => {
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-red-200">
-                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].hsCode}</p>
+                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                          HS Code
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].hsCode}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-red-200">
-                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">Minimum Order</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].moq}</p>
+                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                          Minimum Order
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].moq}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-red-200">
-                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].shelfLife}</p>
+                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                          Shelf Life
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].shelfLife}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-red-200">
-                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">Moisture Content</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].moisture}</p>
+                        <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                          Moisture Content
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].moisture}
+                        </p>
                       </div>
                     </div>
-                    
+
                     <div className="mt-2 bg-white p-2 rounded-lg shadow-md border border-red-200">
-                      <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">Primary Uses</span>
-                      <p className="text-gray-700 text-xs mt-0.5 leading-relaxed">{varieties[activeVariety].uses}</p>
+                      <span className="text-[9px] font-bold text-red-800 uppercase tracking-wide">
+                        Primary Uses
+                      </span>
+                      <p className="text-gray-700 text-xs mt-0.5 leading-relaxed">
+                        {varieties[activeVariety].uses}
+                      </p>
                     </div>
                   </div>
                 </div>

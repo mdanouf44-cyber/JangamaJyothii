@@ -97,7 +97,7 @@ const ContactPage = () => {
       details: [
         '4th Floor, Om Chamber, 648/A, 1st Stage',
         'Binnamangala, Stage 1, Indiranagar',
-        'Bengaluru, Karnataka 560038, India'
+        'Bengaluru, Karnataka 560038, India',
       ],
       action: 'Get Directions',
       link: 'https://maps.google.com/?q=4th+Floor+Om+Chamber+648A+1st+Stage+Binnamangala+Indiranagar+Bengaluru+Karnataka+560038',
@@ -105,10 +105,7 @@ const ContactPage = () => {
     {
       icon: <Clock className="w-6 h-6" />,
       title: 'Business Hours',
-      details: [
-        'Monday - Saturday: 9:00 AM - 10:00 PM',
-        'Sunday: Closed',
-      ],
+      details: ['Monday - Saturday: 9:00 AM - 10:00 PM', 'Sunday: Closed'],
       action: 'View Schedule',
     },
   ]

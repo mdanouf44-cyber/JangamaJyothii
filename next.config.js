@@ -6,7 +6,7 @@ const nextConfig = {
     trailingSlash: true,
     skipTrailingSlashRedirect: true,
   }),
-  
+
   images: {
     // Disable optimization only for static export
     unoptimized: process.env.EXPORT_MODE === 'true',
@@ -42,7 +42,7 @@ const nextConfig = {
   swcMinify: true,
   poweredByHeader: false,
   compress: true,
-  
+
   // Enable headers only when not in export mode
   ...(process.env.EXPORT_MODE !== 'true' && {
     async headers() {
@@ -98,7 +98,7 @@ const nextConfig = {
       ]
     },
   }),
-  
+
   // Optimize bundle splitting
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {

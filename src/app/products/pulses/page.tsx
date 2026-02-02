@@ -311,7 +311,9 @@ const PulsesPage = () => {
                     <Globe className="w-3 h-3" />
                     Applications:
                   </h4>
-                  <p className="text-gray-800 text-xs">{varieties[activeVariety].uses}</p>
+                  <p className="text-gray-800 text-xs">
+                    {varieties[activeVariety].uses}
+                  </p>
                 </div>
               </div>
             </div>

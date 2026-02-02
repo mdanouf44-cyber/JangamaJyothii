@@ -1,18 +1,22 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-// Force dynamic rendering for this API route
-export const dynamic = 'force-dynamic'
+// Note: This API route won't work in static export mode
+// Remove this file or comment it out for static deployment
 
 export async function GET() {
   try {
     // Check if environment variables are set
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      return NextResponse.json({
-        success: false,
-        message: 'Email credentials not configured in .env.local',
-        instructions: 'Please set EMAIL_USER and EMAIL_PASS in .env.local file'
-      }, { status: 400 })
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'Email credentials not configured in .env.local',
+          instructions:
+            'Please set EMAIL_USER and EMAIL_PASS in .env.local file',
+        },
+        { status: 400 }
+      )
     }
 
     // Create transporter
@@ -45,33 +49,39 @@ export async function GET() {
             <p style="color: #16a34a; font-weight: bold;">Your contact form is now ready to receive inquiries!</p>
           </div>
         </div>
-      `
+      `,
     }
 
     await transporter.sendMail(testEmail)
 
     return NextResponse.json({
       success: true,
-      message: 'Email configuration is working! Test email sent to demogogc@gmail.com',
+      message:
+        'Email configuration is working! Test email sent to demogogc@gmail.com',
       details: {
         from: process.env.EMAIL_USER,
         to: 'demogogc@gmail.com',
-        timestamp: new Date().toISOString()
-      }
+        timestamp: new Date().toISOString(),
+      },
     })
-
   } catch (error: any) {
     console.error('Email test failed:', error)
-    
-    return NextResponse.json({
-      success: false,
-      message: 'Email configuration failed',
-      error: error.message,
-      troubleshooting: {
-        'Invalid credentials': 'Check if EMAIL_PASS is the correct Gmail app password',
-        'Authentication failed': 'Make sure 2-factor authentication is enabled and you are using an app password',
-        'Connection timeout': 'Check internet connection and Gmail SMTP settings'
-      }
-    }, { status: 500 })
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: 'Email configuration failed',
+        error: error.message,
+        troubleshooting: {
+          'Invalid credentials':
+            'Check if EMAIL_PASS is the correct Gmail app password',
+          'Authentication failed':
+            'Make sure 2-factor authentication is enabled and you are using an app password',
+          'Connection timeout':
+            'Check internet connection and Gmail SMTP settings',
+        },
+      },
+      { status: 500 }
+    )
   }
 }

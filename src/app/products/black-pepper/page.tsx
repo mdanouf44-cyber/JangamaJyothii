@@ -10,17 +10,14 @@ const BlackPepperPage = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
-  const videos = [
-    '/Black pepper 1.mp4',
-    '/Black pepper 2.mp4',
-  ]
+  const videos = ['/Black pepper 1.mp4', '/Black pepper 2.mp4']
 
   useEffect(() => {
     setIsVisible(true)
-    
+
     // Auto-rotate videos every 6 seconds
     const videoInterval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
     }, 6000)
 
     return () => clearInterval(videoInterval)
@@ -31,7 +28,12 @@ const BlackPepperPage = () => {
       name: 'Aimpiriyan Black Pepper',
       description:
         'Aimpiriyan is a high-yielding black pepper variety known for its robust growth and excellent piperine content. This variety produces bold, aromatic peppercorns with strong flavor intensity and is well-suited for commercial cultivation. The peppercorns are medium to large in size with excellent drying characteristics.',
-      features: ['High Yield', 'Robust Growth', 'Excellent Piperine', 'Strong Flavor'],
+      features: [
+        'High Yield',
+        'Robust Growth',
+        'Excellent Piperine',
+        'Strong Flavor',
+      ],
       specs: {
         hsCode: '090411',
         moq: '500 KG',
@@ -45,7 +47,12 @@ const BlackPepperPage = () => {
       name: 'Arakkulam Munda Black Pepper',
       description:
         'Arakkulam Munda is a traditional black pepper variety known for its distinctive aroma and superior quality peppercorns. This variety produces uniform, well-filled berries with high essential oil content and excellent storage properties. It is highly valued in international markets for its consistent quality.',
-      features: ['Distinctive Aroma', 'Superior Quality', 'High Essential Oil', 'Uniform Berries'],
+      features: [
+        'Distinctive Aroma',
+        'Superior Quality',
+        'High Essential Oil',
+        'Uniform Berries',
+      ],
       specs: {
         hsCode: '090411',
         moq: '500 KG',
@@ -59,7 +66,12 @@ const BlackPepperPage = () => {
       name: 'Kalluvally Black Pepper',
       description:
         'Kalluvally is a premium black pepper variety renowned for its bold flavor profile and high piperine content. This variety produces large, well-developed peppercorns with excellent color retention and strong aromatic properties. It is particularly favored for its consistent quality and market appeal.',
-      features: ['Bold Flavor', 'High Piperine', 'Large Peppercorns', 'Excellent Color'],
+      features: [
+        'Bold Flavor',
+        'High Piperine',
+        'Large Peppercorns',
+        'Excellent Color',
+      ],
       specs: {
         hsCode: '090411',
         moq: '500 KG',
@@ -73,7 +85,12 @@ const BlackPepperPage = () => {
       name: 'Karimunda Black Pepper',
       description:
         'Karimunda is one of the most popular black pepper varieties, known for its excellent yield and superior quality peppercorns. This variety produces medium-sized, well-filled berries with high piperine content and strong aromatic properties. It is widely cultivated and highly sought after in export markets.',
-      features: ['Excellent Yield', 'Superior Quality', 'Medium-Sized Berries', 'Strong Aroma'],
+      features: [
+        'Excellent Yield',
+        'Superior Quality',
+        'Medium-Sized Berries',
+        'Strong Aroma',
+      ],
       specs: {
         hsCode: '090411',
         moq: '500 KG',
@@ -87,7 +104,12 @@ const BlackPepperPage = () => {
       name: 'Panniyur-1 Black Pepper',
       description:
         'Panniyur-1 is a high-yielding black pepper variety developed for commercial cultivation. This variety is known for its disease resistance, consistent production, and excellent quality peppercorns. The berries are uniform in size with good piperine content and strong flavor characteristics.',
-      features: ['High Yielding', 'Disease Resistant', 'Consistent Production', 'Good Piperine'],
+      features: [
+        'High Yielding',
+        'Disease Resistant',
+        'Consistent Production',
+        'Good Piperine',
+      ],
       specs: {
         hsCode: '090411',
         moq: '500 KG',
@@ -101,7 +123,12 @@ const BlackPepperPage = () => {
       name: 'Panniyur-5 Black Pepper',
       description:
         'Panniyur-5 is an improved black pepper variety known for its high yield potential and excellent quality characteristics. This variety produces large, well-developed peppercorns with high piperine content and superior aromatic properties. It is highly valued for its commercial viability and export quality.',
-      features: ['High Yield Potential', 'Large Peppercorns', 'High Piperine', 'Export Quality'],
+      features: [
+        'High Yield Potential',
+        'Large Peppercorns',
+        'High Piperine',
+        'Export Quality',
+      ],
       specs: {
         hsCode: '090411',
         moq: '500 KG',
@@ -114,19 +141,59 @@ const BlackPepperPage = () => {
   ]
 
   const applications = [
-    { icon: '🍽️', title: 'Culinary Applications', desc: 'Essential spice for cooking and seasoning' },
-    { icon: '🏭', title: 'Food Processing', desc: 'Industrial applications in food manufacturing' },
-    { icon: '🌿', title: 'Spice Blends', desc: 'Key ingredient in various spice mixtures' },
-    { icon: '🥘', title: 'Restaurant Industry', desc: 'Premium ingredient for professional kitchens' },
-    { icon: '💊', title: 'Pharmaceutical', desc: 'Used in traditional medicine and wellness products' },
-    { icon: '🧴', title: 'Essential Oils', desc: 'Source of piperine and aromatic compounds' },
+    {
+      icon: '🍽️',
+      title: 'Culinary Applications',
+      desc: 'Essential spice for cooking and seasoning',
+    },
+    {
+      icon: '🏭',
+      title: 'Food Processing',
+      desc: 'Industrial applications in food manufacturing',
+    },
+    {
+      icon: '🌿',
+      title: 'Spice Blends',
+      desc: 'Key ingredient in various spice mixtures',
+    },
+    {
+      icon: '🥘',
+      title: 'Restaurant Industry',
+      desc: 'Premium ingredient for professional kitchens',
+    },
+    {
+      icon: '💊',
+      title: 'Pharmaceutical',
+      desc: 'Used in traditional medicine and wellness products',
+    },
+    {
+      icon: '🧴',
+      title: 'Essential Oils',
+      desc: 'Source of piperine and aromatic compounds',
+    },
   ]
 
   const qualityPoints = [
-    { icon: Star, title: 'Premium Quality', desc: 'Sourced from traditional pepper-growing regions' },
-    { icon: Award, title: 'Export Grade', desc: 'Meets international quality standards' },
-    { icon: Shield, title: 'Quality Assurance', desc: 'Strict cleaning, grading, and sorting processes' },
-    { icon: Globe, title: 'Global Supply', desc: 'Serving spice markets worldwide' },
+    {
+      icon: Star,
+      title: 'Premium Quality',
+      desc: 'Sourced from traditional pepper-growing regions',
+    },
+    {
+      icon: Award,
+      title: 'Export Grade',
+      desc: 'Meets international quality standards',
+    },
+    {
+      icon: Shield,
+      title: 'Quality Assurance',
+      desc: 'Strict cleaning, grading, and sorting processes',
+    },
+    {
+      icon: Globe,
+      title: 'Global Supply',
+      desc: 'Serving spice markets worldwide',
+    },
   ]
 
   return (
@@ -175,7 +242,9 @@ const BlackPepperPage = () => {
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div
             className={`transform transition-all duration-1500 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+              isVisible
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-20 opacity-0'
             }`}
           >
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
@@ -184,8 +253,9 @@ const BlackPepperPage = () => {
               </span>
             </h1>
             <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
-              Premium-quality Indian black pepper sourced from traditional pepper-growing regions 
-              with bold, aromatic, and high-piperine peppercorns
+              Premium-quality Indian black pepper sourced from traditional
+              pepper-growing regions with bold, aromatic, and high-piperine
+              peppercorns
             </p>
           </div>
         </div>
@@ -200,13 +270,30 @@ const BlackPepperPage = () => {
             </h2>
             <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
               <p className="text-xl mb-6">
-                We offer premium-quality Indian black pepper sourced from traditional pepper-growing regions known for producing bold, aromatic, and high-piperine peppercorns. Our range includes <strong>Aimpiriyan</strong>, <strong>Arakkulam Munda</strong>, <strong>Kalluvally</strong>, <strong>Karimunda</strong>, <strong>Panniyur-1</strong>, and <strong>Panniyur-5</strong> varieties, each valued for its distinctive flavor profile, piperine content, and commercial viability.
+                We offer premium-quality Indian black pepper sourced from
+                traditional pepper-growing regions known for producing bold,
+                aromatic, and high-piperine peppercorns. Our range includes{' '}
+                <strong>Aimpiriyan</strong>, <strong>Arakkulam Munda</strong>,{' '}
+                <strong>Kalluvally</strong>, <strong>Karimunda</strong>,{' '}
+                <strong>Panniyur-1</strong>, and <strong>Panniyur-5</strong>{' '}
+                varieties, each valued for its distinctive flavor profile,
+                piperine content, and commercial viability.
               </p>
               <p className="text-lg mb-6">
-                The peppercorns are harvested at optimal maturity and carefully processed to retain their natural color, pungency, and essential oils. Strict quality control measures including cleaning, grading, and sorting ensure uniform size and export-grade standards. The result is black pepper with strong aroma, bold flavor, and consistent quality.
+                The peppercorns are harvested at optimal maturity and carefully
+                processed to retain their natural color, pungency, and essential
+                oils. Strict quality control measures including cleaning,
+                grading, and sorting ensure uniform size and export-grade
+                standards. The result is black pepper with strong aroma, bold
+                flavor, and consistent quality.
               </p>
               <p className="text-lg">
-                Our black pepper is widely used in culinary applications, food processing industries, spice blends, and pharmaceutical preparations across global markets. It is also valued for its essential oil content and piperine compounds. Proper packaging and moisture control help maintain quality during storage and international transportation.
+                Our black pepper is widely used in culinary applications, food
+                processing industries, spice blends, and pharmaceutical
+                preparations across global markets. It is also valued for its
+                essential oil content and piperine compounds. Proper packaging
+                and moisture control help maintain quality during storage and
+                international transportation.
               </p>
             </div>
           </div>
@@ -220,7 +307,8 @@ const BlackPepperPage = () => {
             Premium Varieties
           </h2>
           <p className="text-base text-gray-200 text-center mb-10 max-w-2xl mx-auto drop-shadow-lg">
-            Choose from our exceptional selection of black pepper varieties, each with unique characteristics and superior quality.
+            Choose from our exceptional selection of black pepper varieties,
+            each with unique characteristics and superior quality.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
@@ -277,15 +365,19 @@ const BlackPepperPage = () => {
                       Key Features
                     </h4>
                     <div className="grid grid-cols-2 gap-1.5">
-                      {varieties[activeVariety].features.map((feature, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-                        >
-                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-gray-600 to-black rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-semibold text-xs">{feature}</span>
-                        </div>
-                      ))}
+                      {varieties[activeVariety].features.map(
+                        (feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-gray-600 to-black rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-800 font-semibold text-xs">
+                              {feature}
+                            </span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -296,20 +388,36 @@ const BlackPepperPage = () => {
                     </h4>
                     <div className="grid grid-cols-2 gap-1.5">
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-gray-200">
-                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">HS Code</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.hsCode}</p>
+                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">
+                          HS Code
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.hsCode}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-gray-200">
-                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">Min Order</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.moq}</p>
+                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">
+                          Min Order
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.moq}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-gray-200">
-                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">Moisture</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.moisture}</p>
+                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">
+                          Moisture
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.moisture}
+                        </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-gray-200">
-                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">Shelf Life</span>
-                        <p className="font-bold text-black text-xs mt-0.5">{varieties[activeVariety].specs.shelfLife}</p>
+                        <span className="text-[9px] font-bold text-gray-800 uppercase tracking-wide">
+                          Shelf Life
+                        </span>
+                        <p className="font-bold text-black text-xs mt-0.5">
+                          {varieties[activeVariety].specs.shelfLife}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -331,13 +439,19 @@ const BlackPepperPage = () => {
               <div
                 key={index}
                 className={`bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 border border-gray-200 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  isVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 800}ms` }}
               >
                 <div className="text-4xl mb-4 text-center">{app.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">{app.title}</h3>
-                <p className="text-gray-700 text-center leading-relaxed">{app.desc}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                  {app.title}
+                </h3>
+                <p className="text-gray-700 text-center leading-relaxed">
+                  {app.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -355,12 +469,16 @@ const BlackPepperPage = () => {
               <div
                 key={index}
                 className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transform transition-all duration-500 hover:-translate-y-2 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  isVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-10 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100 + 1200}ms` }}
               >
                 <point.icon className="w-12 h-12 text-gray-600 mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">{point.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">
+                  {point.title}
+                </h3>
                 <p className="text-gray-600 text-center">{point.desc}</p>
               </div>
             ))}

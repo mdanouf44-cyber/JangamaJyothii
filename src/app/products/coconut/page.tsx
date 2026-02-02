@@ -512,8 +512,12 @@ const CoconutPage = () => {
                     />
                     {/* Overlay label */}
                     <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-lg border border-white/30 z-10">
-                      <p className="text-white font-bold text-sm">Premium Quality</p>
-                      <p className="text-green-200 text-xs">{variants[activeVariant].name}</p>
+                      <p className="text-white font-bold text-sm">
+                        Premium Quality
+                      </p>
+                      <p className="text-green-200 text-xs">
+                        {variants[activeVariant].name}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -612,8 +616,9 @@ const CoconutPage = () => {
             <p className="text-xl text-gray-700 leading-relaxed mb-12">
               Our coconut products serve diverse industries with applications in
               food processing, edible oil extraction, cosmetics, personal care
-              products, water filtration, industrial use, horticulture, agriculture,
-              rope making, mat weaving, and sustainable manufacturing.
+              products, water filtration, industrial use, horticulture,
+              agriculture, rope making, mat weaving, and sustainable
+              manufacturing.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">

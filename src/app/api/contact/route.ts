@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-// Force dynamic rendering for this API route
-export const dynamic = 'force-dynamic'
+// Note: This API route won't work in static export mode
+// You'll need to use a third-party form service or server-side solution
 
 // Create transporter for sending emails
 const createTransporter = () => {
@@ -16,7 +16,7 @@ const createTransporter = () => {
       },
     })
   }
-  
+
   // Fallback: Use a test account or simple SMTP
   return nodemailer.createTransport({
     host: 'smtp.ethereal.email',
@@ -60,9 +60,9 @@ export async function POST(request: NextRequest) {
       subject,
       message,
       timestamp: new Date().toISOString(),
-      submittedTo: 'demogogc@gmail.com'
+      submittedTo: 'demogogc@gmail.com',
     }
-    
+
     console.log('=== NEW CONTACT FORM SUBMISSION ===')
     console.log(JSON.stringify(submissionData, null, 2))
     console.log('=====================================')
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
     let emailSent = false
     try {
       const transporter = createTransporter()
-      
+
       const mailOptions = {
         from: process.env.EMAIL_USER || 'noreply@shreejangamajyothi.com',
         to: 'demogogc@gmail.com', // Your email address
@@ -120,11 +120,14 @@ export async function POST(request: NextRequest) {
             <!-- Timestamp -->
             <div style="padding: 20px 30px; background-color: #ecfdf5; border-radius: 0 0 10px 10px;">
               <p style="margin: 0; color: #065f46; font-size: 14px; text-align: center;">
-                <strong>📅 Submitted:</strong> ${new Date().toLocaleString('en-IN', { 
-                  timeZone: 'Asia/Kolkata',
-                  dateStyle: 'full',
-                  timeStyle: 'medium'
-                })} (IST)
+                <strong>📅 Submitted:</strong> ${new Date().toLocaleString(
+                  'en-IN',
+                  {
+                    timeZone: 'Asia/Kolkata',
+                    dateStyle: 'full',
+                    timeStyle: 'medium',
+                  }
+                )} (IST)
               </p>
             </div>
             
@@ -142,7 +145,6 @@ export async function POST(request: NextRequest) {
       await transporter.sendMail(mailOptions)
       emailSent = true
       console.log('✅ Email sent successfully to demogogc@gmail.com')
-      
     } catch (emailError) {
       console.error('❌ Email sending failed:', emailError)
       console.log('📝 Form data has been logged above for manual review')
@@ -151,8 +153,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: 'Thank you for contacting us! We have received your inquiry and will get back to you within 24 hours.',
-        emailSent: emailSent
+        message:
+          'Thank you for contacting us! We have received your inquiry and will get back to you within 24 hours.',
+        emailSent: emailSent,
       },
       { status: 200 }
     )
