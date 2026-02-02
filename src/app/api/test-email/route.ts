@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+// Force dynamic rendering for this API route
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
     // Check if environment variables are set

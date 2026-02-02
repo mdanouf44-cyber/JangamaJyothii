@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+// Force dynamic rendering for this API route
+export const dynamic = 'force-dynamic'
+
 // Create transporter for sending emails
 const createTransporter = () => {
   // Try to use environment variables, fallback to a simple configuration

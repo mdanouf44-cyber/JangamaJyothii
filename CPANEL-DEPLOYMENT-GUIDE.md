@@ -1,45 +1,64 @@
 # 🚀 cPanel Deployment Guide for Shree Jangama Jyothi Website
 
 ## Overview
-This guide will help you deploy your Next.js website to cPanel hosting. Since most cPanel hosts don't support Node.js applications, we'll use **static export** to generate HTML/CSS/JS files.
+This guide will help you deploy your Next.js website to cPanel hosting. The project now supports both development mode (with API routes) and static export mode (for cPanel deployment).
+
+## 🔧 Deployment Modes
+
+### Development Mode (Default)
+- **Command**: `npm run dev`
+- **Features**: Full Next.js functionality including API routes
+- **Email**: Works with nodemailer and Gmail SMTP
+- **Use Case**: Local development and testing
+
+### Static Export Mode (cPanel)
+- **Command**: `npm run cpanel-build`
+- **Features**: Static HTML/CSS/JS files only
+- **Email**: Requires PHP contact form (included)
+- **Use Case**: cPanel hosting deployment
 
 ## ⚠️ Important Notes
 
-### What Works with Static Export:
+### What Works in Both Modes:
 ✅ All your product pages and content  
 ✅ Static images and videos  
 ✅ Client-side routing  
 ✅ CSS animations and styling  
 ✅ Contact form (frontend)  
 
-### What Needs Modification:
-❌ **Contact Form API** - Needs PHP alternative  
-❌ **Server-side features** - Will be converted to client-side  
-❌ **Dynamic API routes** - Need alternative solutions  
+### Development Mode Only:
+🔧 **Contact Form API** - Node.js email sending  
+🔧 **Server-side features** - Dynamic rendering  
+🔧 **API routes** - `/api/contact`, `/api/test-email`  
+
+### Static Export Mode:
+📁 **Static files** - HTML, CSS, JS only  
+📧 **PHP contact form** - Server-side email handling  
+🌐 **cPanel compatible** - No Node.js required  
 
 ## 📁 Files Created/Modified for cPanel:
 
-### 1. **next.config.js** - Updated for static export
-### 2. **package.json** - Added export script
+### 1. **next.config.js** - Conditional static export
+### 2. **package.json** - Added cpanel-build script
 ### 3. **contact-form.php** - PHP contact form handler
 ### 4. **.htaccess** - URL rewriting and redirects
-### 5. **cpanel-build.sh** - Build script for deployment
-### 6. **static-contact-form.js** - Client-side form handler
+### 5. **API routes** - Added `dynamic = 'force-dynamic'`
 
 ## 🛠️ Deployment Steps:
 
-### Step 1: Build Static Files
+### Step 1: Build for cPanel
 ```bash
-npm run export
+npm run cpanel-build
 ```
+This creates static files in the `out/` folder.
 
 ### Step 2: Upload to cPanel
-1. Compress the `out` folder to `website.zip`
+1. Compress the `out` folder contents to `website.zip`
 2. Upload to cPanel File Manager
 3. Extract in `public_html` folder
 4. Upload `contact-form.php` to root directory
 
-### Step 3: Configure Email
+### Step 3: Configure Email (PHP)
 1. Update `contact-form.php` with your email settings
 2. Test the contact form
 
@@ -47,64 +66,80 @@ npm run export
 1. Point your domain to the hosting
 2. Test all pages and functionality
 
-## 📧 Email Configuration
+## 📧 Email Configuration Options
 
-### Option 1: PHP Mail (Simple)
-Uses server's built-in mail function (may go to spam)
+### Option 1: Development Mode (Current)
+- Uses Node.js with nodemailer
+- Gmail SMTP with app password
+- Works on `http://localhost:3000`
 
-### Option 2: SMTP (Recommended)
-Configure with your email provider's SMTP settings
+### Option 2: Static Export + PHP
+- Uses PHP mail() function
+- Configure in `contact-form.php`
+- Works on cPanel hosting
 
 ### Option 3: Third-party Service
-Use services like EmailJS, Formspree, or Netlify Forms
+- Use EmailJS, Formspree, or Netlify Forms
+- No server-side code required
+- Works with static export
 
 ## 🔧 Troubleshooting
 
-### Common Issues:
-1. **404 Errors** - Check .htaccess file
-2. **Images Not Loading** - Verify file paths
-3. **Contact Form Not Working** - Check PHP configuration
-4. **Slow Loading** - Optimize images and enable compression
+### Development Mode Issues:
+1. **API Route Errors** - Check `dynamic = 'force-dynamic'` is set
+2. **Email Not Sending** - Verify Gmail app password
+3. **Console Errors** - Check image paths and hydration
+
+### Static Export Issues:
+1. **Build Fails** - Ensure `EXPORT_MODE=true` is set
+2. **Contact Form** - Use PHP version instead of API
+3. **Images Not Loading** - Check relative paths
 
 ## 📱 Testing Checklist
 
-After deployment, test:
-- [ ] Home page loads correctly
-- [ ] All product pages work
-- [ ] Navigation functions properly
-- [ ] Contact form sends emails
-- [ ] Images and videos display
-- [ ] Mobile responsiveness
-- [ ] Page speed performance
+### Development Mode:
+- [ ] `npm run dev` starts successfully
+- [ ] Contact form API works at `/api/contact`
+- [ ] Email test works at `/api/test-email`
+- [ ] All pages load without console errors
 
-## 🌐 Live Website Structure
+### Static Export Mode:
+- [ ] `npm run cpanel-build` completes successfully
+- [ ] `out/` folder contains all static files
+- [ ] Upload to cPanel works
+- [ ] PHP contact form sends emails
+
+## 🌐 File Structure After Export
 
 ```
-public_html/
+out/ (Upload this to cPanel)
 ├── index.html (Home page)
 ├── products/
 │   ├── coffee.html
 │   ├── coconut.html
-│   ├── rice.html
 │   └── ... (all product pages)
 ├── about.html
 ├── contact.html
 ├── certifications.html
 ├── _next/ (Next.js assets)
-├── images/ (All images)
-├── videos/ (All videos)
-├── contact-form.php
-└── .htaccess
+└── ... (all static assets)
+
+Additional files for cPanel:
+├── contact-form.php (Upload separately)
+└── .htaccess (For URL rewriting)
 ```
 
 ## 💡 Performance Tips
 
-1. **Image Optimization**: Already configured
+1. **Image Optimization**: Automatic in development, manual in static export
 2. **Caching**: .htaccess includes cache headers
 3. **Compression**: Enable Gzip in cPanel
 4. **CDN**: Consider using Cloudflare
-5. **Minification**: Automatic with Next.js build
 
 ---
 
-**Need Help?** Check the troubleshooting section or contact your hosting provider for PHP/email configuration support.
+**Current Status**: 
+- ✅ Development mode working with email system
+- ✅ Static export mode ready for cPanel
+- ✅ Console errors fixed
+- ✅ All images loading properly
