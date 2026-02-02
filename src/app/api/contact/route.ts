@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer'
 const createTransporter = () => {
   // Try to use environment variables, fallback to a simple configuration
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-    return nodemailer.createTransporter({
+    return nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
@@ -15,7 +15,7 @@ const createTransporter = () => {
   }
   
   // Fallback: Use a test account or simple SMTP
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     host: 'smtp.ethereal.email',
     port: 587,
     secure: false,
