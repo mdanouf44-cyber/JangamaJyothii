@@ -35,7 +35,8 @@ const ContactPage = () => {
     setSubmitStatus({ type: null, message: '' })
 
     try {
-      const response = await fetch('/api/contact', {
+      // Using PHP contact form handler
+      const response = await fetch('/contact-form.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,12 +46,10 @@ const ContactPage = () => {
 
       const data = await response.json()
 
-      if (response.ok) {
+      if (response.ok && data.success) {
         setSubmitStatus({
           type: 'success',
-          message:
-            data.message ||
-            'Thank you for contacting us! We will get back to you soon.',
+          message: data.message || 'Thank you for contacting us! We will get back to you soon.',
         })
         // Reset form
         setFormData({
