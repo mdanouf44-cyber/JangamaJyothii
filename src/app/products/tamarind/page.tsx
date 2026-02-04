@@ -393,6 +393,22 @@ const TamarindPage = () => {
         </div>
       </section>
 
+      {/* Product Showcase Slideshow */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-amber-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Product Showcase
+            </h2>
+            <div className="w-16 h-1 bg-amber-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover our premium tamarind varieties with detailed information
+            </p>
+          </div>
+          <TamarindSlideshow varieties={varieties} />
+        </div>
+      </section>
+
       {/* Product Categories Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -447,22 +463,6 @@ const TamarindPage = () => {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Product Showcase Slideshow */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-amber-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Product Showcase
-            </h2>
-            <div className="w-16 h-1 bg-amber-600 mx-auto rounded-full mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover our premium tamarind varieties with detailed information
-            </p>
-          </div>
-          <TamarindSlideshow varieties={varieties} />
         </div>
       </section>
 
