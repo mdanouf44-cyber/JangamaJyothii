@@ -1,11 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Play } from 'lucide-react'
 
 const AboutSection = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
+
+  const videos = ['/export-excellence-1.mp4', '/export-excellence-2.mp4']
+
+  useEffect(() => {
+    // Force play the current video
+    const currentVideo = videoRefs.current[currentVideoIndex]
+    if (currentVideo) {
+      currentVideo.play().catch(err => console.log('Video play error:', err))
+    }
+
+    // Auto-rotate videos every 8 seconds
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
+    }, 8000)
+
+    return () => clearInterval(videoInterval)
+  }, [currentVideoIndex, videos.length])
 
   return (
     <section className="py-20 bg-white">
@@ -60,36 +77,63 @@ const AboutSection = () => {
 
           <div className="relative animate-fade-in">
             <div className="relative overflow-hidden rounded-lg shadow-2xl">
-              <div className="w-full h-96 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-2xl font-bold mb-2">Export Excellence</h3>
-                  <p className="text-green-100">
-                    Premium Agricultural Products
-                  </p>
+              {/* Video Background */}
+              <div className="relative w-full h-96">
+                {videos.map((video, index) => (
+                  <video
+                    key={index}
+                    ref={el => videoRefs.current[index] = el}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    onLoadedData={(e) => {
+                      if (index === currentVideoIndex) {
+                        e.currentTarget.play().catch(err => console.log('Video play error:', err))
+                      }
+                    }}
+                  >
+                    <source src={video} type="video/mp4" />
+                  </video>
+                ))}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                
+                {/* Text Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">Export Excellence</h3>
+                    <p className="text-green-100 drop-shadow-lg">
+                      Premium Agricultural Products
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
               {/* Experience Badge */}
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4 text-center">
+              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4 text-center z-10">
                 <div className="text-3xl font-bold text-green-600">15+</div>
                 <div className="text-sm text-gray-700 font-medium">
                   Years Of Experience
                 </div>
               </div>
 
-              {/* Play Button */}
-              <button
-                onClick={() => setIsVideoPlaying(true)}
-                className="absolute inset-0 flex items-center justify-center group"
-              >
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-                  <Play
-                    className="w-8 h-8 text-white ml-1"
-                    fill="currentColor"
+              {/* Video Indicators */}
+              <div className="absolute bottom-6 right-6 flex space-x-2 z-10">
+                {videos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentVideoIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentVideoIndex ? 'bg-white w-6' : 'bg-white/50'
+                    }`}
                   />
-                </div>
-              </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
