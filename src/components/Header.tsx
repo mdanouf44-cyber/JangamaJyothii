@@ -9,21 +9,25 @@ import { Menu, X } from 'lucide-react'
 const products = [
   { name: 'Coffee', href: '/products/coffee' },
   { name: 'Coconut', href: '/products/coconut' },
-  { name: 'Red Chilli', href: '/products/red-chilli' },
   { name: 'Rice', href: '/products/rice' },
-  { name: 'Turmeric', href: '/products/turmeric' },
-  { name: 'Tamarind', href: '/products/tamarind' },
   { name: 'Pulses', href: '/products/pulses' },
   { name: 'Areca Plates', href: '/products/areca-plates' },
-  { name: 'Black Pepper', href: '/products/black-pepper' },
-  { name: 'Cardamom', href: '/products/cardamom' },
   { name: 'Grains & Millets', href: '/products/grains-millets' },
   { name: 'Jute & Paper Products', href: '/products/jute-paper-products' },
   { name: 'Tissue', href: '/products/tissue' },
 ]
 
+const spices = [
+  { name: 'Red Chilli', href: '/products/red-chilli' },
+  { name: 'Turmeric', href: '/products/turmeric' },
+  { name: 'Black Pepper', href: '/products/black-pepper' },
+  { name: 'Cardamom', href: '/products/cardamom' },
+  { name: 'Tamarind', href: '/products/tamarind' },
+]
+
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSpicesOpen, setIsSpicesOpen] = useState(false)
   const pathname = usePathname()
 
   const toggleMenu = useCallback(() => {
@@ -32,10 +36,16 @@ const Header = memo(() => {
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false)
+    setIsSpicesOpen(false)
+  }, [])
+
+  const toggleSpices = useCallback(() => {
+    setIsSpicesOpen(prev => !prev)
   }, [])
 
   // Memoize products to prevent re-renders
   const memoizedProducts = useMemo(() => products, [])
+  const memoizedSpices = useMemo(() => spices, [])
 
   // Helper function to determine if a link is active
   const isActiveLink = useCallback(
@@ -133,6 +143,39 @@ const Header = memo(() => {
                         {product.name}
                       </Link>
                     ))}
+                    {/* Spices Sub-dropdown */}
+                    <div className="relative group/spices">
+                      <div className="px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200 cursor-pointer flex items-center justify-between">
+                        <span>Spices</span>
+                        <svg
+                          className="w-4 h-4 transition-transform duration-200 group-hover/spices:rotate-180"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
+                      <div className="absolute left-full top-0 ml-1 w-56 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover/spices:opacity-100 group-hover/spices:visible transition-all duration-100 z-50">
+                        <div className="py-2">
+                          {memoizedSpices.map(spice => (
+                            <Link
+                              key={spice.href}
+                              href={spice.href}
+                              className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
+                              prefetch={true}
+                            >
+                              {spice.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -229,6 +272,45 @@ const Header = memo(() => {
                     {product.name}
                   </Link>
                 ))}
+                {/* Spices Sub-dropdown for Mobile */}
+                <div className="space-y-2">
+                  <button
+                    onClick={toggleSpices}
+                    className="flex items-center justify-between w-full text-gray-600 hover:text-orange-600 transition-colors duration-200"
+                  >
+                    <span>Spices</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        isSpicesOpen ? 'rotate-90' : ''
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                  {isSpicesOpen && (
+                    <div className="pl-4 space-y-2">
+                      {memoizedSpices.map(spice => (
+                        <Link
+                          key={spice.href}
+                          href={spice.href}
+                          className="block text-gray-500 hover:text-orange-600 transition-colors duration-200"
+                          onClick={closeMenu}
+                          prefetch={true}
+                        >
+                          {spice.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             <Link
