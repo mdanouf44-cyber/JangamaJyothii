@@ -22,17 +22,20 @@ const Footer = () => {
   const products = [
     { name: 'Coconut', href: '/products/coconut' },
     { name: 'Coffee', href: '/products/coffee' },
-    { name: 'Red Chilli', href: '/products/red-chilli' },
     { name: 'Rice', href: '/products/rice' },
-    { name: 'Turmeric', href: '/products/turmeric' },
-    { name: 'Tamarind', href: '/products/tamarind' },
     { name: 'Pulses', href: '/products/pulses' },
     { name: 'Areca Plates', href: '/products/areca-plates' },
-    { name: 'Black Pepper', href: '/products/black-pepper' },
-    { name: 'Cardamom', href: '/products/cardamom' },
     { name: 'Grains & Millets', href: '/products/grains-millets' },
     { name: 'Jute & Paper Products', href: '/products/jute-paper-products' },
     { name: 'Tissue', href: '/products/tissue' },
+  ]
+
+  const spices = [
+    { name: 'Red Chilli', href: '/products/red-chilli' },
+    { name: 'Turmeric', href: '/products/turmeric' },
+    { name: 'Black Pepper', href: '/products/black-pepper' },
+    { name: 'Cardamom', href: '/products/cardamom' },
+    { name: 'Tamarind', href: '/products/tamarind' },
   ]
 
   return (
@@ -122,6 +125,24 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              {/* Spices Sub-section */}
+              <li>
+                <div className="mt-4">
+                  <p className="text-gray-100 font-medium mb-2">Spices</p>
+                  <ul className="space-y-2 pl-4">
+                    {spices.map((spice, index) => (
+                      <li key={index}>
+                        <Link
+                          href={spice.href}
+                          className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm"
+                        >
+                          {spice.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
             </ul>
           </div>
 
