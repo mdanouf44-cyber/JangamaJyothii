@@ -57,7 +57,7 @@ const OurProductsSection = () => {
     },
     {
       name: 'Grains & Millets',
-      image: '/cover-grains-millets.jpg',
+      image: '/cover-grains-millets-new.jpg',
       href: '/products/grains-millets',
     },
     {

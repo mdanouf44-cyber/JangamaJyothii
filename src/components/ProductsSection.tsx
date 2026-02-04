@@ -130,7 +130,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Grains & Millets',
-      image: '/cover-grains-millets.jpg', // Using cover image
+      image: '/cover-grains-millets-new.jpg', // Using updated cover image
       description:
         'We supply premium grains and millet varieties including Finger, Pearl, Foxtail, and Little, renowned for their rich nutrition, natural flavor, and exceptional health benefits.',
       features: [
