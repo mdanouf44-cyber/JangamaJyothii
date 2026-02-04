@@ -2,7 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Sparkles, Award, Shield, Globe, Package, Wheat, ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  Sparkles,
+  Award,
+  Shield,
+  Globe,
+  Package,
+  Wheat,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
 
 // Grains & Millets Product Slideshow Component
@@ -72,7 +81,7 @@ const GrainsMilletsSlideshow = ({ varieties }: { varieties: any[] }) => {
               <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
                 {product.name}
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed text-sm">
                 {product.description}
               </p>

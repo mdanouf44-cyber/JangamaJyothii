@@ -2,7 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Sparkles, Award, Shield, Globe, Package, Leaf, ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  Sparkles,
+  Award,
+  Shield,
+  Globe,
+  Package,
+  Leaf,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
 
 // Jute & Paper Products Slideshow Component
@@ -72,7 +81,7 @@ const JutePaperSlideshow = ({ varieties }: { varieties: any[] }) => {
               <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
                 {product.name}
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed text-sm">
                 {product.description}
               </p>
@@ -514,7 +523,8 @@ const JutePaperProductsPage = () => {
             </h2>
             <div className="w-16 h-1 bg-green-600 mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover our premium jute and paper products with detailed information
+              Discover our premium jute and paper products with detailed
+              information
             </p>
           </div>
 

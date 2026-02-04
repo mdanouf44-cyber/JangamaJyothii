@@ -1,7 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Leaf, Award, Shield, Globe, ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  Leaf,
+  Award,
+  Shield,
+  Globe,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import Image from 'next/image'
 import ProductGrid from '@/components/ProductGrid'
 
@@ -72,7 +79,7 @@ const PulsesSlideshow = ({ varieties }: { varieties: any[] }) => {
               <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
                 {product.name}
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed text-sm">
                 {product.description}
               </p>

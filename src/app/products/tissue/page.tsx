@@ -82,7 +82,7 @@ const TissueSlideshow = ({ varieties }: { varieties: any[] }) => {
               <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
                 {product.name}
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed text-sm">
                 {product.description}
               </p>

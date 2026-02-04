@@ -1,7 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Leaf, Recycle, Shield, Globe, ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  Leaf,
+  Recycle,
+  Shield,
+  Globe,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import Image from 'next/image'
 import ProductGrid from '@/components/ProductGrid'
 
@@ -72,7 +79,7 @@ const ArecaPlatesSlideshow = ({ varieties }: { varieties: any[] }) => {
               <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
                 {product.name}
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed text-sm">
                 {product.description}
               </p>
@@ -598,7 +605,8 @@ const ArecaPlatesPage = () => {
             </h2>
             <div className="w-16 h-1 bg-green-600 mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover our premium areca plate products with detailed information
+              Discover our premium areca plate products with detailed
+              information
             </p>
           </div>
 
