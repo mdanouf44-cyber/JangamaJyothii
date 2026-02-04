@@ -450,7 +450,7 @@ const CoffeePage = () => {
             <div className="w-16 h-1 bg-amber-600 mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">Discover our premium coffee varieties with detailed information</p>
           </div>
-          <CoffeeSlideshow varieties={varieties} />
+          <CoffeeSlideshow varieties={variants} />
         </div>
       </section>
 
