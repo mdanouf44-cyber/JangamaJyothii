@@ -7,7 +7,7 @@ import { CheckCircle, Globe, Users, Award } from 'lucide-react'
 const AboutPage = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
-  const videos = ['/ab1.mp4', '/ab2.mp4', '/ab3.mp4']
+  const videos = ['/ab1.mp4', '/ab2.mp4', '/ab3.mp4', '/ab4.mp4', '/export-excellence-1.mp4', '/export-excellence-2.mp4']
 
   useEffect(() => {
     // Auto-rotate videos every 6 seconds

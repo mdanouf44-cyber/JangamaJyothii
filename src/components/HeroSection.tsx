@@ -25,6 +25,16 @@ const HeroSection = () => {
       subtitle:
         'Committed to environmental responsibility and quality excellence',
     },
+    {
+      video: '/hero-export-excellence-3.mp4',
+      title: 'Export Excellence & Global Standards',
+      subtitle: 'Delivering world-class agricultural products with unmatched quality assurance',
+    },
+    {
+      video: '/hero-export-excellence-4.mp4',
+      title: 'Innovation in Agricultural Trade',
+      subtitle: 'Pioneering modern export solutions for traditional Indian agriculture',
+    },
   ]
 
   // Floating agricultural icons
