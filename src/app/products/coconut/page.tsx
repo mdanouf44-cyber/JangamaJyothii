@@ -78,78 +78,15 @@ const CoconutProductSlideshow = ({ variants }: { variants: any[] }) => {
               </div>
             </div>
 
-            {/* Product Content */}
+            {/* Product Content - Simplified */}
             <div className="p-6">
               <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
                 {product.name}
               </h3>
               
-              <p className="text-gray-600 leading-relaxed mb-4 text-sm line-clamp-3">
+              <p className="text-gray-600 leading-relaxed text-sm">
                 {product.description}
               </p>
-
-              {/* Key Features - Compact */}
-              <div className="mb-4">
-                <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                  <Award className="w-4 h-4 text-green-600" />
-                  Key Features
-                </h4>
-                <div className="grid grid-cols-2 gap-1">
-                  {product.features.slice(0, 4).map((feature: string, featureIndex: number) => (
-                    <div
-                      key={featureIndex}
-                      className="flex items-center gap-2 p-1.5 bg-green-50 rounded-lg border border-green-100"
-                    >
-                      <div className="w-1.5 h-1.5 bg-green-600 rounded-full flex-shrink-0"></div>
-                      <span className="text-gray-800 font-medium text-xs">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Technical Specs - Compact */}
-              <div className="bg-gradient-to-r from-gray-50 to-green-50 rounded-lg p-3 border border-gray-200">
-                <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                  <Package className="w-4 h-4 text-green-600" />
-                  Specifications
-                </h4>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-white p-2 rounded-lg shadow-sm">
-                    <span className="text-xs font-bold text-green-800 uppercase tracking-wide">
-                      HS Code
-                    </span>
-                    <p className="font-bold text-gray-900 text-xs mt-1">
-                      {product.specs.hsCode}
-                    </p>
-                  </div>
-                  <div className="bg-white p-2 rounded-lg shadow-sm">
-                    <span className="text-xs font-bold text-green-800 uppercase tracking-wide">
-                      MOQ
-                    </span>
-                    <p className="font-bold text-gray-900 text-xs mt-1">
-                      {product.specs.moq}
-                    </p>
-                  </div>
-                  <div className="bg-white p-2 rounded-lg shadow-sm">
-                    <span className="text-xs font-bold text-green-800 uppercase tracking-wide">
-                      Shelf Life
-                    </span>
-                    <p className="font-bold text-gray-900 text-xs mt-1">
-                      {product.specs.shelfLife}
-                    </p>
-                  </div>
-                  <div className="bg-white p-2 rounded-lg shadow-sm">
-                    <span className="text-xs font-bold text-green-800 uppercase tracking-wide">
-                      Moisture
-                    </span>
-                    <p className="font-bold text-gray-900 text-xs mt-1">
-                      {product.specs.moisture}
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         ))}

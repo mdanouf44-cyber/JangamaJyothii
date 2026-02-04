@@ -1,8 +1,69 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Wheat, Award, Shield, Globe } from 'lucide-react'
+import { Wheat, Award, Shield, Globe, ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 import ProductGrid from '@/components/ProductGrid'
+
+// Rice Product Slideshow Component
+const RiceSlideshow = ({ varieties }: { varieties: any[] }) => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 2) % varieties.length)
+    }, 2000)
+    return () => clearInterval(timer)
+  }, [varieties.length])
+  const nextSlide = () => setCurrentSlide(prev => (prev + 2) % varieties.length)
+  const prevSlide = () => setCurrentSlide(prev => (prev - 2 + varieties.length) % varieties.length)
+  const getCurrentProducts = () => {
+    const products = []
+    products.push(varieties[currentSlide])
+    products.push(varieties[(currentSlide + 1) % varieties.length])
+    return products
+  }
+  const currentProducts = getCurrentProducts()
+  const totalSlides = Math.ceil(varieties.length / 2)
+  return (
+    <div className="relative max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {currentProducts.map((product, index) => (
+          <div key={`${currentSlide}-${index}`} className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 transform transition-all duration-2000 ease-in-out">
+            <div className="relative h-72 lg:h-80 bg-gradient-to-br from-yellow-50 to-amber-50">
+              <Image src={product.image} alt={product.name} fill className="object-contain transition-all duration-2000 p-4" sizes="(max-width: 1024px) 100vw, 50vw" priority={index === 0} unoptimized />
+              <div className="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-semibold">🌾 Premium Rice</div>
+              <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">{currentSlide + index + 1} / {varieties.length}</div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">{product.name}</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">{product.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-between items-center mt-6">
+        <button onClick={prevSlide} className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-yellow-500 transition-all duration-300 shadow-sm hover:shadow-md">
+          <ChevronLeft className="w-5 h-5 text-gray-600" /><span className="text-gray-700 font-medium">Previous</span>
+        </button>
+        <div className="flex space-x-2">
+          {Array.from({ length: totalSlides }).map((_, index) => (
+            <button key={index} onClick={() => setCurrentSlide(index * 2)} className={`w-3 h-3 rounded-full transition-all duration-300 ${Math.floor(currentSlide / 2) === index ? 'bg-yellow-600 scale-125' : 'bg-gray-300 hover:bg-gray-400'}`} />
+          ))}
+        </div>
+        <button onClick={nextSlide} className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-yellow-500 transition-all duration-300 shadow-sm hover:shadow-md">
+          <span className="text-gray-700 font-medium">Next</span><ChevronRight className="w-5 h-5 text-gray-600" />
+        </button>
+      </div>
+      <div className="flex flex-wrap justify-center gap-2 mt-6">
+        {varieties.map((variety, index) => (
+          <button key={index} onClick={() => setCurrentSlide(Math.floor(index / 2) * 2)} className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${currentSlide <= index && index < currentSlide + 2 ? 'bg-yellow-600 text-white shadow-lg scale-105' : 'bg-white text-gray-700 border border-gray-300 hover:bg-yellow-50 hover:border-yellow-300'}`}>
+            <span className="text-base">🌾</span><span className="hidden sm:inline">{variety.name}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const RicePage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
@@ -409,6 +470,18 @@ const RicePage = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Product Showcase Slideshow */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-yellow-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Product Showcase</h2>
+            <div className="w-16 h-1 bg-yellow-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">Discover our premium rice varieties with detailed information</p>
+          </div>
+          <RiceSlideshow varieties={varieties} />
         </div>
       </section>
 

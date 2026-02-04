@@ -10,8 +10,144 @@ import {
   Package,
   Leaf,
   CheckCircle,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
+
+// Tissue Products Slideshow Component
+const TissueSlideshow = ({ varieties }: { varieties: any[] }) => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Auto-rotate slides every 2 seconds (showing 2 products at a time)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 2) % varieties.length)
+    }, 2000)
+
+    return () => clearInterval(timer)
+  }, [varieties.length])
+
+  const nextSlide = () => {
+    setCurrentSlide(prev => (prev + 2) % varieties.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => (prev - 2 + varieties.length) % varieties.length)
+  }
+
+  // Get current two products to display
+  const getCurrentProducts = () => {
+    const products = []
+    products.push(varieties[currentSlide])
+    products.push(varieties[(currentSlide + 1) % varieties.length])
+    return products
+  }
+
+  const currentProducts = getCurrentProducts()
+  const totalSlides = Math.ceil(varieties.length / 2)
+
+  return (
+    <div className="relative max-w-7xl mx-auto">
+      {/* Main Slideshow Container - Two Products Side by Side */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {currentProducts.map((product, index) => (
+          <div
+            key={`${currentSlide}-${index}`}
+            className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 transform transition-all duration-2000 ease-in-out"
+          >
+            {/* Product Image - Full Height and Fully Visible */}
+            <div className="relative h-72 lg:h-80 bg-gradient-to-br from-blue-50 to-cyan-50">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-contain transition-all duration-2000 p-4"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority={index === 0}
+                unoptimized
+              />
+              {/* Product Badge */}
+              <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                🧻 Premium Tissue
+              </div>
+              {/* Product Number */}
+              <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                {currentSlide + index + 1} / {varieties.length}
+              </div>
+            </div>
+
+            {/* Product Content - Simplified */}
+            <div className="p-6">
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                {product.name}
+              </h3>
+              
+              <p className="text-gray-600 leading-relaxed text-sm">
+                {product.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="flex justify-between items-center mt-6">
+        {/* Previous Button */}
+        <button
+          onClick={prevSlide}
+          className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md"
+        >
+          <ChevronLeft className="w-5 h-5 text-gray-600" />
+          <span className="text-gray-700 font-medium">Previous</span>
+        </button>
+
+        {/* Slide Indicators - Updated for 2-product slides */}
+        <div className="flex space-x-2">
+          {Array.from({ length: totalSlides }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index * 2)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                Math.floor(currentSlide / 2) === index
+                  ? 'bg-blue-600 scale-125'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Next Button */}
+        <button
+          onClick={nextSlide}
+          className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md"
+        >
+          <span className="text-gray-700 font-medium">Next</span>
+          <ChevronRight className="w-5 h-5 text-gray-600" />
+        </button>
+      </div>
+
+      {/* Product Navigation Pills */}
+      <div className="flex flex-wrap justify-center gap-2 mt-6">
+        {varieties.map((variety, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(Math.floor(index / 2) * 2)}
+            className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+              currentSlide <= index && index < currentSlide + 2
+                ? 'bg-blue-600 text-white shadow-lg scale-105'
+                : 'bg-white text-gray-700 border border-gray-300 hover:bg-blue-50 hover:border-blue-300'
+            }`}
+          >
+            <span className="text-base">🧻</span>
+            <span className="hidden sm:inline">{variety.name}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const TissuePage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
@@ -471,6 +607,23 @@ const TissuePage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Product Showcase Slideshow */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Product Showcase
+            </h2>
+            <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover our premium tissue products with detailed information
+            </p>
+          </div>
+
+          <TissueSlideshow varieties={varieties} />
         </div>
       </section>
 
