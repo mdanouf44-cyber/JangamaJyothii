@@ -149,9 +149,32 @@ const PulsesSlideshow = ({ varieties }: { varieties: any[] }) => {
 const PulsesPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const pulsesVideos = ['/pulses-video-1.mp4', '/pulses-video-2.mp4']
 
   useEffect(() => {
     setIsVisible(true)
+
+    // Preload videos for better performance
+    const preloadVideos = () => {
+      pulsesVideos.forEach((videoSrc, index) => {
+        if (index < 2) {
+          // Preload first 2 videos
+          const video = document.createElement('video')
+          video.preload = 'metadata'
+          video.src = videoSrc
+        }
+      })
+    }
+
+    // Rotate videos every 8 seconds
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex(prevIndex => (prevIndex + 1) % pulsesVideos.length)
+    }, 8000)
+
+    preloadVideos()
+    return () => clearInterval(videoInterval)
   }, [])
 
   const varieties = [
@@ -277,43 +300,77 @@ const PulsesPage = () => {
         {floatingPulses}
       </div>
 
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1
-              className={`text-5xl md:text-7xl font-bold text-green-900 mb-6 transform transition-all duration-1000 ${
-                isVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-10 opacity-0'
+      {/* Hero Section with Rotating Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Rotating Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          {pulsesVideos.map((videoSrc, index) => (
+            <video
+              key={index}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
               }`}
-              suppressHydrationWarning
             >
-              Premium Pulses
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          ))}
+          <div className="absolute inset-0 bg-black/50"></div>
+
+          {/* Video Indicators */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+            {pulsesVideos.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentVideoIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentVideoIndex
+                    ? 'bg-white scale-125'
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <div
+            className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+            suppressHydrationWarning
+          >
+            {/* Main Title */}
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-green-300 via-emerald-300 to-teal-300 bg-clip-text text-transparent animate-gradient">
+                Premium Pulses
+              </span>
             </h1>
-            <p
-              className={`text-xl md:text-2xl text-green-800 mb-8 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 ${
-                isVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-10 opacity-0'
-              }`}
-            >
+
+            {/* Subtitle */}
+            <p className="text-xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-light">
               Protein-Rich Nutritional Powerhouses from Sustainable Farms
             </p>
 
-            {/* Image Placeholder */}
-            <div
-              className={`w-full max-w-4xl mx-auto h-96 bg-gradient-to-r from-green-100 to-emerald-100 rounded-2xl border-2 border-dashed border-green-300 flex items-center justify-center mb-12 transform transition-all duration-1000 delay-500 ${
-                isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-              }`}
-            >
-              <div className="text-center">
-                <div className="text-6xl mb-4">🫘</div>
-                <p className="text-green-700 font-medium">Pulses Hero Image</p>
-                <p className="text-green-600 text-sm">
-                  Image will be added here
-                </p>
-              </div>
+            {/* Feature Pills */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {[
+                'High Protein',
+                'Rich in Fiber',
+                'Export Grade',
+                'Sustainable Farming',
+              ].map((feature, index) => (
+                <div
+                  key={index}
+                  className={`px-6 py-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-medium transform transition-all duration-500 hover:scale-110 hover:bg-white/40 hover:border-white hover:shadow-2xl cursor-default ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                  style={{ transitionDelay: `${index * 200 + 800}ms` }}
+                >
+                  {feature}
+                </div>
+              ))}
             </div>
           </div>
         </div>
