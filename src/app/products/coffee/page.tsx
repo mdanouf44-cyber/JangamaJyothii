@@ -175,6 +175,7 @@ const CoffeePage = () => {
         moisture: 'Max 5%',
       },
       color: 'from-orange-600 to-red-700',
+      image: '/roasted-arabica.jpg',
       images: ['/roasted-arabica.jpg', '/roasted-robusta.jpg'],
     },
   ]
