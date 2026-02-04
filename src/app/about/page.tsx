@@ -6,24 +6,42 @@ import { CheckCircle, Globe, Users, Award } from 'lucide-react'
 
 const AboutPage = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [storyVideoIndex, setStoryVideoIndex] = useState(0)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
+  const storyVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   const videos = ['/ab1.mp4', '/ab2.mp4', '/ab3.mp4', '/ab4.mp4', '/export-excellence-1.mp4', '/export-excellence-2.mp4']
+  const storyVideos = ['/export-excellence-1.mp4', '/export-excellence-2.mp4']
 
   useEffect(() => {
-    // Force play the current video
+    // Force play the current hero video
     const currentVideo = videoRefs.current[currentVideoIndex]
     if (currentVideo) {
       currentVideo.play().catch(err => console.log('Video play error:', err))
     }
 
-    // Auto-rotate videos every 6 seconds
+    // Auto-rotate hero videos every 6 seconds
     const videoInterval = setInterval(() => {
       setCurrentVideoIndex(prev => (prev + 1) % videos.length)
     }, 6000)
 
     return () => clearInterval(videoInterval)
-  }, [currentVideoIndex])
+  }, [currentVideoIndex, videos.length])
+
+  useEffect(() => {
+    // Force play the current story video
+    const currentStoryVideo = storyVideoRefs.current[storyVideoIndex]
+    if (currentStoryVideo) {
+      currentStoryVideo.play().catch(err => console.log('Video play error:', err))
+    }
+
+    // Auto-rotate story videos every 8 seconds
+    const storyVideoInterval = setInterval(() => {
+      setStoryVideoIndex(prev => (prev + 1) % storyVideos.length)
+    }, 8000)
+
+    return () => clearInterval(storyVideoInterval)
+  }, [storyVideoIndex, storyVideos.length])
 
   const values = [
     {
@@ -141,17 +159,57 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-green-600 to-green-800 rounded-lg shadow-2xl flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-2xl font-bold mb-2">Global Export</h3>
-                  <p className="text-green-100">Agricultural Excellence</p>
+              <div className="relative w-full h-96 rounded-lg shadow-2xl overflow-hidden">
+                {/* Video Background */}
+                {storyVideos.map((video, index) => (
+                  <video
+                    key={index}
+                    ref={el => storyVideoRefs.current[index] = el}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      index === storyVideoIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    onLoadedData={(e) => {
+                      if (index === storyVideoIndex) {
+                        e.currentTarget.play().catch(err => console.log('Video play error:', err))
+                      }
+                    }}
+                  >
+                    <source src={video} type="video/mp4" />
+                  </video>
+                ))}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                
+                {/* Text Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">Global Export</h3>
+                    <p className="text-green-100 drop-shadow-lg">Agricultural Excellence</p>
+                  </div>
                 </div>
               </div>
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4 text-center">
+              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4 text-center z-10">
                 <div className="text-3xl font-bold text-green-600">15+</div>
                 <div className="text-sm text-gray-700 font-medium">
                   Years Of Experience
                 </div>
+              </div>
+              {/* Video Indicators */}
+              <div className="absolute bottom-6 right-6 flex space-x-2 z-10">
+                {storyVideos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setStoryVideoIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === storyVideoIndex ? 'bg-white w-6' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>
