@@ -1,22 +1,29 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Metadata } from 'next'
 import { CheckCircle, Globe, Users, Award } from 'lucide-react'
 
 const AboutPage = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   const videos = ['/ab1.mp4', '/ab2.mp4', '/ab3.mp4', '/ab4.mp4', '/export-excellence-1.mp4', '/export-excellence-2.mp4']
 
   useEffect(() => {
+    // Force play the current video
+    const currentVideo = videoRefs.current[currentVideoIndex]
+    if (currentVideo) {
+      currentVideo.play().catch(err => console.log('Video play error:', err))
+    }
+
     // Auto-rotate videos every 6 seconds
     const videoInterval = setInterval(() => {
       setCurrentVideoIndex(prev => (prev + 1) % videos.length)
     }, 6000)
 
     return () => clearInterval(videoInterval)
-  }, [])
+  }, [currentVideoIndex])
 
   const values = [
     {
@@ -54,14 +61,20 @@ const AboutPage = () => {
           {videos.map((video, index) => (
             <video
               key={index}
+              ref={el => videoRefs.current[index] = el}
               autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                 index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
               }`}
+              onLoadedData={(e) => {
+                if (index === currentVideoIndex) {
+                  e.currentTarget.play().catch(err => console.log('Video play error:', err))
+                }
+              }}
             >
               <source src={video} type="video/mp4" />
             </video>

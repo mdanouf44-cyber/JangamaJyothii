@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isMounted, setIsMounted] = useState(false)
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   const slides = [
     {
@@ -56,6 +57,12 @@ const HeroSection = () => {
   useEffect(() => {
     setIsMounted(true)
 
+    // Force play the current video
+    const currentVideo = videoRefs.current[currentSlide]
+    if (currentVideo) {
+      currentVideo.play().catch(err => console.log('Video play error:', err))
+    }
+
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length)
     }, 5000)
@@ -74,7 +81,7 @@ const HeroSection = () => {
 
     preloadVideos()
     return () => clearInterval(timer)
-  }, [])
+  }, [currentSlide])
 
   return (
     <section className="relative h-screen overflow-hidden">
@@ -109,12 +116,18 @@ const HeroSection = () => {
             }`}
           >
             <video
+              ref={el => videoRefs.current[index] = el}
               autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover"
+              onLoadedData={(e) => {
+                if (index === currentSlide) {
+                  e.currentTarget.play().catch(err => console.log('Video play error:', err))
+                }
+              }}
             >
               <source src={slide.video} type="video/mp4" />
               {/* Fallback gradient background */}
