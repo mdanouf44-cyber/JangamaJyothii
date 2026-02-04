@@ -49,7 +49,9 @@ const ContactPage = () => {
       if (response.ok && data.success) {
         setSubmitStatus({
           type: 'success',
-          message: data.message || 'Thank you for contacting us! We will get back to you soon.',
+          message:
+            data.message ||
+            'Thank you for contacting us! We will get back to you soon.',
         })
         // Reset form
         setFormData({

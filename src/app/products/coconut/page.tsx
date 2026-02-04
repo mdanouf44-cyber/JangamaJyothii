@@ -11,8 +11,207 @@ import {
   Thermometer,
   Droplets,
   Shield,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 import { ProductGrid } from '@/components'
+
+// Coconut Product Slideshow Component
+const CoconutProductSlideshow = ({ variants }: { variants: any[] }) => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Auto-rotate slides every 2 seconds (showing 2 products at a time)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 2) % variants.length)
+    }, 2000)
+
+    return () => clearInterval(timer)
+  }, [variants.length])
+
+  const nextSlide = () => {
+    setCurrentSlide(prev => (prev + 2) % variants.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => (prev - 2 + variants.length) % variants.length)
+  }
+
+  // Get current two products to display
+  const getCurrentProducts = () => {
+    const products = []
+    products.push(variants[currentSlide])
+    products.push(variants[(currentSlide + 1) % variants.length])
+    return products
+  }
+
+  const currentProducts = getCurrentProducts()
+  const totalSlides = Math.ceil(variants.length / 2)
+
+  return (
+    <div className="relative max-w-7xl mx-auto">
+      {/* Main Slideshow Container - Two Products Side by Side */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {currentProducts.map((product, index) => (
+          <div
+            key={`${currentSlide}-${index}`}
+            className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 transform transition-all duration-2000 ease-in-out"
+          >
+            {/* Product Image - Full Height and Fully Visible */}
+            <div className="relative h-72 lg:h-80 bg-gradient-to-br from-green-50 to-emerald-50">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-contain transition-all duration-2000 p-4"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority={index === 0}
+                unoptimized
+              />
+              {/* Product Badge */}
+              <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                {product.icon} Premium Quality
+              </div>
+              {/* Product Number */}
+              <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                {currentSlide + index + 1} / {variants.length}
+              </div>
+            </div>
+
+            {/* Product Content */}
+            <div className="p-6">
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                {product.name}
+              </h3>
+              
+              <p className="text-gray-600 leading-relaxed mb-4 text-sm line-clamp-3">
+                {product.description}
+              </p>
+
+              {/* Key Features - Compact */}
+              <div className="mb-4">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                  <Award className="w-4 h-4 text-green-600" />
+                  Key Features
+                </h4>
+                <div className="grid grid-cols-2 gap-1">
+                  {product.features.slice(0, 4).map((feature: string, featureIndex: number) => (
+                    <div
+                      key={featureIndex}
+                      className="flex items-center gap-2 p-1.5 bg-green-50 rounded-lg border border-green-100"
+                    >
+                      <div className="w-1.5 h-1.5 bg-green-600 rounded-full flex-shrink-0"></div>
+                      <span className="text-gray-800 font-medium text-xs">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Technical Specs - Compact */}
+              <div className="bg-gradient-to-r from-gray-50 to-green-50 rounded-lg p-3 border border-gray-200">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                  <Package className="w-4 h-4 text-green-600" />
+                  Specifications
+                </h4>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-white p-2 rounded-lg shadow-sm">
+                    <span className="text-xs font-bold text-green-800 uppercase tracking-wide">
+                      HS Code
+                    </span>
+                    <p className="font-bold text-gray-900 text-xs mt-1">
+                      {product.specs.hsCode}
+                    </p>
+                  </div>
+                  <div className="bg-white p-2 rounded-lg shadow-sm">
+                    <span className="text-xs font-bold text-green-800 uppercase tracking-wide">
+                      MOQ
+                    </span>
+                    <p className="font-bold text-gray-900 text-xs mt-1">
+                      {product.specs.moq}
+                    </p>
+                  </div>
+                  <div className="bg-white p-2 rounded-lg shadow-sm">
+                    <span className="text-xs font-bold text-green-800 uppercase tracking-wide">
+                      Shelf Life
+                    </span>
+                    <p className="font-bold text-gray-900 text-xs mt-1">
+                      {product.specs.shelfLife}
+                    </p>
+                  </div>
+                  <div className="bg-white p-2 rounded-lg shadow-sm">
+                    <span className="text-xs font-bold text-green-800 uppercase tracking-wide">
+                      Moisture
+                    </span>
+                    <p className="font-bold text-gray-900 text-xs mt-1">
+                      {product.specs.moisture}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="flex justify-between items-center mt-6">
+        {/* Previous Button */}
+        <button
+          onClick={prevSlide}
+          className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-green-500 transition-all duration-300 shadow-sm hover:shadow-md"
+        >
+          <ChevronLeft className="w-5 h-5 text-gray-600" />
+          <span className="text-gray-700 font-medium">Previous</span>
+        </button>
+
+        {/* Slide Indicators - Updated for 2-product slides */}
+        <div className="flex space-x-2">
+          {Array.from({ length: totalSlides }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index * 2)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                Math.floor(currentSlide / 2) === index
+                  ? 'bg-green-600 scale-125'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Next Button */}
+        <button
+          onClick={nextSlide}
+          className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-green-500 transition-all duration-300 shadow-sm hover:shadow-md"
+        >
+          <span className="text-gray-700 font-medium">Next</span>
+          <ChevronRight className="w-5 h-5 text-gray-600" />
+        </button>
+      </div>
+
+      {/* Product Navigation Pills */}
+      <div className="flex flex-wrap justify-center gap-2 mt-6">
+        {variants.map((variant, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(Math.floor(index / 2) * 2)}
+            className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+              currentSlide <= index && index < currentSlide + 2
+                ? 'bg-green-600 text-white shadow-lg scale-105'
+                : 'bg-white text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
+            }`}
+          >
+            <span className="text-base">{variant.icon}</span>
+            <span className="hidden sm:inline">{variant.name}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const CoconutPage = () => {
   const [activeVariant, setActiveVariant] = useState(0)
@@ -603,6 +802,24 @@ const CoconutPage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Product Showcase Slideshow */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-green-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Product Showcase
+            </h2>
+            <div className="w-16 h-1 bg-green-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover our premium coconut products with detailed information
+              and specifications
+            </p>
+          </div>
+
+          <CoconutProductSlideshow variants={variants} />
         </div>
       </section>
 
