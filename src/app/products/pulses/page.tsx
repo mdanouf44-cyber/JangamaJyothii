@@ -66,7 +66,7 @@ const PulsesSlideshow = ({ varieties }: { varieties: any[] }) => {
               />
               {/* Product Badge */}
               <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                🌱 Premium Pulse
+                Premium Pulse
               </div>
               {/* Product Number */}
               <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
@@ -137,7 +137,6 @@ const PulsesSlideshow = ({ varieties }: { varieties: any[] }) => {
                 : 'bg-white text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
             }`}
           >
-            <span className="text-base">🌱</span>
             <span className="hidden sm:inline">{variety.name}</span>
           </button>
         ))}
@@ -289,7 +288,7 @@ const PulsesPage = () => {
         animationDuration: `${2 + Math.random() * 3}s`,
       }}
     >
-      🫘
+      
     </div>
   ))
 
@@ -557,19 +556,19 @@ const PulsesPage = () => {
                 title: 'High Protein Content',
                 description:
                   'Essential amino acids for muscle development and overall health',
-                icon: '💪',
+                icon: '',
               },
               {
                 title: 'Rich in Fiber',
                 description:
                   'Promotes digestive health and helps maintain blood sugar levels',
-                icon: '🌱',
+                icon: '',
               },
               {
                 title: 'Vitamins & Minerals',
                 description:
                   'Essential nutrients including iron, folate, potassium, and magnesium',
-                icon: '⚡',
+                icon: '',
               },
             ].map((benefit, index) => (
               <div
@@ -661,7 +660,6 @@ const PulsesPage = () => {
                   key={index}
                   className="bg-green-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
                 >
-                  <div className="text-3xl mb-3">🫘</div>
                   <h3 className="font-semibold text-green-800">
                     {application}
                   </h3>
