@@ -39,7 +39,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Red Chilli',
-      image: '/cover-red-chilli.jpg', // Using cover image
+      image: '/cover-red-chilli.jpg',
       description:
         'Premium quality Guntur, Byadgi and Kashmir chillies with ground chilli powder, renowned for vibrant color.',
       features: [
@@ -52,7 +52,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Rice',
-      image: '/cover-rice.jpg', // Using cover image
+      image: '/cover-rice.jpg',
       description:
         'Premium quality rice varieties including Sona Masoori, Basmati, IR64 Parboiled, Ponni, and Jeera Samba.',
       features: [
@@ -65,7 +65,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Turmeric',
-      image: '/cover-turmeric.jpg', // Using cover image
+      image: '/cover-turmeric.jpg',
       description:
         'Premium quality turmeric from Salem, Erode, Lakadong, and Alleppey Finger, known for rich color and high curcumin.',
       features: [
@@ -78,7 +78,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Tamarind',
-      image: '/cover-tamarind.jpg', // Using cover image
+      image: '/cover-tamarind.jpg',
       description:
         'Premium quality tamarind, tamarind seeds, and tamarind kernels, known for tangy flavor and rich nutrition.',
       features: [
@@ -91,7 +91,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Pulses',
-      image: '/istockphoto-1280448548-612x612-1.jpg', // Using uploaded pulses image
+      image: '/cover-pulses.jpg',
       description:
         'Premium pulses including Black Chickpeas, Chickpeas, Pigeon Peas, Black Gram, Green Gram, and Horse Gram.',
       features: [
@@ -104,7 +104,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Areca Plates',
-      image: '/cover-areca-plates.jpg', // Using cover image
+      image: '/cover-areca-plates.jpg',
       description:
         'Premium areca nuts and eco-friendly areca plateware – biodegradable, compostable, and sustainable.',
       features: [
@@ -117,7 +117,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Black Pepper',
-      image: '/Karimunda Black Pepper.jpg', // Using actual black pepper image
+      image: '/cover-black-pepper.jpg',
       description:
         'Premium black pepper varieties including Panniyur series, Karimunda, and traditional types for bold flavor.',
       features: [
@@ -130,7 +130,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Cardamom',
-      image: '/Malabar Cardamom.jpg', // Using actual cardamom image
+      image: '/cover-cardamom.jpg',
       description:
         'Premium Malabar cardamom, Mysore cardamom, and Vazhukkha type for rich aroma and culinary applications.',
       features: [
@@ -143,7 +143,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Grains & Millets',
-      image: '/Finger Millet (Ragi).jpg', // Using actual grains & millets image
+      image: '/cover-grains-millets-new.jpg',
       description:
         'Premium grains and millet varieties including Finger, Pearl, Foxtail, and Little for rich nutrition.',
       features: [
@@ -156,7 +156,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Jute & Paper Products',
-      image: '/Jute Bags.jpg', // Using actual jute products image
+      image: '/cover-jute-paper-products.jpg',
       description:
         'High-quality eco-friendly paper bags, jute products, and sustainable packaging solutions.',
       features: ['Eco-Friendly', 'Sustainable', 'Innovative', 'Cost-Effective'],
@@ -164,7 +164,7 @@ const ProductsPage = () => {
     },
     {
       name: 'Tissue',
-      image: '/Facial Tissue Boxes.jpg', // Using actual tissue image
+      image: '/cover-tissue.jpg',
       description:
         'Premium quality tissues and paper products for personal care, hospitality, and commercial use.',
       features: [
