@@ -82,7 +82,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Pulses',
-      image: '/istockphoto-1280448548-612x612-1.jpg', // Using uploaded pulses image
+      image: '/cover-pulses.jpg',
       description:
         'We supply premium pulses including Black Chickpeas, Chickpeas (Split), Pigeon Peas, Black Gram, Green Gram, and Horse Gram, known for their rich taste, high protein content, exceptional quality, long shelf life, freshness, and natural goodness.',
       features: [
@@ -106,7 +106,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Black Pepper',
-      image: '/Karimunda Black Pepper.jpg', // Using actual black pepper image
+      image: '/cover-black-pepper.jpg',
       description:
         'We supply premium black pepper varieties including Panniyur series, Karimunda, and traditional types, renowned for bold flavor, aroma, and high piperine content.',
       features: [
@@ -118,7 +118,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Cardamom',
-      image: '/Malabar Cardamom.jpg', // Using actual cardamom image
+      image: '/cover-cardamom.jpg',
       description:
         'We offer premium Malabar cardamom, Mysore cardamom, and Vazhukkha type, prized for their rich aroma, strong flavor, and essential use in culinary applications worldwide.',
       features: [
@@ -142,14 +142,14 @@ const ProductsSection = () => {
     },
     {
       name: 'Jute & Paper Products',
-      image: '/Jute Bags.jpg', // Using actual jute products image
+      image: '/cover-jute-paper-products.jpg',
       description:
         'We supply high-quality eco-friendly paper bags, jute products, and sustainable packaging solutions, catering to international markets with reliable and innovative products.',
       features: ['Eco-Friendly', 'Sustainable', 'Innovative', 'Cost-Effective'],
     },
     {
       name: 'Tissue',
-      image: '/Facial Tissue Boxes.jpg', // Using actual tissue image
+      image: '/cover-tissue.jpg',
       description:
         'We supply premium quality tissues and paper products, known for their softness, absorbency, and hygiene standards, ideal for personal care, hospitality, and commercial use worldwide.',
       features: [
