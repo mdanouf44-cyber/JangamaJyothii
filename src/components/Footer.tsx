@@ -125,16 +125,32 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-              {/* Spices Sub-section */}
-              <li>
-                <div className="mt-4">
-                  <p className="text-gray-100 font-medium mb-2">Spices</p>
-                  <ul className="space-y-2 pl-4">
+              {/* Spices Hover Dropdown */}
+              <li className="relative group">
+                <div className="text-gray-300 hover:text-green-400 transition-colors duration-300 cursor-pointer flex items-center gap-2">
+                  <span>Spices</span>
+                  <svg
+                    className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+                {/* Dropdown on Hover */}
+                <div className="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-300 ease-in-out">
+                  <ul className="space-y-2 pl-4 pt-2">
                     {spices.map((spice, index) => (
                       <li key={index}>
                         <Link
                           href={spice.href}
-                          className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm"
+                          className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm block"
                         >
                           {spice.name}
                         </Link>
