@@ -130,7 +130,7 @@ const ProductsSection = () => {
     },
     {
       name: 'Grains & Millets',
-      image: '/Finger Millet (Ragi).jpg', // Using actual grains & millets image
+      image: '/cover-grains-millets.jpg', // Using cover image
       description:
         'We supply premium grains and millet varieties including Finger, Pearl, Foxtail, and Little, renowned for their rich nutrition, natural flavor, and exceptional health benefits.',
       features: [

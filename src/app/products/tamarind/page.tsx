@@ -305,7 +305,7 @@ const TamarindPage = () => {
             <div className="grid md:grid-cols-5 gap-0">
               {/* Image Section - 60% width (3 columns) */}
               <div className="md:col-span-3">
-                <div className="relative min-h-[400px] rounded-xl overflow-hidden shadow-2xl">
+                <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
                   <img
                     src={varieties[activeVariety].image}
                     alt={varieties[activeVariety].name}
@@ -321,7 +321,7 @@ const TamarindPage = () => {
               </div>
 
               {/* Content Section - 40% width (2 columns) */}
-              <div className="md:col-span-2 p-4">
+              <div className="md:col-span-2 p-4 h-[400px] overflow-y-auto">
                 <h3 className="text-lg font-bold text-amber-900 mb-2">
                   {varieties[activeVariety].name}
                 </h3>
@@ -450,6 +450,22 @@ const TamarindPage = () => {
         </div>
       </section>
 
+      {/* Product Showcase Slideshow */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-amber-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Product Showcase
+            </h2>
+            <div className="w-16 h-1 bg-amber-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover our premium tamarind varieties with detailed information
+            </p>
+          </div>
+          <TamarindSlideshow varieties={varieties} />
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-16 bg-gradient-to-r from-amber-50 to-orange-50">
         <div className="container mx-auto px-4">
@@ -495,22 +511,6 @@ const TamarindPage = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Product Showcase Slideshow */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-amber-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Product Showcase
-            </h2>
-            <div className="w-16 h-1 bg-amber-600 mx-auto rounded-full mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover our premium tamarind varieties with detailed information
-            </p>
-          </div>
-          <TamarindSlideshow varieties={varieties} />
         </div>
       </section>
 
