@@ -7,7 +7,7 @@ const AboutSection = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
-  const videos = ['/export-excellence-1.mp4', '/export-excellence-2.mp4']
+  const videos = ['/export-excellence-1.mp4', '/export-excellence-2.mp4', '/export-excellence-india-1.mp4', '/export-excellence-india-2.mp4']
 
   useEffect(() => {
     // Force play the current video

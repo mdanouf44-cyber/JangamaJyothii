@@ -10,8 +10,8 @@ const AboutPage = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
   const storyVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
-  const videos = ['/ab1.mp4', '/ab2.mp4', '/ab3.mp4', '/ab4.mp4', '/export-excellence-1.mp4', '/export-excellence-2.mp4']
-  const storyVideos = ['/export-excellence-1.mp4', '/export-excellence-2.mp4']
+  const videos = ['/ab1.mp4', '/ab2.mp4', '/ab3.mp4', '/ab4.mp4', '/ab5.mp4', '/ab6.mp4', '/export-excellence-1.mp4', '/export-excellence-2.mp4']
+  const storyVideos = ['/export-excellence-1.mp4', '/export-excellence-2.mp4', '/export-excellence-india-1.mp4', '/export-excellence-india-2.mp4']
 
   useEffect(() => {
     // Force play the current hero video

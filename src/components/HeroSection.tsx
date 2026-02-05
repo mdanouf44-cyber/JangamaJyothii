@@ -36,6 +36,16 @@ const HeroSection = () => {
       title: 'Innovation in Agricultural Trade',
       subtitle: 'Pioneering modern export solutions for traditional Indian agriculture',
     },
+    {
+      video: '/hero-india-to-other.mp4',
+      title: 'From India to the World',
+      subtitle: 'Bridging continents with premium agricultural exports and sustainable trade practices',
+    },
+    {
+      video: '/hero-india-to-other-2.mp4',
+      title: 'Global Trade Excellence',
+      subtitle: 'Connecting Indian farmers with international markets through quality and trust',
+    },
   ]
 
   // Floating agricultural icons
