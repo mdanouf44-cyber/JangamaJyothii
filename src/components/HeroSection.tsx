@@ -29,22 +29,26 @@ const HeroSection = () => {
     {
       video: '/hero-export-excellence-3.mp4',
       title: 'Export Excellence & Global Standards',
-      subtitle: 'Delivering world-class agricultural products with unmatched quality assurance',
+      subtitle:
+        'Delivering world-class agricultural products with unmatched quality assurance',
     },
     {
       video: '/hero-export-excellence-4.mp4',
       title: 'Innovation in Agricultural Trade',
-      subtitle: 'Pioneering modern export solutions for traditional Indian agriculture',
+      subtitle:
+        'Pioneering modern export solutions for traditional Indian agriculture',
     },
     {
       video: '/hero-india-to-other.mp4',
       title: 'From India to the World',
-      subtitle: 'Bridging continents with premium agricultural exports and sustainable trade practices',
+      subtitle:
+        'Bridging continents with premium agricultural exports and sustainable trade practices',
     },
     {
       video: '/hero-india-to-other-2.mp4',
       title: 'Global Trade Excellence',
-      subtitle: 'Connecting Indian farmers with international markets through quality and trust',
+      subtitle:
+        'Connecting Indian farmers with international markets through quality and trust',
     },
   ]
 
@@ -126,16 +130,20 @@ const HeroSection = () => {
             }`}
           >
             <video
-              ref={el => videoRefs.current[index] = el}
+              ref={el => {
+                videoRefs.current[index] = el
+              }}
               autoPlay
               muted
               loop
               playsInline
               preload="auto"
               className="w-full h-full object-cover"
-              onLoadedData={(e) => {
+              onLoadedData={e => {
                 if (index === currentSlide) {
-                  e.currentTarget.play().catch(err => console.log('Video play error:', err))
+                  e.currentTarget
+                    .play()
+                    .catch(err => console.log('Video play error:', err))
                 }
               }}
             >

@@ -10,8 +10,22 @@ const AboutPage = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
   const storyVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
-  const videos = ['/ab1.mp4', '/ab2.mp4', '/ab3.mp4', '/ab4.mp4', '/ab5.mp4', '/ab6.mp4', '/export-excellence-1.mp4', '/export-excellence-2.mp4']
-  const storyVideos = ['/export-excellence-1.mp4', '/export-excellence-2.mp4', '/export-excellence-india-1.mp4', '/export-excellence-india-2.mp4']
+  const videos = [
+    '/ab1.mp4',
+    '/ab2.mp4',
+    '/ab3.mp4',
+    '/ab4.mp4',
+    '/ab5.mp4',
+    '/ab6.mp4',
+    '/export-excellence-1.mp4',
+    '/export-excellence-2.mp4',
+  ]
+  const storyVideos = [
+    '/export-excellence-1.mp4',
+    '/export-excellence-2.mp4',
+    '/export-excellence-india-1.mp4',
+    '/export-excellence-india-2.mp4',
+  ]
 
   useEffect(() => {
     // Force play the current hero video
@@ -32,7 +46,9 @@ const AboutPage = () => {
     // Force play the current story video
     const currentStoryVideo = storyVideoRefs.current[storyVideoIndex]
     if (currentStoryVideo) {
-      currentStoryVideo.play().catch(err => console.log('Video play error:', err))
+      currentStoryVideo
+        .play()
+        .catch(err => console.log('Video play error:', err))
     }
 
     // Auto-rotate story videos every 8 seconds
@@ -79,7 +95,9 @@ const AboutPage = () => {
           {videos.map((video, index) => (
             <video
               key={index}
-              ref={el => videoRefs.current[index] = el}
+              ref={el => {
+                videoRefs.current[index] = el
+              }}
               autoPlay
               muted
               loop
@@ -88,9 +106,11 @@ const AboutPage = () => {
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                 index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
               }`}
-              onLoadedData={(e) => {
+              onLoadedData={e => {
                 if (index === currentVideoIndex) {
-                  e.currentTarget.play().catch(err => console.log('Video play error:', err))
+                  e.currentTarget
+                    .play()
+                    .catch(err => console.log('Video play error:', err))
                 }
               }}
             >
@@ -164,7 +184,9 @@ const AboutPage = () => {
                 {storyVideos.map((video, index) => (
                   <video
                     key={index}
-                    ref={el => storyVideoRefs.current[index] = el}
+                    ref={el => {
+                      storyVideoRefs.current[index] = el
+                    }}
                     autoPlay
                     muted
                     loop
@@ -173,9 +195,11 @@ const AboutPage = () => {
                     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                       index === storyVideoIndex ? 'opacity-100' : 'opacity-0'
                     }`}
-                    onLoadedData={(e) => {
+                    onLoadedData={e => {
                       if (index === storyVideoIndex) {
-                        e.currentTarget.play().catch(err => console.log('Video play error:', err))
+                        e.currentTarget
+                          .play()
+                          .catch(err => console.log('Video play error:', err))
                       }
                     }}
                   >
@@ -184,12 +208,16 @@ const AboutPage = () => {
                 ))}
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                
+
                 {/* Text Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-white text-center">
-                    <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">Global Export</h3>
-                    <p className="text-green-100 drop-shadow-lg">Agricultural Excellence</p>
+                    <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">
+                      Global Export
+                    </h3>
+                    <p className="text-green-100 drop-shadow-lg">
+                      Agricultural Excellence
+                    </p>
                   </div>
                 </div>
               </div>

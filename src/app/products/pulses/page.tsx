@@ -287,9 +287,7 @@ const PulsesPage = () => {
         animationDelay: `${i * 0.5}s`,
         animationDuration: `${2 + Math.random() * 3}s`,
       }}
-    >
-      
-    </div>
+    ></div>
   ))
 
   return (

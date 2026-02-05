@@ -35,7 +35,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 // Email configuration - UPDATE THESE WITH YOUR DETAILS
 $to = 'support@shreejangamajyothi.com'; // Your email address
-$from = 'noreply@shreejangamajyothi.com'; // From address (use your domain)
+$from = 'support@shreejangamajyothi.com'; // From address (use your domain)
 $replyTo = $email; // Customer's email for replies
 
 // Email content

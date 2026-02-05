@@ -5,8 +5,8 @@
 $to = 'support@shreejangamajyothi.com';
 $subject = 'Email Test from Website';
 $message = 'This is a test email to verify that PHP mail is working correctly on your server.';
-$headers = 'From: noreply@shreejangamajyothi.com' . "\r\n" .
-           'Reply-To: noreply@shreejangamajyothi.com' . "\r\n" .
+$headers = 'From: support@shreejangamajyothi.com' . "\r\n" .
+           'Reply-To: support@shreejangamajyothi.com' . "\r\n" .
            'X-Mailer: PHP/' . phpversion();
 
 if (mail($to, $subject, $message, $headers)) {

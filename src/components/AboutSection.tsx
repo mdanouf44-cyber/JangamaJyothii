@@ -7,7 +7,12 @@ const AboutSection = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
-  const videos = ['/export-excellence-1.mp4', '/export-excellence-2.mp4', '/export-excellence-india-1.mp4', '/export-excellence-india-2.mp4']
+  const videos = [
+    '/export-excellence-1.mp4',
+    '/export-excellence-2.mp4',
+    '/export-excellence-india-1.mp4',
+    '/export-excellence-india-2.mp4',
+  ]
 
   useEffect(() => {
     // Force play the current video
@@ -82,7 +87,9 @@ const AboutSection = () => {
                 {videos.map((video, index) => (
                   <video
                     key={index}
-                    ref={el => videoRefs.current[index] = el}
+                    ref={el => {
+                      videoRefs.current[index] = el
+                    }}
                     autoPlay
                     muted
                     loop
@@ -91,9 +98,11 @@ const AboutSection = () => {
                     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                       index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
                     }`}
-                    onLoadedData={(e) => {
+                    onLoadedData={e => {
                       if (index === currentVideoIndex) {
-                        e.currentTarget.play().catch(err => console.log('Video play error:', err))
+                        e.currentTarget
+                          .play()
+                          .catch(err => console.log('Video play error:', err))
                       }
                     }}
                   >
@@ -102,11 +111,13 @@ const AboutSection = () => {
                 ))}
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                
+
                 {/* Text Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-white text-center">
-                    <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">Export Excellence</h3>
+                    <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">
+                      Export Excellence
+                    </h3>
                     <p className="text-green-100 drop-shadow-lg">
                       Premium Agricultural Products
                     </p>
@@ -129,7 +140,9 @@ const AboutSection = () => {
                     key={index}
                     onClick={() => setCurrentVideoIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentVideoIndex ? 'bg-white w-6' : 'bg-white/50'
+                      index === currentVideoIndex
+                        ? 'bg-white w-6'
+                        : 'bg-white/50'
                     }`}
                   />
                 ))}
