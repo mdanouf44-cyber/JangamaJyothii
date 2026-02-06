@@ -41,20 +41,24 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SJ</span>
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-base sm:text-lg">
+                  SJ
+                </span>
               </div>
               <div>
-                <h3 className="text-xl font-bold">Shree Jangama Jyothi</h3>
-                <p className="text-sm text-gray-400">Global LLP</p>
+                <h3 className="text-lg sm:text-xl font-bold">
+                  Shree Jangama Jyothi
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-400">Global LLP</p>
               </div>
             </div>
-            <p className="text-gray-300 leading-relaxed mb-6">
+            <p className="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
               <strong>
                 Shree Jangama Jyothi Global LLP is a leading Import and Exporter
               </strong>{' '}
@@ -64,32 +68,36 @@ const Footer = () => {
             </p>
 
             {/* Social Links */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 sm:space-x-4">
               <a
                 href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 href="https://www.linkedin.com/in/shree-jangama-jyothi-global-llp-461285381/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                aria-label="LinkedIn"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300"
+                aria-label="YouTube"
               >
-                <Youtube className="w-5 h-5" />
+                <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
           </div>
@@ -164,11 +172,13 @@ const Footer = () => {
 
           {/* Contact Info & Newsletter */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                <div>
+            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">
+              Contact Info
+            </h4>
+            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+              <div className="flex items-start gap-2 sm:gap-3">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mt-1 flex-shrink-0" />
+                <div className="text-sm sm:text-base">
                   <p className="text-gray-300">
                     4th Floor, Om Chamber, 648/A, 1st Stage
                   </p>
@@ -180,33 +190,40 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <div>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0" />
+                <div className="text-sm sm:text-base">
                   <p className="text-green-400">+91 6362315374</p>
                   <p className="text-green-400">+91 9035505951</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <p className="text-gray-300">shreejangamajyothi@gmail.com</p>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0" />
+                <p className="text-gray-300 text-sm sm:text-base break-all">
+                  shreejangamajyothi@gmail.com
+                </p>
               </div>
             </div>
 
             {/* Newsletter */}
             <div>
-              <h5 className="font-semibold mb-3">Newsletter</h5>
-              <p className="text-gray-400 text-sm mb-4">
+              <h5 className="font-semibold mb-2 sm:mb-3 text-sm sm:text-base">
+                Newsletter
+              </h5>
+              <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
                 Subscribe to get updates on new products and market insights.
               </p>
               <div className="flex">
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-green-500 text-white"
+                  className="flex-1 px-3 sm:px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-green-500 text-white text-sm sm:text-base"
                 />
-                <button className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-lg transition-colors duration-300">
-                  <Mail className="w-5 h-5" />
+                <button
+                  className="bg-green-600 hover:bg-green-700 px-3 sm:px-4 py-2 rounded-r-lg transition-colors duration-300"
+                  aria-label="Subscribe to newsletter"
+                >
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>
@@ -216,28 +233,28 @@ const Footer = () => {
 
       {/* Bottom Footer */}
       <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
               Copyright © {currentYear} Agro Export Platform. All rights
               reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               <Link
                 href="/privacy"
-                className="text-gray-400 hover:text-green-400 text-sm transition-colors duration-300"
+                className="text-gray-400 hover:text-green-400 text-xs sm:text-sm transition-colors duration-300"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-gray-400 hover:text-green-400 text-sm transition-colors duration-300"
+                className="text-gray-400 hover:text-green-400 text-xs sm:text-sm transition-colors duration-300"
               >
                 Terms of Service
               </Link>
               <Link
                 href="/sitemap"
-                className="text-gray-400 hover:text-green-400 text-sm transition-colors duration-300"
+                className="text-gray-400 hover:text-green-400 text-xs sm:text-sm transition-colors duration-300"
               >
                 Sitemap
               </Link>
@@ -247,15 +264,16 @@ const Footer = () => {
       </div>
 
       {/* WhatsApp Float Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
         <a
           href="https://wa.me/918080900723"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group"
+          className="w-12 h-12 sm:w-14 sm:h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group"
+          aria-label="Contact us on WhatsApp"
         >
           <svg
-            className="w-8 h-8 text-white"
+            className="w-7 h-7 sm:w-8 sm:h-8 text-white"
             fill="currentColor"
             viewBox="0 0 24 24"
           >

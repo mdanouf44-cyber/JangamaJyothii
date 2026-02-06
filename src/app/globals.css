@@ -12,6 +12,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
   }
 
   body {
@@ -22,6 +24,10 @@
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',
       sans-serif;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+    /* Improve touch scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
   }
 
   h1,
@@ -39,6 +45,35 @@
   video {
     max-width: 100%;
     height: auto;
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    /* Improve tap targets for mobile */
+    button,
+    a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Optimize font sizes for mobile readability */
+    body {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Reduce animations on mobile for better performance */
+    * {
+      animation-duration: 0.3s !important;
+    }
+  }
+
+  /* Improve touch interactions */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: rgba(16, 185, 129, 0.2);
   }
 
   /* Reduce motion for users who prefer it */
