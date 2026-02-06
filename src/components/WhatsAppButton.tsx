@@ -1,19 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-
 export default function WhatsAppButton() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    // Show button after a short delay
-    const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 1000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
   const whatsappNumber = '916362315374' // Your WhatsApp number
   const message = encodeURIComponent(
     'Hello! I am interested in your agricultural products.'
@@ -25,14 +12,12 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 transform hover:scale-110 group ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-      }`}
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shadow-lg hover:shadow-xl transition-colors duration-300 group"
       aria-label="Chat on WhatsApp"
     >
       {/* WhatsApp Icon */}
       <svg
-        className="w-8 h-8"
+        className="w-7 h-7 sm:w-8 sm:h-8"
         fill="currentColor"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -44,9 +29,6 @@ export default function WhatsAppButton() {
       <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         Chat with us on WhatsApp
       </span>
-
-      {/* Pulse Animation */}
-      <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></span>
     </a>
   )
 }
