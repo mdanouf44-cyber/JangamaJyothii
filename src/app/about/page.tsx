@@ -227,18 +227,6 @@ const AboutPage = () => {
                   Years Of Experience
                 </div>
               </div>
-              {/* Video Indicators */}
-              <div className="absolute bottom-6 right-6 flex space-x-2 z-10">
-                {storyVideos.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setStoryVideoIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === storyVideoIndex ? 'bg-white w-6' : 'bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
           </div>
         </div>

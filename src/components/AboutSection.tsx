@@ -132,21 +132,6 @@ const AboutSection = () => {
                   Years Of Experience
                 </div>
               </div>
-
-              {/* Video Indicators */}
-              <div className="absolute bottom-6 right-6 flex space-x-2 z-10">
-                {videos.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentVideoIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentVideoIndex
-                        ? 'bg-white w-6'
-                        : 'bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
           </div>
         </div>

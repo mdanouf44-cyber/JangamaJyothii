@@ -184,23 +184,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Slide Indicators */}
-      <div
-        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20"
-        suppressHydrationWarning
-      >
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-
       {/* Scroll Indicator - Hidden on mobile */}
       <div className="hidden sm:block absolute bottom-8 right-8 text-white animate-bounce">
         <svg
