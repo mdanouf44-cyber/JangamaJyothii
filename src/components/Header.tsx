@@ -230,17 +230,17 @@ const Header = memo(() => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden bg-white border-t transition-all duration-150 ease-in-out ${
+        className={`lg:hidden bg-white border-t shadow-lg transition-all duration-150 ease-in-out ${
           isMenuOpen
             ? 'max-h-screen opacity-100'
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}
       >
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex flex-col space-y-4">
+        <div className="container mx-auto px-4 py-4 max-h-[70vh] overflow-y-auto">
+          <nav className="flex flex-col space-y-3">
             <Link
               href="/"
-              className={`font-medium transition-colors duration-200 ${
+              className={`font-medium py-2 transition-colors duration-200 ${
                 isActiveLink('/')
                   ? 'text-orange-500 hover:text-orange-600'
                   : 'text-gray-700 hover:text-orange-500'
@@ -252,7 +252,7 @@ const Header = memo(() => {
             </Link>
             <div className="space-y-2">
               <p
-                className={`font-medium ${
+                className={`font-medium py-2 ${
                   isActiveLink('/products')
                     ? 'text-orange-500'
                     : 'text-gray-700'
@@ -260,12 +260,12 @@ const Header = memo(() => {
               >
                 Our Products
               </p>
-              <div className="pl-4 space-y-2">
+              <div className="pl-4 space-y-2 border-l-2 border-gray-200">
                 {memoizedProducts.map(product => (
                   <Link
                     key={product.href}
                     href={product.href}
-                    className="block text-gray-600 hover:text-orange-600 transition-colors duration-200"
+                    className="block py-2 text-gray-600 hover:text-orange-600 transition-colors duration-200"
                     onClick={closeMenu}
                     prefetch={true}
                   >
@@ -276,7 +276,7 @@ const Header = memo(() => {
                 <div className="space-y-2">
                   <button
                     onClick={toggleSpices}
-                    className="flex items-center justify-between w-full text-gray-600 hover:text-orange-600 transition-colors duration-200"
+                    className="flex items-center justify-between w-full py-2 text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium"
                   >
                     <span>Spices</span>
                     <svg
@@ -296,12 +296,12 @@ const Header = memo(() => {
                     </svg>
                   </button>
                   {isSpicesOpen && (
-                    <div className="pl-4 space-y-2">
+                    <div className="pl-4 space-y-2 border-l-2 border-orange-200">
                       {memoizedSpices.map(spice => (
                         <Link
                           key={spice.href}
                           href={spice.href}
-                          className="block text-gray-500 hover:text-orange-600 transition-colors duration-200"
+                          className="block py-2 text-gray-500 hover:text-orange-600 transition-colors duration-200"
                           onClick={closeMenu}
                           prefetch={true}
                         >
@@ -315,7 +315,7 @@ const Header = memo(() => {
             </div>
             <Link
               href="/about"
-              className={`font-medium transition-colors duration-200 ${
+              className={`font-medium py-2 transition-colors duration-200 ${
                 isActiveLink('/about')
                   ? 'text-orange-500 hover:text-orange-600'
                   : 'text-gray-700 hover:text-orange-500'
@@ -327,7 +327,7 @@ const Header = memo(() => {
             </Link>
             <Link
               href="/contact"
-              className={`font-medium transition-colors duration-200 ${
+              className={`font-medium py-2 transition-colors duration-200 ${
                 isActiveLink('/contact')
                   ? 'text-orange-500 hover:text-orange-600'
                   : 'text-gray-700 hover:text-orange-500'
@@ -338,7 +338,7 @@ const Header = memo(() => {
               Contact Us
             </Link>
             <Link href="/contact" onClick={closeMenu} prefetch={true}>
-              <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold text-sm uppercase tracking-wide transition-all duration-200 w-full shadow-lg hover:shadow-xl">
+              <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold text-sm uppercase tracking-wide transition-all duration-200 w-full shadow-lg hover:shadow-xl mt-2">
                 CONTACT NOW
               </button>
             </Link>
