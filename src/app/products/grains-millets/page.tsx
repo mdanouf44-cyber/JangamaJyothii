@@ -262,6 +262,63 @@ const GrainsMilletsPage = () => {
       color: 'from-yellow-500 to-amber-600',
       image: '/Maize.jpg',
     },
+    {
+      name: 'White Maize',
+      description:
+        'White maize is a widely cultivated cereal grain known for its clean appearance, smooth texture, and versatile applications. It is carefully harvested and processed to maintain uniform grain size, natural whiteness, and consistent quality. White maize is commonly used in human consumption products such as flour, semolina, cornmeal, and various traditional food preparations. This variety is valued for its high carbohydrate content, mild flavor, and suitability for milling and food processing industries. With proper storage and moisture control, white maize maintains excellent shelf stability and quality for export markets.',
+      features: [
+        'Clean White Grain Appearance',
+        'High Carbohydrate Content',
+        'Suitable for Food Processing',
+        'Uniform Size & Quality',
+      ],
+      specs: {
+        hsCode: '100590',
+        moq: '1000 KG',
+        moisture: 'Max 12–14%',
+        shelfLife: '12–18 months',
+      },
+      color: 'from-gray-400 to-slate-500',
+      image: '/White-Maize.jpg',
+    },
+    {
+      name: 'Yellow Maize Starch',
+      description:
+        'Yellow maize starch is a fine, powdery product extracted from high-quality yellow maize through controlled wet milling processes. It is known for its excellent thickening, binding, and stabilizing properties. This starch is widely used in food processing, pharmaceuticals, paper, textile, and industrial applications. Yellow maize starch offers smooth texture, good viscosity, and consistent performance, making it suitable for sauces, soups, confectionery products, and industrial formulations. It is processed under hygienic conditions to meet domestic and international quality standards.',
+      features: [
+        'High Thickening Efficiency',
+        'Smooth & Fine Texture',
+        'Multi-Industry Applications',
+        'Excellent Binding Properties',
+      ],
+      specs: {
+        hsCode: '110812',
+        moq: '1000 KG',
+        moisture: 'Max 13%',
+        shelfLife: '18–24 months',
+      },
+      color: 'from-yellow-400 to-orange-500',
+      image: '/Yellow-Maize-Starch.jpg',
+    },
+    {
+      name: 'White Maize Starch',
+      description:
+        'White maize starch is derived from premium-grade white maize and is processed to achieve high purity and uniform particle size. It is widely recognized for its superior binding, stabilizing, and thickening characteristics. White maize starch is commonly used in food products, pharmaceuticals, paper manufacturing, adhesives, and textile industries. Its neutral taste and excellent functional properties make it suitable for bakery items, dairy products, confectionery, and various industrial applications. Carefully packed and stored, it maintains stability and long shelf life.',
+      features: [
+        'High Purity & Fine Powder',
+        'Excellent Thickening & Stabilizing Ability',
+        'Neutral Taste',
+        'Industrial & Food Grade Applications',
+      ],
+      specs: {
+        hsCode: '110812',
+        moq: '1000 KG',
+        moisture: 'Max 13%',
+        shelfLife: '18–24 months',
+      },
+      color: 'from-gray-300 to-gray-400',
+      image: '/White-Maize-Starch.jpg',
+    },
   ]
 
   const applications = [
