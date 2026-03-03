@@ -243,6 +243,25 @@ const GrainsMilletsPage = () => {
       color: 'from-teal-600 to-cyan-700',
       image: '/Little Millet.jpg',
     },
+    {
+      name: 'Maize (Corn)',
+      description:
+        'Maize, commonly known as corn, is one of the most widely cultivated cereal grains globally and is valued for its high carbohydrate content and versatility. It is grown in fertile agricultural regions and harvested at optimal maturity to ensure uniform grain size, bright yellow color, and consistent quality. Maize is a staple crop used in food, feed, and industrial applications due to its energy-rich composition and adaptability. This nutrient-dense grain is rich in carbohydrates, moderate protein, dietary fiber, and essential vitamins such as Vitamin B-complex. Its long shelf life and multiple usage applications make it a reliable commodity in both domestic and international markets.',
+      features: [
+        'High Energy Content',
+        'Rich in Carbohydrates',
+        'Multi-Industry Usage',
+        'Long Shelf Life',
+      ],
+      specs: {
+        hsCode: '100590',
+        moq: '1000 KG',
+        moisture: 'Max 12–14%',
+        shelfLife: '12–18 months',
+      },
+      color: 'from-yellow-500 to-amber-600',
+      image: '/Maize.jpg',
+    },
   ]
 
   const applications = [
@@ -432,44 +451,43 @@ const GrainsMilletsPage = () => {
             ))}
           </div>
 
-          <div className="max-w-[1000px] mx-auto">
+          <div className="max-w-[1000px] mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white/30">
-              <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-0">
+              <div className="grid grid-cols-1 lg:grid-cols-[50%_50%] gap-0">
                 {/* Image Section */}
-                <div className="relative overflow-hidden min-h-[380px]">
+                <div className="relative overflow-hidden min-h-[300px] md:min-h-[380px] bg-gradient-to-br from-amber-50 to-yellow-50">
                   <Image
                     src={varieties[activeVariety].image}
                     alt={varieties[activeVariety].name}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-contain p-4"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-4 bg-white">
+                <div className="p-4 md:p-6 bg-white">
                   <div className="mb-2">
                     <span className="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold">
                       Premium Quality Grains & Millets
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-amber-900 mb-2 leading-tight">
+                  <h3 className="text-base md:text-lg font-bold text-amber-900 mb-2 leading-tight">
                     {varieties[activeVariety].name}
                   </h3>
 
-                  <p className="text-gray-700 leading-relaxed mb-3 text-sm">
+                  <p className="text-gray-700 leading-relaxed mb-3 text-xs md:text-sm">
                     {varieties[activeVariety].description}
                   </p>
 
                   <div className="mb-3">
-                    <h4 className="text-sm font-bold text-amber-900 mb-2 flex items-center gap-2">
+                    <h4 className="text-xs md:text-sm font-bold text-amber-900 mb-2 flex items-center gap-2">
                       <Sparkles className="w-3 h-3 text-amber-600" />
                       Key Features
                     </h4>
-                    <div className="grid grid-cols-2 gap-1.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                       {varieties[activeVariety].features.map(
                         (feature, index) => (
                           <div
@@ -477,7 +495,7 @@ const GrainsMilletsPage = () => {
                             className="flex items-center gap-2 p-1.5 bg-gray-50 rounded-lg shadow-sm border border-amber-100 hover:shadow-md transition-shadow"
                           >
                             <div className="w-1.5 h-1.5 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full flex-shrink-0"></div>
-                            <span className="text-gray-800 font-semibold text-xs">
+                            <span className="text-gray-800 font-semibold text-[10px] md:text-xs">
                               {feature}
                             </span>
                           </div>
@@ -486,41 +504,41 @@ const GrainsMilletsPage = () => {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-amber-900 to-orange-900 rounded-lg p-3 border border-amber-800">
-                    <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                  <div className="bg-gradient-to-r from-amber-900 to-orange-900 rounded-lg p-2 md:p-3 border border-amber-800">
+                    <h4 className="text-xs md:text-sm font-bold text-white mb-2 flex items-center gap-2">
                       <Package className="w-3 h-3 text-white" />
                       Technical Specifications
                     </h4>
                     <div className="grid grid-cols-2 gap-1.5">
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-amber-200">
-                        <span className="text-[9px] font-bold text-amber-800 uppercase tracking-wide">
+                        <span className="text-[8px] md:text-[9px] font-bold text-amber-800 uppercase tracking-wide">
                           HS Code
                         </span>
-                        <p className="font-bold text-black text-xs mt-0.5">
+                        <p className="font-bold text-black text-[10px] md:text-xs mt-0.5">
                           {varieties[activeVariety].specs.hsCode}
                         </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-amber-200">
-                        <span className="text-[9px] font-bold text-amber-800 uppercase tracking-wide">
+                        <span className="text-[8px] md:text-[9px] font-bold text-amber-800 uppercase tracking-wide">
                           Min Order
                         </span>
-                        <p className="font-bold text-black text-xs mt-0.5">
+                        <p className="font-bold text-black text-[10px] md:text-xs mt-0.5">
                           {varieties[activeVariety].specs.moq}
                         </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-amber-200">
-                        <span className="text-[9px] font-bold text-amber-800 uppercase tracking-wide">
+                        <span className="text-[8px] md:text-[9px] font-bold text-amber-800 uppercase tracking-wide">
                           Moisture
                         </span>
-                        <p className="font-bold text-black text-xs mt-0.5">
+                        <p className="font-bold text-black text-[10px] md:text-xs mt-0.5">
                           {varieties[activeVariety].specs.moisture}
                         </p>
                       </div>
                       <div className="bg-white p-1.5 rounded-lg shadow-md border border-amber-200">
-                        <span className="text-[9px] font-bold text-amber-800 uppercase tracking-wide">
+                        <span className="text-[8px] md:text-[9px] font-bold text-amber-800 uppercase tracking-wide">
                           Shelf Life
                         </span>
-                        <p className="font-bold text-black text-xs mt-0.5">
+                        <p className="font-bold text-black text-[10px] md:text-xs mt-0.5">
                           {varieties[activeVariety].specs.shelfLife}
                         </p>
                       </div>
