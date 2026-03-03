@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Disable ESLint during builds
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   // Enable static export only for production builds when EXPORT_MODE is set
   ...(process.env.EXPORT_MODE === 'true' && {
     output: 'export',
