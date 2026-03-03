@@ -244,7 +244,7 @@ const GrainsMilletsPage = () => {
       image: '/Little Millet.jpg',
     },
     {
-      name: 'Maize (Corn)',
+      name: 'Yellow Maize',
       description:
         'Maize, commonly known as corn, is one of the most widely cultivated cereal grains globally and is valued for its high carbohydrate content and versatility. It is grown in fertile agricultural regions and harvested at optimal maturity to ensure uniform grain size, bright yellow color, and consistent quality. Maize is a staple crop used in food, feed, and industrial applications due to its energy-rich composition and adaptability. This nutrient-dense grain is rich in carbohydrates, moderate protein, dietary fiber, and essential vitamins such as Vitamin B-complex. Its long shelf life and multiple usage applications make it a reliable commodity in both domestic and international markets.',
       features: [
