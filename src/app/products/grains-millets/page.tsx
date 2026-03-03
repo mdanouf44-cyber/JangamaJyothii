@@ -346,20 +346,41 @@ const GrainsMilletsPage = () => {
 
         {/* Floating Grain Icons */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute animate-float opacity-20"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${i * 0.4}s`,
-                animationDuration: `${5 + Math.random() * 3}s`,
-              }}
-            >
-              <span className="text-white text-3xl">•</span>
-            </div>
-          ))}
+          {[...Array(15)].map((_, i) => {
+            // Use fixed positions based on index to avoid hydration mismatch
+            const positions = [
+              { left: 10, top: 20 },
+              { left: 85, top: 15 },
+              { left: 25, top: 70 },
+              { left: 70, top: 80 },
+              { left: 50, top: 30 },
+              { left: 15, top: 85 },
+              { left: 90, top: 60 },
+              { left: 40, top: 10 },
+              { left: 60, top: 90 },
+              { left: 30, top: 45 },
+              { left: 75, top: 25 },
+              { left: 20, top: 55 },
+              { left: 95, top: 40 },
+              { left: 45, top: 75 },
+              { left: 65, top: 50 },
+            ]
+            const pos = positions[i]
+            return (
+              <div
+                key={i}
+                className="absolute animate-float opacity-20"
+                style={{
+                  left: `${pos.left}%`,
+                  top: `${pos.top}%`,
+                  animationDelay: `${i * 0.4}s`,
+                  animationDuration: `${5 + (i % 3)}s`,
+                }}
+              >
+                <span className="text-white text-3xl">•</span>
+              </div>
+            )
+          })}
         </div>
 
         {/* Content */}
