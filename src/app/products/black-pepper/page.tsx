@@ -148,27 +148,11 @@ const BlackPepperSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
-const BlackPepperPage = () => {
-  const [activeVariety, setActiveVariety] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
-
-  const videos = ['/Black pepper 1.mp4', '/Black pepper 2.mp4']
-
-  useEffect(() => {
-    setIsVisible(true)
-
-    // Auto-rotate videos every 6 seconds
-    const videoInterval = setInterval(() => {
-      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
-    }, 6000)
-
-    return () => clearInterval(videoInterval)
-  }, [])
-
-  const varieties = [
-    {
-      name: 'Aimpiriyan Black Pepper',
+// Varieties data - moved outside component for better performance and to avoid hydration issues
+const varieties = [
+  {
+    id: 'aimpiriyan-black-pepper',
+    name: 'Aimpiriyan Black Pepper',
       description:
         'Aimpiriyan is a high-yielding black pepper variety known for its robust growth and excellent piperine content. This variety produces bold, aromatic peppercorns with strong flavor intensity and is well-suited for commercial cultivation. The peppercorns are medium to large in size with excellent drying characteristics.',
       features: [
@@ -187,6 +171,7 @@ const BlackPepperPage = () => {
       image: '/Aimpiriyan Black Pepper.jpg',
     },
     {
+      id: 'arakkulam-munda-black-pepper',
       name: 'Arakkulam Munda Black Pepper',
       description:
         'Arakkulam Munda is a traditional black pepper variety known for its distinctive aroma and superior quality peppercorns. This variety produces uniform, well-filled berries with high essential oil content and excellent storage properties. It is highly valued in international markets for its consistent quality.',
@@ -206,6 +191,7 @@ const BlackPepperPage = () => {
       image: '/Arakkulam Munda Black Pepper.jpg',
     },
     {
+      id: 'kalluvally-black-pepper',
       name: 'Kalluvally Black Pepper',
       description:
         'Kalluvally is a premium black pepper variety renowned for its bold flavor profile and high piperine content. This variety produces large, well-developed peppercorns with excellent color retention and strong aromatic properties. It is particularly favored for its consistent quality and market appeal.',
@@ -225,6 +211,7 @@ const BlackPepperPage = () => {
       image: '/Kalluvally Black Pepper.jpg',
     },
     {
+      id: 'karimunda-black-pepper',
       name: 'Karimunda Black Pepper',
       description:
         'Karimunda is one of the most popular black pepper varieties, known for its excellent yield and superior quality peppercorns. This variety produces medium-sized, well-filled berries with high piperine content and strong aromatic properties. It is widely cultivated and highly sought after in export markets.',
@@ -244,6 +231,7 @@ const BlackPepperPage = () => {
       image: '/Karimunda Black Pepper.jpg',
     },
     {
+      id: 'panniyur-1-black-pepper',
       name: 'Panniyur-1 Black Pepper',
       description:
         'Panniyur-1 is a high-yielding black pepper variety developed for commercial cultivation. This variety is known for its disease resistance, consistent production, and excellent quality peppercorns. The berries are uniform in size with good piperine content and strong flavor characteristics.',
@@ -263,6 +251,7 @@ const BlackPepperPage = () => {
       image: '/Panniyur-1 Black Pepper.jpg',
     },
     {
+      id: 'panniyur-5-black-pepper',
       name: 'Panniyur-5 Black Pepper',
       description:
         'Panniyur-5 is an improved black pepper variety known for its high yield potential and excellent quality characteristics. This variety produces large, well-developed peppercorns with high piperine content and superior aromatic properties. It is highly valued for its commercial viability and export quality.',
@@ -281,7 +270,54 @@ const BlackPepperPage = () => {
       color: 'from-gray-900 to-black',
       image: '/Panniyur-5 Black Pepper.jpg',
     },
-  ]
+]
+
+const BlackPepperPage = () => {
+  const [activeVariety, setActiveVariety] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const videos = ['/Black pepper 1.mp4', '/Black pepper 2.mp4']
+
+  useEffect(() => {
+    setIsVisible(true)
+
+    // Auto-rotate videos every 6 seconds
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
+    }, 6000)
+
+    return () => clearInterval(videoInterval)
+  }, [])
+
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          // Scroll to the varieties section after a short delay
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              const yOffset = -100 // Offset to account for header
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+              window.scrollTo({ top: y, behavior: 'smooth' })
+            }
+          }, 200)
+        }
+      }
+    }
+
+    // Check hash on mount
+    handleHashChange()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const applications = [
     {
@@ -453,6 +489,11 @@ const BlackPepperPage = () => {
             Choose from our exceptional selection of black pepper varieties,
             each with unique characteristics and superior quality.
           </p>
+
+          {/* Invisible anchor points for each product */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             {varieties.map((variety, index) => (

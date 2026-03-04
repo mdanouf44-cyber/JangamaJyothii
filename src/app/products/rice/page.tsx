@@ -109,6 +109,118 @@ const RiceSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Rice varieties data - moved outside component
+const varieties = [
+  {
+    id: 'sona-masoori-rice',
+    name: 'Sona Masoori Rice',
+    image: '/sona-masoori-rice.jpg',
+    description:
+      'Sona Masoori rice is a premium medium-grain rice known for its soft texture, light aroma, and easy digestibility. It is cultivated in fertile regions using traditional farming methods supported by modern milling practices.',
+    features: [
+      'Soft Texture',
+      'Light Aroma',
+      'Easy Digestibility',
+      'Non-Sticky',
+    ],
+    hsCode: '100630',
+    moq: '1 Metric Ton',
+    moisture: 'Max 14%',
+    shelfLife: '12–18 months',
+    uses: 'Household cooking, steamed rice, South Indian dishes',
+  },
+  {
+    id: 'ir64-parboiled-rice',
+    name: 'IR64 Parboiled Rice',
+    image: '/ir64-parboiled-rice.jpg',
+    description:
+      'IR64 parboiled rice is processed using a parboiling method that enhances grain strength, nutritional value, and shelf stability. The grains are firm, uniform, and less prone to breakage during cooking.',
+    features: [
+      'Enhanced Nutrition',
+      'Firm Grains',
+      'Less Breakage',
+      'Extended Shelf Life',
+    ],
+    hsCode: '100630',
+    moq: '1 Metric Ton',
+    moisture: 'Max 14%',
+    shelfLife: '18–24 months',
+    uses: 'Bulk food supply, hotels, restaurants, institutional catering',
+  },
+  {
+    id: 'ir36-rice',
+    name: 'IR36 Rice',
+    image: '/ir36-rice.jpg',
+    description:
+      'IR36 rice is a medium-grain variety known for its consistent grain size, neutral taste, and good cooking performance. It is cultivated using controlled agricultural practices to ensure uniform quality.',
+    features: [
+      'Consistent Size',
+      'Neutral Taste',
+      'Good Performance',
+      'Cost-Effective',
+    ],
+    hsCode: '100630',
+    moq: '1 Metric Ton',
+    moisture: 'Max 14%',
+    shelfLife: '12–18 months',
+    uses: 'Daily consumption, public distribution systems, export markets',
+  },
+  {
+    id: 'ponni-rice',
+    name: 'Ponni Rice',
+    image: '/ponni-rice.jpg',
+    description:
+      'Ponni rice is a popular South Indian rice variety valued for its slender grains, soft texture, and pleasant taste. It is grown in nutrient-rich delta regions and processed using modern milling techniques.',
+    features: [
+      'Slender Grains',
+      'Soft Texture',
+      'Pleasant Taste',
+      'Delta Grown',
+    ],
+    hsCode: '100630',
+    moq: '1 Metric Ton',
+    moisture: 'Max 14%',
+    shelfLife: '12–18 months',
+    uses: 'Daily meals, traditional dishes, festive cooking',
+  },
+  {
+    id: 'jeera-samba-rice',
+    name: 'Jeera Samba Rice',
+    image: '/jeera-samba-rice.jpg',
+    description:
+      'Jeera Samba rice is a premium short-grain aromatic rice known for its distinctive fragrance and rich flavor. It is traditionally cultivated in specific regions and is widely used for special dishes.',
+    features: [
+      'Distinctive Fragrance',
+      'Rich Flavor',
+      'Premium Quality',
+      'Aromatic',
+    ],
+    hsCode: '100630',
+    moq: '1 Metric Ton',
+    moisture: 'Max 14%',
+    shelfLife: '12–18 months',
+    uses: 'Biryani, festive preparations, special dishes',
+  },
+  {
+    id: 'broken-rice',
+    name: 'Broken Rice',
+    image: '/broken-rice.jpg',
+    description:
+      'Broken rice consists of rice fragments generated during the milling process. Despite being broken, it retains the same nutritional value as whole rice grains and is widely used in various applications.',
+    features: [
+      'Same Nutrition',
+      'Economical',
+      'Industrial Use',
+      'Consistent Quality',
+    ],
+    hsCode: '100640',
+    moq: '1 Metric Ton',
+    moisture: 'Max 14%',
+    shelfLife: '12 months',
+    uses: 'Food processing, animal feed, brewing industries, traditional preparations',
+  },
+]
+
 const RicePage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -140,110 +252,32 @@ const RicePage = () => {
     return () => clearInterval(videoInterval)
   }, [])
 
-  const varieties = [
-    {
-      name: 'Sona Masoori Rice',
-      image: '/sona-masoori-rice.jpg',
-      description:
-        'Sona Masoori rice is a premium medium-grain rice known for its soft texture, light aroma, and easy digestibility. It is cultivated in fertile regions using traditional farming methods supported by modern milling practices.',
-      features: [
-        'Soft Texture',
-        'Light Aroma',
-        'Easy Digestibility',
-        'Non-Sticky',
-      ],
-      hsCode: '100630',
-      moq: '1 Metric Ton',
-      moisture: 'Max 14%',
-      shelfLife: '12–18 months',
-      uses: 'Household cooking, steamed rice, South Indian dishes',
-    },
-    {
-      name: 'IR64 Parboiled Rice',
-      image: '/ir64-parboiled-rice.jpg',
-      description:
-        'IR64 parboiled rice is processed using a parboiling method that enhances grain strength, nutritional value, and shelf stability. The grains are firm, uniform, and less prone to breakage during cooking.',
-      features: [
-        'Enhanced Nutrition',
-        'Firm Grains',
-        'Less Breakage',
-        'Extended Shelf Life',
-      ],
-      hsCode: '100630',
-      moq: '1 Metric Ton',
-      moisture: 'Max 14%',
-      shelfLife: '18–24 months',
-      uses: 'Bulk food supply, hotels, restaurants, institutional catering',
-    },
-    {
-      name: 'IR36 Rice',
-      image: '/ir36-rice.jpg',
-      description:
-        'IR36 rice is a medium-grain variety known for its consistent grain size, neutral taste, and good cooking performance. It is cultivated using controlled agricultural practices to ensure uniform quality.',
-      features: [
-        'Consistent Size',
-        'Neutral Taste',
-        'Good Performance',
-        'Cost-Effective',
-      ],
-      hsCode: '100630',
-      moq: '1 Metric Ton',
-      moisture: 'Max 14%',
-      shelfLife: '12–18 months',
-      uses: 'Daily consumption, public distribution systems, export markets',
-    },
-    {
-      name: 'Ponni Rice',
-      image: '/ponni-rice.jpg',
-      description:
-        'Ponni rice is a popular South Indian rice variety valued for its slender grains, soft texture, and pleasant taste. It is grown in nutrient-rich delta regions and processed using modern milling techniques.',
-      features: [
-        'Slender Grains',
-        'Soft Texture',
-        'Pleasant Taste',
-        'Delta Grown',
-      ],
-      hsCode: '100630',
-      moq: '1 Metric Ton',
-      moisture: 'Max 14%',
-      shelfLife: '12–18 months',
-      uses: 'Daily meals, traditional dishes, festive cooking',
-    },
-    {
-      name: 'Jeera Samba Rice',
-      image: '/jeera-samba-rice.jpg',
-      description:
-        'Jeera Samba rice is a premium short-grain aromatic rice known for its distinctive fragrance and rich flavor. It is traditionally cultivated in specific regions and is widely used for special dishes.',
-      features: [
-        'Distinctive Fragrance',
-        'Rich Flavor',
-        'Premium Quality',
-        'Aromatic',
-      ],
-      hsCode: '100630',
-      moq: '1 Metric Ton',
-      moisture: 'Max 14%',
-      shelfLife: '12–18 months',
-      uses: 'Biryani, festive preparations, special dishes',
-    },
-    {
-      name: 'Broken Rice',
-      image: '/broken-rice.jpg',
-      description:
-        'Broken rice consists of rice fragments generated during the milling process. Despite being broken, it retains the same nutritional value as whole rice grains and is widely used in various applications.',
-      features: [
-        'Same Nutrition',
-        'Economical',
-        'Industrial Use',
-        'Consistent Quality',
-      ],
-      hsCode: '100640',
-      moq: '1 Metric Ton',
-      moisture: 'Max 14%',
-      shelfLife: '12 months',
-      uses: 'Food processing, animal feed, brewing industries, traditional preparations',
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          // Scroll to the varieties section after a delay to ensure DOM is ready
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }
+          }, 500)
+        }
+      }
+    }
+
+    // Check hash on mount
+    handleHashChange()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [varieties])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-amber-50 to-green-50">
@@ -343,6 +377,11 @@ const RicePage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 text-center">
             Our Rice Varieties
           </h2>
+
+          {/* Invisible anchor points for each variety */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           {/* Variety Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">

@@ -149,6 +149,111 @@ const TissueSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Tissue varieties data - moved outside component
+const varieties = [
+  {
+    id: 'toilet-rolls',
+    name: 'Toilet Rolls',
+    description:
+      'Essential personal hygiene products designed for daily use in homes and public washrooms. Made from soft and absorbent tissue paper, they provide comfort while maintaining sufficient strength. Designed to break down easily in water, reducing plumbing blockages.',
+    features: [
+      'Soft & Absorbent',
+      'Water Disintegrable',
+      'Multiple Ply Options',
+      'Commercial Grade',
+    ],
+    specs: {
+      hsCode: '481810',
+      moq: '10,000 rolls',
+      packaging: 'Poly-wrapped packs, packed in corrugated export cartons',
+      shelfLife: '3–5 years (stored in dry conditions)',
+    },
+    color: 'from-blue-600 to-cyan-700',
+    image: '/Toilet Rolls.jpg',
+  },
+  {
+    id: 'facial-tissue-boxes',
+    name: 'Facial Tissue Boxes',
+    description:
+      'Soft, lightweight tissues packed in convenient dispenser boxes for hygienic personal use. Specially designed for face care, personal hygiene, and light cleaning purposes, making them gentle enough for sensitive skin. Ideal for wiping the face, handling colds, removing makeup.',
+    features: [
+      'Gentle on Skin',
+      'Convenient Dispenser',
+      'Hygienic Use',
+      'Travel Friendly',
+    ],
+    specs: {
+      hsCode: '481820',
+      moq: '5,000 boxes',
+      packaging:
+        'Inner poly wrap with printed cartons and export-grade outer boxes',
+      shelfLife: '3–5 years (moisture-free storage)',
+    },
+    color: 'from-green-600 to-emerald-700',
+    image: '/Facial Tissue Boxes.jpg',
+  },
+  {
+    id: 'kitchen-rolls',
+    name: 'Kitchen Rolls',
+    description:
+      'Strong and highly absorbent paper towels designed for cleaning and food-handling tasks. Thicker and more durable than regular tissues, suitable for wiping spills, absorbing oil, drying hands, and cleaning kitchen surfaces. Remain effective even when wet.',
+    features: [
+      'High Absorbency',
+      'Strong & Thick',
+      'Oil Resistant',
+      'Food Safe',
+    ],
+    specs: {
+      hsCode: '481810',
+      moq: '5,000 rolls',
+      packaging: 'Shrink-wrapped rolls packed in corrugated cartons',
+      shelfLife: '3–5 years (cool, dry storage)',
+    },
+    color: 'from-orange-600 to-red-700',
+    image: '/Kitchen Rolls.jpg',
+  },
+  {
+    id: 'jumbo-parent-rolls',
+    name: 'Jumbo Parent Rolls',
+    description:
+      'Large tissue paper rolls used as raw material for converting into finished tissue products such as toilet rolls, napkins, facial tissues, and hand towels. Produced with consistent GSM, thickness, and absorbency to ensure uniform quality during conversion.',
+    features: [
+      'Consistent Quality',
+      'Industrial Grade',
+      'Bulk Supply',
+      'Converting Ready',
+    ],
+    specs: {
+      hsCode: '480300',
+      moq: '1 Metric Ton',
+      packaging: 'Wrapped with protective paper and stretch film',
+      shelfLife: '5 years (stored in dry, ventilated warehouses)',
+    },
+    color: 'from-purple-600 to-indigo-700',
+    image: '/Jumbo Parent Rolls.webp',
+  },
+  {
+    id: 'hand-towels-c-m-fold',
+    name: 'Hand Towels (C & M Fold)',
+    description:
+      'Hand towels in C-fold and M-fold formats designed for hygienic hand drying in public and commercial washrooms. Single-sheet dispensing reduces waste and improves hygiene. Offer excellent absorbency and strength for effective hand drying with minimal waste.',
+    features: [
+      'Single Sheet Dispensing',
+      'Waste Reduction',
+      'Commercial Use',
+      'Hygienic Design',
+    ],
+    specs: {
+      hsCode: '481890',
+      moq: '5,000 packs',
+      packaging: 'Paper-wrapped bundles packed in export cartons',
+      shelfLife: '3–5 years (dry storage)',
+    },
+    color: 'from-teal-600 to-blue-700',
+    image: '/Hand Towels (C & M Fold).jpg',
+  },
+]
+
 const TissuePage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -189,105 +294,30 @@ const TissuePage = () => {
     }
   }, [heroImages.length, videos.length])
 
-  // Tissue product varieties based on the detailed description
-  const varieties = [
-    {
-      name: 'Toilet Rolls',
-      description:
-        'Essential personal hygiene products designed for daily use in homes and public washrooms. Made from soft and absorbent tissue paper, they provide comfort while maintaining sufficient strength. Designed to break down easily in water, reducing plumbing blockages.',
-      features: [
-        'Soft & Absorbent',
-        'Water Disintegrable',
-        'Multiple Ply Options',
-        'Commercial Grade',
-      ],
-      specs: {
-        hsCode: '481810',
-        moq: '10,000 rolls',
-        packaging: 'Poly-wrapped packs, packed in corrugated export cartons',
-        shelfLife: '3–5 years (stored in dry conditions)',
-      },
-      color: 'from-blue-600 to-cyan-700',
-      image: '/Toilet Rolls.jpg', // Using actual toilet rolls image
-    },
-    {
-      name: 'Facial Tissue Boxes',
-      description:
-        'Soft, lightweight tissues packed in convenient dispenser boxes for hygienic personal use. Specially designed for face care, personal hygiene, and light cleaning purposes, making them gentle enough for sensitive skin. Ideal for wiping the face, handling colds, removing makeup.',
-      features: [
-        'Gentle on Skin',
-        'Convenient Dispenser',
-        'Hygienic Use',
-        'Travel Friendly',
-      ],
-      specs: {
-        hsCode: '481820',
-        moq: '5,000 boxes',
-        packaging:
-          'Inner poly wrap with printed cartons and export-grade outer boxes',
-        shelfLife: '3–5 years (moisture-free storage)',
-      },
-      color: 'from-green-600 to-emerald-700',
-      image: '/Facial Tissue Boxes.jpg', // Using actual facial tissue boxes image
-    },
-    {
-      name: 'Kitchen Rolls',
-      description:
-        'Strong and highly absorbent paper towels designed for cleaning and food-handling tasks. Thicker and more durable than regular tissues, suitable for wiping spills, absorbing oil, drying hands, and cleaning kitchen surfaces. Remain effective even when wet.',
-      features: [
-        'High Absorbency',
-        'Strong & Thick',
-        'Oil Resistant',
-        'Food Safe',
-      ],
-      specs: {
-        hsCode: '481810',
-        moq: '5,000 rolls',
-        packaging: 'Shrink-wrapped rolls packed in corrugated cartons',
-        shelfLife: '3–5 years (cool, dry storage)',
-      },
-      color: 'from-orange-600 to-red-700',
-      image: '/Kitchen Rolls.jpg', // Using actual kitchen rolls image
-    },
-    {
-      name: 'Jumbo Parent Rolls',
-      description:
-        'Large tissue paper rolls used as raw material for converting into finished tissue products such as toilet rolls, napkins, facial tissues, and hand towels. Produced with consistent GSM, thickness, and absorbency to ensure uniform quality during conversion.',
-      features: [
-        'Consistent Quality',
-        'Industrial Grade',
-        'Bulk Supply',
-        'Converting Ready',
-      ],
-      specs: {
-        hsCode: '480300',
-        moq: '1 Metric Ton',
-        packaging: 'Wrapped with protective paper and stretch film',
-        shelfLife: '5 years (stored in dry, ventilated warehouses)',
-      },
-      color: 'from-purple-600 to-indigo-700',
-      image: '/Jumbo Parent Rolls.webp', // Using actual jumbo parent rolls image
-    },
-    {
-      name: 'Hand Towels (C & M Fold)',
-      description:
-        'Hand towels in C-fold and M-fold formats designed for hygienic hand drying in public and commercial washrooms. Single-sheet dispensing reduces waste and improves hygiene. Offer excellent absorbency and strength for effective hand drying with minimal waste.',
-      features: [
-        'Single Sheet Dispensing',
-        'Waste Reduction',
-        'Commercial Use',
-        'Hygienic Design',
-      ],
-      specs: {
-        hsCode: '481890',
-        moq: '5,000 packs',
-        packaging: 'Paper-wrapped bundles packed in export cartons',
-        shelfLife: '3–5 years (dry storage)',
-      },
-      color: 'from-teal-600 to-blue-700',
-      image: '/Hand Towels (C & M Fold).jpg', // Using actual hand towels image
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              const yOffset = -100
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+              window.scrollTo({ top: y, behavior: 'smooth' })
+            }
+          }, 200)
+        }
+      }
+    }
+
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   // Floating tissue icons animation
   const floatingIcons = [
@@ -485,6 +515,11 @@ const TissuePage = () => {
             Choose from our comprehensive selection of tissue products, each
             designed for specific applications and performance needs.
           </p>
+
+          {/* Invisible anchor points for each variety */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             {varieties.map((variety, index) => (

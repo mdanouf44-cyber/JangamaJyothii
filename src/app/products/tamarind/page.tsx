@@ -109,17 +109,11 @@ const TamarindSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
-const TamarindPage = () => {
-  const [activeVariety, setActiveVariety] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
-  const varieties = [
-    {
-      name: 'Tamarind with Seeds',
+// Varieties data - moved outside component for better performance and to avoid hydration issues
+const varieties = [
+  {
+    id: 'tamarind-with-seeds',
+    name: 'Tamarind with Seeds',
       image: '/tamarind-with-seeds.jpg',
       description:
         "Tamarind with seeds is the natural and unprocessed form of tamarind pulp, retaining its original fibrous structure and seeds. It is harvested from fully matured tamarind pods and cleaned to remove outer shells while preserving the pulp's natural sourness and flavor.",
@@ -136,6 +130,7 @@ const TamarindPage = () => {
       uses: 'Traditional cooking, food processing, regional cuisines, sauces, chutneys',
     },
     {
+      id: 'seedless-tamarind',
       name: 'Tamarind Without Seeds (Seedless)',
       image: '/tamarind-seedless.jpg',
       description:
@@ -153,6 +148,7 @@ const TamarindPage = () => {
       uses: 'Sauces, pickles, ready-to-cook foods, beverages, spice pastes',
     },
     {
+      id: 'tamarind-seeds',
       name: 'Tamarind Seeds',
       image: '/tamarind-seeds.jpg',
       description:
@@ -170,6 +166,7 @@ const TamarindPage = () => {
       uses: 'Starch extraction, animal feed, pharmaceutical applications, food processing',
     },
     {
+      id: 'tamarind-kernel-seeds',
       name: 'Kernel Seeds of Tamarind',
       image: '/tamarind-kernel-seeds.jpg',
       description:
@@ -186,7 +183,42 @@ const TamarindPage = () => {
       shelfLife: '24 months',
       uses: 'Textile sizing, adhesive manufacturing, food stabilizers, pharmaceutical applications',
     },
-  ]
+]
+
+const TamarindPage = () => {
+  const [activeVariety, setActiveVariety] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          // Scroll to the varieties section after a delay to ensure DOM is ready
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }
+          }, 500)
+        }
+      }
+    }
+
+    // Check hash on mount
+    handleHashChange()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [varieties])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-brown-50">
@@ -282,6 +314,11 @@ const TamarindPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 text-center">
             Our Tamarind Varieties
           </h2>
+
+          {/* Invisible anchor points for each product */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           {/* Variety Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">

@@ -148,6 +148,70 @@ const JutePaperSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Jute & Paper products varieties data - moved outside component
+const varieties = [
+  {
+    id: 'jute-bags',
+    name: 'Jute Bags',
+    description:
+      'Premium-quality jute bags manufactured from natural jute fibers, offering excellent strength, durability, and eco-friendliness. These biodegradable bags are perfect for shopping, promotional purposes, and sustainable packaging solutions. Available in various sizes, designs, and customization options to meet diverse market requirements.',
+    features: [
+      '100% Natural Fiber',
+      'Biodegradable',
+      'High Strength',
+      'Customizable Design',
+    ],
+    specs: {
+      hsCode: '630510',
+      moq: '1000 PCS',
+      material: 'Natural Jute Fiber',
+      shelfLife: '24 months',
+    },
+    color: 'from-green-600 to-emerald-700',
+    image: '/Jute Bags.jpg',
+  },
+  {
+    id: 'paper-bags',
+    name: 'Paper Bags',
+    description:
+      'High-quality paper bags made from recycled and virgin paper materials, providing excellent printing quality and structural integrity. These eco-friendly bags are ideal for retail packaging, food service, and promotional applications. Available in various sizes, colors, and finishing options with custom branding capabilities.',
+    features: [
+      'Recyclable Material',
+      'Excellent Print Quality',
+      'Food Safe',
+      'Custom Branding',
+    ],
+    specs: {
+      hsCode: '481910',
+      moq: '5000 PCS',
+      material: 'Kraft Paper/Art Paper',
+      shelfLife: '18 months',
+    },
+    color: 'from-amber-600 to-orange-700',
+    image: '/Paper Bags.jpg',
+  },
+  {
+    id: 'paper-stationery-items',
+    name: 'Paper Stationery Items',
+    description:
+      'Comprehensive range of paper stationery products including notebooks, writing pads, office supplies, and educational materials. Manufactured using high-quality paper with excellent writing surface and durability. Available in various formats, sizes, and binding options to cater to educational and professional requirements.',
+    features: [
+      'High-Quality Paper',
+      'Smooth Writing Surface',
+      'Durable Binding',
+      'Various Formats',
+    ],
+    specs: {
+      hsCode: '482010',
+      moq: '2000 PCS',
+      material: 'Wood-Free Paper',
+      shelfLife: '36 months',
+    },
+    color: 'from-blue-600 to-indigo-700',
+    image: '/Paper Stationery Items.jpg',
+  },
+]
+
 const JutePaperProductsPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -168,65 +232,30 @@ const JutePaperProductsPage = () => {
     return () => clearInterval(videoInterval)
   }, [])
 
-  const varieties = [
-    {
-      name: 'Jute Bags',
-      description:
-        'Premium-quality jute bags manufactured from natural jute fibers, offering excellent strength, durability, and eco-friendliness. These biodegradable bags are perfect for shopping, promotional purposes, and sustainable packaging solutions. Available in various sizes, designs, and customization options to meet diverse market requirements.',
-      features: [
-        '100% Natural Fiber',
-        'Biodegradable',
-        'High Strength',
-        'Customizable Design',
-      ],
-      specs: {
-        hsCode: '630510',
-        moq: '1000 PCS',
-        material: 'Natural Jute Fiber',
-        shelfLife: '24 months',
-      },
-      color: 'from-green-600 to-emerald-700',
-      image: '/Jute Bags.jpg',
-    },
-    {
-      name: 'Paper Bags',
-      description:
-        'High-quality paper bags made from recycled and virgin paper materials, providing excellent printing quality and structural integrity. These eco-friendly bags are ideal for retail packaging, food service, and promotional applications. Available in various sizes, colors, and finishing options with custom branding capabilities.',
-      features: [
-        'Recyclable Material',
-        'Excellent Print Quality',
-        'Food Safe',
-        'Custom Branding',
-      ],
-      specs: {
-        hsCode: '481910',
-        moq: '5000 PCS',
-        material: 'Kraft Paper/Art Paper',
-        shelfLife: '18 months',
-      },
-      color: 'from-amber-600 to-orange-700',
-      image: '/Paper Bags.jpg',
-    },
-    {
-      name: 'Paper Stationery Items',
-      description:
-        'Comprehensive range of paper stationery products including notebooks, writing pads, office supplies, and educational materials. Manufactured using high-quality paper with excellent writing surface and durability. Available in various formats, sizes, and binding options to cater to educational and professional requirements.',
-      features: [
-        'High-Quality Paper',
-        'Smooth Writing Surface',
-        'Durable Binding',
-        'Various Formats',
-      ],
-      specs: {
-        hsCode: '482010',
-        moq: '2000 PCS',
-        material: 'Wood-Free Paper',
-        shelfLife: '36 months',
-      },
-      color: 'from-blue-600 to-indigo-700',
-      image: '/Paper Stationery Items.jpg',
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              const yOffset = -100
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+              window.scrollTo({ top: y, behavior: 'smooth' })
+            }
+          }, 200)
+        }
+      }
+    }
+
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const applications = [
     {
@@ -396,6 +425,11 @@ const JutePaperProductsPage = () => {
             Choose from our exceptional selection of eco-friendly products, each
             designed for sustainability and superior performance.
           </p>
+
+          {/* Invisible anchor points for each variety */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             {varieties.map((variety, index) => (

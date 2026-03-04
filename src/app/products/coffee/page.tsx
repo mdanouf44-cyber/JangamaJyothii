@@ -117,6 +117,71 @@ const CoffeeSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Coffee variants data - moved outside component
+const variants = [
+  {
+    id: 'arabica-coffee-beans',
+    name: 'Arabica Coffee Beans',
+    description:
+      'Arabica coffee beans are sourced from high-altitude plantations where climatic conditions support slow bean development and superior flavor formation. These beans are carefully handpicked at optimal ripeness to ensure uniform size, smooth texture, and rich aroma.',
+    features: [
+      'Mild Acidity',
+      'Balanced Sweetness',
+      'Refined Taste',
+      'High Altitude Grown',
+    ],
+    specs: {
+      hsCode: '090111',
+      moq: '1 Metric Ton',
+      shelfLife: '12–18 months',
+      moisture: 'Max 12.5%',
+    },
+    color: 'from-amber-600 to-amber-800',
+    image: '/arabica-coffee-beans.png',
+  },
+  {
+    id: 'robusta-coffee-beans',
+    name: 'Robusta Coffee Beans',
+    description:
+      'Robusta coffee beans are cultivated in regions with warm climates and are valued for their strong body, bold flavor, and higher caffeine content. These beans are carefully harvested and processed to ensure consistency in quality and taste.',
+    features: [
+      'Strong Body',
+      'Bold Flavor',
+      'Higher Caffeine',
+      'Excellent Crema',
+    ],
+    specs: {
+      hsCode: '090111',
+      moq: '1 Metric Ton',
+      shelfLife: '12–18 months',
+      moisture: 'Max 12.5%',
+    },
+    color: 'from-amber-600 to-amber-800',
+    image: '/robusta-coffee-beans.png',
+  },
+  {
+    id: 'roasted-coffee-beans',
+    name: 'Roasted Coffee Beans',
+    description:
+      'Our roasted coffee beans are prepared from high-quality Arabica and Robusta beans using controlled roasting techniques. The roasting process is carefully monitored to develop rich aroma, balanced flavor, and consistent color while preserving freshness.',
+    features: [
+      'Controlled Roasting',
+      'Rich Aroma',
+      'Multiple Roast Profiles',
+      'Extended Shelf Life',
+    ],
+    specs: {
+      hsCode: '090121',
+      moq: '500 KG',
+      shelfLife: '6–12 months',
+      moisture: 'Max 5%',
+    },
+    color: 'from-orange-600 to-red-700',
+    image: '/roasted-arabica.jpg',
+    images: ['/roasted-arabica.jpg', '/roasted-robusta.jpg'],
+  },
+]
+
 const CoffeePage = () => {
   const [activeVariant, setActiveVariant] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -156,66 +221,30 @@ const CoffeePage = () => {
     }
   }, [])
 
-  const variants = [
-    {
-      name: 'Arabica Coffee Beans',
-      description:
-        'Arabica coffee beans are sourced from high-altitude plantations where climatic conditions support slow bean development and superior flavor formation. These beans are carefully handpicked at optimal ripeness to ensure uniform size, smooth texture, and rich aroma.',
-      features: [
-        'Mild Acidity',
-        'Balanced Sweetness',
-        'Refined Taste',
-        'High Altitude Grown',
-      ],
-      specs: {
-        hsCode: '090111',
-        moq: '1 Metric Ton',
-        shelfLife: '12–18 months',
-        moisture: 'Max 12.5%',
-      },
-      color: 'from-amber-600 to-amber-800',
-      image: '/arabica-coffee-beans.png',
-    },
-    {
-      name: 'Robusta Coffee Beans',
-      description:
-        'Robusta coffee beans are cultivated in regions with warm climates and are valued for their strong body, bold flavor, and higher caffeine content. These beans are carefully harvested and processed to ensure consistency in quality and taste.',
-      features: [
-        'Strong Body',
-        'Bold Flavor',
-        'Higher Caffeine',
-        'Excellent Crema',
-      ],
-      specs: {
-        hsCode: '090111',
-        moq: '1 Metric Ton',
-        shelfLife: '12–18 months',
-        moisture: 'Max 12.5%',
-      },
-      color: 'from-amber-600 to-amber-800',
-      image: '/robusta-coffee-beans.png',
-    },
-    {
-      name: 'Roasted Coffee Beans',
-      description:
-        'Our roasted coffee beans are prepared from high-quality Arabica and Robusta beans using controlled roasting techniques. The roasting process is carefully monitored to develop rich aroma, balanced flavor, and consistent color while preserving freshness.',
-      features: [
-        'Controlled Roasting',
-        'Rich Aroma',
-        'Multiple Roast Profiles',
-        'Extended Shelf Life',
-      ],
-      specs: {
-        hsCode: '090121',
-        moq: '500 KG',
-        shelfLife: '6–12 months',
-        moisture: 'Max 5%',
-      },
-      color: 'from-orange-600 to-red-700',
-      image: '/roasted-arabica.jpg',
-      images: ['/roasted-arabica.jpg', '/roasted-robusta.jpg'],
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = variants.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariant(index)
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              const yOffset = -100
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+              window.scrollTo({ top: y, behavior: 'smooth' })
+            }
+          }, 200)
+        }
+      }
+    }
+
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const qualityPoints = [
     {
@@ -289,6 +318,11 @@ const CoffeePage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-5 drop-shadow-2xl">
             Available Variants
           </h2>
+
+          {/* Invisible anchor points for each variant */}
+          {variants.map((variant) => (
+            <div key={variant.id} id={variant.id} className="absolute -top-32" />
+          ))}
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {variants.map((variant, index) => (

@@ -146,6 +146,82 @@ const ArecaPlatesSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Areca plates varieties data - moved outside component
+const varieties = [
+  {
+    id: 'round-areca-plates',
+    name: 'Round Areca Plates',
+    image: '/round-areca-plates.jpg',
+    description:
+      'Round areca plates are the most commonly used eco-friendly tableware made from naturally fallen areca palm leaves. These plates are produced by cleaning and heat-pressing the leaves into a smooth, round shape without the use of chemicals or additives.',
+    features: [
+      'Natural Fiber Structure',
+      'Excellent Strength',
+      'Chemical-Free',
+      'Versatile Use',
+    ],
+    hsCode: '140490',
+    moq: '10,000 pieces',
+    shelfLife: '2–3 years',
+    packaging: 'Moisture-free cartons with food-grade paper wrapping',
+    uses: 'Complete meals, snacks, desserts, casual and formal dining occasions',
+  },
+  {
+    id: 'square-areca-plates',
+    name: 'Square Areca Plates',
+    image: '/square-areca-plates.jpg',
+    description:
+      'Square areca plates are designed for modern food presentation and efficient space usage. Made from natural areca palm leaves, these plates offer the same strength and eco-friendly benefits as round plates, with an added contemporary look.',
+    features: [
+      'Contemporary Design',
+      'Space Efficient',
+      'Modern Presentation',
+      'Structured Layout',
+    ],
+    hsCode: '140490',
+    moq: '10,000 pieces',
+    shelfLife: '2–3 years',
+    packaging: 'Food-grade paper bundles in corrugated export cartons',
+    uses: 'Catering services, restaurants, buffets, events with structured food arrangement',
+  },
+  {
+    id: 'compartment-areca-plates',
+    name: 'Compartment Areca Plates',
+    image: '/compartment-areca-plates.jpg',
+    description:
+      'Compartment areca plates are specially designed with multiple sections to separate different food items. These plates are ideal for serving full meals without mixing curries, rice, and side dishes using heat-press technology.',
+    features: [
+      'Multiple Sections',
+      'Uniform Thickness',
+      'Strong Compartments',
+      'Full Meal Service',
+    ],
+    hsCode: '140490',
+    moq: '10,000 pieces',
+    shelfLife: '2–3 years',
+    packaging: 'Shrink-wrapped bundles in heavy-duty export cartons',
+    uses: 'Catering, temples, weddings, institutional dining, takeaway food services',
+  },
+  {
+    id: 'areca-bowls',
+    name: 'Areca Bowls',
+    image: '/areca-bowls.jpg',
+    description:
+      'Areca bowls are molded from high-quality areca palm leaves and are ideal for serving gravies, curries, desserts, soups, and snacks. These bowls are naturally strong, leak-resistant, and safe for both hot and cold food items.',
+    features: [
+      'Leak-Resistant',
+      'Shape Retention',
+      'Hot & Cold Safe',
+      'Liquid Compatible',
+    ],
+    hsCode: '140490',
+    moq: '10,000 pieces',
+    shelfLife: '2–3 years',
+    packaging: 'Stacked with food-grade paper in export-quality boxes',
+    uses: 'Restaurants, food courts, catering events, eco-friendly takeaway services',
+  },
+]
+
 const ArecaPlatesPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -165,76 +241,32 @@ const ArecaPlatesPage = () => {
     return () => clearInterval(videoInterval)
   }, [])
 
-  const varieties = [
-    {
-      name: 'Round Areca Plates',
-      image: '/round-areca-plates.jpg',
-      description:
-        'Round areca plates are the most commonly used eco-friendly tableware made from naturally fallen areca palm leaves. These plates are produced by cleaning and heat-pressing the leaves into a smooth, round shape without the use of chemicals or additives.',
-      features: [
-        'Natural Fiber Structure',
-        'Excellent Strength',
-        'Chemical-Free',
-        'Versatile Use',
-      ],
-      hsCode: '140490',
-      moq: '10,000 pieces',
-      shelfLife: '2–3 years',
-      packaging: 'Moisture-free cartons with food-grade paper wrapping',
-      uses: 'Complete meals, snacks, desserts, casual and formal dining occasions',
-    },
-    {
-      name: 'Square Areca Plates',
-      image: '/square-areca-plates.jpg',
-      description:
-        'Square areca plates are designed for modern food presentation and efficient space usage. Made from natural areca palm leaves, these plates offer the same strength and eco-friendly benefits as round plates, with an added contemporary look.',
-      features: [
-        'Contemporary Design',
-        'Space Efficient',
-        'Modern Presentation',
-        'Structured Layout',
-      ],
-      hsCode: '140490',
-      moq: '10,000 pieces',
-      shelfLife: '2–3 years',
-      packaging: 'Food-grade paper bundles in corrugated export cartons',
-      uses: 'Catering services, restaurants, buffets, events with structured food arrangement',
-    },
-    {
-      name: 'Compartment Areca Plates',
-      image: '/compartment-areca-plates.jpg',
-      description:
-        'Compartment areca plates are specially designed with multiple sections to separate different food items. These plates are ideal for serving full meals without mixing curries, rice, and side dishes using heat-press technology.',
-      features: [
-        'Multiple Sections',
-        'Uniform Thickness',
-        'Strong Compartments',
-        'Full Meal Service',
-      ],
-      hsCode: '140490',
-      moq: '10,000 pieces',
-      shelfLife: '2–3 years',
-      packaging: 'Shrink-wrapped bundles in heavy-duty export cartons',
-      uses: 'Catering, temples, weddings, institutional dining, takeaway food services',
-    },
-    {
-      name: 'Areca Bowls',
-      image: '/areca-bowls.jpg',
-      description:
-        'Areca bowls are molded from high-quality areca palm leaves and are ideal for serving gravies, curries, desserts, soups, and snacks. These bowls are naturally strong, leak-resistant, and safe for both hot and cold food items.',
-      features: [
-        'Leak-Resistant',
-        'Shape Retention',
-        'Hot & Cold Safe',
-        'Liquid Compatible',
-      ],
-      hsCode: '140490',
-      moq: '10,000 pieces',
-      shelfLife: '2–3 years',
-      packaging: 'Stacked with food-grade paper in export-quality boxes',
-      uses: 'Restaurants, food courts, catering events, eco-friendly takeaway services',
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          // Scroll to the varieties section after a delay to ensure DOM is ready
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }
+          }, 500)
+        }
+      }
+    }
+
+    // Check hash on mount
+    handleHashChange()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [varieties])
 
   // Floating leaves animation
   const floatingLeaves = Array.from({ length: 10 }, (_, i) => (
@@ -367,6 +399,11 @@ const ArecaPlatesPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
             Our Areca Plate Varieties
           </h2>
+
+          {/* Invisible anchor points for each variety */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           {/* Variety Tabs */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">

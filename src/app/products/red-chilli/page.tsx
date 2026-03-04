@@ -115,6 +115,86 @@ const RedChilliSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Red chilli varieties data - moved outside component
+const varieties = [
+  {
+    id: 'kashmiri-chilli',
+    name: 'Kashmiri Chilli',
+    description:
+      'Kashmiri chilli is widely appreciated for its bright natural red color and mild pungency. It is cultivated in regions where climatic conditions support slow drying and color retention, resulting in an attractive appearance and pleasant aroma.',
+    features: [
+      'Bright Red Color',
+      'Mild Pungency',
+      'Pleasant Aroma',
+      'Visual Appeal',
+    ],
+    hsCode: '090421',
+    moq: '1 Metric Ton',
+    moisture: 'Max 10–12%',
+    shelfLife: '12–18 months',
+    uses: 'Gravies, sauces, spice blends, packaged food products',
+    image: '/kashmiri-chilli.jpg',
+    color: 'from-red-500 to-red-700',
+  },
+  {
+    id: 'byadgi-chilli',
+    name: 'Byadgi Chilli',
+    description:
+      'Byadgi chilli is known for its deep red color, strong aroma, and moderate heat level. It is primarily grown in Karnataka and is highly valued in the spice and food processing industries.',
+    features: [
+      'Deep Red Color',
+      'Strong Aroma',
+      'Moderate Heat',
+      'Rich Oil Content',
+    ],
+    hsCode: '090421',
+    moq: '1 Metric Ton',
+    moisture: 'Max 10–12%',
+    shelfLife: '12–18 months',
+    uses: 'Spice blends, masala powders, oleoresin extraction, traditional cooking',
+    image: '/byadgi-chilli.jpg',
+    color: 'from-orange-600 to-red-600',
+  },
+  {
+    id: 'guntur-chilli',
+    name: 'Guntur Chilli',
+    description:
+      'Guntur chilli is one of the most popular chilli varieties known for its high pungency, bold flavor, and strong heat level. Cultivated in Andhra Pradesh, this chilli is preferred in applications where spiciness is a key requirement.',
+    features: [
+      'High Pungency',
+      'Bold Flavor',
+      'Strong Heat',
+      'Premium Quality',
+    ],
+    hsCode: '090421',
+    moq: '1 Metric Ton',
+    moisture: 'Max 10–12%',
+    shelfLife: '12–18 months',
+    uses: 'Spicy food preparations, chilli powder production, large-scale food manufacturing',
+    image: '/guntur-chilli.jpg',
+    color: 'from-red-600 to-red-800',
+  },
+  {
+    id: 'teja-chilli',
+    name: 'Chilli Powder',
+    description:
+      'Our chilli powder is manufactured by grinding selected dried red chillies under hygienic and controlled conditions. The powder is finely processed to ensure uniform texture, rich color, and consistent pungency.',
+    features: [
+      'Uniform Texture',
+      'Rich Color',
+      'No Additives',
+      'Pure Quality',
+    ],
+    hsCode: '090422',
+    moq: '500 KG',
+    moisture: 'Max 8–10%',
+    shelfLife: '12 months',
+    uses: 'Culinary applications, spice blends, sauces, ready-to-eat foods',
+    image: '/chilli-powder.jpg',
+    color: 'from-orange-500 to-red-600',
+  },
+]
+
 const RedChilliPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -123,80 +203,30 @@ const RedChilliPage = () => {
     setIsVisible(true)
   }, [])
 
-  const varieties = [
-    {
-      name: 'Kashmiri Chilli',
-      description:
-        'Kashmiri chilli is widely appreciated for its bright natural red color and mild pungency. It is cultivated in regions where climatic conditions support slow drying and color retention, resulting in an attractive appearance and pleasant aroma.',
-      features: [
-        'Bright Red Color',
-        'Mild Pungency',
-        'Pleasant Aroma',
-        'Visual Appeal',
-      ],
-      hsCode: '090421',
-      moq: '1 Metric Ton',
-      moisture: 'Max 10–12%',
-      shelfLife: '12–18 months',
-      uses: 'Gravies, sauces, spice blends, packaged food products',
-      image: '/kashmiri-chilli.jpg',
-      color: 'from-red-500 to-red-700',
-    },
-    {
-      name: 'Byadgi Chilli',
-      description:
-        'Byadgi chilli is known for its deep red color, strong aroma, and moderate heat level. It is primarily grown in Karnataka and is highly valued in the spice and food processing industries.',
-      features: [
-        'Deep Red Color',
-        'Strong Aroma',
-        'Moderate Heat',
-        'Rich Oil Content',
-      ],
-      hsCode: '090421',
-      moq: '1 Metric Ton',
-      moisture: 'Max 10–12%',
-      shelfLife: '12–18 months',
-      uses: 'Spice blends, masala powders, oleoresin extraction, traditional cooking',
-      image: '/byadgi-chilli.jpg',
-      color: 'from-orange-600 to-red-600',
-    },
-    {
-      name: 'Guntur Chilli',
-      description:
-        'Guntur chilli is one of the most popular chilli varieties known for its high pungency, bold flavor, and strong heat level. Cultivated in Andhra Pradesh, this chilli is preferred in applications where spiciness is a key requirement.',
-      features: [
-        'High Pungency',
-        'Bold Flavor',
-        'Strong Heat',
-        'Premium Quality',
-      ],
-      hsCode: '090421',
-      moq: '1 Metric Ton',
-      moisture: 'Max 10–12%',
-      shelfLife: '12–18 months',
-      uses: 'Spicy food preparations, chilli powder production, large-scale food manufacturing',
-      image: '/guntur-chilli.jpg',
-      color: 'from-red-600 to-red-800',
-    },
-    {
-      name: 'Chilli Powder',
-      description:
-        'Our chilli powder is manufactured by grinding selected dried red chillies under hygienic and controlled conditions. The powder is finely processed to ensure uniform texture, rich color, and consistent pungency.',
-      features: [
-        'Uniform Texture',
-        'Rich Color',
-        'No Additives',
-        'Pure Quality',
-      ],
-      hsCode: '090422',
-      moq: '500 KG',
-      moisture: 'Max 8–10%',
-      shelfLife: '12 months',
-      uses: 'Culinary applications, spice blends, sauces, ready-to-eat foods',
-      image: '/chilli-powder.jpg',
-      color: 'from-orange-500 to-red-600',
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              const yOffset = -100
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+              window.scrollTo({ top: y, behavior: 'smooth' })
+            }
+          }, 200)
+        }
+      }
+    }
+
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
@@ -293,6 +323,11 @@ const RedChilliPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-5 drop-shadow-2xl">
             Premium Red Chilli Varieties
           </h2>
+
+          {/* Invisible anchor points for each variety */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {varieties.map((variety, index) => (

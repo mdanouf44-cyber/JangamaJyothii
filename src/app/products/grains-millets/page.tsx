@@ -148,6 +148,170 @@ const GrainsMilletsSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Varieties data - moved outside component for better performance and to avoid hydration issues
+const varieties = [
+  {
+    id: 'finger-millet',
+    name: 'Finger Millet (Ragi)',
+    description:
+      'Finger millet, commonly known as Ragi, is a highly nutritious cereal grain rich in calcium, iron, and dietary fiber. This drought-resistant crop is cultivated in semi-arid regions and is valued for its exceptional nutritional profile and long shelf life. Ragi is gluten-free and has a low glycemic index, making it ideal for health-conscious consumers.',
+    features: [
+      'High Calcium',
+      'Rich in Iron',
+      'Gluten-Free',
+      'Low Glycemic Index',
+    ],
+    specs: {
+      hsCode: '100829',
+      moq: '1000 KG',
+      moisture: 'Max 12%',
+      shelfLife: '12 months',
+    },
+    color: 'from-amber-600 to-orange-700',
+    image: '/Finger Millet (Ragi).jpg',
+  },
+  {
+    id: 'pearl-millet',
+    name: 'Pearl Millet (Bajra)',
+    description:
+      'Pearl millet, known as Bajra, is a drought-tolerant cereal grain with high nutritional value and excellent storage properties. It is rich in protein, fiber, and essential minerals, making it a staple food in arid regions. Pearl millet is naturally gluten-free and provides sustained energy, making it popular among health-conscious consumers.',
+    features: [
+      'High Protein',
+      'Drought Tolerant',
+      'Rich in Minerals',
+      'Sustained Energy',
+    ],
+    specs: {
+      hsCode: '100829',
+      moq: '1000 KG',
+      moisture: 'Max 12%',
+      shelfLife: '12 months',
+    },
+    color: 'from-yellow-600 to-amber-700',
+    image: '/Pearl Millet (Bajra).jpg',
+  },
+  {
+    id: 'foxtail-millet',
+    name: 'Foxtail Millet',
+    description:
+      'Foxtail millet is an ancient grain known for its excellent nutritional profile and easy digestibility. It is rich in protein, dietary fiber, and essential amino acids. This millet variety has a mild, nutty flavor and is naturally gluten-free. It cooks quickly and is versatile for various culinary applications.',
+    features: [
+      'Easy Digestibility',
+      'Rich in Protein',
+      'Nutty Flavor',
+      'Quick Cooking',
+    ],
+    specs: {
+      hsCode: '100829',
+      moq: '1000 KG',
+      moisture: 'Max 12%',
+      shelfLife: '12 months',
+    },
+    color: 'from-green-600 to-emerald-700',
+    image: '/Foxtail Millet.jpg',
+  },
+  {
+    id: 'little-millet',
+    name: 'Little Millet',
+    description:
+      'Little millet is a small-grained cereal with exceptional nutritional benefits and excellent storage properties. It is rich in B-vitamins, minerals, and antioxidants. This millet variety has a mild taste and fine texture, making it suitable for various food preparations. It is naturally gluten-free and has good cooking characteristics.',
+    features: [
+      'Rich in B-Vitamins',
+      'Fine Texture',
+      'Mild Taste',
+      'Good Storage',
+    ],
+    specs: {
+      hsCode: '100829',
+      moq: '1000 KG',
+      moisture: 'Max 12%',
+      shelfLife: '12 months',
+    },
+    color: 'from-teal-600 to-cyan-700',
+    image: '/Little Millet.jpg',
+  },
+  {
+    id: 'yellow-maize',
+    name: 'Yellow Maize',
+    description:
+      'Maize, commonly known as corn, is one of the most widely cultivated cereal grains globally and is valued for its high carbohydrate content and versatility. It is grown in fertile agricultural regions and harvested at optimal maturity to ensure uniform grain size, bright yellow color, and consistent quality. Maize is a staple crop used in food, feed, and industrial applications due to its energy-rich composition and adaptability. This nutrient-dense grain is rich in carbohydrates, moderate protein, dietary fiber, and essential vitamins such as Vitamin B-complex. Its long shelf life and multiple usage applications make it a reliable commodity in both domestic and international markets.',
+    features: [
+      'High Energy Content',
+      'Rich in Carbohydrates',
+      'Multi-Industry Usage',
+      'Long Shelf Life',
+    ],
+    specs: {
+      hsCode: '100590',
+      moq: '1000 KG',
+      moisture: 'Max 12–14%',
+      shelfLife: '12–18 months',
+    },
+    color: 'from-yellow-500 to-amber-600',
+    image: '/Maize.jpg',
+  },
+  {
+    id: 'white-maize',
+    name: 'White Maize',
+    description:
+      'White maize is a widely cultivated cereal grain known for its clean appearance, smooth texture, and versatile applications. It is carefully harvested and processed to maintain uniform grain size, natural whiteness, and consistent quality. White maize is commonly used in human consumption products such as flour, semolina, cornmeal, and various traditional food preparations. This variety is valued for its high carbohydrate content, mild flavor, and suitability for milling and food processing industries. With proper storage and moisture control, white maize maintains excellent shelf stability and quality for export markets.',
+    features: [
+      'Clean White Grain Appearance',
+      'High Carbohydrate Content',
+      'Suitable for Food Processing',
+      'Uniform Size & Quality',
+    ],
+    specs: {
+      hsCode: '100590',
+      moq: '1000 KG',
+      moisture: 'Max 12–14%',
+      shelfLife: '12–18 months',
+    },
+    color: 'from-gray-400 to-slate-500',
+    image: '/White-Maize.jpg',
+  },
+  {
+    id: 'yellow-maize-starch',
+    name: 'Yellow Maize Starch',
+    description:
+      'Yellow maize starch is a fine, powdery product extracted from high-quality yellow maize through controlled wet milling processes. It is known for its excellent thickening, binding, and stabilizing properties. This starch is widely used in food processing, pharmaceuticals, paper, textile, and industrial applications. Yellow maize starch offers smooth texture, good viscosity, and consistent performance, making it suitable for sauces, soups, confectionery products, and industrial formulations. It is processed under hygienic conditions to meet domestic and international quality standards.',
+    features: [
+      'High Thickening Efficiency',
+      'Smooth & Fine Texture',
+      'Multi-Industry Applications',
+      'Excellent Binding Properties',
+    ],
+    specs: {
+      hsCode: '110812',
+      moq: '1000 KG',
+      moisture: 'Max 13%',
+      shelfLife: '18–24 months',
+    },
+    color: 'from-yellow-400 to-orange-500',
+    image: '/Yellow-Maize-Starch.jpg',
+  },
+  {
+    id: 'white-maize-starch',
+    name: 'White Maize Starch',
+    description:
+      'White maize starch is derived from premium-grade white maize and is processed to achieve high purity and uniform particle size. It is widely recognized for its superior binding, stabilizing, and thickening characteristics. White maize starch is commonly used in food products, pharmaceuticals, paper manufacturing, adhesives, and textile industries. Its neutral taste and excellent functional properties make it suitable for bakery items, dairy products, confectionery, and various industrial applications. Carefully packed and stored, it maintains stability and long shelf life.',
+    features: [
+      'High Purity & Fine Powder',
+      'Excellent Thickening & Stabilizing Ability',
+      'Neutral Taste',
+      'Industrial & Food Grade Applications',
+    ],
+    specs: {
+      hsCode: '110812',
+      moq: '1000 KG',
+      moisture: 'Max 13%',
+      shelfLife: '18–24 months',
+    },
+    color: 'from-gray-300 to-gray-400',
+    image: '/White-Maize-Starch.jpg',
+  },
+]
+
 const GrainsMilletsPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -166,160 +330,34 @@ const GrainsMilletsPage = () => {
     return () => clearInterval(videoInterval)
   }, [])
 
-  const varieties = [
-    {
-      name: 'Finger Millet (Ragi)',
-      description:
-        'Finger millet, commonly known as Ragi, is a highly nutritious cereal grain rich in calcium, iron, and dietary fiber. This drought-resistant crop is cultivated in semi-arid regions and is valued for its exceptional nutritional profile and long shelf life. Ragi is gluten-free and has a low glycemic index, making it ideal for health-conscious consumers.',
-      features: [
-        'High Calcium',
-        'Rich in Iron',
-        'Gluten-Free',
-        'Low Glycemic Index',
-      ],
-      specs: {
-        hsCode: '100829',
-        moq: '1000 KG',
-        moisture: 'Max 12%',
-        shelfLife: '12 months',
-      },
-      color: 'from-amber-600 to-orange-700',
-      image: '/Finger Millet (Ragi).jpg',
-    },
-    {
-      name: 'Pearl Millet (Bajra)',
-      description:
-        'Pearl millet, known as Bajra, is a drought-tolerant cereal grain with high nutritional value and excellent storage properties. It is rich in protein, fiber, and essential minerals, making it a staple food in arid regions. Pearl millet is naturally gluten-free and provides sustained energy, making it popular among health-conscious consumers.',
-      features: [
-        'High Protein',
-        'Drought Tolerant',
-        'Rich in Minerals',
-        'Sustained Energy',
-      ],
-      specs: {
-        hsCode: '100829',
-        moq: '1000 KG',
-        moisture: 'Max 12%',
-        shelfLife: '12 months',
-      },
-      color: 'from-yellow-600 to-amber-700',
-      image: '/Pearl Millet (Bajra).jpg',
-    },
-    {
-      name: 'Foxtail Millet',
-      description:
-        'Foxtail millet is an ancient grain known for its excellent nutritional profile and easy digestibility. It is rich in protein, dietary fiber, and essential amino acids. This millet variety has a mild, nutty flavor and is naturally gluten-free. It cooks quickly and is versatile for various culinary applications.',
-      features: [
-        'Easy Digestibility',
-        'Rich in Protein',
-        'Nutty Flavor',
-        'Quick Cooking',
-      ],
-      specs: {
-        hsCode: '100829',
-        moq: '1000 KG',
-        moisture: 'Max 12%',
-        shelfLife: '12 months',
-      },
-      color: 'from-green-600 to-emerald-700',
-      image: '/Foxtail Millet.jpg',
-    },
-    {
-      name: 'Little Millet',
-      description:
-        'Little millet is a small-grained cereal with exceptional nutritional benefits and excellent storage properties. It is rich in B-vitamins, minerals, and antioxidants. This millet variety has a mild taste and fine texture, making it suitable for various food preparations. It is naturally gluten-free and has good cooking characteristics.',
-      features: [
-        'Rich in B-Vitamins',
-        'Fine Texture',
-        'Mild Taste',
-        'Good Storage',
-      ],
-      specs: {
-        hsCode: '100829',
-        moq: '1000 KG',
-        moisture: 'Max 12%',
-        shelfLife: '12 months',
-      },
-      color: 'from-teal-600 to-cyan-700',
-      image: '/Little Millet.jpg',
-    },
-    {
-      name: 'Yellow Maize',
-      description:
-        'Maize, commonly known as corn, is one of the most widely cultivated cereal grains globally and is valued for its high carbohydrate content and versatility. It is grown in fertile agricultural regions and harvested at optimal maturity to ensure uniform grain size, bright yellow color, and consistent quality. Maize is a staple crop used in food, feed, and industrial applications due to its energy-rich composition and adaptability. This nutrient-dense grain is rich in carbohydrates, moderate protein, dietary fiber, and essential vitamins such as Vitamin B-complex. Its long shelf life and multiple usage applications make it a reliable commodity in both domestic and international markets.',
-      features: [
-        'High Energy Content',
-        'Rich in Carbohydrates',
-        'Multi-Industry Usage',
-        'Long Shelf Life',
-      ],
-      specs: {
-        hsCode: '100590',
-        moq: '1000 KG',
-        moisture: 'Max 12–14%',
-        shelfLife: '12–18 months',
-      },
-      color: 'from-yellow-500 to-amber-600',
-      image: '/Maize.jpg',
-    },
-    {
-      name: 'White Maize',
-      description:
-        'White maize is a widely cultivated cereal grain known for its clean appearance, smooth texture, and versatile applications. It is carefully harvested and processed to maintain uniform grain size, natural whiteness, and consistent quality. White maize is commonly used in human consumption products such as flour, semolina, cornmeal, and various traditional food preparations. This variety is valued for its high carbohydrate content, mild flavor, and suitability for milling and food processing industries. With proper storage and moisture control, white maize maintains excellent shelf stability and quality for export markets.',
-      features: [
-        'Clean White Grain Appearance',
-        'High Carbohydrate Content',
-        'Suitable for Food Processing',
-        'Uniform Size & Quality',
-      ],
-      specs: {
-        hsCode: '100590',
-        moq: '1000 KG',
-        moisture: 'Max 12–14%',
-        shelfLife: '12–18 months',
-      },
-      color: 'from-gray-400 to-slate-500',
-      image: '/White-Maize.jpg',
-    },
-    {
-      name: 'Yellow Maize Starch',
-      description:
-        'Yellow maize starch is a fine, powdery product extracted from high-quality yellow maize through controlled wet milling processes. It is known for its excellent thickening, binding, and stabilizing properties. This starch is widely used in food processing, pharmaceuticals, paper, textile, and industrial applications. Yellow maize starch offers smooth texture, good viscosity, and consistent performance, making it suitable for sauces, soups, confectionery products, and industrial formulations. It is processed under hygienic conditions to meet domestic and international quality standards.',
-      features: [
-        'High Thickening Efficiency',
-        'Smooth & Fine Texture',
-        'Multi-Industry Applications',
-        'Excellent Binding Properties',
-      ],
-      specs: {
-        hsCode: '110812',
-        moq: '1000 KG',
-        moisture: 'Max 13%',
-        shelfLife: '18–24 months',
-      },
-      color: 'from-yellow-400 to-orange-500',
-      image: '/Yellow-Maize-Starch.jpg',
-    },
-    {
-      name: 'White Maize Starch',
-      description:
-        'White maize starch is derived from premium-grade white maize and is processed to achieve high purity and uniform particle size. It is widely recognized for its superior binding, stabilizing, and thickening characteristics. White maize starch is commonly used in food products, pharmaceuticals, paper manufacturing, adhesives, and textile industries. Its neutral taste and excellent functional properties make it suitable for bakery items, dairy products, confectionery, and various industrial applications. Carefully packed and stored, it maintains stability and long shelf life.',
-      features: [
-        'High Purity & Fine Powder',
-        'Excellent Thickening & Stabilizing Ability',
-        'Neutral Taste',
-        'Industrial & Food Grade Applications',
-      ],
-      specs: {
-        hsCode: '110812',
-        moq: '1000 KG',
-        moisture: 'Max 13%',
-        shelfLife: '18–24 months',
-      },
-      color: 'from-gray-300 to-gray-400',
-      image: '/White-Maize-Starch.jpg',
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          // Scroll to the varieties section after a short delay
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              const yOffset = -100 // Offset to account for header
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+              window.scrollTo({ top: y, behavior: 'smooth' })
+            }
+          }, 200)
+        }
+      }
+    }
+
+    // Check hash on mount
+    handleHashChange()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const applications = [
     {
@@ -513,20 +551,44 @@ const GrainsMilletsPage = () => {
             with unique nutritional benefits and superior quality.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
-            {varieties.map((variety, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveVariety(index)}
-                className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
-                  activeVariety === index
-                    ? 'bg-white text-amber-900 shadow-2xl border-white scale-105'
-                    : 'bg-amber-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
-                }`}
-              >
-                {variety.name}
-              </button>
-            ))}
+          {/* Invisible anchor points for each product */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
+
+          <div className="max-w-4xl mx-auto mb-10">
+            {/* First Row - 4 Products */}
+            <div className="flex flex-wrap justify-center gap-4 mb-4">
+              {varieties.slice(0, 4).map((variety, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveVariety(index)}
+                  className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                    activeVariety === index
+                      ? 'bg-white text-amber-900 shadow-2xl border-white scale-105'
+                      : 'bg-amber-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
+                  }`}
+                >
+                  {variety.name}
+                </button>
+              ))}
+            </div>
+            {/* Second Row - 4 Products */}
+            <div className="flex flex-wrap justify-center gap-4">
+              {varieties.slice(4, 8).map((variety, index) => (
+                <button
+                  key={index + 4}
+                  onClick={() => setActiveVariety(index + 4)}
+                  className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 border-2 shadow-xl ${
+                    activeVariety === index + 4
+                      ? 'bg-white text-amber-900 shadow-2xl border-white scale-105'
+                      : 'bg-amber-900/50 backdrop-blur-sm text-white border-white/60 hover:bg-white/20 hover:border-white'
+                  }`}
+                >
+                  {variety.name}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="max-w-[1000px] mx-auto px-4">

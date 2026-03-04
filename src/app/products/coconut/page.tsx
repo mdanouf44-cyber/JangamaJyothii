@@ -150,6 +150,178 @@ const CoconutProductSlideshow = ({ variants }: { variants: any[] }) => {
   )
 }
 
+// Coconut variants data - moved outside component
+const variants = [
+  {
+    id: 'fresh-coconut',
+    name: 'Fresh Coconut',
+    description:
+      'Our fresh coconuts are harvested from healthy, mature coconut palms grown under favorable climatic conditions. Each coconut is carefully selected to ensure good kernel thickness, natural sweetness, and freshness.',
+    features: [
+      'Natural Sweetness',
+      'Good Kernel Thickness',
+      'Hygienic Processing',
+      'Extended Shelf Life',
+    ],
+    specs: {
+      hsCode: '080119',
+      moq: '1 Metric Ton',
+      shelfLife: '2–3 months',
+      moisture: 'Natural moisture content',
+    },
+    color: 'from-green-600 to-emerald-800',
+    icon: '🌿',
+    image: '/fresh-coconut.jpg',
+  },
+  {
+    id: 'copra-dried-coconut',
+    name: 'Copra (Dried Coconut)',
+    description:
+      'Copra is produced by drying mature coconut kernels under controlled conditions to reduce moisture content and increase oil yield. Our copra is known for its uniform drying, high oil content, and low moisture level.',
+    features: [
+      'Uniform Drying',
+      'High Oil Content',
+      'Low Moisture',
+      'Export Grade',
+    ],
+    specs: {
+      hsCode: '120300',
+      moq: '1 Metric Ton',
+      shelfLife: '12–18 months',
+      moisture: 'Max 6–7%',
+    },
+    color: 'from-amber-600 to-orange-800',
+    icon: '🌰',
+    image: '/copra-dried-coconut.jpg',
+  },
+  {
+    id: 'virgin-coconut-oil',
+    name: 'Virgin Coconut Oil',
+    description:
+      'Virgin coconut oil is extracted from fresh coconut kernels using cold-processing methods without the use of chemicals or high heat. This process helps retain the natural aroma, nutrients, and beneficial properties of coconut oil.',
+    features: [
+      'Cold-Processed',
+      'Chemical-Free',
+      'Natural Aroma',
+      'Rich in MCFAs',
+    ],
+    specs: {
+      hsCode: '151319',
+      moq: '500 KG',
+      shelfLife: '18–24 months',
+      moisture: 'Max 0.1%',
+    },
+    color: 'from-yellow-500 to-amber-700',
+    icon: '🛢️',
+    image: '/virgin-coconut-oil.jpg',
+  },
+  {
+    id: 'refined-coconut-oil',
+    name: 'Refined Coconut Oil',
+    description:
+      'Refined coconut oil is produced from dried copra and refined to remove impurities, odor, and color, resulting in a stable and neutral oil. This oil is suitable for high-temperature cooking and large-scale food manufacturing.',
+    features: [
+      'Neutral Taste',
+      'High Temperature Stable',
+      'Long Shelf Life',
+      'Consistent Quality',
+    ],
+    specs: {
+      hsCode: '151319',
+      moq: '1 Metric Ton',
+      shelfLife: '18–24 months',
+      moisture: 'Max 0.1%',
+    },
+    color: 'from-blue-500 to-teal-700',
+    icon: '🏭',
+    image: '/refined-coconut-oil.jpg',
+  },
+  {
+    id: 'coconut-shell-charcoal-powder',
+    name: 'Coconut Shell Charcoal Powder',
+    description:
+      'Coconut shell charcoal powder is produced from mature coconut shells through controlled carbonization. The resulting charcoal is high in carbon content, low in ash, and environmentally friendly.',
+    features: [
+      'High Carbon Content',
+      'Low Ash',
+      'Eco-Friendly',
+      'Chemical-Free',
+    ],
+    specs: {
+      hsCode: '440290',
+      moq: '1 Metric Ton',
+      shelfLife: '24 months',
+      moisture: 'Max 5%',
+    },
+    color: 'from-gray-700 to-black',
+    icon: '⚫',
+    image: '/coconut-shell-charcoal-powder.jpg',
+  },
+  {
+    id: 'coco-fiber',
+    name: 'Coco Fiber',
+    description:
+      'Coco fiber is a natural fiber extracted from the outer husk of mature coconuts. It is known for its high strength, durability, resistance to saltwater, and eco-friendly nature.',
+    features: [
+      'High Strength',
+      'Saltwater Resistant',
+      'Eco-Friendly',
+      'Natural Resilience',
+    ],
+    specs: {
+      hsCode: '530500',
+      moq: '1 Metric Ton',
+      shelfLife: '24 months',
+      moisture: 'Max 15%',
+    },
+    color: 'from-brown-600 to-amber-800',
+    icon: '🧶',
+    image: '/coco-fiber.jpg',
+  },
+  {
+    id: 'cocopeat',
+    name: 'Cocopeat',
+    description:
+      'Cocopeat, also known as coir pith, is a natural by-product obtained during the extraction of coconut fiber. It is widely valued for its excellent water retention capacity, high porosity, and eco-friendly properties.',
+    features: [
+      'Water Retention',
+      'High Porosity',
+      'Soil Conditioning',
+      'Organic Farming',
+    ],
+    specs: {
+      hsCode: '270300',
+      moq: '1 Metric Ton',
+      shelfLife: '24–36 months',
+      moisture: 'Max 15–18%',
+    },
+    color: 'from-orange-600 to-red-700',
+    icon: '🌱',
+    image: '/cocopeat.jpg',
+  },
+  {
+    id: 'coir-fiber-yarn',
+    name: 'Coir Fiber Yarn',
+    description:
+      'Coir fiber yarn is produced by spinning natural coconut fibers into uniform yarn using traditional and mechanized processes. It is known for its high tensile strength, durability, and resistance to moisture.',
+    features: [
+      'High Tensile Strength',
+      'Moisture Resistant',
+      'Biodegradable',
+      'Various Thicknesses',
+    ],
+    specs: {
+      hsCode: '530820',
+      moq: '500 KG',
+      shelfLife: '24 months',
+      moisture: 'Max 15%',
+    },
+    color: 'from-yellow-600 to-orange-700',
+    icon: '🪢',
+    image: '/coir-fiber-yarn.jpg',
+  },
+]
+
 const CoconutPage = () => {
   const [activeVariant, setActiveVariant] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -178,168 +350,30 @@ const CoconutPage = () => {
     return () => clearInterval(videoInterval)
   }, [])
 
-  const variants = [
-    {
-      name: 'Fresh Coconut',
-      description:
-        'Our fresh coconuts are harvested from healthy, mature coconut palms grown under favorable climatic conditions. Each coconut is carefully selected to ensure good kernel thickness, natural sweetness, and freshness.',
-      features: [
-        'Natural Sweetness',
-        'Good Kernel Thickness',
-        'Hygienic Processing',
-        'Extended Shelf Life',
-      ],
-      specs: {
-        hsCode: '080119',
-        moq: '1 Metric Ton',
-        shelfLife: '2–3 months',
-        moisture: 'Natural moisture content',
-      },
-      color: 'from-green-600 to-emerald-800',
-      icon: '🌿',
-      image: '/fresh-coconut.jpg',
-    },
-    {
-      name: 'Copra (Dried Coconut)',
-      description:
-        'Copra is produced by drying mature coconut kernels under controlled conditions to reduce moisture content and increase oil yield. Our copra is known for its uniform drying, high oil content, and low moisture level.',
-      features: [
-        'Uniform Drying',
-        'High Oil Content',
-        'Low Moisture',
-        'Export Grade',
-      ],
-      specs: {
-        hsCode: '120300',
-        moq: '1 Metric Ton',
-        shelfLife: '12–18 months',
-        moisture: 'Max 6–7%',
-      },
-      color: 'from-amber-600 to-orange-800',
-      icon: '🌰',
-      image: '/copra-dried-coconut.jpg',
-    },
-    {
-      name: 'Virgin Coconut Oil',
-      description:
-        'Virgin coconut oil is extracted from fresh coconut kernels using cold-processing methods without the use of chemicals or high heat. This process helps retain the natural aroma, nutrients, and beneficial properties of coconut oil.',
-      features: [
-        'Cold-Processed',
-        'Chemical-Free',
-        'Natural Aroma',
-        'Rich in MCFAs',
-      ],
-      specs: {
-        hsCode: '151319',
-        moq: '500 KG',
-        shelfLife: '18–24 months',
-        moisture: 'Max 0.1%',
-      },
-      color: 'from-yellow-500 to-amber-700',
-      icon: '🛢️',
-      image: '/virgin-coconut-oil.jpg',
-    },
-    {
-      name: 'Refined Coconut Oil',
-      description:
-        'Refined coconut oil is produced from dried copra and refined to remove impurities, odor, and color, resulting in a stable and neutral oil. This oil is suitable for high-temperature cooking and large-scale food manufacturing.',
-      features: [
-        'Neutral Taste',
-        'High Temperature Stable',
-        'Long Shelf Life',
-        'Consistent Quality',
-      ],
-      specs: {
-        hsCode: '151319',
-        moq: '1 Metric Ton',
-        shelfLife: '18–24 months',
-        moisture: 'Max 0.1%',
-      },
-      color: 'from-blue-500 to-teal-700',
-      icon: '🏭',
-      image: '/refined-coconut-oil.jpg',
-    },
-    {
-      name: 'Coconut Shell Charcoal Powder',
-      description:
-        'Coconut shell charcoal powder is produced from mature coconut shells through controlled carbonization. The resulting charcoal is high in carbon content, low in ash, and environmentally friendly.',
-      features: [
-        'High Carbon Content',
-        'Low Ash',
-        'Eco-Friendly',
-        'Chemical-Free',
-      ],
-      specs: {
-        hsCode: '440290',
-        moq: '1 Metric Ton',
-        shelfLife: '24 months',
-        moisture: 'Max 5%',
-      },
-      color: 'from-gray-700 to-black',
-      icon: '⚫',
-      image: '/coconut-shell-charcoal-powder.jpg',
-    },
-    {
-      name: 'Coco Fiber',
-      description:
-        'Coco fiber is a natural fiber extracted from the outer husk of mature coconuts. It is known for its high strength, durability, resistance to saltwater, and eco-friendly nature.',
-      features: [
-        'High Strength',
-        'Saltwater Resistant',
-        'Eco-Friendly',
-        'Natural Resilience',
-      ],
-      specs: {
-        hsCode: '530500',
-        moq: '1 Metric Ton',
-        shelfLife: '24 months',
-        moisture: 'Max 15%',
-      },
-      color: 'from-brown-600 to-amber-800',
-      icon: '🧶',
-      image: '/coco-fiber.jpg',
-    },
-    {
-      name: 'Cocopeat',
-      description:
-        'Cocopeat, also known as coir pith, is a natural by-product obtained during the extraction of coconut fiber. It is widely valued for its excellent water retention capacity, high porosity, and eco-friendly properties.',
-      features: [
-        'Water Retention',
-        'High Porosity',
-        'Soil Conditioning',
-        'Organic Farming',
-      ],
-      specs: {
-        hsCode: '270300',
-        moq: '1 Metric Ton',
-        shelfLife: '24–36 months',
-        moisture: 'Max 15–18%',
-      },
-      color: 'from-orange-600 to-red-700',
-      icon: '🌱',
-      image: '/cocopeat.jpg',
-    },
-    {
-      name: 'Coir Fiber Yarn',
-      description:
-        'Coir fiber yarn is produced by spinning natural coconut fibers into uniform yarn using traditional and mechanized processes. It is known for its high tensile strength, durability, and resistance to moisture.',
-      features: [
-        'High Tensile Strength',
-        'Moisture Resistant',
-        'Biodegradable',
-        'Various Thicknesses',
-      ],
-      specs: {
-        hsCode: '530820',
-        moq: '500 KG',
-        shelfLife: '24 months',
-        moisture: 'Max 15%',
-      },
-      color: 'from-yellow-600 to-orange-700',
-      icon: '🪢',
-      image: '/coir-fiber-yarn.jpg',
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = variants.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariant(index)
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              const yOffset = -100
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+              window.scrollTo({ top: y, behavior: 'smooth' })
+            }
+          }, 200)
+        }
+      }
+    }
+
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const qualityPoints = [
     {
@@ -598,6 +632,11 @@ const CoconutPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-5 drop-shadow-2xl">
             Available Products
           </h2>
+
+          {/* Invisible anchor points for each variant */}
+          {variants.map((variant) => (
+            <div key={variant.id} id={variant.id} className="absolute -top-32" />
+          ))}
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {variants.map((variant, index) => (

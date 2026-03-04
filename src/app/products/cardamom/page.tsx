@@ -116,28 +116,11 @@ const CardamomSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
-const CardamomPage = () => {
-  const [activeVariety, setActiveVariety] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
-
-  const videos = ['/Cardamom 1.mp4']
-
-  useEffect(() => {
-    setIsVisible(true)
-
-    // Since we only have one video, we can still show it as background
-    // If more videos are added later, this will auto-rotate
-    const videoInterval = setInterval(() => {
-      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
-    }, 8000)
-
-    return () => clearInterval(videoInterval)
-  }, [])
-
-  const varieties = [
-    {
-      name: 'Malabar Cardamom',
+// Varieties data - moved outside component for better performance and to avoid hydration issues
+const varieties = [
+  {
+    id: 'malabar-cardamom',
+    name: 'Malabar Cardamom',
       description:
         'Malabar cardamom is a traditional variety known for its bold aroma, medium-sized pods, and balanced flavor profile. It is primarily cultivated in regions with high rainfall and rich forest soil, which contribute to its distinctive fragrance and oil content. The pods are harvested at the correct maturity stage and dried carefully to retain their natural green color and essential oils.',
       features: [
@@ -156,6 +139,7 @@ const CardamomPage = () => {
       image: '/Malabar Cardamom.jpg',
     },
     {
+      id: 'mysore-cardamom',
       name: 'Mysore Cardamom',
       description:
         'Mysore cardamom is characterized by its larger pod size, lighter green color, and mild yet pleasant aroma. It is grown in regions with moderate climatic conditions, resulting in pods that are uniform in appearance and smooth in texture. The pods are carefully graded and sorted to ensure consistent quality for export.',
@@ -175,6 +159,7 @@ const CardamomPage = () => {
       image: '/Mysore Cardamom.jpg',
     },
     {
+      id: 'vazhukka-cardamom',
       name: 'Vazhukka Cardamom',
       description:
         'Vazhukka cardamom is a natural hybrid of Malabar and Mysore varieties, combining the strong aroma of Malabar with the larger pod size of Mysore. This makes it one of the most commercially preferred varieties in global markets. The pods are bright green, well-filled, and rich in essential oils.',
@@ -193,7 +178,55 @@ const CardamomPage = () => {
       color: 'from-green-700 to-emerald-800',
       image: '/Vazhukka Cardamom.jpg',
     },
-  ]
+]
+
+const CardamomPage = () => {
+  const [activeVariety, setActiveVariety] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+
+  const videos = ['/Cardamom 1.mp4']
+
+  useEffect(() => {
+    setIsVisible(true)
+
+    // Since we only have one video, we can still show it as background
+    // If more videos are added later, this will auto-rotate
+    const videoInterval = setInterval(() => {
+      setCurrentVideoIndex(prev => (prev + 1) % videos.length)
+    }, 8000)
+
+    return () => clearInterval(videoInterval)
+  }, [])
+
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          // Scroll to the varieties section after a short delay
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              const yOffset = -100 // Offset to account for header
+              const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
+              window.scrollTo({ top: y, behavior: 'smooth' })
+            }
+          }, 200)
+        }
+      }
+    }
+
+    // Check hash on mount
+    handleHashChange()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const applications = [
     {
@@ -367,6 +400,11 @@ const CardamomPage = () => {
             Choose from our exceptional selection of cardamom varieties, each
             with unique characteristics and superior quality.
           </p>
+
+          {/* Invisible anchor points for each product */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             {varieties.map((variety, index) => (

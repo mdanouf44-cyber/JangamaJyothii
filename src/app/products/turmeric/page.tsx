@@ -109,6 +109,118 @@ const TurmericSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Turmeric varieties data - moved outside component
+const varieties = [
+  {
+    id: 'alleppey-finger-turmeric',
+    name: 'Alleppey Finger Turmeric',
+    image: '/alleppey-finger-turmeric.jpg',
+    description:
+      'Alleppey finger turmeric is one of the most widely traded turmeric varieties, known for its deep orange-yellow color, strong aroma, and balanced curcumin content. It is cultivated in coastal and semi-coastal regions where soil and climate conditions support rich pigment development.',
+    features: [
+      'Deep Orange-Yellow Color',
+      'Strong Aroma',
+      'Balanced Curcumin',
+      'Rich Pigment',
+    ],
+    hsCode: '091030',
+    moq: '1 Metric Ton',
+    moisture: 'Max 10%',
+    shelfLife: '18–24 months',
+    uses: 'Culinary preparations, spice blends, food processing industries, oleoresin extraction',
+  },
+  {
+    id: 'lakadong-turmeric-finger',
+    name: 'Lakadong Turmeric (Finger)',
+    image: '/lakadong-turmeric-finger.jpg',
+    description:
+      'Lakadong turmeric is a premium variety renowned for its exceptionally high curcumin content, making it highly valued in medicinal, nutraceutical, and wellness industries. Grown in specific hilly regions, this turmeric has a strong aroma, deep yellow color, and superior medicinal properties.',
+    features: [
+      'High Curcumin Content',
+      'Premium Quality',
+      'Medicinal Properties',
+      'Deep Yellow Color',
+    ],
+    hsCode: '091030',
+    moq: '500 KG',
+    moisture: 'Max 9%',
+    shelfLife: '18–24 months',
+    uses: 'Health supplements, ayurvedic formulations, high-end spice markets',
+  },
+  {
+    id: 'salem-turmeric-finger',
+    name: 'Salem Turmeric Finger',
+    image: '/salem-turmeric-finger.jpg',
+    description:
+      'Salem turmeric finger is known for its bright yellow color, smooth surface, and uniform finger size. It is cultivated in dry regions where turmeric develops good color value and consistent quality. This variety is widely used in food processing and spice manufacturing.',
+    features: [
+      'Bright Yellow Color',
+      'Smooth Surface',
+      'Uniform Size',
+      'Stable Color',
+    ],
+    hsCode: '091030',
+    moq: '1 Metric Ton',
+    moisture: 'Max 10%',
+    shelfLife: '18–24 months',
+    uses: 'Food processing, spice manufacturing, commercial applications',
+  },
+  {
+    id: 'alleppey-turmeric-powder',
+    name: 'Alleppey Turmeric Powder',
+    image: '/alleppey-turmeric-powder.jpg',
+    description:
+      'Alleppey turmeric powder is produced by finely grinding selected Alleppey turmeric fingers under hygienic and controlled conditions. The powder is known for its rich color, strong aroma, and smooth texture. No artificial colors or additives are used.',
+    features: [
+      'Rich Color',
+      'Strong Aroma',
+      'Smooth Texture',
+      'Natural Purity',
+    ],
+    hsCode: '091030',
+    moq: '500 KG',
+    moisture: 'Max 8%',
+    shelfLife: '12–18 months',
+    uses: 'Household cooking, spice blends, packaged food products, food processing',
+  },
+  {
+    id: 'lakadong-turmeric-powder',
+    name: 'Lakadong Turmeric Powder',
+    image: '/lakadong-turmeric-powder.jpg',
+    description:
+      'Lakadong turmeric powder is made from high-curcumin Lakadong fingers and is highly valued for its strong medicinal properties and intense yellow color. The powder is finely milled to ensure uniform consistency while retaining curcumin content and aroma.',
+    features: [
+      'High Curcumin',
+      'Medicinal Properties',
+      'Intense Color',
+      'Uniform Consistency',
+    ],
+    hsCode: '091030',
+    moq: '500 KG',
+    moisture: 'Max 8%',
+    shelfLife: '12–18 months',
+    uses: 'Nutraceuticals, herbal formulations, health drinks, premium spice markets',
+  },
+  {
+    id: 'salem-turmeric-powder',
+    name: 'Salem Turmeric Powder',
+    image: '/salem-turmeric-powder.jpg',
+    description:
+      'Salem turmeric powder is produced from carefully selected Salem turmeric fingers and is known for its bright color, smooth texture, and consistent quality. It is suitable for large-scale food processing, spice blending, and commercial culinary use.',
+    features: [
+      'Bright Color',
+      'Smooth Texture',
+      'Consistent Quality',
+      'Commercial Grade',
+    ],
+    hsCode: '091030',
+    moq: '500 KG',
+    moisture: 'Max 8%',
+    shelfLife: '12–18 months',
+    uses: 'Large-scale food processing, spice blending, commercial culinary use',
+  },
+]
+
 const TurmericPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -137,110 +249,32 @@ const TurmericPage = () => {
     return () => clearInterval(videoInterval)
   }, [])
 
-  const varieties = [
-    {
-      name: 'Alleppey Finger Turmeric',
-      image: '/alleppey-finger-turmeric.jpg',
-      description:
-        'Alleppey finger turmeric is one of the most widely traded turmeric varieties, known for its deep orange-yellow color, strong aroma, and balanced curcumin content. It is cultivated in coastal and semi-coastal regions where soil and climate conditions support rich pigment development.',
-      features: [
-        'Deep Orange-Yellow Color',
-        'Strong Aroma',
-        'Balanced Curcumin',
-        'Rich Pigment',
-      ],
-      hsCode: '091030',
-      moq: '1 Metric Ton',
-      moisture: 'Max 10%',
-      shelfLife: '18–24 months',
-      uses: 'Culinary preparations, spice blends, food processing industries, oleoresin extraction',
-    },
-    {
-      name: 'Lakadong Turmeric (Finger)',
-      image: '/lakadong-turmeric-finger.jpg',
-      description:
-        'Lakadong turmeric is a premium variety renowned for its exceptionally high curcumin content, making it highly valued in medicinal, nutraceutical, and wellness industries. Grown in specific hilly regions, this turmeric has a strong aroma, deep yellow color, and superior medicinal properties.',
-      features: [
-        'High Curcumin Content',
-        'Premium Quality',
-        'Medicinal Properties',
-        'Deep Yellow Color',
-      ],
-      hsCode: '091030',
-      moq: '500 KG',
-      moisture: 'Max 9%',
-      shelfLife: '18–24 months',
-      uses: 'Health supplements, ayurvedic formulations, high-end spice markets',
-    },
-    {
-      name: 'Salem Turmeric Finger',
-      image: '/salem-turmeric-finger.jpg',
-      description:
-        'Salem turmeric finger is known for its bright yellow color, smooth surface, and uniform finger size. It is cultivated in dry regions where turmeric develops good color value and consistent quality. This variety is widely used in food processing and spice manufacturing.',
-      features: [
-        'Bright Yellow Color',
-        'Smooth Surface',
-        'Uniform Size',
-        'Stable Color',
-      ],
-      hsCode: '091030',
-      moq: '1 Metric Ton',
-      moisture: 'Max 10%',
-      shelfLife: '18–24 months',
-      uses: 'Food processing, spice manufacturing, commercial applications',
-    },
-    {
-      name: 'Alleppey Turmeric Powder',
-      image: '/alleppey-turmeric-powder.jpg',
-      description:
-        'Alleppey turmeric powder is produced by finely grinding selected Alleppey turmeric fingers under hygienic and controlled conditions. The powder is known for its rich color, strong aroma, and smooth texture. No artificial colors or additives are used.',
-      features: [
-        'Rich Color',
-        'Strong Aroma',
-        'Smooth Texture',
-        'Natural Purity',
-      ],
-      hsCode: '091030',
-      moq: '500 KG',
-      moisture: 'Max 8%',
-      shelfLife: '12–18 months',
-      uses: 'Household cooking, spice blends, packaged food products, food processing',
-    },
-    {
-      name: 'Lakadong Turmeric Powder',
-      image: '/lakadong-turmeric-powder.jpg',
-      description:
-        'Lakadong turmeric powder is made from high-curcumin Lakadong fingers and is highly valued for its strong medicinal properties and intense yellow color. The powder is finely milled to ensure uniform consistency while retaining curcumin content and aroma.',
-      features: [
-        'High Curcumin',
-        'Medicinal Properties',
-        'Intense Color',
-        'Uniform Consistency',
-      ],
-      hsCode: '091030',
-      moq: '500 KG',
-      moisture: 'Max 8%',
-      shelfLife: '12–18 months',
-      uses: 'Nutraceuticals, herbal formulations, health drinks, premium spice markets',
-    },
-    {
-      name: 'Salem Turmeric Powder',
-      image: '/salem-turmeric-powder.jpg',
-      description:
-        'Salem turmeric powder is produced from carefully selected Salem turmeric fingers and is known for its bright color, smooth texture, and consistent quality. It is suitable for large-scale food processing, spice blending, and commercial culinary use.',
-      features: [
-        'Bright Color',
-        'Smooth Texture',
-        'Consistent Quality',
-        'Commercial Grade',
-      ],
-      hsCode: '091030',
-      moq: '500 KG',
-      moisture: 'Max 8%',
-      shelfLife: '12–18 months',
-      uses: 'Large-scale food processing, spice blending, commercial culinary use',
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          // Scroll to the varieties section after a delay to ensure DOM is ready
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }
+          }, 500)
+        }
+      }
+    }
+
+    // Check hash on mount
+    handleHashChange()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [varieties])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50">
@@ -341,6 +375,11 @@ const TurmericPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 text-center">
             Our Turmeric Varieties
           </h2>
+
+          {/* Invisible anchor points for each variety */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           {/* Variety Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">

@@ -145,6 +145,113 @@ const PulsesSlideshow = ({ varieties }: { varieties: any[] }) => {
   )
 }
 
+// Pulses varieties data - moved outside component
+const varieties = [
+  {
+    id: 'black-chickpeas-kala-chana',
+    name: 'Black Chickpeas (Kala Chana)',
+    image: '/black-chickpeas.jpg',
+    description:
+      'Black chickpeas are a hardy pulse variety known for their firm texture, nutty flavor, and high nutritional value. They are cultivated in dry regions and harvested at full maturity to ensure uniform grain size and natural hardness.',
+    features: [
+      'Firm Texture',
+      'Nutty Flavor',
+      'High Nutrition',
+      'Natural Hardness',
+    ],
+    hsCode: '071320',
+    moq: '1 Metric Ton',
+    moisture: 'Max 12%',
+    shelfLife: '12–18 months',
+    uses: 'Traditional cuisines, snacks, curries, flour production, food processing industries',
+  },
+  {
+    id: 'black-gram-urad-dal',
+    name: 'Black Gram (Urad Dal)',
+    image: '/black-gram.jpg',
+    description:
+      'Black gram is a popular pulse valued for its high protein content, creamy texture when cooked, and strong binding properties. It is cultivated under controlled farming practices and processed carefully to maintain grain integrity and freshness.',
+    features: [
+      'High Protein',
+      'Creamy Texture',
+      'Binding Properties',
+      'Premium Quality',
+    ],
+    hsCode: '071331',
+    moq: '1 Metric Ton',
+    moisture: 'Max 12%',
+    shelfLife: '12–18 months',
+    uses: 'Traditional dishes, fermented foods, batters, papad manufacturing, food processing',
+  },
+  {
+    id: 'chickpeas-split',
+    name: 'Chickpeas (Split)',
+    image: '/chickpeas-split.jpg',
+    description:
+      'Split chickpeas are produced by dehusking and splitting whole chickpeas, resulting in uniform yellow pulses with smooth texture. This form cooks faster and is widely used in daily cooking and food processing applications.',
+    features: [
+      'Uniform Yellow',
+      'Smooth Texture',
+      'Fast Cooking',
+      'Processed Form',
+    ],
+    hsCode: '071320',
+    moq: '1 Metric Ton',
+    moisture: 'Max 12%',
+    shelfLife: '12–18 months',
+    uses: 'Curries, snacks, flour milling, ready-to-cook food products',
+  },
+  {
+    id: 'green-gram-moong-beans',
+    name: 'Green Gram (Moong Beans)',
+    image: '/green-gram.jpg',
+    description:
+      'Green gram is a highly nutritious pulse known for its easy digestibility, mild flavor, and high protein content. It is harvested at the right maturity stage and processed to retain its natural green color and nutritional benefits.',
+    features: [
+      'Easy Digestibility',
+      'Mild Flavor',
+      'High Protein',
+      'Natural Green Color',
+    ],
+    hsCode: '071331',
+    moq: '1 Metric Ton',
+    moisture: 'Max 12%',
+    shelfLife: '12 months',
+    uses: 'Household cooking, sprouts, soups, snacks, health-oriented food products',
+  },
+  {
+    id: 'horse-gram',
+    name: 'Horse Gram',
+    image: '/horse-gram.jpg',
+    description:
+      'Horse gram is a traditional pulse valued for its high fiber content and strong nutritional profile. It is cultivated in dry regions and known for its resilience and long storage life. The grains are processed carefully to remove impurities.',
+    features: [
+      'High Fiber',
+      'Strong Nutrition',
+      'Resilient',
+      'Long Storage Life',
+    ],
+    hsCode: '071390',
+    moq: '1 Metric Ton',
+    moisture: 'Max 12%',
+    shelfLife: '18–24 months',
+    uses: 'Traditional cuisines, health foods, animal feed, food processing industries',
+  },
+  {
+    id: 'pigeon-peas-toor-dal',
+    name: 'Pigeon Peas (Toor Dal)',
+    image: '/pigeon-peas.jpg',
+    description:
+      'Pigeon peas are one of the most commonly consumed pulses, known for their soft texture, mild taste, and high protein content. They are harvested at optimal maturity and processed to ensure uniform grain size and consistent cooking quality.',
+    features: ['Soft Texture', 'Mild Taste', 'High Protein', 'Uniform Size'],
+    hsCode: '071360',
+    moq: '1 Metric Ton',
+    moisture: 'Max 12%',
+    shelfLife: '12–18 months',
+    uses: 'Household cooking, catering services, food processing, packaged food products',
+  },
+]
+
 const PulsesPage = () => {
   const [activeVariety, setActiveVariety] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -176,105 +283,32 @@ const PulsesPage = () => {
     return () => clearInterval(videoInterval)
   }, [])
 
-  const varieties = [
-    {
-      name: 'Black Chickpeas (Kala Chana)',
-      image: '/black-chickpeas.jpg',
-      description:
-        'Black chickpeas are a hardy pulse variety known for their firm texture, nutty flavor, and high nutritional value. They are cultivated in dry regions and harvested at full maturity to ensure uniform grain size and natural hardness.',
-      features: [
-        'Firm Texture',
-        'Nutty Flavor',
-        'High Nutrition',
-        'Natural Hardness',
-      ],
-      hsCode: '071320',
-      moq: '1 Metric Ton',
-      moisture: 'Max 12%',
-      shelfLife: '12–18 months',
-      uses: 'Traditional cuisines, snacks, curries, flour production, food processing industries',
-    },
-    {
-      name: 'Black Gram (Urad Dal)',
-      image: '/black-gram.jpg',
-      description:
-        'Black gram is a popular pulse valued for its high protein content, creamy texture when cooked, and strong binding properties. It is cultivated under controlled farming practices and processed carefully to maintain grain integrity and freshness.',
-      features: [
-        'High Protein',
-        'Creamy Texture',
-        'Binding Properties',
-        'Premium Quality',
-      ],
-      hsCode: '071331',
-      moq: '1 Metric Ton',
-      moisture: 'Max 12%',
-      shelfLife: '12–18 months',
-      uses: 'Traditional dishes, fermented foods, batters, papad manufacturing, food processing',
-    },
-    {
-      name: 'Chickpeas (Split)',
-      image: '/chickpeas-split.jpg',
-      description:
-        'Split chickpeas are produced by dehusking and splitting whole chickpeas, resulting in uniform yellow pulses with smooth texture. This form cooks faster and is widely used in daily cooking and food processing applications.',
-      features: [
-        'Uniform Yellow',
-        'Smooth Texture',
-        'Fast Cooking',
-        'Processed Form',
-      ],
-      hsCode: '071320',
-      moq: '1 Metric Ton',
-      moisture: 'Max 12%',
-      shelfLife: '12–18 months',
-      uses: 'Curries, snacks, flour milling, ready-to-cook food products',
-    },
-    {
-      name: 'Green Gram (Moong Beans)',
-      image: '/green-gram.jpg',
-      description:
-        'Green gram is a highly nutritious pulse known for its easy digestibility, mild flavor, and high protein content. It is harvested at the right maturity stage and processed to retain its natural green color and nutritional benefits.',
-      features: [
-        'Easy Digestibility',
-        'Mild Flavor',
-        'High Protein',
-        'Natural Green Color',
-      ],
-      hsCode: '071331',
-      moq: '1 Metric Ton',
-      moisture: 'Max 12%',
-      shelfLife: '12 months',
-      uses: 'Household cooking, sprouts, soups, snacks, health-oriented food products',
-    },
-    {
-      name: 'Horse Gram',
-      image: '/horse-gram.jpg',
-      description:
-        'Horse gram is a traditional pulse valued for its high fiber content and strong nutritional profile. It is cultivated in dry regions and known for its resilience and long storage life. The grains are processed carefully to remove impurities.',
-      features: [
-        'High Fiber',
-        'Strong Nutrition',
-        'Resilient',
-        'Long Storage Life',
-      ],
-      hsCode: '071390',
-      moq: '1 Metric Ton',
-      moisture: 'Max 12%',
-      shelfLife: '18–24 months',
-      uses: 'Traditional cuisines, health foods, animal feed, food processing industries',
-    },
-    {
-      name: 'Pigeon Peas (Toor Dal)',
-      image: '/pigeon-peas.jpg',
-      description:
-        'Pigeon peas are one of the most commonly consumed pulses, known for their soft texture, mild taste, and high protein content. They are harvested at optimal maturity and processed to ensure uniform grain size and consistent cooking quality.',
-      features: ['Soft Texture', 'Mild Taste', 'High Protein', 'Uniform Size'],
-      hsCode: '071360',
-      moq: '1 Metric Ton',
-      moisture: 'Max 12%',
-      shelfLife: '12–18 months',
-      uses: 'Household cooking, catering services, food processing, packaged food products',
-    },
-  ]
+  // Handle anchor link navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const index = varieties.findIndex(v => v.id === hash)
+        if (index !== -1) {
+          setActiveVariety(index)
+          // Scroll to the varieties section after a delay to ensure DOM is ready
+          setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }
+          }, 500)
+        }
+      }
+    }
+
+    // Check hash on mount
+    handleHashChange()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [varieties])
 
   // Floating pulse grains animation
   const floatingPulses = Array.from({ length: 12 }, (_, i) => (
@@ -391,6 +425,11 @@ const PulsesPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 text-center">
             Our Pulse Varieties
           </h2>
+
+          {/* Invisible anchor points for each variety */}
+          {varieties.map((variety) => (
+            <div key={variety.id} id={variety.id} className="absolute -top-32" />
+          ))}
 
           {/* Variety Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
